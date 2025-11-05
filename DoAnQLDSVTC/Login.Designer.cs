@@ -66,6 +66,7 @@
             cmbKhoa.Name = "cmbKhoa";
             cmbKhoa.Size = new Size(175, 23);
             cmbKhoa.TabIndex = 1;
+            cmbKhoa.SelectedIndexChanged += cmbKhoa_SelectedIndexChanged;
             // 
             // panel1
             // 

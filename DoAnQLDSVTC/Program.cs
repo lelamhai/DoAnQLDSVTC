@@ -1,4 +1,5 @@
 using Microsoft.Data.SqlClient;
+using Microsoft.VisualBasic.ApplicationServices;
 using System.Data;
 namespace DoAnQLDSVTC
 {
@@ -36,7 +37,7 @@ namespace DoAnQLDSVTC
         //public static frmMain frmMain;
         //public static frmDangNhap frmDangNhap;
 
-        public static string[] quyen = new string[4] { "PGV", "KHOA", "SINHVIEN", "PKT" };
+        public static string[] quyen = new string[4] { "PGV", "KHOA", "SV", "PKT" };
 
         public static SqlDataReader ExecSqlDataReader(String strLenh)
         {
@@ -96,8 +97,7 @@ namespace DoAnQLDSVTC
                 Program.Conn.Close();
             try
             {
-                Program.Connstr = "Data Source=" + Program.ServerName + ";Initial Catalog=" + Program.DataBase
-                  + ";User ID=" + Program.MLogin + ";Password=" + Program.MPass;
+                Program.Connstr = "Server=" + Program.ServerName + ";Database="+ Program .DataBase+ ";User Id=" + Program.MLogin + " ;Password=" + Program.MPass + "; TrustServerCertificate = True";
                 Program.Conn.ConnectionString = Program.Connstr;
                 // Console.WriteLine(Program.Connstr);
                 Program.Conn.Open();

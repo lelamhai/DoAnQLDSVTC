@@ -16,6 +16,7 @@ namespace DoAnQLDSVTC
             if (KetNoi_CSDLGOC() == 0) return;
             LayDSPM("SELECT * FROM V_GET_SUBSCRIBES");
 
+            cmbKhoa.SelectedIndex = 2;
             cmbKhoa.SelectedIndex = 1;
             cmbKhoa.SelectedIndex = 0;
 
@@ -68,8 +69,37 @@ namespace DoAnQLDSVTC
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //btnLogin.UseVisualStyleBackColor = false;
-            //btnLogin.BackColor = ColorTranslator.FromHtml("#dc3545");
+            Program.MLogin = txtUserName.Text;
+            Program.MPass = txtPassword.Text;
+            if (Program.KetNoi() == 0) return;
+
+            Program.MKhoa = cmbKhoa.SelectedIndex;
+            Program.MLoginDN = Program.MLogin;
+            Program.MPassDN = Program.MPass;
+
+            string strLenh = "EXEC SP_DANGNHAP '" + Program.MLogin + "'";
+            Program.myReader = Program.ExecSqlDataReader(strLenh);
+            if (Program.myReader == null) return;
+
+            Program.myReader.Read();
+            Program.userName = Program.myReader.GetString(0);
+            Program.mHoTen = Program.myReader.GetString(1);
+            Program.mGroup = Program.myReader.GetString(2);
+            MessageBox.Show("Di chuyển tới form chính");
+
+            // Di chuyển tới form chính
+        }
+
+        private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Program.ServerName = cmbKhoa.SelectedValue.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Loi khong co chi nhanh nay" + ex.ToString());
+            }
         }
     }
 }
