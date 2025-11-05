@@ -3,9 +3,9 @@ using System.Data;
 
 namespace DoAnQLDSVTC
 {
-    public partial class Login : Form
+    public partial class Login : BaseForm
     {
-        private static SqlConnection Conn_pub = new SqlConnection();
+        private SqlConnection Conn_pub = new SqlConnection();
         public Login()
         {
             InitializeComponent();
@@ -18,11 +18,16 @@ namespace DoAnQLDSVTC
 
             cmbKhoa.SelectedIndex = 1;
             cmbKhoa.SelectedIndex = 0;
+
+            btnLogin.FlatStyle = FlatStyle.Flat;
+            btnLogin.FlatAppearance.BorderSize = 0;
+            btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.BackColor = ColorTranslator.FromHtml("#dc3545");
         }
 
         private int KetNoi_CSDLGOC()
         {
-            if (Conn_pub != null && Conn_pub.State == System.Data.ConnectionState.Open)
+            if (Conn_pub != null && Conn_pub.State == ConnectionState.Open)
                 Conn_pub.Close();
             try
             {
@@ -59,6 +64,12 @@ namespace DoAnQLDSVTC
             //cmbKhoa.SelectedIndex = 0;
             //Program.ServerName = "QUYNH\\SERVER1";//cmbKhoa.SelectedValue.ToString();
 
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            //btnLogin.UseVisualStyleBackColor = false;
+            //btnLogin.BackColor = ColorTranslator.FromHtml("#dc3545");
         }
     }
 }

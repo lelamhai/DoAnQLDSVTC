@@ -17,7 +17,7 @@ namespace DoAnQLDSVTC
         public static string mHoTen = "";
         public static string mGroup = "";
         public static string ServerName = "";
-        public static string DataBase = "QLDSV_HTC";
+        public static string DataBase = "QLDSV_TC";
         public static string MLogin = "";
         public static string MPass = "";
         public static int MKhoa;
@@ -36,7 +36,7 @@ namespace DoAnQLDSVTC
         //public static frmMain frmMain;
         //public static frmDangNhap frmDangNhap;
 
-        public static string[] quyen = new string[4] { "PGV", "KHOA", "SINH VIEN", "PKT" };
+        public static string[] quyen = new string[4] { "PGV", "KHOA", "SINHVIEN", "PKT" };
 
         public static SqlDataReader ExecSqlDataReader(String strLenh)
         {
