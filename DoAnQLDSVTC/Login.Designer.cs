@@ -193,6 +193,7 @@
             Controls.Add(pictureBox1);
             Name = "Login";
             Text = "Đăng Nhập";
+            WindowState = FormWindowState.Maximized;
             Load += Login_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);

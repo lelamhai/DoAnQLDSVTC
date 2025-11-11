@@ -3,7 +3,7 @@ using System.Data;
 
 namespace DoAnQLDSVTC
 {
-    public partial class Login : BaseForm
+    public partial class Login : Form
     {
         private SqlConnection Conn_pub = new SqlConnection();
         public Login()
@@ -57,14 +57,6 @@ namespace DoAnQLDSVTC
             cmbKhoa.DataSource = Program.bds_dspm;
             cmbKhoa.DisplayMember = "TENKHOA";
             cmbKhoa.ValueMember = "TENSERVER";
-
-
-
-            //Lib.BDataToCmb(cmbKhoa, Program.bds_dspm.DataSource);
-            //Program.MKhoa = 0;
-            //cmbKhoa.SelectedIndex = 0;
-            //Program.ServerName = "QUYNH\\SERVER1";//cmbKhoa.SelectedValue.ToString();
-
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -88,6 +80,9 @@ namespace DoAnQLDSVTC
             MessageBox.Show("Di chuyển tới form chính");
 
             // Di chuyển tới form chính
+            Admin admin = new Admin();
+            admin.Show();       // mở Form2
+            this.Hide();     // ẩn Form1
         }
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
