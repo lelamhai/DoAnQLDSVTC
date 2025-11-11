@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
 {
@@ -22,12 +23,15 @@ namespace DoAnQLDSVTC
             da.Fill(dt);
             Conn_pub.Close();
             dgvLop.DataSource = dt;
+            dgvLop.Columns["rowguid"].Visible = false;
 
 
             cmbKhoa.DataSource = Program.bds_dspm;
             cmbKhoa.DisplayMember = "TENKHOA";
             cmbKhoa.ValueMember = "TENSERVER";
             cmbKhoa.SelectedIndex = Program.MKhoa;
+
+            btnAdd.BackColor = ColorTranslator.FromHtml("#20bf55");
         }
     }
 }

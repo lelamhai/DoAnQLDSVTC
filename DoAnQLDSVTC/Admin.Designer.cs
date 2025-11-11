@@ -58,26 +58,30 @@
             // 
             // splitContainer1
             // 
+            splitContainer1.BackColor = SystemColors.Control;
             splitContainer1.Dock = DockStyle.Fill;
             splitContainer1.Location = new Point(0, 0);
+            splitContainer1.Margin = new Padding(10);
             splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
-            splitContainer1.Panel1.BackColor = SystemColors.ActiveCaption;
+            splitContainer1.Panel1.BackColor = SystemColors.HotTrack;
             splitContainer1.Panel1.Controls.Add(panel2);
             splitContainer1.Panel1.Controls.Add(panel1);
             // 
             // splitContainer1.Panel2
             // 
+            splitContainer1.Panel2.BackColor = SystemColors.Control;
             splitContainer1.Panel2.Controls.Add(panel3);
+            splitContainer1.Panel2.Padding = new Padding(10, 0, 10, 0);
             splitContainer1.Size = new Size(1280, 706);
             splitContainer1.SplitterDistance = 180;
             splitContainer1.TabIndex = 0;
             // 
             // panel2
             // 
-            panel2.BackColor = SystemColors.ActiveCaptionText;
+            panel2.BackColor = SystemColors.HotTrack;
             panel2.Controls.Add(button6);
             panel2.Controls.Add(button5);
             panel2.Controls.Add(button4);
@@ -158,7 +162,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.Control;
+            panel1.BackColor = SystemColors.HotTrack;
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -183,9 +187,9 @@
             panel3.Controls.Add(pContent);
             panel3.Controls.Add(panel4);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(0, 0);
+            panel3.Location = new Point(10, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1096, 706);
+            panel3.Size = new Size(1076, 706);
             panel3.TabIndex = 1;
             // 
             // pContent
@@ -193,37 +197,41 @@
             pContent.BackColor = SystemColors.Highlight;
             pContent.Controls.Add(ucLop);
             pContent.Dock = DockStyle.Fill;
-            pContent.Location = new Point(0, 61);
+            pContent.Location = new Point(0, 47);
             pContent.Margin = new Padding(0);
             pContent.Name = "pContent";
-            pContent.Size = new Size(1096, 645);
+            pContent.Size = new Size(1076, 659);
             pContent.TabIndex = 2;
             // 
             // ucLop
             // 
+            ucLop.BackColor = SystemColors.Control;
             ucLop.Dock = DockStyle.Fill;
             ucLop.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ucLop.Location = new Point(0, 0);
             ucLop.Margin = new Padding(4);
             ucLop.Name = "ucLop";
-            ucLop.Size = new Size(1096, 645);
+            ucLop.Size = new Size(1076, 659);
             ucLop.TabIndex = 0;
             // 
             // panel4
             // 
-            panel4.BackColor = SystemColors.AppWorkspace;
+            panel4.BackColor = SystemColors.Control;
             panel4.Controls.Add(lbNameLogin);
             panel4.Dock = DockStyle.Top;
             panel4.Location = new Point(0, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1096, 61);
+            panel4.Size = new Size(1076, 47);
             panel4.TabIndex = 1;
             // 
             // lbNameLogin
             // 
             lbNameLogin.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lbNameLogin.AutoSize = true;
-            lbNameLogin.Location = new Point(971, 12);
+            lbNameLogin.BackColor = SystemColors.Control;
+            lbNameLogin.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbNameLogin.ForeColor = SystemColors.ControlText;
+            lbNameLogin.Location = new Point(967, 14);
             lbNameLogin.Name = "lbNameLogin";
             lbNameLogin.Size = new Size(97, 19);
             lbNameLogin.TabIndex = 0;
@@ -233,6 +241,7 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.HotTrack;
             ClientSize = new Size(1280, 706);
             Controls.Add(splitContainer1);
             Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);

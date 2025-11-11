@@ -14,7 +14,7 @@ namespace DoAnQLDSVTC
         {
             lbNameLogin.Text = "Xin chào " + Program.MLogin + "!";
 
-            splitContainer1.SplitterWidth = 1;
+            splitContainer1.SplitterWidth = 20;
         }
     }
 }

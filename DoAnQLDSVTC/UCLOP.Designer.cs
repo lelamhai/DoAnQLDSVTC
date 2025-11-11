@@ -32,6 +32,12 @@
             label1 = new Label();
             cmbKhoa = new ComboBox();
             dgvLop = new DataGridView();
+            MALOP = new DataGridViewTextBoxColumn();
+            TENLOP = new DataGridViewTextBoxColumn();
+            KHOAHOC = new DataGridViewTextBoxColumn();
+            MAKHOA = new DataGridViewTextBoxColumn();
+            Edit = new DataGridViewButtonColumn();
+            Delete = new DataGridViewButtonColumn();
             btnAdd = new Button();
             panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dgvLop).BeginInit();
@@ -49,7 +55,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(27, 24);
+            label1.Location = new Point(0, 24);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(43, 19);
@@ -59,7 +65,7 @@
             // cmbKhoa
             // 
             cmbKhoa.FormattingEnabled = true;
-            cmbKhoa.Location = new Point(92, 21);
+            cmbKhoa.Location = new Point(51, 21);
             cmbKhoa.Margin = new Padding(4);
             cmbKhoa.Name = "cmbKhoa";
             cmbKhoa.Size = new Size(296, 27);
@@ -68,19 +74,59 @@
             // dgvLop
             // 
             dgvLop.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvLop.BackgroundColor = SystemColors.Control;
             dgvLop.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvLop.Columns.AddRange(new DataGridViewColumn[] { MALOP, TENLOP, KHOAHOC, MAKHOA, Edit, Delete });
             dgvLop.Dock = DockStyle.Fill;
             dgvLop.Location = new Point(0, 68);
             dgvLop.Name = "dgvLop";
             dgvLop.Size = new Size(1268, 532);
             dgvLop.TabIndex = 2;
             // 
+            // MALOP
+            // 
+            MALOP.DataPropertyName = "MALOP";
+            MALOP.HeaderText = "Mã Lớp";
+            MALOP.Name = "MALOP";
+            // 
+            // TENLOP
+            // 
+            TENLOP.DataPropertyName = "TENLOP";
+            TENLOP.HeaderText = "Tên Lớp";
+            TENLOP.Name = "TENLOP";
+            // 
+            // KHOAHOC
+            // 
+            KHOAHOC.DataPropertyName = "KHOAHOC";
+            KHOAHOC.HeaderText = "Khóa Học";
+            KHOAHOC.Name = "KHOAHOC";
+            // 
+            // MAKHOA
+            // 
+            MAKHOA.DataPropertyName = "MAKHOA";
+            MAKHOA.HeaderText = "Mã Khoa";
+            MAKHOA.Name = "MAKHOA";
+            // 
+            // Edit
+            // 
+            Edit.HeaderText = "";
+            Edit.Name = "Edit";
+            Edit.Text = "Chỉnh sửa";
+            Edit.UseColumnTextForButtonValue = true;
+            // 
+            // Delete
+            // 
+            Delete.HeaderText = "";
+            Delete.Name = "Delete";
+            Delete.Text = "Xóa";
+            Delete.UseColumnTextForButtonValue = true;
+            // 
             // btnAdd
             // 
             btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnAdd.BackColor = SystemColors.HotTrack;
             btnAdd.ForeColor = SystemColors.Control;
-            btnAdd.Location = new Point(1150, 21);
+            btnAdd.Location = new Point(1188, 21);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(80, 27);
             btnAdd.TabIndex = 3;
@@ -90,6 +136,8 @@
             // panel1
             // 
             panel1.Controls.Add(btnAdd);
+            panel1.Controls.Add(cmbKhoa);
+            panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -101,8 +149,6 @@
             AutoScaleDimensions = new SizeF(9F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(dgvLop);
-            Controls.Add(label1);
-            Controls.Add(cmbKhoa);
             Controls.Add(panel1);
             Controls.Add(panel2);
             Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -112,8 +158,8 @@
             Load += UCLOP_Load;
             ((System.ComponentModel.ISupportInitialize)dgvLop).EndInit();
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -123,5 +169,11 @@
         private DataGridView dgvLop;
         private Button btnAdd;
         private Panel panel1;
+        private DataGridViewTextBoxColumn MALOP;
+        private DataGridViewTextBoxColumn TENLOP;
+        private DataGridViewTextBoxColumn KHOAHOC;
+        private DataGridViewTextBoxColumn MAKHOA;
+        private DataGridViewButtonColumn Edit;
+        private DataGridViewButtonColumn Delete;
     }
 }
