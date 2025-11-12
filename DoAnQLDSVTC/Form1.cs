@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
 {
-    public partial class Student : Form
+    public partial class Form1 : Form
     {
-        public Student()
+        public Form1()
         {
             InitializeComponent();
         }

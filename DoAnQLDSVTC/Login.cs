@@ -1,16 +1,18 @@
-using Microsoft.Data.SqlClient;
+using System;
 using System.Data;
+using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
 {
     public partial class Login : Form
     {
         private SqlConnection Conn_pub = new SqlConnection();
+
         public Login()
         {
             InitializeComponent();
         }
-
         private void Login_Load(object sender, EventArgs e)
         {
             if (KetNoi_CSDLGOC() == 0) return;

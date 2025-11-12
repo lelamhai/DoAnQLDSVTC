@@ -1,6 +1,7 @@
-using Microsoft.Data.SqlClient;
-using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Data;
+using System.Data.SqlClient;
+using System.Windows.Forms;
 namespace DoAnQLDSVTC
 {
     internal static class Program
@@ -114,15 +115,15 @@ namespace DoAnQLDSVTC
 
 
         /// <summary>
-        ///  The main entry point for the application.
+        /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
         }
+
     }
 }
