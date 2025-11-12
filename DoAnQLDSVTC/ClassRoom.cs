@@ -1,17 +1,17 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Windows.Forms;
+
 
 namespace DoAnQLDSVTC
 {
-    public partial class ucLop : UserControl
+    public partial class ClassRoom : Form
     {
-        public ucLop()
+        public ClassRoom()
         {
             InitializeComponent();
         }
 
-        private void UCLOP_Load(object sender, EventArgs e)
+        private void ClassRoom_Load(object sender, EventArgs e)
         {
             if (Program.KetNoi() == 0) return;
             string strQuery = "SELECT * FROM V_FILL_LOP";
@@ -31,7 +31,11 @@ namespace DoAnQLDSVTC
             cmbKhoa.ValueMember = "TENSERVER";
             cmbKhoa.SelectedIndex = Program.MKhoa;
 
-            btnAdd.BackColor = ColorTranslator.FromHtml("#20bf55");
+            Program.bds_dspm.Filter = "TENKHOA <> 'PHÒNG KẾ TOÁN'";
+
+            lblLogin.Text = "Xin chào " + Program.MLogin + "!";
+
+            txtMaKhoa.Text = dgvLop.Rows[0].Cells["MAKHOA"].Value.ToString().Trim();
         }
     }
 }

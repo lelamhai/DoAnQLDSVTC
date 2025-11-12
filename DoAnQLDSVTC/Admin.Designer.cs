@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
             splitContainer1 = new SplitContainer();
             panel2 = new Panel();
@@ -35,15 +36,15 @@
             button5 = new Button();
             button4 = new Button();
             button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
+            btnStudent = new Button();
+            btnClassroom = new Button();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             panel3 = new Panel();
             pContent = new Panel();
-            ucLop = new ucLop();
-            panel4 = new Panel();
             lbNameLogin = new Label();
+            timerSlide = new System.Windows.Forms.Timer(components);
+            lblTitle = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -53,7 +54,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
             pContent.SuspendLayout();
-            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // splitContainer1
@@ -74,7 +74,7 @@
             // 
             splitContainer1.Panel2.BackColor = SystemColors.Control;
             splitContainer1.Panel2.Controls.Add(panel3);
-            splitContainer1.Panel2.Padding = new Padding(10, 0, 10, 0);
+            splitContainer1.Panel2.Padding = new Padding(10, 0, 0, 0);
             splitContainer1.Size = new Size(1280, 706);
             splitContainer1.SplitterDistance = 180;
             splitContainer1.TabIndex = 0;
@@ -86,8 +86,8 @@
             panel2.Controls.Add(button5);
             panel2.Controls.Add(button4);
             panel2.Controls.Add(button3);
-            panel2.Controls.Add(button2);
-            panel2.Controls.Add(button1);
+            panel2.Controls.Add(btnStudent);
+            panel2.Controls.Add(btnClassroom);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 161);
             panel2.Name = "panel2";
@@ -138,27 +138,29 @@
             button3.Text = "Môn Học";
             button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnStudent
             // 
-            button2.Dock = DockStyle.Top;
-            button2.Location = new Point(0, 30);
-            button2.Margin = new Padding(3, 50, 3, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(180, 30);
-            button2.TabIndex = 1;
-            button2.Text = "Sinh Viên";
-            button2.UseVisualStyleBackColor = true;
+            btnStudent.Dock = DockStyle.Top;
+            btnStudent.Location = new Point(0, 30);
+            btnStudent.Margin = new Padding(3, 50, 3, 3);
+            btnStudent.Name = "btnStudent";
+            btnStudent.Size = new Size(180, 30);
+            btnStudent.TabIndex = 1;
+            btnStudent.Text = "Sinh Viên";
+            btnStudent.UseVisualStyleBackColor = true;
+            btnStudent.Click += btnStudent_Click;
             // 
-            // button1
+            // btnClassroom
             // 
-            button1.Dock = DockStyle.Top;
-            button1.Location = new Point(0, 0);
-            button1.Margin = new Padding(3, 50, 3, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(180, 30);
-            button1.TabIndex = 0;
-            button1.Text = "Danh Sách Lớp";
-            button1.UseVisualStyleBackColor = true;
+            btnClassroom.Dock = DockStyle.Top;
+            btnClassroom.Location = new Point(0, 0);
+            btnClassroom.Margin = new Padding(3, 50, 3, 3);
+            btnClassroom.Name = "btnClassroom";
+            btnClassroom.Size = new Size(180, 30);
+            btnClassroom.TabIndex = 0;
+            btnClassroom.Text = "Lớp";
+            btnClassroom.UseVisualStyleBackColor = true;
+            btnClassroom.Click += btnClassroom_Click;
             // 
             // panel1
             // 
@@ -185,57 +187,46 @@
             // 
             panel3.BackColor = SystemColors.ActiveCaption;
             panel3.Controls.Add(pContent);
-            panel3.Controls.Add(panel4);
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(10, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1076, 706);
+            panel3.Size = new Size(1086, 706);
             panel3.TabIndex = 1;
             // 
             // pContent
             // 
             pContent.BackColor = SystemColors.Highlight;
-            pContent.Controls.Add(ucLop);
+            pContent.Controls.Add(lblTitle);
+            pContent.Controls.Add(lbNameLogin);
             pContent.Dock = DockStyle.Fill;
-            pContent.Location = new Point(0, 47);
+            pContent.Location = new Point(0, 0);
             pContent.Margin = new Padding(0);
             pContent.Name = "pContent";
-            pContent.Size = new Size(1076, 659);
+            pContent.Size = new Size(1086, 706);
             pContent.TabIndex = 2;
-            // 
-            // ucLop
-            // 
-            ucLop.BackColor = SystemColors.Control;
-            ucLop.Dock = DockStyle.Fill;
-            ucLop.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ucLop.Location = new Point(0, 0);
-            ucLop.Margin = new Padding(4);
-            ucLop.Name = "ucLop";
-            ucLop.Size = new Size(1076, 659);
-            ucLop.TabIndex = 0;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = SystemColors.Control;
-            panel4.Controls.Add(lbNameLogin);
-            panel4.Dock = DockStyle.Top;
-            panel4.Location = new Point(0, 0);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(1076, 47);
-            panel4.TabIndex = 1;
             // 
             // lbNameLogin
             // 
             lbNameLogin.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lbNameLogin.AutoSize = true;
-            lbNameLogin.BackColor = SystemColors.Control;
-            lbNameLogin.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbNameLogin.BackColor = Color.Transparent;
+            lbNameLogin.Font = new Font("Times New Roman", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbNameLogin.ForeColor = SystemColors.ControlText;
-            lbNameLogin.Location = new Point(967, 14);
+            lbNameLogin.Location = new Point(990, 12);
             lbNameLogin.Name = "lbNameLogin";
-            lbNameLogin.Size = new Size(97, 19);
+            lbNameLogin.Size = new Size(84, 15);
             lbNameLogin.TabIndex = 0;
             lbNameLogin.Text = "Xin chào Thư!";
+            // 
+            // lblTitle
+            // 
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.Location = new Point(13, 21);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(36, 19);
+            lblTitle.TabIndex = 1;
+            lblTitle.Text = "Lớp";
             // 
             // Admin
             // 
@@ -259,8 +250,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
             pContent.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
+            pContent.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -273,13 +263,13 @@
         private Button button5;
         private Button button4;
         private Button button3;
-        private Button button2;
-        private Button button1;
+        private Button btnStudent;
+        private Button btnClassroom;
         private Button button6;
-        private Label lbNameLogin;
+        private System.Windows.Forms.Timer timerSlide;
         private Panel panel3;
-        private Panel panel4;
         private Panel pContent;
-        private ucLop ucLop;
+        private Label lbNameLogin;
+        private Label lblTitle;
     }
 }

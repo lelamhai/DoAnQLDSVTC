@@ -89,14 +89,15 @@
             // 
             // btnLogin
             // 
-            btnLogin.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogin.BackColor = Color.Brown;
+            btnLogin.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogin.ForeColor = SystemColors.ButtonHighlight;
             btnLogin.Location = new Point(122, 536);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(249, 47);
             btnLogin.TabIndex = 11;
             btnLogin.Text = "Đăng Nhập";
-            btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
             // 
             // cbStudent
@@ -116,6 +117,7 @@
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(175, 23);
             txtPassword.TabIndex = 9;
+            txtPassword.Text = "123456";
             // 
             // txtUserName
             // 
@@ -123,6 +125,7 @@
             txtUserName.Name = "txtUserName";
             txtUserName.Size = new Size(175, 23);
             txtUserName.TabIndex = 8;
+            txtUserName.Text = "lnkt";
             // 
             // label5
             // 

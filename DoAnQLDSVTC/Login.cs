@@ -23,7 +23,6 @@ namespace DoAnQLDSVTC
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.FlatAppearance.BorderSize = 0;
             btnLogin.UseVisualStyleBackColor = false;
-            btnLogin.BackColor = ColorTranslator.FromHtml("#dc3545");
         }
 
         private int KetNoi_CSDLGOC()
@@ -77,7 +76,6 @@ namespace DoAnQLDSVTC
             Program.userName = Program.myReader.GetString(0);
             Program.mHoTen = Program.myReader.GetString(1);
             Program.mGroup = Program.myReader.GetString(2);
-            MessageBox.Show("Di chuyển tới form chính");
 
             // Di chuyển tới form chính
             Admin admin = new Admin();
