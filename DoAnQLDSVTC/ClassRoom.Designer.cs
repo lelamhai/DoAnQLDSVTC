@@ -37,12 +37,11 @@ namespace DoAnQLDSVTC
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvLop = new System.Windows.Forms.DataGridView();
-            this.mALOPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tENLOPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kHOAHOCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MALOP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENLOP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KHOAHOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mAKHOADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Update = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnUndo = new System.Windows.Forms.Button();
@@ -69,7 +68,7 @@ namespace DoAnQLDSVTC
             this.txtMaLop = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblTitleForm = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblLogin = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -153,12 +152,11 @@ namespace DoAnQLDSVTC
             this.dgvLop.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLop.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.mALOPDataGridViewTextBoxColumn,
-            this.tENLOPDataGridViewTextBoxColumn,
-            this.kHOAHOCDataGridViewTextBoxColumn,
+            this.MALOP,
+            this.TENLOP,
+            this.KHOAHOC,
             this.mAKHOADataGridViewTextBoxColumn,
             this.Edit,
-            this.Update,
             this.Delete});
             this.dgvLop.DataSource = this.bdsLop;
             this.dgvLop.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -169,51 +167,47 @@ namespace DoAnQLDSVTC
             this.dgvLop.TabIndex = 0;
             this.dgvLop.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnCellClick);
             // 
-            // mALOPDataGridViewTextBoxColumn
+            // MALOP
             // 
-            this.mALOPDataGridViewTextBoxColumn.DataPropertyName = "MALOP";
-            this.mALOPDataGridViewTextBoxColumn.HeaderText = "Mã Lớp";
-            this.mALOPDataGridViewTextBoxColumn.Name = "mALOPDataGridViewTextBoxColumn";
+            this.MALOP.DataPropertyName = "MALOP";
+            this.MALOP.HeaderText = "Mã Lớp";
+            this.MALOP.Name = "MALOP";
+            this.MALOP.ReadOnly = true;
             // 
-            // tENLOPDataGridViewTextBoxColumn
+            // TENLOP
             // 
-            this.tENLOPDataGridViewTextBoxColumn.DataPropertyName = "TENLOP";
-            this.tENLOPDataGridViewTextBoxColumn.HeaderText = "Tên Lớp";
-            this.tENLOPDataGridViewTextBoxColumn.Name = "tENLOPDataGridViewTextBoxColumn";
+            this.TENLOP.DataPropertyName = "TENLOP";
+            this.TENLOP.HeaderText = "Tên Lớp";
+            this.TENLOP.Name = "TENLOP";
+            this.TENLOP.ReadOnly = true;
             // 
-            // kHOAHOCDataGridViewTextBoxColumn
+            // KHOAHOC
             // 
-            this.kHOAHOCDataGridViewTextBoxColumn.DataPropertyName = "KHOAHOC";
-            this.kHOAHOCDataGridViewTextBoxColumn.HeaderText = "Khóa Học";
-            this.kHOAHOCDataGridViewTextBoxColumn.Name = "kHOAHOCDataGridViewTextBoxColumn";
+            this.KHOAHOC.DataPropertyName = "KHOAHOC";
+            this.KHOAHOC.HeaderText = "Khóa Học";
+            this.KHOAHOC.Name = "KHOAHOC";
+            this.KHOAHOC.ReadOnly = true;
             // 
             // mAKHOADataGridViewTextBoxColumn
             // 
             this.mAKHOADataGridViewTextBoxColumn.DataPropertyName = "MAKHOA";
             this.mAKHOADataGridViewTextBoxColumn.HeaderText = "Mã Khoa";
             this.mAKHOADataGridViewTextBoxColumn.Name = "mAKHOADataGridViewTextBoxColumn";
+            this.mAKHOADataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Edit
             // 
-            this.Edit.DataPropertyName = "MALOP";
             this.Edit.HeaderText = "";
             this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
             this.Edit.Text = "Chỉnh Sửa";
             this.Edit.UseColumnTextForButtonValue = true;
             // 
-            // Update
-            // 
-            this.Update.DataPropertyName = "MALOP";
-            this.Update.HeaderText = "";
-            this.Update.Name = "Update";
-            this.Update.Text = "Cập Nhật";
-            this.Update.UseColumnTextForButtonValue = true;
-            // 
             // Delete
             // 
-            this.Delete.DataPropertyName = "MALOP";
             this.Delete.HeaderText = "";
             this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
             this.Delete.Text = "Xóa";
             this.Delete.UseColumnTextForButtonValue = true;
             // 
@@ -457,23 +451,23 @@ namespace DoAnQLDSVTC
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.label3);
+            this.panel4.Controls.Add(this.lblTitleForm);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(15, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(289, 71);
             this.panel4.TabIndex = 15;
             // 
-            // label3
+            // lblTitleForm
             // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(289, 71);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Thêm Dữ Liệu";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitleForm.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblTitleForm.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitleForm.Location = new System.Drawing.Point(0, 0);
+            this.lblTitleForm.Name = "lblTitleForm";
+            this.lblTitleForm.Size = new System.Drawing.Size(289, 71);
+            this.lblTitleForm.TabIndex = 0;
+            this.lblTitleForm.Text = "Thêm Dữ Liệu";
+            this.lblTitleForm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -566,7 +560,7 @@ namespace DoAnQLDSVTC
         #endregion
         private SplitContainer splitContainer1;
         private Panel panel3;
-        private Label label3;
+        private Label lblTitleForm;
         private Label label6;
         private Panel panel5;
         private Panel panel4;
@@ -600,12 +594,11 @@ namespace DoAnQLDSVTC
         private TextBox txtKhoaHoc;
         private TextBox txtTenLop;
         private TextBox txtMaKhoa;
-        private DataGridViewTextBoxColumn mALOPDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn tENLOPDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn kHOAHOCDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn MALOP;
+        private DataGridViewTextBoxColumn TENLOP;
+        private DataGridViewTextBoxColumn KHOAHOC;
         private DataGridViewTextBoxColumn mAKHOADataGridViewTextBoxColumn;
         private DataGridViewButtonColumn Edit;
-        private DataGridViewButtonColumn Update;
         private DataGridViewButtonColumn Delete;
     }
 }

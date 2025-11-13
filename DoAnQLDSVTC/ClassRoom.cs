@@ -1,11 +1,17 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
 {
     public partial class ClassRoom : Form
     {
+        enum STATE_ACTION
+        {
+            ADD,
+            EDIT
+        }
+        private STATE_ACTION currentAction = STATE_ACTION.ADD;
+
         public ClassRoom()
         {
             InitializeComponent();
@@ -17,6 +23,7 @@ namespace DoAnQLDSVTC
             LoadCombox();
             LoadNameLogin();
             CleanTextBox();
+            ActionForm();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -26,11 +33,66 @@ namespace DoAnQLDSVTC
             string khoaHoc = txtKhoaHoc.Text.Trim();
             string maKhoa = txtMaKhoa.Text.Trim();
 
-            LOPTableAdapter.Insert(maLop, tenLop, khoaHoc, maKhoa);
-            LOPTableAdapter.Fill(DS.LOP);
-            CleanTextBox();
+
+            switch(currentAction)
+            {
+                case STATE_ACTION.ADD:
+                    LOPTableAdapter.Insert(maLop, tenLop, khoaHoc, maKhoa);
+                    LOPTableAdapter.Fill(DS.LOP);
+                    CleanTextBox();
+                    break;
+
+                case STATE_ACTION.EDIT:
+                    DS.LOPRow row = DS.LOP.FindByMALOP(txtMaLop.Text.Trim());
+                    if (row == null)
+                    {
+                        MessageBox.Show("Không tìm thấy lớp");
+                        return;
+                    }
+
+                    row.TENLOP = txtTenLop.Text.Trim();
+                    row.KHOAHOC = txtKhoaHoc.Text.Trim();
+                    row.MAKHOA = txtMaKhoa.Text.Trim();
+
+                    LOPTableAdapter.Update(DS.LOP);
+                    break;
+            }    
         }
-        
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            CleanTextBox();
+            currentAction = STATE_ACTION.ADD;
+            ActionForm();
+        }
+
+        private void OnCellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            switch (dgvLop.Columns[e.ColumnIndex].Name)
+            {
+                case "Edit":
+                    MessageBox.Show("Edit");
+                    DataGridViewRow row = dgvLop.Rows[e.RowIndex];
+                    txtMaLop.Enabled = false;
+
+                    txtMaLop.Text = row.Cells["MALOP"].Value?.ToString();
+                    txtTenLop.Text = row.Cells["TENLOP"].Value?.ToString();
+                    txtKhoaHoc.Text = row.Cells["KHOAHOC"].Value?.ToString();
+                    currentAction = STATE_ACTION.EDIT;
+                    ActionForm();
+
+                    break;
+
+                case "Delete":
+                    MessageBox.Show("Delete");
+                    bdsLop.RemoveCurrent();
+                    LOPTableAdapter.Update(DS.LOP);
+                    break;
+            }
+
+        }
+
         void LoadDatasetApdapter()
         {
             this.LOPTableAdapter.Connection.ConnectionString = Program.URL_Connect;
@@ -57,34 +119,31 @@ namespace DoAnQLDSVTC
             txtMaLop.Text = "";
             txtTenLop.Text = "";
             txtKhoaHoc.Text = "";
-            txtMaKhoa.Text = "";
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
+        void ActionForm()
         {
-            CleanTextBox();
-        }
+            string strTitle = "";
+            string strClear = "";
 
-        private void OnCellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex <= 0) return;
-            switch (dgvLop.Columns[e.ColumnIndex].Name)
+            switch (currentAction)
             {
-                case "Edit":
-                    MessageBox.Show("Edit");
+                case STATE_ACTION.ADD:
+                    strTitle = "Thêm Mới Dữ Liệu";
+                    strClear = "Làm Mới";
+                    txtMaLop.Enabled = true;
+                    lblTitleForm.Text = strTitle;
+                    btnClear.Text = strClear;
                     break;
 
-                case "Update":
-                    MessageBox.Show("Update");
-                    break;
-
-                case "Delete":
-                    MessageBox.Show("Delete");
-                    bdsLop.RemoveCurrent();
-                    LOPTableAdapter.Update(DS.LOP);
+                case STATE_ACTION.EDIT:
+                    strTitle = "Chỉnh Sửa Dữ Liệu";
+                    strClear = "Hủy";
+                    txtMaLop.Enabled = false;
+                    lblTitleForm.Text = strTitle;
+                    btnClear.Text = strClear;
                     break;
             }
-
         }
     }
 }
