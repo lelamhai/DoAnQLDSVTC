@@ -48,6 +48,8 @@ namespace DoAnQLDSVTC
             this.lblTitle = new System.Windows.Forms.Label();
             this.lbNameLogin = new System.Windows.Forms.Label();
             this.timerSlide = new System.Windows.Forms.Timer(this.components);
+            this.btnExit = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -85,6 +87,8 @@ namespace DoAnQLDSVTC
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnExit);
             this.panel2.Controls.Add(this.button6);
             this.panel2.Controls.Add(this.button5);
             this.panel2.Controls.Add(this.button4);
@@ -231,6 +235,28 @@ namespace DoAnQLDSVTC
             this.lbNameLogin.TabIndex = 0;
             this.lbNameLogin.Text = "Xin chào Thư!";
             // 
+            // btnExit
+            // 
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnExit.Location = new System.Drawing.Point(0, 515);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 50, 3, 3);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(180, 30);
+            this.btnExit.TabIndex = 6;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.Location = new System.Drawing.Point(0, 180);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 50, 3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(180, 30);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Đăng Xuất";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -275,5 +301,7 @@ namespace DoAnQLDSVTC
         private Panel pContent;
         private Label lbNameLogin;
         private Label lblTitle;
+        private Button btnExit;
+        private Button button1;
     }
 }

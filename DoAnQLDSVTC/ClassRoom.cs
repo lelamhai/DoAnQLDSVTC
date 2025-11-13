@@ -107,12 +107,15 @@ namespace DoAnQLDSVTC
 
         private void btnUndo_Click(object sender, EventArgs e)
         {
-            if (undo.Count < 0)
+            if (undo.Count <= 0)
             {
                 MessageBox.Show("Không có thao tác để hoàn tác");
                 return;
             }
-
+            if (undo.Count <= 0)
+            {
+                return;
+            }
             ActionClassroom action = undo.Pop();
             if (action != null)
             {
