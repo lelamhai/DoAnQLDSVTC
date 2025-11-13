@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
@@ -62,6 +63,28 @@ namespace DoAnQLDSVTC
         private void btnClear_Click(object sender, EventArgs e)
         {
             CleanTextBox();
+        }
+
+        private void OnCellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex <= 0) return;
+            switch (dgvLop.Columns[e.ColumnIndex].Name)
+            {
+                case "Edit":
+                    MessageBox.Show("Edit");
+                    break;
+
+                case "Update":
+                    MessageBox.Show("Update");
+                    break;
+
+                case "Delete":
+                    MessageBox.Show("Delete");
+                    bdsLop.RemoveCurrent();
+                    LOPTableAdapter.Update(DS.LOP);
+                    break;
+            }
+
         }
     }
 }

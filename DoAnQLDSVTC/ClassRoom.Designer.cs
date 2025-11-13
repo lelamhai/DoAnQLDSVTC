@@ -36,7 +36,7 @@ namespace DoAnQLDSVTC
             this.DS = new DoAnQLDSVTC.DS();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvLop = new System.Windows.Forms.DataGridView();
             this.mALOPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tENLOPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kHOAHOCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,15 +54,19 @@ namespace DoAnQLDSVTC
             this.btnClear = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.txtMaKhoa = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.txtKhoaHoc = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.txtTenLop = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.txtMaLop = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -71,10 +75,6 @@ namespace DoAnQLDSVTC
             this.panel1 = new System.Windows.Forms.Panel();
             this.LOPTableAdapter = new DoAnQLDSVTC.DSTableAdapters.LOPTableAdapter();
             this.TableAdapterManager = new DoAnQLDSVTC.DSTableAdapters.TableAdapterManager();
-            this.txtMaLop = new System.Windows.Forms.TextBox();
-            this.txtTenLop = new System.Windows.Forms.TextBox();
-            this.txtKhoaHoc = new System.Windows.Forms.TextBox();
-            this.txtMaKhoa = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -82,7 +82,7 @@ namespace DoAnQLDSVTC
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLop)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel13.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -138,7 +138,7 @@ namespace DoAnQLDSVTC
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.dgvLop);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 71);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
@@ -146,12 +146,13 @@ namespace DoAnQLDSVTC
             this.panel3.Size = new System.Drawing.Size(985, 710);
             this.panel3.TabIndex = 1;
             // 
-            // dataGridView1
+            // dgvLop
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvLop.AllowUserToAddRows = false;
+            this.dgvLop.AutoGenerateColumns = false;
+            this.dgvLop.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLop.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.mALOPDataGridViewTextBoxColumn,
             this.tENLOPDataGridViewTextBoxColumn,
             this.kHOAHOCDataGridViewTextBoxColumn,
@@ -159,12 +160,14 @@ namespace DoAnQLDSVTC
             this.Edit,
             this.Update,
             this.Delete});
-            this.dataGridView1.DataSource = this.bdsLop;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(985, 710);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvLop.DataSource = this.bdsLop;
+            this.dgvLop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvLop.Location = new System.Drawing.Point(0, 0);
+            this.dgvLop.Name = "dgvLop";
+            this.dgvLop.ReadOnly = true;
+            this.dgvLop.Size = new System.Drawing.Size(985, 710);
+            this.dgvLop.TabIndex = 0;
+            this.dgvLop.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnCellClick);
             // 
             // mALOPDataGridViewTextBoxColumn
             // 
@@ -324,6 +327,16 @@ namespace DoAnQLDSVTC
             this.panel11.Size = new System.Drawing.Size(289, 50);
             this.panel11.TabIndex = 22;
             // 
+            // txtMaKhoa
+            // 
+            this.txtMaKhoa.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsLop, "MAKHOA", true));
+            this.txtMaKhoa.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtMaKhoa.Enabled = false;
+            this.txtMaKhoa.Location = new System.Drawing.Point(0, 24);
+            this.txtMaKhoa.Name = "txtMaKhoa";
+            this.txtMaKhoa.Size = new System.Drawing.Size(289, 26);
+            this.txtMaKhoa.TabIndex = 1;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -351,6 +364,14 @@ namespace DoAnQLDSVTC
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(289, 50);
             this.panel9.TabIndex = 20;
+            // 
+            // txtKhoaHoc
+            // 
+            this.txtKhoaHoc.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtKhoaHoc.Location = new System.Drawing.Point(0, 24);
+            this.txtKhoaHoc.Name = "txtKhoaHoc";
+            this.txtKhoaHoc.Size = new System.Drawing.Size(289, 26);
+            this.txtKhoaHoc.TabIndex = 6;
             // 
             // label6
             // 
@@ -380,6 +401,14 @@ namespace DoAnQLDSVTC
             this.panel7.Size = new System.Drawing.Size(289, 50);
             this.panel7.TabIndex = 18;
             // 
+            // txtTenLop
+            // 
+            this.txtTenLop.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtTenLop.Location = new System.Drawing.Point(0, 24);
+            this.txtTenLop.Name = "txtTenLop";
+            this.txtTenLop.Size = new System.Drawing.Size(289, 26);
+            this.txtTenLop.TabIndex = 1;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -407,6 +436,14 @@ namespace DoAnQLDSVTC
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(289, 50);
             this.panel5.TabIndex = 16;
+            // 
+            // txtMaLop
+            // 
+            this.txtMaLop.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtMaLop.Location = new System.Drawing.Point(0, 24);
+            this.txtMaLop.Name = "txtMaLop";
+            this.txtMaLop.Size = new System.Drawing.Size(289, 26);
+            this.txtMaLop.TabIndex = 18;
             // 
             // label4
             // 
@@ -483,40 +520,6 @@ namespace DoAnQLDSVTC
             this.TableAdapterManager.SINHVIENTableAdapter = null;
             this.TableAdapterManager.UpdateOrder = DoAnQLDSVTC.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // txtMaLop
-            // 
-            this.txtMaLop.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtMaLop.Location = new System.Drawing.Point(0, 24);
-            this.txtMaLop.Name = "txtMaLop";
-            this.txtMaLop.Size = new System.Drawing.Size(289, 26);
-            this.txtMaLop.TabIndex = 18;
-            // 
-            // txtTenLop
-            // 
-            this.txtTenLop.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtTenLop.Location = new System.Drawing.Point(0, 24);
-            this.txtTenLop.Name = "txtTenLop";
-            this.txtTenLop.Size = new System.Drawing.Size(289, 26);
-            this.txtTenLop.TabIndex = 1;
-            // 
-            // txtKhoaHoc
-            // 
-            this.txtKhoaHoc.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtKhoaHoc.Location = new System.Drawing.Point(0, 24);
-            this.txtKhoaHoc.Name = "txtKhoaHoc";
-            this.txtKhoaHoc.Size = new System.Drawing.Size(289, 26);
-            this.txtKhoaHoc.TabIndex = 6;
-            // 
-            // txtMaKhoa
-            // 
-            this.txtMaKhoa.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsLop, "MAKHOA", true));
-            this.txtMaKhoa.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtMaKhoa.Enabled = false;
-            this.txtMaKhoa.Location = new System.Drawing.Point(0, 24);
-            this.txtMaKhoa.Name = "txtMaKhoa";
-            this.txtMaKhoa.Size = new System.Drawing.Size(289, 26);
-            this.txtMaKhoa.TabIndex = 1;
-            // 
             // ClassRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -540,7 +543,7 @@ namespace DoAnQLDSVTC
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLop)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel13.ResumeLayout(false);
@@ -592,7 +595,11 @@ namespace DoAnQLDSVTC
         private Panel panel11;
         private Label label7;
         private Panel panel10;
-        private DataGridView dataGridView1;
+        private DataGridView dgvLop;
+        private TextBox txtMaLop;
+        private TextBox txtKhoaHoc;
+        private TextBox txtTenLop;
+        private TextBox txtMaKhoa;
         private DataGridViewTextBoxColumn mALOPDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn tENLOPDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn kHOAHOCDataGridViewTextBoxColumn;
@@ -600,9 +607,5 @@ namespace DoAnQLDSVTC
         private DataGridViewButtonColumn Edit;
         private DataGridViewButtonColumn Update;
         private DataGridViewButtonColumn Delete;
-        private TextBox txtMaLop;
-        private TextBox txtKhoaHoc;
-        private TextBox txtTenLop;
-        private TextBox txtMaKhoa;
     }
 }
