@@ -7,7 +7,7 @@ namespace DoAnQLDSVTC
     internal static class Program
     {
         public static SqlConnection Conn = new SqlConnection();
-        public static string Connstr = "";
+        public static string URL_Connect = "";
         //public static string Connstr_pub = "Data Source=ADMIN\\SERVERMAIN;Initial Catalog=QLDSV_TC;Integrated Security=True;User ID=sa;Password=123";
         public static string Connstr_pub = "Server=ADMIN\\SERVERMAIN;Database=QLDSV_TC;User Id=sa;Password=123;TrustServerCertificate=True;";
 
@@ -98,9 +98,9 @@ namespace DoAnQLDSVTC
                 Program.Conn.Close();
             try
             {
-                Program.Connstr = "Server=" + Program.ServerName + ";Database="+ Program .DataBase+ ";User Id=" + Program.MLogin + " ;Password=" + Program.MPass + "; TrustServerCertificate = True";
-                Program.Conn.ConnectionString = Program.Connstr;
-                // Console.WriteLine(Program.Connstr);
+                Program.URL_Connect = "Server=" + Program.ServerName + ";Database="+ Program .DataBase+ ";User Id=" + Program.MLogin + " ;Password=" + Program.MPass + "; TrustServerCertificate = True";
+                Program.Conn.ConnectionString = Program.URL_Connect;
+                // Console.WriteLine(Program.URL_Connect);
                 Program.Conn.Open();
                 return 1;
             }

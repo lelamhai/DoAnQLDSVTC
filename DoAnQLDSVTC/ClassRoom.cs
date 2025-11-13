@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
@@ -14,29 +12,56 @@ namespace DoAnQLDSVTC
 
         private void ClassRoom_Load(object sender, EventArgs e)
         {
-            if (Program.KetNoi() == 0) return;
-            string strQuery = "SELECT * FROM V_FILL_LOP";
-            SqlConnection Conn_pub = new SqlConnection(Program.Connstr);
-            DataTable dt = new DataTable();
-            if (Conn_pub.State == ConnectionState.Closed)
-                Conn_pub.Open();
-            SqlDataAdapter da = new SqlDataAdapter(strQuery, Conn_pub);
-            da.Fill(dt);
-            Conn_pub.Close();
-            dgvLop.DataSource = dt;
-            dgvLop.Columns["rowguid"].Visible = false;
+            LoadDatasetApdapter();
+            LoadCombox();
+            LoadNameLogin();
+            CleanTextBox();
+        }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            string maLop = txtMaLop.Text.Trim();
+            string tenLop = txtTenLop.Text.Trim();
+            string khoaHoc = txtKhoaHoc.Text.Trim();
+            string maKhoa = txtMaKhoa.Text.Trim();
 
+            LOPTableAdapter.Insert(maLop, tenLop, khoaHoc, maKhoa);
+            LOPTableAdapter.Fill(DS.LOP);
+            CleanTextBox();
+        }
+        
+        void LoadDatasetApdapter()
+        {
+            this.LOPTableAdapter.Connection.ConnectionString = Program.URL_Connect;
+            this.LOPTableAdapter.Fill(this.DS.LOP);
+        }
+
+        void LoadCombox()
+        {
             cmbKhoa.DataSource = Program.bds_dspm;
             cmbKhoa.DisplayMember = "TENKHOA";
             cmbKhoa.ValueMember = "TENSERVER";
             cmbKhoa.SelectedIndex = Program.MKhoa;
 
             Program.bds_dspm.Filter = "TENKHOA <> 'PHÒNG KẾ TOÁN'";
+        }
 
+        void LoadNameLogin()
+        {
             lblLogin.Text = "Xin chào " + Program.MLogin + "!";
+        }
 
-            txtMaKhoa.Text = dgvLop.Rows[0].Cells["MAKHOA"].Value.ToString().Trim();
+        void CleanTextBox()
+        {
+            txtMaLop.Text = "";
+            txtTenLop.Text = "";
+            txtKhoaHoc.Text = "";
+            txtMaKhoa.Text = "";
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            CleanTextBox();
         }
     }
 }

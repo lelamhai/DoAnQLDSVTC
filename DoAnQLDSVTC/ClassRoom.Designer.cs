@@ -31,577 +31,578 @@ namespace DoAnQLDSVTC
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
-            lblLogin = new Label();
-            label2 = new Label();
-            splitContainer1 = new SplitContainer();
-            panel3 = new Panel();
-            dgvLop = new DataGridView();
-            MALOP = new DataGridViewTextBoxColumn();
-            TENLOP = new DataGridViewTextBoxColumn();
-            KHOAHOC = new DataGridViewTextBoxColumn();
-            MAKHOA = new DataGridViewTextBoxColumn();
-            Edit = new DataGridViewButtonColumn();
-            Update = new DataGridViewButtonColumn();
-            Delete = new DataGridViewButtonColumn();
-            panel2 = new Panel();
-            btnUndo = new Button();
-            label1 = new Label();
-            cmbKhoa = new ComboBox();
-            panel13 = new Panel();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            btnSave = new Button();
-            btnClear = new Button();
-            panel12 = new Panel();
-            panel11 = new Panel();
-            label7 = new Label();
-            txtMaKhoa = new TextBox();
-            panel10 = new Panel();
-            panel9 = new Panel();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            textBox6 = new TextBox();
-            textBox3 = new TextBox();
-            textBox1 = new TextBox();
-            label6 = new Label();
-            panel8 = new Panel();
-            panel7 = new Panel();
-            TxtTenLop = new TextBox();
-            label5 = new Label();
-            panel6 = new Panel();
-            panel5 = new Panel();
-            txtMaLop = new TextBox();
-            label4 = new Label();
-            panel4 = new Panel();
-            label3 = new Label();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
-            splitContainer1.Panel1.SuspendLayout();
-            splitContainer1.Panel2.SuspendLayout();
-            splitContainer1.SuspendLayout();
-            panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvLop).BeginInit();
-            panel2.SuspendLayout();
-            panel13.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
-            panel11.SuspendLayout();
-            panel9.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
-            panel7.SuspendLayout();
-            panel5.SuspendLayout();
-            panel4.SuspendLayout();
-            SuspendLayout();
+            this.components = new System.ComponentModel.Container();
+            this.bdsLop = new System.Windows.Forms.BindingSource(this.components);
+            this.DS = new DoAnQLDSVTC.DS();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.mALOPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tENLOPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kHOAHOCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mAKHOADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Update = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnUndo = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbKhoa = new System.Windows.Forms.ComboBox();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblLogin = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.LOPTableAdapter = new DoAnQLDSVTC.DSTableAdapters.LOPTableAdapter();
+            this.TableAdapterManager = new DoAnQLDSVTC.DSTableAdapters.TableAdapterManager();
+            this.txtMaLop = new System.Windows.Forms.TextBox();
+            this.txtTenLop = new System.Windows.Forms.TextBox();
+            this.txtKhoaHoc = new System.Windows.Forms.TextBox();
+            this.txtMaKhoa = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.SuspendLayout();
             // 
-            // panel1
+            // bdsLop
             // 
-            panel1.BackColor = Color.Transparent;
-            panel1.Controls.Add(lblLogin);
-            panel1.Controls.Add(label2);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(10, 0);
-            panel1.Margin = new Padding(4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1309, 63);
-            panel1.TabIndex = 0;
+            this.bdsLop.DataMember = "LOP";
+            this.bdsLop.DataSource = this.DS;
             // 
-            // lblLogin
+            // DS
             // 
-            lblLogin.Anchor = AnchorStyles.Right;
-            lblLogin.AutoSize = true;
-            lblLogin.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblLogin.Location = new Point(1195, 18);
-            lblLogin.Name = "lblLogin";
-            lblLogin.Size = new Size(99, 16);
-            lblLogin.TabIndex = 1;
-            lblLogin.Text = "Xin chào NULL!";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(3, 18);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(137, 22);
-            label2.TabIndex = 0;
-            label2.Text = "Danh Sách Lớp";
+            this.DS.DataSetName = "DS";
+            this.DS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // splitContainer1
             // 
-            splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(10, 63);
-            splitContainer1.Margin = new Padding(4);
-            splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(10, 63);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
+            this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
-            splitContainer1.Panel1.Controls.Add(panel3);
-            splitContainer1.Panel1.Controls.Add(panel2);
+            this.splitContainer1.Panel1.Controls.Add(this.panel3);
+            this.splitContainer1.Panel1.Controls.Add(this.panel2);
             // 
             // splitContainer1.Panel2
             // 
-            splitContainer1.Panel2.BackColor = Color.Transparent;
-            splitContainer1.Panel2.Controls.Add(panel13);
-            splitContainer1.Panel2.Controls.Add(panel12);
-            splitContainer1.Panel2.Controls.Add(panel11);
-            splitContainer1.Panel2.Controls.Add(panel10);
-            splitContainer1.Panel2.Controls.Add(panel9);
-            splitContainer1.Panel2.Controls.Add(panel8);
-            splitContainer1.Panel2.Controls.Add(panel7);
-            splitContainer1.Panel2.Controls.Add(panel6);
-            splitContainer1.Panel2.Controls.Add(panel5);
-            splitContainer1.Panel2.Controls.Add(panel4);
-            splitContainer1.Panel2.Padding = new Padding(15, 0, 15, 0);
-            splitContainer1.Size = new Size(1309, 781);
-            splitContainer1.SplitterDistance = 985;
-            splitContainer1.SplitterWidth = 5;
-            splitContainer1.TabIndex = 1;
+            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Transparent;
+            this.splitContainer1.Panel2.Controls.Add(this.panel13);
+            this.splitContainer1.Panel2.Controls.Add(this.panel12);
+            this.splitContainer1.Panel2.Controls.Add(this.panel11);
+            this.splitContainer1.Panel2.Controls.Add(this.panel10);
+            this.splitContainer1.Panel2.Controls.Add(this.panel9);
+            this.splitContainer1.Panel2.Controls.Add(this.panel8);
+            this.splitContainer1.Panel2.Controls.Add(this.panel7);
+            this.splitContainer1.Panel2.Controls.Add(this.panel6);
+            this.splitContainer1.Panel2.Controls.Add(this.panel5);
+            this.splitContainer1.Panel2.Controls.Add(this.panel4);
+            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(15, 0, 15, 0);
+            this.splitContainer1.Size = new System.Drawing.Size(1309, 781);
+            this.splitContainer1.SplitterDistance = 985;
+            this.splitContainer1.SplitterWidth = 5;
+            this.splitContainer1.TabIndex = 1;
             // 
             // panel3
             // 
-            panel3.BackColor = Color.DarkRed;
-            panel3.Controls.Add(dgvLop);
-            panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(0, 71);
-            panel3.Margin = new Padding(4);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(985, 710);
-            panel3.TabIndex = 1;
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 71);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(985, 710);
+            this.panel3.TabIndex = 1;
             // 
-            // dgvLop
+            // dataGridView1
             // 
-            dgvLop.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvLop.BackgroundColor = Color.White;
-            dgvLop.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvLop.Columns.AddRange(new DataGridViewColumn[] { MALOP, TENLOP, KHOAHOC, MAKHOA, Edit, Update, Delete });
-            dgvLop.Dock = DockStyle.Fill;
-            dgvLop.Location = new Point(0, 0);
-            dgvLop.Margin = new Padding(4);
-            dgvLop.Name = "dgvLop";
-            dgvLop.Size = new Size(985, 710);
-            dgvLop.TabIndex = 0;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.mALOPDataGridViewTextBoxColumn,
+            this.tENLOPDataGridViewTextBoxColumn,
+            this.kHOAHOCDataGridViewTextBoxColumn,
+            this.mAKHOADataGridViewTextBoxColumn,
+            this.Edit,
+            this.Update,
+            this.Delete});
+            this.dataGridView1.DataSource = this.bdsLop;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(985, 710);
+            this.dataGridView1.TabIndex = 0;
             // 
-            // MALOP
+            // mALOPDataGridViewTextBoxColumn
             // 
-            MALOP.DataPropertyName = "MALOP";
-            MALOP.HeaderText = "Mã Lớp";
-            MALOP.Name = "MALOP";
+            this.mALOPDataGridViewTextBoxColumn.DataPropertyName = "MALOP";
+            this.mALOPDataGridViewTextBoxColumn.HeaderText = "Mã Lớp";
+            this.mALOPDataGridViewTextBoxColumn.Name = "mALOPDataGridViewTextBoxColumn";
             // 
-            // TENLOP
+            // tENLOPDataGridViewTextBoxColumn
             // 
-            TENLOP.DataPropertyName = "TENLOP";
-            TENLOP.HeaderText = "Tên Lớp";
-            TENLOP.Name = "TENLOP";
+            this.tENLOPDataGridViewTextBoxColumn.DataPropertyName = "TENLOP";
+            this.tENLOPDataGridViewTextBoxColumn.HeaderText = "Tên Lớp";
+            this.tENLOPDataGridViewTextBoxColumn.Name = "tENLOPDataGridViewTextBoxColumn";
             // 
-            // KHOAHOC
+            // kHOAHOCDataGridViewTextBoxColumn
             // 
-            KHOAHOC.DataPropertyName = "KHOAHOC";
-            KHOAHOC.HeaderText = "Khóa Học";
-            KHOAHOC.Name = "KHOAHOC";
+            this.kHOAHOCDataGridViewTextBoxColumn.DataPropertyName = "KHOAHOC";
+            this.kHOAHOCDataGridViewTextBoxColumn.HeaderText = "Khóa Học";
+            this.kHOAHOCDataGridViewTextBoxColumn.Name = "kHOAHOCDataGridViewTextBoxColumn";
             // 
-            // MAKHOA
+            // mAKHOADataGridViewTextBoxColumn
             // 
-            MAKHOA.DataPropertyName = "MAKHOA";
-            MAKHOA.HeaderText = "Mã Khoa";
-            MAKHOA.Name = "MAKHOA";
+            this.mAKHOADataGridViewTextBoxColumn.DataPropertyName = "MAKHOA";
+            this.mAKHOADataGridViewTextBoxColumn.HeaderText = "Mã Khoa";
+            this.mAKHOADataGridViewTextBoxColumn.Name = "mAKHOADataGridViewTextBoxColumn";
             // 
             // Edit
             // 
-            Edit.HeaderText = "";
-            Edit.Name = "Edit";
-            Edit.Text = "Chỉnh Sửa";
-            Edit.UseColumnTextForButtonValue = true;
+            this.Edit.DataPropertyName = "MALOP";
+            this.Edit.HeaderText = "";
+            this.Edit.Name = "Edit";
+            this.Edit.Text = "Chỉnh Sửa";
+            this.Edit.UseColumnTextForButtonValue = true;
             // 
             // Update
             // 
-            Update.HeaderText = "";
-            Update.Name = "Update";
-            Update.Text = "Cập Nhật";
-            Update.UseColumnTextForButtonValue = true;
+            this.Update.DataPropertyName = "MALOP";
+            this.Update.HeaderText = "";
+            this.Update.Name = "Update";
+            this.Update.Text = "Cập Nhật";
+            this.Update.UseColumnTextForButtonValue = true;
             // 
             // Delete
             // 
-            Delete.HeaderText = "";
-            Delete.Name = "Delete";
-            Delete.Text = "Xóa";
-            Delete.UseColumnTextForButtonValue = true;
+            this.Delete.DataPropertyName = "MALOP";
+            this.Delete.HeaderText = "";
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Xóa";
+            this.Delete.UseColumnTextForButtonValue = true;
             // 
             // panel2
             // 
-            panel2.BackColor = Color.Transparent;
-            panel2.Controls.Add(btnUndo);
-            panel2.Controls.Add(label1);
-            panel2.Controls.Add(cmbKhoa);
-            panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(0, 0);
-            panel2.Margin = new Padding(4);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(985, 71);
-            panel2.TabIndex = 0;
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.btnUndo);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.cmbKhoa);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(985, 71);
+            this.panel2.TabIndex = 0;
             // 
             // btnUndo
             // 
-            btnUndo.Anchor = AnchorStyles.Right;
-            btnUndo.Location = new Point(885, 22);
-            btnUndo.Margin = new Padding(4);
-            btnUndo.Name = "btnUndo";
-            btnUndo.Size = new Size(96, 29);
-            btnUndo.TabIndex = 2;
-            btnUndo.Text = "Phục Hồi";
-            btnUndo.UseVisualStyleBackColor = true;
+            this.btnUndo.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnUndo.Location = new System.Drawing.Point(885, 22);
+            this.btnUndo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUndo.Name = "btnUndo";
+            this.btnUndo.Size = new System.Drawing.Size(96, 29);
+            this.btnUndo.TabIndex = 2;
+            this.btnUndo.Text = "Phục Hồi";
+            this.btnUndo.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(3, 25);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(45, 19);
-            label1.TabIndex = 1;
-            label1.Text = "Khoa";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 25);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 19);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Khoa";
             // 
             // cmbKhoa
             // 
-            cmbKhoa.FormattingEnabled = true;
-            cmbKhoa.Location = new Point(62, 22);
-            cmbKhoa.Margin = new Padding(4);
-            cmbKhoa.Name = "cmbKhoa";
-            cmbKhoa.Size = new Size(385, 27);
-            cmbKhoa.TabIndex = 0;
+            this.cmbKhoa.FormattingEnabled = true;
+            this.cmbKhoa.Location = new System.Drawing.Point(62, 22);
+            this.cmbKhoa.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbKhoa.Name = "cmbKhoa";
+            this.cmbKhoa.Size = new System.Drawing.Size(385, 27);
+            this.cmbKhoa.TabIndex = 0;
             // 
             // panel13
             // 
-            panel13.Controls.Add(tableLayoutPanel2);
-            panel13.Dock = DockStyle.Top;
-            panel13.Location = new Point(15, 446);
-            panel13.Name = "panel13";
-            panel13.Padding = new Padding(50, 0, 50, 0);
-            panel13.Size = new Size(289, 50);
-            panel13.TabIndex = 24;
+            this.panel13.Controls.Add(this.tableLayoutPanel2);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel13.Location = new System.Drawing.Point(15, 446);
+            this.panel13.Name = "panel13";
+            this.panel13.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
+            this.panel13.Size = new System.Drawing.Size(289, 50);
+            this.panel13.TabIndex = 24;
             // 
             // tableLayoutPanel2
             // 
-            tableLayoutPanel2.ColumnCount = 2;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Controls.Add(btnSave, 0, 0);
-            tableLayoutPanel2.Controls.Add(btnClear, 1, 0);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(50, 0);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Size = new Size(189, 50);
-            tableLayoutPanel2.TabIndex = 0;
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.btnSave, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnClear, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(50, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(189, 50);
+            this.tableLayoutPanel2.TabIndex = 0;
             // 
             // btnSave
             // 
-            btnSave.Dock = DockStyle.Top;
-            btnSave.Location = new Point(3, 3);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(88, 35);
-            btnSave.TabIndex = 2;
-            btnSave.Text = "Ghi";
-            btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSave.Location = new System.Drawing.Point(3, 3);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(88, 35);
+            this.btnSave.TabIndex = 2;
+            this.btnSave.Text = "Ghi";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClear
             // 
-            btnClear.Dock = DockStyle.Top;
-            btnClear.Location = new Point(97, 3);
-            btnClear.Name = "btnClear";
-            btnClear.Size = new Size(89, 35);
-            btnClear.TabIndex = 1;
-            btnClear.Text = "Làm Mới";
-            btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnClear.Location = new System.Drawing.Point(97, 3);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(89, 35);
+            this.btnClear.TabIndex = 1;
+            this.btnClear.Text = "Làm Mới";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // panel12
             // 
-            panel12.Dock = DockStyle.Top;
-            panel12.Location = new Point(15, 346);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(289, 100);
-            panel12.TabIndex = 23;
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel12.Location = new System.Drawing.Point(15, 346);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(289, 100);
+            this.panel12.TabIndex = 23;
             // 
             // panel11
             // 
-            panel11.Controls.Add(label7);
-            panel11.Controls.Add(txtMaKhoa);
-            panel11.Dock = DockStyle.Top;
-            panel11.Location = new Point(15, 296);
-            panel11.Name = "panel11";
-            panel11.Size = new Size(289, 50);
-            panel11.TabIndex = 22;
+            this.panel11.Controls.Add(this.txtMaKhoa);
+            this.panel11.Controls.Add(this.label7);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel11.Location = new System.Drawing.Point(15, 296);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(289, 50);
+            this.panel11.TabIndex = 22;
             // 
             // label7
             // 
-            label7.AutoSize = true;
-            label7.Dock = DockStyle.Top;
-            label7.Location = new Point(0, 0);
-            label7.Name = "label7";
-            label7.Size = new Size(68, 19);
-            label7.TabIndex = 0;
-            label7.Text = "Mã Khoa";
-            // 
-            // txtMaKhoa
-            // 
-            txtMaKhoa.Dock = DockStyle.Bottom;
-            txtMaKhoa.Enabled = false;
-            txtMaKhoa.Location = new Point(0, 24);
-            txtMaKhoa.Name = "txtMaKhoa";
-            txtMaKhoa.Size = new Size(289, 26);
-            txtMaKhoa.TabIndex = 10;
+            this.label7.AutoSize = true;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label7.Location = new System.Drawing.Point(0, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(68, 19);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Mã Khoa";
             // 
             // panel10
             // 
-            panel10.Dock = DockStyle.Top;
-            panel10.Location = new Point(15, 271);
-            panel10.Name = "panel10";
-            panel10.Size = new Size(289, 25);
-            panel10.TabIndex = 21;
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(15, 271);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(289, 25);
+            this.panel10.TabIndex = 21;
             // 
             // panel9
             // 
-            panel9.Controls.Add(tableLayoutPanel1);
-            panel9.Controls.Add(label6);
-            panel9.Dock = DockStyle.Top;
-            panel9.Location = new Point(15, 221);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(289, 50);
-            panel9.TabIndex = 20;
-            // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.BackColor = Color.Transparent;
-            tableLayoutPanel1.ColumnCount = 5;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
-            tableLayoutPanel1.Controls.Add(textBox6, 2, 0);
-            tableLayoutPanel1.Controls.Add(textBox3, 0, 0);
-            tableLayoutPanel1.Controls.Add(textBox1, 4, 0);
-            tableLayoutPanel1.Dock = DockStyle.Bottom;
-            tableLayoutPanel1.Location = new Point(0, 20);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(289, 30);
-            tableLayoutPanel1.TabIndex = 6;
-            // 
-            // textBox6
-            // 
-            textBox6.Dock = DockStyle.Fill;
-            textBox6.Location = new Point(89, 3);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(66, 26);
-            textBox6.TabIndex = 14;
-            // 
-            // textBox3
-            // 
-            textBox3.Dock = DockStyle.Fill;
-            textBox3.Location = new Point(3, 3);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(66, 26);
-            textBox3.TabIndex = 13;
-            // 
-            // textBox1
-            // 
-            textBox1.Dock = DockStyle.Fill;
-            textBox1.Location = new Point(175, 3);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(111, 26);
-            textBox1.TabIndex = 15;
+            this.panel9.Controls.Add(this.txtKhoaHoc);
+            this.panel9.Controls.Add(this.label6);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(15, 221);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(289, 50);
+            this.panel9.TabIndex = 20;
             // 
             // label6
             // 
-            label6.AutoSize = true;
-            label6.Dock = DockStyle.Top;
-            label6.Location = new Point(0, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(73, 19);
-            label6.TabIndex = 5;
-            label6.Text = "Khóa Học";
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 19);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Khóa Học";
             // 
             // panel8
             // 
-            panel8.Dock = DockStyle.Top;
-            panel8.Location = new Point(15, 196);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(289, 25);
-            panel8.TabIndex = 19;
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(15, 196);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(289, 25);
+            this.panel8.TabIndex = 19;
             // 
             // panel7
             // 
-            panel7.Controls.Add(TxtTenLop);
-            panel7.Controls.Add(label5);
-            panel7.Dock = DockStyle.Top;
-            panel7.Location = new Point(15, 146);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(289, 50);
-            panel7.TabIndex = 18;
-            // 
-            // TxtTenLop
-            // 
-            TxtTenLop.Dock = DockStyle.Bottom;
-            TxtTenLop.Location = new Point(0, 24);
-            TxtTenLop.Name = "TxtTenLop";
-            TxtTenLop.Size = new Size(289, 26);
-            TxtTenLop.TabIndex = 1;
+            this.panel7.Controls.Add(this.txtTenLop);
+            this.panel7.Controls.Add(this.label5);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(15, 146);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(289, 50);
+            this.panel7.TabIndex = 18;
             // 
             // label5
             // 
-            label5.AutoSize = true;
-            label5.Dock = DockStyle.Top;
-            label5.Location = new Point(0, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(61, 19);
-            label5.TabIndex = 0;
-            label5.Text = "Tên Lớp";
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label5.Location = new System.Drawing.Point(0, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 19);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Tên Lớp";
             // 
             // panel6
             // 
-            panel6.Dock = DockStyle.Top;
-            panel6.Location = new Point(15, 121);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(289, 25);
-            panel6.TabIndex = 17;
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(15, 121);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(289, 25);
+            this.panel6.TabIndex = 17;
             // 
             // panel5
             // 
-            panel5.Controls.Add(txtMaLop);
-            panel5.Controls.Add(label4);
-            panel5.Dock = DockStyle.Top;
-            panel5.Location = new Point(15, 71);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(289, 50);
-            panel5.TabIndex = 16;
-            // 
-            // txtMaLop
-            // 
-            txtMaLop.Dock = DockStyle.Bottom;
-            txtMaLop.Location = new Point(0, 24);
-            txtMaLop.Name = "txtMaLop";
-            txtMaLop.Size = new Size(289, 26);
-            txtMaLop.TabIndex = 18;
+            this.panel5.Controls.Add(this.txtMaLop);
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(15, 71);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(289, 50);
+            this.panel5.TabIndex = 16;
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Dock = DockStyle.Top;
-            label4.Location = new Point(0, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(59, 19);
-            label4.TabIndex = 17;
-            label4.Text = "Mã Lớp";
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 19);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Mã Lớp";
             // 
             // panel4
             // 
-            panel4.Controls.Add(label3);
-            panel4.Dock = DockStyle.Top;
-            panel4.Location = new Point(15, 0);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(289, 71);
-            panel4.TabIndex = 15;
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(15, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(289, 71);
+            this.panel4.TabIndex = 15;
             // 
             // label3
             // 
-            label3.Dock = DockStyle.Top;
-            label3.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(0, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(289, 71);
-            label3.TabIndex = 0;
-            label3.Text = "Thêm Dữ Liệu";
-            label3.TextAlign = ContentAlignment.MiddleCenter;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(289, 71);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Thêm Dữ Liệu";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 18);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(137, 22);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Danh Sách Lớp";
+            // 
+            // lblLogin
+            // 
+            this.lblLogin.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblLogin.AutoSize = true;
+            this.lblLogin.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.Location = new System.Drawing.Point(1195, 18);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(99, 16);
+            this.lblLogin.TabIndex = 1;
+            this.lblLogin.Text = "Xin chào NULL!";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.lblLogin);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(10, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1309, 63);
+            this.panel1.TabIndex = 0;
+            // 
+            // LOPTableAdapter
+            // 
+            this.LOPTableAdapter.ClearBeforeFill = true;
+            // 
+            // TableAdapterManager
+            // 
+            this.TableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.TableAdapterManager.LOPTableAdapter = this.LOPTableAdapter;
+            this.TableAdapterManager.SINHVIENTableAdapter = null;
+            this.TableAdapterManager.UpdateOrder = DoAnQLDSVTC.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // txtMaLop
+            // 
+            this.txtMaLop.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtMaLop.Location = new System.Drawing.Point(0, 24);
+            this.txtMaLop.Name = "txtMaLop";
+            this.txtMaLop.Size = new System.Drawing.Size(289, 26);
+            this.txtMaLop.TabIndex = 18;
+            // 
+            // txtTenLop
+            // 
+            this.txtTenLop.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtTenLop.Location = new System.Drawing.Point(0, 24);
+            this.txtTenLop.Name = "txtTenLop";
+            this.txtTenLop.Size = new System.Drawing.Size(289, 26);
+            this.txtTenLop.TabIndex = 1;
+            // 
+            // txtKhoaHoc
+            // 
+            this.txtKhoaHoc.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtKhoaHoc.Location = new System.Drawing.Point(0, 24);
+            this.txtKhoaHoc.Name = "txtKhoaHoc";
+            this.txtKhoaHoc.Size = new System.Drawing.Size(289, 26);
+            this.txtKhoaHoc.TabIndex = 6;
+            // 
+            // txtMaKhoa
+            // 
+            this.txtMaKhoa.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsLop, "MAKHOA", true));
+            this.txtMaKhoa.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtMaKhoa.Enabled = false;
+            this.txtMaKhoa.Location = new System.Drawing.Point(0, 24);
+            this.txtMaKhoa.Name = "txtMaKhoa";
+            this.txtMaKhoa.Size = new System.Drawing.Size(289, 26);
+            this.txtMaKhoa.TabIndex = 1;
             // 
             // ClassRoom
             // 
-            AutoScaleDimensions = new SizeF(9F, 19F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(1329, 844);
-            Controls.Add(splitContainer1);
-            Controls.Add(panel1);
-            Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4);
-            Name = "ClassRoom";
-            Padding = new Padding(10, 0, 10, 0);
-            Text = "ClassRoom";
-            WindowState = FormWindowState.Maximized;
-            Load += ClassRoom_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            splitContainer1.Panel1.ResumeLayout(false);
-            splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
-            splitContainer1.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvLop).EndInit();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            panel13.ResumeLayout(false);
-            tableLayoutPanel2.ResumeLayout(false);
-            panel11.ResumeLayout(false);
-            panel11.PerformLayout();
-            panel9.ResumeLayout(false);
-            panel9.PerformLayout();
-            tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
-            panel4.ResumeLayout(false);
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1329, 844);
+            this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.panel1);
+            this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "ClassRoom";
+            this.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.Text = "ClassRoom";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.ClassRoom_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
-
-        private Panel panel1;
         private SplitContainer splitContainer1;
-        private Panel panel2;
         private Panel panel3;
-        private DataGridView dgvLop;
-        private ComboBox cmbKhoa;
-        private Label label1;
-        private Button btnUndo;
-        private Label lblLogin;
-        private Label label2;
-        private DataGridViewTextBoxColumn MALOP;
-        private DataGridViewTextBoxColumn TENLOP;
-        private DataGridViewTextBoxColumn KHOAHOC;
-        private DataGridViewTextBoxColumn MAKHOA;
-        private DataGridViewButtonColumn Edit;
-        private DataGridViewButtonColumn Delete;
         private Label label3;
         private Label label6;
-        private Label label9;
-        private TextBox textBox3;
         private Panel panel5;
         private Panel panel4;
         private Label label4;
         private Panel panel6;
         private Panel panel7;
-        private TextBox TxtTenLop;
         private Label label5;
         private Panel panel8;
         private Panel panel9;
-        private TextBox textBox6;
-        private Panel panel11;
-        private Panel panel10;
-        private Panel panel12;
-        private TextBox txtMaLop;
-        private Label label7;
-        private TextBox txtMaKhoa;
-        private TableLayoutPanel tableLayoutPanel1;
-        private TextBox textBox1;
+        private Panel panel2;
+        private Button btnUndo;
+        private Label label1;
+        private ComboBox cmbKhoa;
+        private Label label2;
+        private Label lblLogin;
+        private Panel panel1;
+        private DS DS;
+        private BindingSource bdsLop;
+        private DSTableAdapters.LOPTableAdapter LOPTableAdapter;
+        private DSTableAdapters.TableAdapterManager TableAdapterManager;
         private Panel panel13;
         private TableLayoutPanel tableLayoutPanel2;
         private Button btnSave;
         private Button btnClear;
+        private Panel panel12;
+        private Panel panel11;
+        private Label label7;
+        private Panel panel10;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn mALOPDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn tENLOPDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn kHOAHOCDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn mAKHOADataGridViewTextBoxColumn;
+        private DataGridViewButtonColumn Edit;
         private DataGridViewButtonColumn Update;
+        private DataGridViewButtonColumn Delete;
+        private TextBox txtMaLop;
+        private TextBox txtKhoaHoc;
+        private TextBox txtTenLop;
+        private TextBox txtMaKhoa;
     }
 }
