@@ -4,37 +4,11 @@ using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
 {
-    public partial class ClassRoom : Form
+    public partial class ClassRoom : BaseForm
     {
-        enum STATE_ACTION
-        {
-            ADD,
-            EDIT,
-            DELETE
-        }
         private STATE_ACTION currentAction = STATE_ACTION.ADD;
-
-        class ActionClassroom
-        {
-            public ActionClassroom(STATE_ACTION action, string maLop, string oldTenLop, string oldKhoaHoc, string oldMaKhoa)
-            {
-                Action = action;
-                MaLop = maLop;
-                OldTenLop = oldTenLop;
-                OldKhoaHoc = oldKhoaHoc;
-                OldMaKhoa = oldMaKhoa;
-            }
-
-            public STATE_ACTION Action { get; set; }
-
-            public string MaLop { get; set; }
-
-            public string OldTenLop { get; set; }
-            public string OldKhoaHoc { get; set; }
-            public string OldMaKhoa { get; set; }
-        }
-
-        Stack<ActionClassroom> undo = new Stack<ActionClassroom>();  
+        private Stack<ActionClassroom> undo = new Stack<ActionClassroom>();
+        private List<ActionClassroom> oldData = new List<ActionClassroom>();
 
         public ClassRoom()
         {
@@ -48,6 +22,52 @@ namespace DoAnQLDSVTC
             LoadNameLogin();
             CleanTextBox();
             ActionForm();
+            isButtonUndo();
+        }
+
+        private void OnCellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            switch (dgvLop.Columns[e.ColumnIndex].Name.ToUpper())
+            {
+                case nameof(STATE_ACTION.EDIT):
+                    MessageBox.Show("EDIT");
+                    oldData.Clear();
+                    currentAction = STATE_ACTION.EDIT;
+                    txtMaLop.Enabled = false;
+                    DataGridViewRow rowEdit = dgvLop.Rows[e.RowIndex];
+                    txtMaLop.Text = rowEdit.Cells["MALOP"].Value?.ToString();
+                    txtTenLop.Text = rowEdit.Cells["TENLOP"].Value?.ToString();
+                    txtKhoaHoc.Text = rowEdit.Cells["KHOAHOC"].Value?.ToString();
+                    
+                    ActionClassroom actionEdit = new ActionClassroom(STATE_ACTION.EDIT, rowEdit.Cells["MALOP"].Value?.ToString(), rowEdit.Cells["TENLOP"].Value?.ToString(), rowEdit.Cells["KHOAHOC"].Value?.ToString(), rowEdit.Cells["MAKHOA"].Value?.ToString());
+                    oldData.Add(actionEdit);
+                    ActionForm();
+                    break;
+
+                case nameof(STATE_ACTION.DELETE):
+                    MessageBox.Show("DELETE");
+                    DataGridViewRow rowDelete = dgvLop.Rows[e.RowIndex];
+                    string maLop = rowDelete.Cells["MALOP"].Value?.ToString();
+                    string tenLop = rowDelete.Cells["TENLOP"].Value?.ToString();
+                    string khoaHoc = rowDelete.Cells["KHOAHOC"].Value?.ToString();
+                    string maKhoa = rowDelete.Cells["MAKHOA"].Value?.ToString();
+                    try
+                    {
+                        DeleteData(maLop);
+                        ActionClassroom action = new ActionClassroom(STATE_ACTION.DELETE, maLop, tenLop, khoaHoc, maKhoa);
+                        undo.Push(action);
+                        isButtonUndo();
+                        CleanTextBox();
+                        currentAction = STATE_ACTION.ADD;
+                        ActionForm();
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show("Xóa lớp thất bại. Vui lòng kiểm tra lại!\n" + ex.Message);
+                    }
+                    break;
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -57,160 +77,122 @@ namespace DoAnQLDSVTC
             string khoaHoc = txtKhoaHoc.Text.Trim();
             string maKhoa = txtMaKhoa.Text.Trim();
 
-
-            switch(currentAction)
+            switch (currentAction)
             {
                 case STATE_ACTION.ADD:
-                    LOPTableAdapter.Insert(maLop, tenLop, khoaHoc, maKhoa);
-                    LOPTableAdapter.Fill(DS.LOP);
+                    try
+                    {
+                        AddData(maLop, tenLop, khoaHoc, maKhoa);
 
-                    ActionClassroom action = new ActionClassroom(
-                       STATE_ACTION.ADD,
-                       maLop,
-                       tenLop,
-                       khoaHoc,
-                       maKhoa
-                   );
-                    undo.Push(action);
-
-                    CleanTextBox();
+                        ActionClassroom action = new ActionClassroom(STATE_ACTION.ADD, maLop, tenLop, khoaHoc, maKhoa);
+                        undo.Push(action);
+                        isButtonUndo();
+                        CleanTextBox();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Thêm lớp thất bại. Vui lòng kiểm tra lại!\n" + ex.Message);
+                    }
                     break;
 
                 case STATE_ACTION.EDIT:
-                    DS.LOPRow row = DS.LOP.FindByMALOP(txtMaLop.Text.Trim());
-                    if (row == null)
+                    try
                     {
-                        MessageBox.Show("Không tìm thấy lớp");
-                        return;
+                        EditData(maLop, tenLop, khoaHoc, maKhoa);
+                        undo.Push(oldData[0]);
+                        isButtonUndo();
+                        oldData.Clear();
                     }
-
-                    row.TENLOP = txtTenLop.Text.Trim();
-                    row.KHOAHOC = txtKhoaHoc.Text.Trim();
-                    row.MAKHOA = txtMaKhoa.Text.Trim();
-
-                    LOPTableAdapter.Update(DS.LOP);
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Chỉnh sửa lớp thất bại. Vui lòng kiểm tra lại!\n" + ex.Message);
+                    }
                     break;
-            }    
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            CleanTextBox();
-            if(currentAction == STATE_ACTION.EDIT)
-            {
-                undo.Pop();
-            }    
-
-            currentAction = STATE_ACTION.ADD;
-            ActionForm();
+            }
         }
 
         private void btnUndo_Click(object sender, EventArgs e)
         {
             if (undo.Count <= 0)
             {
-                MessageBox.Show("Không có thao tác để hoàn tác");
                 return;
             }
-            if (undo.Count <= 0)
-            {
-                return;
-            }
-            ActionClassroom action = undo.Pop();
-            if (action != null)
-            {
-                switch (action.Action)
-                {
-                    case STATE_ACTION.ADD:
-                        DS.LOPRow rowADD = DS.LOP.FindByMALOP(action.MaLop.Trim());
-                        if (rowADD == null)
-                        {
-                            MessageBox.Show("Không tìm thấy lớp");
-                            return;
-                        }
-                        rowADD.Delete();
-                        LOPTableAdapter.Update(DS.LOP);
-
-                        break;
-
-                    case STATE_ACTION.EDIT:
-                        DS.LOPRow rowEDIT = DS.LOP.FindByMALOP(action.MaLop.Trim());
-                        if (rowEDIT == null)
-                        {
-                            MessageBox.Show("Không tìm thấy lớp");
-                            return;
-                        }
-
-                        rowEDIT.TENLOP = action.OldTenLop.Trim();
-                        rowEDIT.KHOAHOC = action.OldKhoaHoc.Trim();
-                        rowEDIT.MAKHOA = action.OldMaKhoa.Trim();
-
-                        LOPTableAdapter.Update(DS.LOP);
-                        break;
-
-                    case STATE_ACTION.DELETE:
-
-                        LOPTableAdapter.Insert(action.MaLop.Trim(), action.OldTenLop.Trim(), action.OldKhoaHoc.Trim(), action.OldMaKhoa.Trim());
-                        LOPTableAdapter.Fill(DS.LOP);
-                        break;
-                }
-            }
+            UndoAction();
+            CleanTextBox();
+            currentAction = STATE_ACTION.ADD;
+            ActionForm();
+            isButtonUndo();
         }
 
-        private void OnCellClick(object sender, DataGridViewCellEventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
-            if (e.RowIndex < 0) return;
-            
-            switch (dgvLop.Columns[e.ColumnIndex].Name)
+            CleanTextBox();
+            currentAction = STATE_ACTION.ADD;
+            ActionForm();
+        }
+
+        protected override void AddData(params object[] args)
+        {
+            string maLop = (string)args[0];
+            string tenLop = (string)args[1];
+            string khoaHoc = (string)args[2];
+            string maKhoa = (string)args[3];
+
+            LOPTableAdapter.Insert(maLop.Trim(), tenLop.Trim(), khoaHoc.Trim(), maKhoa.Trim());
+            LOPTableAdapter.Fill(DS.LOP);
+        }
+        protected override void EditData(params object[] args)
+        {
+            string maLop = (string)args[0];
+            string tenLop = (string)args[1];
+            string khoaHoc = (string)args[2];
+            string maKhoa = (string)args[3];
+
+            DS.LOPRow row = DS.LOP.FindByMALOP(maLop.Trim());
+            row.TENLOP = tenLop.Trim();
+            row.KHOAHOC = khoaHoc.Trim();
+            row.MAKHOA = maKhoa.Trim();
+            LOPTableAdapter.Update(DS.LOP);
+        }
+
+        protected override void DeleteData(params object[] args)
+        {
+            string maLop = (string)args[0];
+            DS.LOPRow rowADD = DS.LOP.FindByMALOP(maLop.Trim());
+            rowADD.Delete();
+            LOPTableAdapter.Update(DS.LOP);
+        }
+
+        protected override void UndoAction()
+        {
+            ActionClassroom action = undo.Pop();
+            switch (action.Action)
             {
-                case "Edit":
-                    MessageBox.Show("Edit");
-                    DataGridViewRow row = dgvLop.Rows[e.RowIndex];
-                    txtMaLop.Enabled = false;
-
-                    txtMaLop.Text = row.Cells["MALOP"].Value?.ToString();
-                    txtTenLop.Text = row.Cells["TENLOP"].Value?.ToString();
-                    txtKhoaHoc.Text = row.Cells["KHOAHOC"].Value?.ToString();
-                    currentAction = STATE_ACTION.EDIT;
-
-                    DS.LOPRow checkMaLop = DS.LOP.FindByMALOP(txtMaLop.Text.Trim());
-                    if (checkMaLop == null)
+                case STATE_ACTION.ADD:
+                    DS.LOPRow rowADD = DS.LOP.FindByMALOP(action.MaLop.Trim());
+                    if (rowADD == null)
                     {
                         MessageBox.Show("Không tìm thấy lớp");
                         return;
                     }
-
-                    ActionClassroom action = new ActionClassroom(
-                        STATE_ACTION.EDIT,
-                        row.Cells["MALOP"].Value?.ToString(),
-                        row.Cells["TENLOP"].Value?.ToString(),
-                        row.Cells["KHOAHOC"].Value?.ToString(),
-                        row.Cells["MAKHOA"].Value?.ToString()
-                    );
-                    undo.Push(action);
-
-                    ActionForm();
-
+                    DeleteData(action.MaLop);
                     break;
 
-                case "Delete":
-                    DataGridViewRow rowDelete = dgvLop.Rows[e.RowIndex];
-                    ActionClassroom actionDelete = new ActionClassroom(
-                        STATE_ACTION.DELETE,
-                        rowDelete.Cells["MALOP"].Value?.ToString(),
-                        rowDelete.Cells["TENLOP"].Value?.ToString(),
-                        rowDelete.Cells["KHOAHOC"].Value?.ToString(),
-                        rowDelete.Cells["MAKHOA"].Value?.ToString()
-                    );
-                    undo.Push(actionDelete);
-
-                    bdsLop.RemoveCurrent();
-                    LOPTableAdapter.Update(DS.LOP);
-
-                    
+                case STATE_ACTION.EDIT:
+                    DS.LOPRow rowEDIT = DS.LOP.FindByMALOP(action.MaLop.Trim());
+                    if (rowEDIT == null)
+                    {
+                        MessageBox.Show("Không tìm thấy lớp");
+                        return;
+                    }
+                    EditData(action.MaLop, action.TenLop, action.KhoaHoc, action.MaKhoa);
                     break;
+
+                case STATE_ACTION.DELETE:
+                    AddData(action.MaLop, action.TenLop, action.KhoaHoc, action.MaKhoa);
+                    break;
+
             }
-
         }
 
         void LoadDatasetApdapter()
@@ -264,6 +246,37 @@ namespace DoAnQLDSVTC
                     btnClear.Text = strClear;
                     break;
             }
+        }
+
+        void isButtonUndo()
+        {
+            if(undo.Count >= 1)
+            {
+                btnUndo.Enabled = true;
+            } else
+            {
+                btnUndo.Enabled = false;
+            }
+        }
+
+        class ActionClassroom
+        {
+            public STATE_ACTION Action { get; set; }
+            public string MaLop { get; set; }
+            public string TenLop { get; set; }
+            public string KhoaHoc { get; set; }
+            public string MaKhoa { get; set; }
+
+            public ActionClassroom(STATE_ACTION action, string maLop, string oldTenLop, string oldKhoaHoc, string oldMaKhoa)
+            {
+                this.Action = action;
+                this.MaLop = maLop;
+                this.TenLop = oldTenLop;
+                this.KhoaHoc = oldKhoaHoc;
+                this.MaKhoa = oldMaKhoa;
+            }
+
+            
         }
     }
 }
