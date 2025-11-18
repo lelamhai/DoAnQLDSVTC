@@ -78,7 +78,7 @@ namespace DoAnQLDSVTC
             Program.userName = Program.myReader.GetString(0);
             Program.mHoTen = Program.myReader.GetString(1);
             Program.mGroup = Program.myReader.GetString(2);
-
+            Program.myReader.Close();
             // Di chuyển tới form chính
             Admin admin = new Admin();
             admin.Show();       // mở Form2

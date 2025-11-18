@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace DoAnQLDSVTC
 {
@@ -165,8 +167,43 @@ namespace DoAnQLDSVTC
             string khoaHoc = (string)args[2];
             string maKhoa = (string)args[3];
 
+            string strSP = "EXEC SP_CHECKMALOP '" + maLop.Trim() + "'";
+            int result = CheckMaLop(strSP);
+
+            if (result == -1)
+            {
+                MessageBox.Show("Lỗi kết nối CSDL!", "", MessageBoxButtons.OK);
+                return;
+            }
+            if (result == 1)
+            {
+                MessageBox.Show("Mã Lớp đã tồn tại trong khoa này!", "", MessageBoxButtons.OK);
+                txtMaLop.Focus();
+                return;
+
+            }
+            if (result == 2)
+            {
+                MessageBox.Show("Mã Lớp đã tồn tại trong khoa khác!", "", MessageBoxButtons.OK);
+                txtMaLop.Focus();
+                return;
+            }
+
             LOPTableAdapter.Insert(maLop.Trim(), tenLop.Trim(), khoaHoc.Trim(), maKhoa.Trim());
             LOPTableAdapter.Fill(DS.LOP);
+
+        }
+
+        private int CheckMaLop(string cmd)
+        {
+            SqlDataReader dataReader = Program.ExecSqlDataReader(cmd);
+
+            if (dataReader == null) return -1;
+
+            dataReader.Read();
+            int result = int.Parse(dataReader.GetValue(0).ToString());
+            dataReader.Close();
+            return result;
         }
 
         public void EditData(params object[] args)
