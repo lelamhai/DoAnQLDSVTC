@@ -4,11 +4,12 @@ using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
 {
-    public partial class ClassRoom : BaseForm
+    public partial class ClassRoom : Form, IBaseForm
     {
         private STATE_ACTION currentAction = STATE_ACTION.ADD;
         private Stack<ActionClassroom> undo = new Stack<ActionClassroom>();
         private List<ActionClassroom> oldData = new List<ActionClassroom>();
+        private int currentKhoa;
 
         public ClassRoom()
         {
@@ -17,6 +18,7 @@ namespace DoAnQLDSVTC
 
         private void ClassRoom_Load(object sender, EventArgs e)
         {
+            currentKhoa = Program.MKhoa;
             LoadDatasetApdapter();
             LoadCombox();
             LoadNameLogin();
@@ -131,7 +133,32 @@ namespace DoAnQLDSVTC
             ActionForm();
         }
 
-        protected override void AddData(params object[] args)
+
+        private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currentKhoa = cmbKhoa.SelectedIndex;
+
+            if (cmbKhoa.SelectedValue.ToString() == "System.Data.DataRowView") return;
+
+            Program.ServerName = cmbKhoa.SelectedValue.ToString();
+            if (currentKhoa != Program.MKhoa)
+            {
+                Program.MLogin = Program.remoteLogin;
+                Program.MPass = Program.remotePass;
+            }
+            else
+            {
+                Program.MLogin = Program.MLoginDN;
+                Program.MPass = Program.MPassDN;
+            }
+
+            if (Program.KetNoi() == 1)
+            {
+                LoadDatasetApdapter();
+            }
+        }
+
+        public void AddData(params object[] args)
         {
             string maLop = (string)args[0];
             string tenLop = (string)args[1];
@@ -141,7 +168,8 @@ namespace DoAnQLDSVTC
             LOPTableAdapter.Insert(maLop.Trim(), tenLop.Trim(), khoaHoc.Trim(), maKhoa.Trim());
             LOPTableAdapter.Fill(DS.LOP);
         }
-        protected override void EditData(params object[] args)
+
+        public void EditData(params object[] args)
         {
             string maLop = (string)args[0];
             string tenLop = (string)args[1];
@@ -155,7 +183,7 @@ namespace DoAnQLDSVTC
             LOPTableAdapter.Update(DS.LOP);
         }
 
-        protected override void DeleteData(params object[] args)
+        public void DeleteData(params object[] args)
         {
             string maLop = (string)args[0];
             DS.LOPRow rowADD = DS.LOP.FindByMALOP(maLop.Trim());
@@ -163,7 +191,7 @@ namespace DoAnQLDSVTC
             LOPTableAdapter.Update(DS.LOP);
         }
 
-        protected override void UndoAction()
+        public void UndoAction()
         {
             ActionClassroom action = undo.Pop();
             switch (action.Action)
@@ -259,6 +287,8 @@ namespace DoAnQLDSVTC
             }
         }
 
+
+
         class ActionClassroom
         {
             public STATE_ACTION Action { get; set; }
@@ -275,8 +305,6 @@ namespace DoAnQLDSVTC
                 this.KhoaHoc = oldKhoaHoc;
                 this.MaKhoa = oldMaKhoa;
             }
-
-            
         }
     }
 }

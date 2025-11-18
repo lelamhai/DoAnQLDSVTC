@@ -38,6 +38,12 @@ namespace DoAnQLDSVTC
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvLop = new System.Windows.Forms.DataGridView();
+            this.MALOP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENLOP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KHOAHOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MAKHOA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnUndo = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -69,12 +75,6 @@ namespace DoAnQLDSVTC
             this.panel1 = new System.Windows.Forms.Panel();
             this.LOPTableAdapter = new DoAnQLDSVTC.DSTableAdapters.LOPTableAdapter();
             this.TableAdapterManager = new DoAnQLDSVTC.DSTableAdapters.TableAdapterManager();
-            this.MALOP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENLOP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.KHOAHOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MAKHOA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -168,6 +168,50 @@ namespace DoAnQLDSVTC
             this.dgvLop.TabIndex = 0;
             this.dgvLop.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnCellClick);
             // 
+            // MALOP
+            // 
+            this.MALOP.DataPropertyName = "MALOP";
+            this.MALOP.HeaderText = "Mã Lớp";
+            this.MALOP.Name = "MALOP";
+            this.MALOP.ReadOnly = true;
+            // 
+            // TENLOP
+            // 
+            this.TENLOP.DataPropertyName = "TENLOP";
+            this.TENLOP.HeaderText = "Tên Lớp";
+            this.TENLOP.Name = "TENLOP";
+            this.TENLOP.ReadOnly = true;
+            // 
+            // KHOAHOC
+            // 
+            this.KHOAHOC.DataPropertyName = "KHOAHOC";
+            this.KHOAHOC.HeaderText = "Khóa Học";
+            this.KHOAHOC.Name = "KHOAHOC";
+            this.KHOAHOC.ReadOnly = true;
+            // 
+            // MAKHOA
+            // 
+            this.MAKHOA.DataPropertyName = "MAKHOA";
+            this.MAKHOA.HeaderText = "Mã Khoa";
+            this.MAKHOA.Name = "MAKHOA";
+            this.MAKHOA.ReadOnly = true;
+            // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "";
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Text = "Chỉnh Sửa";
+            this.Edit.UseColumnTextForButtonValue = true;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "";
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Text = "Xóa";
+            this.Delete.UseColumnTextForButtonValue = true;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
@@ -212,6 +256,7 @@ namespace DoAnQLDSVTC
             this.cmbKhoa.Name = "cmbKhoa";
             this.cmbKhoa.Size = new System.Drawing.Size(385, 27);
             this.cmbKhoa.TabIndex = 0;
+            this.cmbKhoa.SelectedIndexChanged += new System.EventHandler(this.cmbKhoa_SelectedIndexChanged);
             // 
             // panel13
             // 
@@ -471,50 +516,6 @@ namespace DoAnQLDSVTC
             this.TableAdapterManager.LOPTableAdapter = this.LOPTableAdapter;
             this.TableAdapterManager.SINHVIENTableAdapter = null;
             this.TableAdapterManager.UpdateOrder = DoAnQLDSVTC.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // MALOP
-            // 
-            this.MALOP.DataPropertyName = "MALOP";
-            this.MALOP.HeaderText = "Mã Lớp";
-            this.MALOP.Name = "MALOP";
-            this.MALOP.ReadOnly = true;
-            // 
-            // TENLOP
-            // 
-            this.TENLOP.DataPropertyName = "TENLOP";
-            this.TENLOP.HeaderText = "Tên Lớp";
-            this.TENLOP.Name = "TENLOP";
-            this.TENLOP.ReadOnly = true;
-            // 
-            // KHOAHOC
-            // 
-            this.KHOAHOC.DataPropertyName = "KHOAHOC";
-            this.KHOAHOC.HeaderText = "Khóa Học";
-            this.KHOAHOC.Name = "KHOAHOC";
-            this.KHOAHOC.ReadOnly = true;
-            // 
-            // MAKHOA
-            // 
-            this.MAKHOA.DataPropertyName = "MAKHOA";
-            this.MAKHOA.HeaderText = "Mã Khoa";
-            this.MAKHOA.Name = "MAKHOA";
-            this.MAKHOA.ReadOnly = true;
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "";
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            this.Edit.Text = "Chỉnh Sửa";
-            this.Edit.UseColumnTextForButtonValue = true;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "";
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Text = "Xóa";
-            this.Delete.UseColumnTextForButtonValue = true;
             // 
             // ClassRoom
             // 

@@ -52,9 +52,6 @@
     <Compile Include="Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="BaseForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="ClassRoom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +63,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IBaseForm.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>

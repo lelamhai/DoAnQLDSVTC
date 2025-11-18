@@ -13,7 +13,7 @@ namespace DoAnQLDSVTC
 
 
         public static string remoteLogin = "HTKN";
-        public static string remotePass = "123";
+        public static string remotePass = "123456";
         public static SqlDataReader myReader;
         public static string userName = "";
         public static string mHoTen = "";
