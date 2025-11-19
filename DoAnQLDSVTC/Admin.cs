@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
@@ -34,6 +27,21 @@ namespace DoAnQLDSVTC
             this.pMain.Controls.Add(f);
             this.pMain.Tag = f;
             f.Show();
+        }
+
+        private void btnStudent_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Student());
+        }
+
+        private void btnLop_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Classroom());
+        }
+
+        private void btnCreateAccount_Click(object sender, EventArgs e)
+        {
+            LoadForm(new CreateAccount());
         }
     }
 }

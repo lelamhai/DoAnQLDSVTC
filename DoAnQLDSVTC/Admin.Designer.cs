@@ -41,13 +41,26 @@
             this.btnStudent = new System.Windows.Forms.Button();
             this.btnLop = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.btnCreateAccount = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pMain = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.tabAdmin.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -215,6 +228,7 @@
             this.btnStudent.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnStudent.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnStudent.UseVisualStyleBackColor = false;
+            this.btnStudent.Click += new System.EventHandler(this.btnStudent_Click);
             // 
             // btnLop
             // 
@@ -232,9 +246,11 @@
             this.btnLop.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLop.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnLop.UseVisualStyleBackColor = false;
+            this.btnLop.Click += new System.EventHandler(this.btnLop_Click);
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.tableLayoutPanel2);
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
@@ -244,14 +260,182 @@
             this.tabPage2.Text = "Báo Cáo";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel2.ColumnCount = 8;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 658F));
+            this.tableLayoutPanel2.Controls.Add(this.button8, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button9, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button10, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button11, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button12, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1253, 100);
+            this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.Transparent;
+            this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
+            this.button8.Location = new System.Drawing.Point(358, 3);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(79, 94);
+            this.button8.TabIndex = 4;
+            this.button8.Text = "Điểm TK";
+            this.button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button8.UseVisualStyleBackColor = false;
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.Transparent;
+            this.button9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
+            this.button9.Location = new System.Drawing.Point(273, 3);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(79, 94);
+            this.button9.TabIndex = 3;
+            this.button9.Text = "Đóng HP";
+            this.button9.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button9.UseVisualStyleBackColor = false;
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.Transparent;
+            this.button10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
+            this.button10.Location = new System.Drawing.Point(173, 3);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(94, 94);
+            this.button10.TabIndex = 2;
+            this.button10.Text = "Bảng Điểm";
+            this.button10.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button10.UseVisualStyleBackColor = false;
+            // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.Transparent;
+            this.button11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
+            this.button11.Location = new System.Drawing.Point(88, 3);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(79, 94);
+            this.button11.TabIndex = 1;
+            this.button11.Text = "SVĐK";
+            this.button11.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button11.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button11.UseVisualStyleBackColor = false;
+            // 
+            // button12
+            // 
+            this.button12.BackColor = System.Drawing.Color.Transparent;
+            this.button12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button12.FlatAppearance.BorderSize = 0;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button12.Image = ((System.Drawing.Image)(resources.GetObject("button12.Image")));
+            this.button12.Location = new System.Drawing.Point(3, 3);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(79, 94);
+            this.button12.TabIndex = 0;
+            this.button12.Text = "LTC";
+            this.button12.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button12.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button12.UseVisualStyleBackColor = false;
+            // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.tableLayoutPanel3);
             this.tabPage3.Location = new System.Drawing.Point(4, 28);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(1261, 108);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Tài Khoản";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel3.ColumnCount = 8;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 658F));
+            this.tableLayoutPanel3.Controls.Add(this.btnLogout, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnCreateAccount, 0, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1261, 108);
+            this.tableLayoutPanel3.TabIndex = 1;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
+            this.btnLogout.Location = new System.Drawing.Point(123, 3);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(114, 102);
+            this.btnLogout.TabIndex = 1;
+            this.btnLogout.Text = "Đăng Xuất";
+            this.btnLogout.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnLogout.UseVisualStyleBackColor = false;
+            // 
+            // btnCreateAccount
+            // 
+            this.btnCreateAccount.BackColor = System.Drawing.Color.Transparent;
+            this.btnCreateAccount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCreateAccount.FlatAppearance.BorderSize = 0;
+            this.btnCreateAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateAccount.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnCreateAccount.Image = ((System.Drawing.Image)(resources.GetObject("btnCreateAccount.Image")));
+            this.btnCreateAccount.Location = new System.Drawing.Point(3, 3);
+            this.btnCreateAccount.Name = "btnCreateAccount";
+            this.btnCreateAccount.Size = new System.Drawing.Size(114, 102);
+            this.btnCreateAccount.TabIndex = 0;
+            this.btnCreateAccount.Text = "Tạo Tài Khoản";
+            this.btnCreateAccount.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCreateAccount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCreateAccount.UseVisualStyleBackColor = false;
+            this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
             // 
             // panel2
             // 
@@ -288,6 +472,10 @@
             this.tabAdmin.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -309,5 +497,14 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel pMain;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Button btnCreateAccount;
     }
 }
