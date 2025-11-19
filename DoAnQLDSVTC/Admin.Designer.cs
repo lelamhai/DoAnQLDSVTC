@@ -1,7 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-
-namespace DoAnQLDSVTC
+﻿namespace DoAnQLDSVTC
 {
     partial class Admin
     {
@@ -31,277 +28,285 @@ namespace DoAnQLDSVTC
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tabAdmin = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.btnStudent = new System.Windows.Forms.Button();
-            this.btnClassroom = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pContent = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.lbNameLogin = new System.Windows.Forms.Label();
-            this.timerSlide = new System.Windows.Forms.Timer(this.components);
-            this.btnExit = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.btnLop = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pMain = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.pContent.SuspendLayout();
+            this.tabAdmin.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.BackColor = System.Drawing.SystemColors.Control;
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(10);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.splitContainer1.Panel1.Controls.Add(this.panel2);
-            this.splitContainer1.Panel1.Controls.Add(this.panel1);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.splitContainer1.Panel2.Controls.Add(this.panel3);
-            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.splitContainer1.Size = new System.Drawing.Size(1280, 706);
-            this.splitContainer1.SplitterDistance = 180;
-            this.splitContainer1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.btnExit);
-            this.panel2.Controls.Add(this.button6);
-            this.panel2.Controls.Add(this.button5);
-            this.panel2.Controls.Add(this.button4);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.btnStudent);
-            this.panel2.Controls.Add(this.btnClassroom);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 161);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(180, 545);
-            this.panel2.TabIndex = 2;
-            // 
-            // button6
-            // 
-            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button6.Location = new System.Drawing.Point(0, 150);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 50, 3, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(180, 30);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Tạo Tài Khoản";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button5.Location = new System.Drawing.Point(0, 120);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 50, 3, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(180, 30);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Điểm";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.Location = new System.Drawing.Point(0, 90);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 50, 3, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(180, 30);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Lớp Tín Chỉ";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.Location = new System.Drawing.Point(0, 60);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 50, 3, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(180, 30);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Môn Học";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // btnStudent
-            // 
-            this.btnStudent.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnStudent.Location = new System.Drawing.Point(0, 30);
-            this.btnStudent.Margin = new System.Windows.Forms.Padding(3, 50, 3, 3);
-            this.btnStudent.Name = "btnStudent";
-            this.btnStudent.Size = new System.Drawing.Size(180, 30);
-            this.btnStudent.TabIndex = 1;
-            this.btnStudent.Text = "Sinh Viên";
-            this.btnStudent.UseVisualStyleBackColor = true;
-            this.btnStudent.Click += new System.EventHandler(this.btnStudent_Click);
-            // 
-            // btnClassroom
-            // 
-            this.btnClassroom.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnClassroom.Location = new System.Drawing.Point(0, 0);
-            this.btnClassroom.Margin = new System.Windows.Forms.Padding(3, 50, 3, 3);
-            this.btnClassroom.Name = "btnClassroom";
-            this.btnClassroom.Size = new System.Drawing.Size(180, 30);
-            this.btnClassroom.TabIndex = 0;
-            this.btnClassroom.Text = "Lớp";
-            this.btnClassroom.UseVisualStyleBackColor = true;
-            this.btnClassroom.Click += new System.EventHandler(this.btnClassroom_Click);
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.tabAdmin);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(180, 161);
-            this.panel1.TabIndex = 1;
+            this.panel1.Size = new System.Drawing.Size(1269, 140);
+            this.panel1.TabIndex = 0;
             // 
-            // pictureBox1
+            // tabAdmin
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(24, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 130);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.tabAdmin.Controls.Add(this.tabPage1);
+            this.tabAdmin.Controls.Add(this.tabPage2);
+            this.tabAdmin.Controls.Add(this.tabPage3);
+            this.tabAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabAdmin.Location = new System.Drawing.Point(0, 0);
+            this.tabAdmin.Margin = new System.Windows.Forms.Padding(4);
+            this.tabAdmin.Name = "tabAdmin";
+            this.tabAdmin.SelectedIndex = 0;
+            this.tabAdmin.Size = new System.Drawing.Size(1269, 140);
+            this.tabAdmin.TabIndex = 0;
             // 
-            // panel3
+            // tabPage1
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel3.Controls.Add(this.pContent);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(10, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1086, 706);
-            this.panel3.TabIndex = 1;
+            this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.tableLayoutPanel1);
+            this.tabPage1.ForeColor = System.Drawing.Color.White;
+            this.tabPage1.Location = new System.Drawing.Point(4, 28);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Size = new System.Drawing.Size(1261, 108);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Quản trị";
             // 
-            // pContent
+            // tableLayoutPanel1
             // 
-            this.pContent.BackColor = System.Drawing.SystemColors.Highlight;
-            this.pContent.Controls.Add(this.lblTitle);
-            this.pContent.Controls.Add(this.lbNameLogin);
-            this.pContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pContent.Location = new System.Drawing.Point(0, 0);
-            this.pContent.Margin = new System.Windows.Forms.Padding(0);
-            this.pContent.Name = "pContent";
-            this.pContent.Size = new System.Drawing.Size(1086, 706);
-            this.pContent.TabIndex = 2;
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel1.ColumnCount = 8;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 658F));
+            this.tableLayoutPanel1.Controls.Add(this.button6, 6, 0);
+            this.tableLayoutPanel1.Controls.Add(this.button5, 5, 0);
+            this.tableLayoutPanel1.Controls.Add(this.button4, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.button3, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.button2, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnStudent, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnLop, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 4);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1253, 100);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // lblTitle
+            // button6
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(13, 21);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(36, 19);
-            this.lblTitle.TabIndex = 1;
-            this.lblTitle.Text = "Lớp";
+            this.button6.BackColor = System.Drawing.Color.Transparent;
+            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.Location = new System.Drawing.Point(513, 3);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(79, 94);
+            this.button6.TabIndex = 6;
+            this.button6.Text = "Đăng Kí";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button6.UseVisualStyleBackColor = false;
             // 
-            // lbNameLogin
+            // button5
             // 
-            this.lbNameLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbNameLogin.AutoSize = true;
-            this.lbNameLogin.BackColor = System.Drawing.Color.Transparent;
-            this.lbNameLogin.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNameLogin.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbNameLogin.Location = new System.Drawing.Point(990, 12);
-            this.lbNameLogin.Name = "lbNameLogin";
-            this.lbNameLogin.Size = new System.Drawing.Size(84, 15);
-            this.lbNameLogin.TabIndex = 0;
-            this.lbNameLogin.Text = "Xin chào Thư!";
+            this.button5.BackColor = System.Drawing.Color.Transparent;
+            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+            this.button5.Location = new System.Drawing.Point(428, 3);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(79, 94);
+            this.button5.TabIndex = 5;
+            this.button5.Text = "Học Phí";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button5.UseVisualStyleBackColor = false;
             // 
-            // btnExit
+            // button4
             // 
-            this.btnExit.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnExit.Location = new System.Drawing.Point(0, 515);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 50, 3, 3);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(180, 30);
-            this.btnExit.TabIndex = 6;
-            this.btnExit.Text = "Thoát";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.button4.BackColor = System.Drawing.Color.Transparent;
+            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.Location = new System.Drawing.Point(343, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(79, 94);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "Điểm";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button4.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // button3
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.Location = new System.Drawing.Point(0, 180);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 50, 3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 30);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Đăng Xuất";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Location = new System.Drawing.Point(258, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(79, 94);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Lớp TC";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(173, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(79, 94);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Môn Học";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // btnStudent
+            // 
+            this.btnStudent.BackColor = System.Drawing.Color.Transparent;
+            this.btnStudent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnStudent.FlatAppearance.BorderSize = 0;
+            this.btnStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStudent.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnStudent.Image = ((System.Drawing.Image)(resources.GetObject("btnStudent.Image")));
+            this.btnStudent.Location = new System.Drawing.Point(88, 3);
+            this.btnStudent.Name = "btnStudent";
+            this.btnStudent.Size = new System.Drawing.Size(79, 94);
+            this.btnStudent.TabIndex = 1;
+            this.btnStudent.Text = "Sinh Viên";
+            this.btnStudent.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnStudent.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnStudent.UseVisualStyleBackColor = false;
+            // 
+            // btnLop
+            // 
+            this.btnLop.BackColor = System.Drawing.Color.Transparent;
+            this.btnLop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnLop.FlatAppearance.BorderSize = 0;
+            this.btnLop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLop.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnLop.Image = ((System.Drawing.Image)(resources.GetObject("btnLop.Image")));
+            this.btnLop.Location = new System.Drawing.Point(3, 3);
+            this.btnLop.Name = "btnLop";
+            this.btnLop.Size = new System.Drawing.Size(79, 94);
+            this.btnLop.TabIndex = 0;
+            this.btnLop.Text = "Lớp";
+            this.btnLop.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnLop.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnLop.UseVisualStyleBackColor = false;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 28);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Size = new System.Drawing.Size(1261, 108);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Báo Cáo";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 28);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1261, 108);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Tài Khoản";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 140);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1269, 15);
+            this.panel2.TabIndex = 1;
+            // 
+            // pMain
+            // 
+            this.pMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pMain.Location = new System.Drawing.Point(0, 155);
+            this.pMain.Name = "pMain";
+            this.pMain.Size = new System.Drawing.Size(1269, 654);
+            this.pMain.TabIndex = 2;
             // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.ClientSize = new System.Drawing.Size(1280, 706);
-            this.Controls.Add(this.splitContainer1);
+            this.ClientSize = new System.Drawing.Size(1269, 809);
+            this.Controls.Add(this.pMain);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Admin";
-            this.Text = "Trang Quản Trị";
+            this.Text = "Admin";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Admin_Load);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.pContent.ResumeLayout(false);
-            this.pContent.PerformLayout();
+            this.tabAdmin.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private SplitContainer splitContainer1;
-        private Panel panel1;
-        private Panel panel2;
-        private PictureBox pictureBox1;
-        private Button button5;
-        private Button button4;
-        private Button button3;
-        private Button btnStudent;
-        private Button btnClassroom;
-        private Button button6;
-        private System.Windows.Forms.Timer timerSlide;
-        private Panel panel3;
-        private Panel pContent;
-        private Label lbNameLogin;
-        private Label lblTitle;
-        private Button btnExit;
-        private Button button1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TabControl tabAdmin;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button btnLop;
+        private System.Windows.Forms.Button btnStudent;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pMain;
     }
 }

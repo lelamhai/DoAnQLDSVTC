@@ -1,10 +1,6 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-
-namespace DoAnQLDSVTC
+﻿namespace DoAnQLDSVTC
 {
-    partial class ClassRoom
+    partial class Classroom
     {
         /// <summary>
         /// Required designer variable.
@@ -32,577 +28,593 @@ namespace DoAnQLDSVTC
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.bdsLop = new System.Windows.Forms.BindingSource(this.components);
-            this.DS = new DoAnQLDSVTC.DS();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.dgvLop = new System.Windows.Forms.DataGridView();
-            this.MALOP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENLOP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.KHOAHOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MAKHOA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnUndo = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbKhoa = new System.Windows.Forms.ComboBox();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.txtMaKhoa = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.txtKhoaHoc = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.txtTenLop = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.txtMaLop = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.lblTitleForm = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblLogin = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Classroom));
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.LOPTableAdapter = new DoAnQLDSVTC.DSTableAdapters.LOPTableAdapter();
-            this.TableAdapterManager = new DoAnQLDSVTC.DSTableAdapters.TableAdapterManager();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLop)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.panel13.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.lblTitleKhoa = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtMaLop = new System.Windows.Forms.TextBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.btnGhi = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel6.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel17.SuspendLayout();
             this.SuspendLayout();
             // 
-            // bdsLop
+            // tableLayoutPanel1
             // 
-            this.bdsLop.DataMember = "LOP";
-            this.bdsLop.DataSource = this.DS;
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel3, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1200, 658);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // DS
+            // panel1
             // 
-            this.DS.DataSetName = "DS";
-            this.DS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.panel7);
+            this.panel1.Controls.Add(this.panel6);
+            this.panel1.Controls.Add(this.panel5);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(942, 658);
+            this.panel1.TabIndex = 0;
             // 
-            // splitContainer1
+            // panel7
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(10, 63);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
-            this.splitContainer1.Name = "splitContainer1";
+            this.panel7.Controls.Add(this.dataGridView1);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(0, 162);
+            this.panel7.Name = "panel7";
+            this.panel7.Padding = new System.Windows.Forms.Padding(15);
+            this.panel7.Size = new System.Drawing.Size(942, 496);
+            this.panel7.TabIndex = 4;
             // 
-            // splitContainer1.Panel1
+            // dataGridView1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.panel3);
-            this.splitContainer1.Panel1.Controls.Add(this.panel2);
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(15, 15);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(912, 466);
+            this.dataGridView1.TabIndex = 0;
             // 
-            // splitContainer1.Panel2
+            // panel6
             // 
-            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Transparent;
-            this.splitContainer1.Panel2.Controls.Add(this.panel13);
-            this.splitContainer1.Panel2.Controls.Add(this.panel12);
-            this.splitContainer1.Panel2.Controls.Add(this.panel11);
-            this.splitContainer1.Panel2.Controls.Add(this.panel10);
-            this.splitContainer1.Panel2.Controls.Add(this.panel9);
-            this.splitContainer1.Panel2.Controls.Add(this.panel8);
-            this.splitContainer1.Panel2.Controls.Add(this.panel7);
-            this.splitContainer1.Panel2.Controls.Add(this.panel6);
-            this.splitContainer1.Panel2.Controls.Add(this.panel5);
-            this.splitContainer1.Panel2.Controls.Add(this.panel4);
-            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(15, 0, 15, 0);
-            this.splitContainer1.Size = new System.Drawing.Size(1309, 781);
-            this.splitContainer1.SplitterDistance = 985;
-            this.splitContainer1.SplitterWidth = 5;
-            this.splitContainer1.TabIndex = 1;
+            this.panel6.Controls.Add(this.tableLayoutPanel2);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 132);
+            this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.panel6.Size = new System.Drawing.Size(942, 30);
+            this.panel6.TabIndex = 3;
             // 
-            // panel3
+            // tableLayoutPanel2
             // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.dgvLop);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 71);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(985, 710);
-            this.panel3.TabIndex = 1;
+            this.tableLayoutPanel2.ColumnCount = 7;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 492F));
+            this.tableLayoutPanel2.Controls.Add(this.button6, 5, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button5, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button4, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button3, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button2, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button1, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(15, 0);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(927, 30);
+            this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // dgvLop
+            // button6
             // 
-            this.dgvLop.AllowUserToAddRows = false;
-            this.dgvLop.AutoGenerateColumns = false;
-            this.dgvLop.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvLop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLop.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MALOP,
-            this.TENLOP,
-            this.KHOAHOC,
-            this.MAKHOA,
-            this.Edit,
-            this.Delete});
-            this.dgvLop.DataSource = this.bdsLop;
-            this.dgvLop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvLop.Location = new System.Drawing.Point(0, 0);
-            this.dgvLop.Name = "dgvLop";
-            this.dgvLop.ReadOnly = true;
-            this.dgvLop.Size = new System.Drawing.Size(985, 710);
-            this.dgvLop.TabIndex = 0;
-            this.dgvLop.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnCellClick);
+            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.Location = new System.Drawing.Point(378, 3);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(69, 24);
+            this.button6.TabIndex = 6;
+            this.button6.Text = "Thêm";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button6.UseVisualStyleBackColor = true;
             // 
-            // MALOP
+            // button5
             // 
-            this.MALOP.DataPropertyName = "MALOP";
-            this.MALOP.HeaderText = "Mã Lớp";
-            this.MALOP.Name = "MALOP";
-            this.MALOP.ReadOnly = true;
+            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+            this.button5.Location = new System.Drawing.Point(303, 3);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(69, 24);
+            this.button5.TabIndex = 5;
+            this.button5.Text = "Thêm";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button5.UseVisualStyleBackColor = true;
             // 
-            // TENLOP
+            // button4
             // 
-            this.TENLOP.DataPropertyName = "TENLOP";
-            this.TENLOP.HeaderText = "Tên Lớp";
-            this.TENLOP.Name = "TENLOP";
-            this.TENLOP.ReadOnly = true;
+            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.Location = new System.Drawing.Point(228, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(69, 24);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "Thêm";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button4.UseVisualStyleBackColor = true;
             // 
-            // KHOAHOC
+            // button3
             // 
-            this.KHOAHOC.DataPropertyName = "KHOAHOC";
-            this.KHOAHOC.HeaderText = "Khóa Học";
-            this.KHOAHOC.Name = "KHOAHOC";
-            this.KHOAHOC.ReadOnly = true;
+            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Location = new System.Drawing.Point(153, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(69, 24);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Thêm";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button3.UseVisualStyleBackColor = true;
             // 
-            // MAKHOA
+            // button2
             // 
-            this.MAKHOA.DataPropertyName = "MAKHOA";
-            this.MAKHOA.HeaderText = "Mã Khoa";
-            this.MAKHOA.Name = "MAKHOA";
-            this.MAKHOA.ReadOnly = true;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(78, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(69, 24);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Thêm";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // Edit
+            // button1
             // 
-            this.Edit.HeaderText = "";
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            this.Edit.Text = "Chỉnh Sửa";
-            this.Edit.UseColumnTextForButtonValue = true;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(69, 24);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Thêm";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // Delete
+            // panel5
             // 
-            this.Delete.HeaderText = "";
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Text = "Xóa";
-            this.Delete.UseColumnTextForButtonValue = true;
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 102);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(942, 30);
+            this.panel5.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(401, 19);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(137, 22);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Danh Sách Lớp";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.lblTitleKhoa);
+            this.panel4.Controls.Add(this.comboBox1);
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(15, 0, 15, 0);
+            this.panel4.Size = new System.Drawing.Size(942, 102);
+            this.panel4.TabIndex = 1;
+            // 
+            // lblTitleKhoa
+            // 
+            this.lblTitleKhoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTitleKhoa.AutoSize = true;
+            this.lblTitleKhoa.Location = new System.Drawing.Point(743, 77);
+            this.lblTitleKhoa.Name = "lblTitleKhoa";
+            this.lblTitleKhoa.Size = new System.Drawing.Size(181, 19);
+            this.lblTitleKhoa.TabIndex = 2;
+            this.lblTitleKhoa.Text = "Khoa Công Nghệ Thông Tin";
+            this.lblTitleKhoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(67, 74);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(294, 27);
+            this.comboBox1.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 77);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 19);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Khoa";
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.btnUndo);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.cmbKhoa);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Controls.Add(this.panel17);
+            this.panel2.Controls.Add(this.panel16);
+            this.panel2.Controls.Add(this.panel15);
+            this.panel2.Controls.Add(this.panel14);
+            this.panel2.Controls.Add(this.panel13);
+            this.panel2.Controls.Add(this.panel12);
+            this.panel2.Controls.Add(this.panel11);
+            this.panel2.Controls.Add(this.panel10);
+            this.panel2.Controls.Add(this.panel9);
+            this.panel2.Controls.Add(this.panel8);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(964, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(985, 71);
-            this.panel2.TabIndex = 0;
-            // 
-            // btnUndo
-            // 
-            this.btnUndo.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnUndo.Location = new System.Drawing.Point(885, 22);
-            this.btnUndo.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUndo.Name = "btnUndo";
-            this.btnUndo.Size = new System.Drawing.Size(96, 29);
-            this.btnUndo.TabIndex = 2;
-            this.btnUndo.Text = "Phục Hồi";
-            this.btnUndo.UseVisualStyleBackColor = true;
-            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 25);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 19);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Khoa";
-            // 
-            // cmbKhoa
-            // 
-            this.cmbKhoa.FormattingEnabled = true;
-            this.cmbKhoa.Location = new System.Drawing.Point(62, 22);
-            this.cmbKhoa.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbKhoa.Name = "cmbKhoa";
-            this.cmbKhoa.Size = new System.Drawing.Size(385, 27);
-            this.cmbKhoa.TabIndex = 0;
-            this.cmbKhoa.SelectedIndexChanged += new System.EventHandler(this.cmbKhoa_SelectedIndexChanged);
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.tableLayoutPanel2);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel13.Location = new System.Drawing.Point(15, 446);
-            this.panel13.Name = "panel13";
-            this.panel13.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
-            this.panel13.Size = new System.Drawing.Size(289, 50);
-            this.panel13.TabIndex = 24;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.btnSave, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnClear, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(50, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(189, 50);
-            this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSave.Location = new System.Drawing.Point(3, 3);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(88, 35);
-            this.btnSave.TabIndex = 2;
-            this.btnSave.Text = "Ghi";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnClear.Location = new System.Drawing.Point(97, 3);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(89, 35);
-            this.btnClear.TabIndex = 1;
-            this.btnClear.Text = "Làm Mới";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // panel12
-            // 
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(15, 346);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(289, 100);
-            this.panel12.TabIndex = 23;
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.txtMaKhoa);
-            this.panel11.Controls.Add(this.label7);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel11.Location = new System.Drawing.Point(15, 296);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(289, 50);
-            this.panel11.TabIndex = 22;
-            // 
-            // txtMaKhoa
-            // 
-            this.txtMaKhoa.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsLop, "MAKHOA", true));
-            this.txtMaKhoa.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtMaKhoa.Enabled = false;
-            this.txtMaKhoa.Location = new System.Drawing.Point(0, 24);
-            this.txtMaKhoa.Name = "txtMaKhoa";
-            this.txtMaKhoa.Size = new System.Drawing.Size(289, 26);
-            this.txtMaKhoa.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label7.Location = new System.Drawing.Point(0, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 19);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Mã Khoa";
-            // 
-            // panel10
-            // 
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel10.Location = new System.Drawing.Point(15, 271);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(289, 25);
-            this.panel10.TabIndex = 21;
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.txtKhoaHoc);
-            this.panel9.Controls.Add(this.label6);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(15, 221);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(289, 50);
-            this.panel9.TabIndex = 20;
-            // 
-            // txtKhoaHoc
-            // 
-            this.txtKhoaHoc.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtKhoaHoc.Location = new System.Drawing.Point(0, 24);
-            this.txtKhoaHoc.Name = "txtKhoaHoc";
-            this.txtKhoaHoc.Size = new System.Drawing.Size(289, 26);
-            this.txtKhoaHoc.TabIndex = 6;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 19);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Khóa Học";
+            this.panel2.Padding = new System.Windows.Forms.Padding(15);
+            this.panel2.Size = new System.Drawing.Size(236, 658);
+            this.panel2.TabIndex = 1;
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.label3);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(15, 196);
+            this.panel8.Location = new System.Drawing.Point(15, 15);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(289, 25);
-            this.panel8.TabIndex = 19;
+            this.panel8.Size = new System.Drawing.Size(206, 75);
+            this.panel8.TabIndex = 1;
             // 
-            // panel7
+            // label3
             // 
-            this.panel7.Controls.Add(this.txtTenLop);
-            this.panel7.Controls.Add(this.label5);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(15, 146);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(289, 50);
-            this.panel7.TabIndex = 18;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(60, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(96, 22);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Thông Tin";
             // 
-            // txtTenLop
+            // panel3
             // 
-            this.txtTenLop.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtTenLop.Location = new System.Drawing.Point(0, 24);
-            this.txtTenLop.Name = "txtTenLop";
-            this.txtTenLop.Size = new System.Drawing.Size(289, 26);
-            this.txtTenLop.TabIndex = 1;
+            this.panel3.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(942, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(22, 658);
+            this.panel3.TabIndex = 2;
             // 
-            // label5
+            // panel9
             // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label5.Location = new System.Drawing.Point(0, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 19);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Tên Lớp";
+            this.panel9.Controls.Add(this.txtMaLop);
+            this.panel9.Controls.Add(this.label4);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(15, 90);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(206, 50);
+            this.panel9.TabIndex = 2;
             // 
-            // panel6
+            // label4
             // 
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(15, 121);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(289, 25);
-            this.panel6.TabIndex = 17;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.txtMaLop);
-            this.panel5.Controls.Add(this.label4);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(15, 71);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(289, 50);
-            this.panel5.TabIndex = 16;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 19);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Mã Lớp";
             // 
             // txtMaLop
             // 
             this.txtMaLop.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.txtMaLop.Location = new System.Drawing.Point(0, 24);
             this.txtMaLop.Name = "txtMaLop";
-            this.txtMaLop.Size = new System.Drawing.Size(289, 26);
-            this.txtMaLop.TabIndex = 18;
+            this.txtMaLop.Size = new System.Drawing.Size(206, 26);
+            this.txtMaLop.TabIndex = 4;
             // 
-            // label4
+            // panel10
             // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 19);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Mã Lớp";
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(15, 140);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(206, 30);
+            this.panel10.TabIndex = 3;
             // 
-            // panel4
+            // panel11
             // 
-            this.panel4.Controls.Add(this.lblTitleForm);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(15, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(289, 71);
-            this.panel4.TabIndex = 15;
+            this.panel11.Controls.Add(this.textBox1);
+            this.panel11.Controls.Add(this.label5);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel11.Location = new System.Drawing.Point(15, 170);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(206, 50);
+            this.panel11.TabIndex = 4;
             // 
-            // lblTitleForm
+            // label5
             // 
-            this.lblTitleForm.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblTitleForm.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitleForm.Location = new System.Drawing.Point(0, 0);
-            this.lblTitleForm.Name = "lblTitleForm";
-            this.lblTitleForm.Size = new System.Drawing.Size(289, 71);
-            this.lblTitleForm.TabIndex = 0;
-            this.lblTitleForm.Text = "Thêm Dữ Liệu";
-            this.lblTitleForm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 19);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Tên Lớp";
             // 
-            // label2
+            // textBox1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 18);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 22);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Danh Sách Lớp";
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.textBox1.Location = new System.Drawing.Point(0, 24);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(206, 26);
+            this.textBox1.TabIndex = 1;
             // 
-            // lblLogin
+            // panel12
             // 
-            this.lblLogin.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblLogin.AutoSize = true;
-            this.lblLogin.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogin.Location = new System.Drawing.Point(1195, 18);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(99, 16);
-            this.lblLogin.TabIndex = 1;
-            this.lblLogin.Text = "Xin chào NULL!";
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel12.Location = new System.Drawing.Point(15, 220);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(206, 30);
+            this.panel12.TabIndex = 5;
             // 
-            // panel1
+            // panel13
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.lblLogin);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(10, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1309, 63);
-            this.panel1.TabIndex = 0;
+            this.panel13.Controls.Add(this.textBox2);
+            this.panel13.Controls.Add(this.label6);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel13.Location = new System.Drawing.Point(15, 250);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(206, 50);
+            this.panel13.TabIndex = 6;
             // 
-            // LOPTableAdapter
+            // panel14
             // 
-            this.LOPTableAdapter.ClearBeforeFill = true;
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel14.Location = new System.Drawing.Point(15, 300);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(206, 30);
+            this.panel14.TabIndex = 7;
             // 
-            // TableAdapterManager
+            // panel15
             // 
-            this.TableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.TableAdapterManager.LOPTableAdapter = this.LOPTableAdapter;
-            this.TableAdapterManager.SINHVIENTableAdapter = null;
-            this.TableAdapterManager.UpdateOrder = DoAnQLDSVTC.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.panel15.Controls.Add(this.textBox3);
+            this.panel15.Controls.Add(this.label7);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel15.Location = new System.Drawing.Point(15, 330);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(206, 50);
+            this.panel15.TabIndex = 8;
             // 
-            // ClassRoom
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 19);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Khóa Học";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.textBox2.Location = new System.Drawing.Point(0, 24);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(206, 26);
+            this.textBox2.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 3);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(68, 19);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Mã Khoa";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.textBox3.Location = new System.Drawing.Point(0, 24);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(206, 26);
+            this.textBox3.TabIndex = 1;
+            // 
+            // panel16
+            // 
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel16.Location = new System.Drawing.Point(15, 380);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(206, 50);
+            this.panel16.TabIndex = 9;
+            // 
+            // panel17
+            // 
+            this.panel17.Controls.Add(this.btnGhi);
+            this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel17.Location = new System.Drawing.Point(15, 430);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(206, 40);
+            this.panel17.TabIndex = 10;
+            // 
+            // btnGhi
+            // 
+            this.btnGhi.BackColor = System.Drawing.Color.Brown;
+            this.btnGhi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnGhi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGhi.ForeColor = System.Drawing.Color.White;
+            this.btnGhi.Location = new System.Drawing.Point(0, 0);
+            this.btnGhi.Name = "btnGhi";
+            this.btnGhi.Size = new System.Drawing.Size(206, 40);
+            this.btnGhi.TabIndex = 0;
+            this.btnGhi.Text = "Ghi";
+            this.btnGhi.UseVisualStyleBackColor = false;
+            // 
+            // Classroom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1329, 844);
-            this.Controls.Add(this.splitContainer1);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1200, 658);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "ClassRoom";
-            this.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.Text = "ClassRoom";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.ClassRoom_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLop)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel13.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel4.ResumeLayout(false);
+            this.Name = "Classroom";
+            this.Text = "Classroom";
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
+            this.panel17.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
-
         #endregion
-        private SplitContainer splitContainer1;
-        private Panel panel3;
-        private Label lblTitleForm;
-        private Label label6;
-        private Panel panel5;
-        private Panel panel4;
-        private Label label4;
-        private Panel panel6;
-        private Panel panel7;
-        private Label label5;
-        private Panel panel8;
-        private Panel panel9;
-        private Panel panel2;
-        private Button btnUndo;
-        private Label label1;
-        private ComboBox cmbKhoa;
-        private Label label2;
-        private Label lblLogin;
-        private Panel panel1;
-        private DS DS;
-        private BindingSource bdsLop;
-        private DSTableAdapters.LOPTableAdapter LOPTableAdapter;
-        private DSTableAdapters.TableAdapterManager TableAdapterManager;
-        private Panel panel13;
-        private TableLayoutPanel tableLayoutPanel2;
-        private Button btnSave;
-        private Button btnClear;
-        private Panel panel12;
-        private Panel panel11;
-        private Label label7;
-        private Panel panel10;
-        private DataGridView dgvLop;
-        private TextBox txtMaLop;
-        private TextBox txtKhoaHoc;
-        private TextBox txtTenLop;
-        private TextBox txtMaKhoa;
-        private DataGridViewTextBoxColumn MALOP;
-        private DataGridViewTextBoxColumn TENLOP;
-        private DataGridViewTextBoxColumn KHOAHOC;
-        private DataGridViewTextBoxColumn MAKHOA;
-        private DataGridViewButtonColumn Edit;
-        private DataGridViewButtonColumn Delete;
+
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTitleKhoa;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.TextBox txtMaLop;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Button btnGhi;
+        private System.Windows.Forms.Panel panel16;
     }
 }

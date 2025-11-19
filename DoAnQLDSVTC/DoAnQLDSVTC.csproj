@@ -52,11 +52,11 @@
     <Compile Include="Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClassRoom.cs">
+    <Compile Include="Classroom.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClassRoom.Designer.cs">
-      <DependentUpon>ClassRoom.cs</DependentUpon>
+    <Compile Include="Classroom.Designer.cs">
+      <DependentUpon>Classroom.cs</DependentUpon>
     </Compile>
     <Compile Include="DS.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -78,11 +78,17 @@
     <Compile Include="Student.Designer.cs">
       <DependentUpon>Student.cs</DependentUpon>
     </Compile>
+    <Compile Include="Subject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Subject.Designer.cs">
+      <DependentUpon>Subject.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClassRoom.resx">
-      <DependentUpon>ClassRoom.cs</DependentUpon>
+    <EmbeddedResource Include="Classroom.resx">
+      <DependentUpon>Classroom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
