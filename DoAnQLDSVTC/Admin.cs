@@ -43,5 +43,12 @@ namespace DoAnQLDSVTC
         {
             LoadForm(new CreateAccount());
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();       // mở Form2
+            this.Hide();     // ẩn Form1
+        }
     }
 }

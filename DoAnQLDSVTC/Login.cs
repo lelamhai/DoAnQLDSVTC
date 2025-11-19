@@ -18,9 +18,12 @@ namespace DoAnQLDSVTC
             if (KetNoi_CSDLGOC() == 0) return;
             LayDSPM("SELECT * FROM V_GET_SUBSCRIBES");
 
-            cmbKhoa.SelectedIndex = 2;
-            cmbKhoa.SelectedIndex = 1;
-            cmbKhoa.SelectedIndex = 0;
+            if (cmbKhoa.Items.Count > 2)
+                cmbKhoa.SelectedIndex = 2;
+            else if (cmbKhoa.Items.Count > 1)
+                cmbKhoa.SelectedIndex = 1;
+            else if (cmbKhoa.Items.Count > 0)
+                cmbKhoa.SelectedIndex = 0;
 
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.FlatAppearance.BorderSize = 0;
