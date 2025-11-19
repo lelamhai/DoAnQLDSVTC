@@ -52,6 +52,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel1.Controls.Add(this.tabAdmin);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -84,7 +85,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(1261, 108);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Quản trị";
+            this.tabPage1.Text = "Quản Trị";
             // 
             // tableLayoutPanel1
             // 
@@ -125,7 +126,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(79, 94);
             this.button6.TabIndex = 6;
-            this.button6.Text = "Đăng Kí";
+            this.button6.Text = "ĐK LTC";
             this.button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button6.UseVisualStyleBackColor = false;
@@ -254,7 +255,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 140);
             this.panel2.Name = "panel2";

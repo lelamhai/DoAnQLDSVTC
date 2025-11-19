@@ -2,9 +2,9 @@
 {
     public interface IBaseForm
     {
-        void AddData(params object[] args);
-        void EditData(params object[] args);
-        void DeleteData(params object[] args);
+        void AddData();
+        void UpdateData();
+        void DeleteData();
         void UndoAction();
     }
 
