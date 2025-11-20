@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
@@ -136,6 +137,12 @@ namespace DoAnQLDSVTC
             cmbKhoa.SelectedIndex = Program.MKhoa;
 
             Program.bds_dspm.Filter = "TENKHOA <> 'PHÒNG KẾ TOÁN'";
+            string quyen = Program.mGroup;
+
+            if(quyen == Program.quyen[1])
+            {
+                cmbKhoa.Enabled = false;
+            }    
         }
 
         private void LoadLabelKhoa()

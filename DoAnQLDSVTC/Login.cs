@@ -17,17 +17,16 @@ namespace DoAnQLDSVTC
         {
             if (KetNoi_CSDLGOC() == 0) return;
             LayDSPM("SELECT * FROM V_GET_SUBSCRIBES");
+            LoadComboxDefult();
+            label1.Focus();
+        }
 
-            if (cmbKhoa.Items.Count > 2)
-                cmbKhoa.SelectedIndex = 2;
-            else if (cmbKhoa.Items.Count > 1)
-                cmbKhoa.SelectedIndex = 1;
-            else if (cmbKhoa.Items.Count > 0)
-                cmbKhoa.SelectedIndex = 0;
-
-            btnLogin.FlatStyle = FlatStyle.Flat;
-            btnLogin.FlatAppearance.BorderSize = 0;
-            btnLogin.UseVisualStyleBackColor = false;
+        void LoadComboxDefult()
+        {
+            int index = 0;
+            DataRowView row = (DataRowView)cmbKhoa.Items[index];
+            string nameServer = row["TENSERVER"].ToString().Trim();
+            Program.ServerName = nameServer;
         }
 
         private int KetNoi_CSDLGOC()
@@ -56,6 +55,13 @@ namespace DoAnQLDSVTC
             SqlDataAdapter da = new SqlDataAdapter(cmd, Conn_pub);
             da.Fill(dt);
             Conn_pub.Close();
+
+            int dataCount = dt.Rows.Count;
+            foreach (DataRow row in dt.Rows)
+            {
+                string serverName = row["TENSERVER"].ToString();
+                string departmentName = row["TENKHOA"].ToString();
+            }
 
             Program.bds_dspm.DataSource = dt;
             cmbKhoa.DataSource = Program.bds_dspm;
