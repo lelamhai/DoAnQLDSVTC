@@ -85,9 +85,9 @@ namespace DoAnQLDSVTC
             // 
             this.cmbKhoa.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.cmbKhoa.FormattingEnabled = true;
-            this.cmbKhoa.Location = new System.Drawing.Point(50, 29);
+            this.cmbKhoa.Location = new System.Drawing.Point(50, 23);
             this.cmbKhoa.Name = "cmbKhoa";
-            this.cmbKhoa.Size = new System.Drawing.Size(300, 21);
+            this.cmbKhoa.Size = new System.Drawing.Size(300, 27);
             this.cmbKhoa.TabIndex = 1;
             this.cmbKhoa.SelectedIndexChanged += new System.EventHandler(this.cmbKhoa_SelectedIndexChanged);
             // 
@@ -107,6 +107,7 @@ namespace DoAnQLDSVTC
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(678, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(400, 708);
@@ -199,9 +200,9 @@ namespace DoAnQLDSVTC
             // txtPassword
             // 
             this.txtPassword.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtPassword.Location = new System.Drawing.Point(50, 30);
+            this.txtPassword.Location = new System.Drawing.Point(50, 24);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(300, 20);
+            this.txtPassword.Size = new System.Drawing.Size(300, 26);
             this.txtPassword.TabIndex = 9;
             this.txtPassword.Text = "123456";
             // 
@@ -238,11 +239,11 @@ namespace DoAnQLDSVTC
             // txtUserName
             // 
             this.txtUserName.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtUserName.Location = new System.Drawing.Point(50, 30);
+            this.txtUserName.Location = new System.Drawing.Point(50, 24);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(300, 20);
+            this.txtUserName.Size = new System.Drawing.Size(300, 26);
             this.txtUserName.TabIndex = 8;
-            this.txtUserName.Text = "lnkt";
+            this.txtUserName.Text = "luunguyenkythu";
             // 
             // panel7
             // 
