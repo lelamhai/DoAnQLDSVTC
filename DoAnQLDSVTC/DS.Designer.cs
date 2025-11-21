@@ -917,10 +917,12 @@ namespace DoAnQLDSVTC {
                 this.columnTEN.AllowDBNull = false;
                 this.columnTEN.MaxLength = 10;
                 this.columnPHAI.AllowDBNull = false;
+                this.columnPHAI.DefaultValue = ((bool)(false));
                 this.columnDIACHI.MaxLength = 100;
                 this.columnMALOP.AllowDBNull = false;
                 this.columnMALOP.MaxLength = 10;
                 this.columnDANGHIHOC.AllowDBNull = false;
+                this.columnDANGHIHOC.DefaultValue = ((bool)(false));
                 this.columnPASSWORD.MaxLength = 40;
             }
             

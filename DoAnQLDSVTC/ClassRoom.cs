@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Reflection;
 using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
@@ -38,6 +37,8 @@ namespace DoAnQLDSVTC
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            LoadActiveLeft();
+
             string maLop = txtMaLop.Text.Trim();
             string tenLop = txtTenLop.Text.Trim();
             string khoaHoc = txtKhoaHoc.Text.Trim();
@@ -253,12 +254,11 @@ namespace DoAnQLDSVTC
             return result;
         }
 
-        private void btnHuy_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             dbsLOP.CancelEdit();
             oldData.Clear();
-            pLeft.Enabled = true;
-            pRight.Enabled = false;
+            LoadActiveLeft();
         }
 
         private void LoadActiveLeft()
