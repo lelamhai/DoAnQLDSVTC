@@ -109,23 +109,30 @@ namespace DoAnQLDSVTC
                     DS.SINHVIENRow rowADD = DS.SINHVIEN.FindByMASV(action.maSV.Trim());
                     if (rowADD == null)
                     {
-                        MessageBox.Show("Không tìm thấy lớp");
+                        MessageBox.Show("Không tìm mã sinh viên");
                         return;
                     }
                     rowADD.Delete();
                     SINHVIENTableAdapter.Update(DS.SINHVIEN);
                     break;
                 case STATE_ACTION.EDIT:
-                    lblMaLop.Text = action.maLop;
-                    txtMaSV.Text = action.maSV;
-                    txtHo.Text = action.ho;
-                    txtTen.Text = action.ten;
-                    dtpDOB.Value = action.ngaySinh;
-                    txtDiaChi.Text = action.diaChi;
-                    cbFemale.Checked = action.phai;
-                    cbNotStudy.Checked = action.dangNghiHoc;
-                    FKSINHVIENLOPBindingSource.EndEdit();
+                    DS.SINHVIENRow rowEDIT = DS.SINHVIEN.FindByMASV(action.maSV.Trim());
+                    if (rowEDIT == null)
+                    {
+                        MessageBox.Show("Không tìm mã sinh viên");
+                        return;
+                    }
+                    rowEDIT.MASV = action.maSV.Trim();
+                    rowEDIT.HO = action.ho.Trim();
+                    rowEDIT.TEN = action.ten.Trim();
+                    rowEDIT.PHAI = action.phai;
+                    rowEDIT.DIACHI = action.diaChi.Trim();
+                    rowEDIT.NGAYSINH = action.ngaySinh;
+                    rowEDIT.MALOP = action.maLop.Trim();
+                    rowEDIT.DANGHIHOC = action.dangNghiHoc;
+                    rowEDIT.PASSWORD = string.Empty;
                     SINHVIENTableAdapter.Update(DS.SINHVIEN);
+
                     break;
                 case STATE_ACTION.DELETE:
                     SINHVIENTableAdapter.Insert(
@@ -135,7 +142,7 @@ namespace DoAnQLDSVTC
                         action.phai, 
                         action.diaChi.Trim(),
                         action.ngaySinh, 
-                        action.maLop, 
+                        action.maLop.Trim(), 
                         action.dangNghiHoc, 
                         string.Empty);
 

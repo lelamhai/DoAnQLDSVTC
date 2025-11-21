@@ -363,7 +363,7 @@ namespace DoAnQLDSVTC
             // 
             this.cbNotStudy.AutoSize = true;
             this.cbNotStudy.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.FKSINHVIENLOPBindingSource, "DANGHIHOC", true));
-            this.cbNotStudy.Location = new System.Drawing.Point(3, 27);
+            this.cbNotStudy.Location = new System.Drawing.Point(16, 27);
             this.cbNotStudy.Name = "cbNotStudy";
             this.cbNotStudy.Size = new System.Drawing.Size(109, 23);
             this.cbNotStudy.TabIndex = 2;
@@ -417,7 +417,7 @@ namespace DoAnQLDSVTC
             // 
             this.cbFemale.AutoSize = true;
             this.cbFemale.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.FKSINHVIENLOPBindingSource, "PHAI", true));
-            this.cbFemale.Location = new System.Drawing.Point(3, 27);
+            this.cbFemale.Location = new System.Drawing.Point(17, 27);
             this.cbFemale.Name = "cbFemale";
             this.cbFemale.Size = new System.Drawing.Size(49, 23);
             this.cbFemale.TabIndex = 1;
@@ -929,7 +929,7 @@ namespace DoAnQLDSVTC
             // DANGHIHOC
             // 
             this.DANGHIHOC.DataPropertyName = "DANGHIHOC";
-            this.DANGHIHOC.HeaderText = "Trạng Thái Học";
+            this.DANGHIHOC.HeaderText = "Đã Nghỉ Học";
             this.DANGHIHOC.Name = "DANGHIHOC";
             // 
             // panel10
@@ -1201,13 +1201,6 @@ namespace DoAnQLDSVTC
         private DataGridViewTextBoxColumn MALOP;
         private DataGridViewTextBoxColumn TENLOP;
         private DataGridViewTextBoxColumn KHOAHOC;
-        private DataGridViewTextBoxColumn MASV;
-        private DataGridViewTextBoxColumn HO;
-        private DataGridViewTextBoxColumn TEN;
-        private DataGridViewTextBoxColumn NGAYSINH;
-        private DataGridViewTextBoxColumn DIACHI;
-        private DataGridViewCheckBoxColumn PHAI;
-        private DataGridViewCheckBoxColumn DANGHIHOC;
         private Label lblTitleKhoa;
         private Panel panel32;
         private Panel panel31;
@@ -1215,5 +1208,12 @@ namespace DoAnQLDSVTC
         private Label label13;
         private CheckBox cbNotStudy;
         private CheckBox cbFemale;
+        private DataGridViewTextBoxColumn MASV;
+        private DataGridViewTextBoxColumn HO;
+        private DataGridViewTextBoxColumn TEN;
+        private DataGridViewTextBoxColumn NGAYSINH;
+        private DataGridViewTextBoxColumn DIACHI;
+        private DataGridViewCheckBoxColumn PHAI;
+        private DataGridViewCheckBoxColumn DANGHIHOC;
     }
 }

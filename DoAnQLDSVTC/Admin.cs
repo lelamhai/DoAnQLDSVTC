@@ -12,7 +12,7 @@ namespace DoAnQLDSVTC
 
         private void Admin_Load(object sender, EventArgs e)
         {
-            LoadForm(new Classroom());
+            LoadForm(new NewClassroom());
         }
 
         private void LoadForm(object form)
@@ -36,7 +36,7 @@ namespace DoAnQLDSVTC
 
         private void btnLop_Click(object sender, EventArgs e)
         {
-            LoadForm(new Classroom());
+            LoadForm(new NewClassroom());
         }
 
         private void btnCreateAccount_Click(object sender, EventArgs e)
