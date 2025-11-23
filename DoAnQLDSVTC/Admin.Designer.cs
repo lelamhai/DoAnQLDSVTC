@@ -51,8 +51,9 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnCreateAccount = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pTabBar = new System.Windows.Forms.Panel();
             this.pMain = new System.Windows.Forms.Panel();
+            this.giangvienTableAdapter1 = new DoAnQLDSVTC.DSTableAdapters.GIANGVIENTableAdapter();
             this.panel1.SuspendLayout();
             this.tabAdmin.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -438,22 +439,26 @@
             this.btnCreateAccount.UseVisualStyleBackColor = false;
             this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
             // 
-            // panel2
+            // pTabBar
             // 
-            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 140);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1269, 15);
-            this.panel2.TabIndex = 1;
+            this.pTabBar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pTabBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pTabBar.Location = new System.Drawing.Point(0, 140);
+            this.pTabBar.Name = "pTabBar";
+            this.pTabBar.Size = new System.Drawing.Size(1269, 30);
+            this.pTabBar.TabIndex = 1;
             // 
             // pMain
             // 
             this.pMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pMain.Location = new System.Drawing.Point(0, 155);
+            this.pMain.Location = new System.Drawing.Point(0, 170);
             this.pMain.Name = "pMain";
-            this.pMain.Size = new System.Drawing.Size(1269, 654);
+            this.pMain.Size = new System.Drawing.Size(1269, 639);
             this.pMain.TabIndex = 2;
+            // 
+            // giangvienTableAdapter1
+            // 
+            this.giangvienTableAdapter1.ClearBeforeFill = true;
             // 
             // Admin
             // 
@@ -461,7 +466,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1269, 809);
             this.Controls.Add(this.pMain);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pTabBar);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -496,7 +501,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pTabBar;
         private System.Windows.Forms.Panel pMain;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button button8;
@@ -507,5 +512,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnCreateAccount;
+        private DSTableAdapters.GIANGVIENTableAdapter giangvienTableAdapter1;
     }
 }

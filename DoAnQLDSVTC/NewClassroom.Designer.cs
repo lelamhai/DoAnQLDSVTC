@@ -77,8 +77,9 @@
             this.txtMaLop = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.LOPTableAdapter = new DoAnQLDSVTC.DSTableAdapters.LOPTableAdapter();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.LOPTableAdapter = new DoAnQLDSVTC.DSTableAdapters.LOPTableAdapter();
+            this.btnExit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -274,6 +275,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 492F));
+            this.tableLayoutPanel2.Controls.Add(this.btnExit, 5, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnUndo, 4, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnRefresh, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnDelete, 2, 0);
@@ -634,10 +636,6 @@
             this.label3.Text = "Thông Tin Lớp";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LOPTableAdapter
-            // 
-            this.LOPTableAdapter.ClearBeforeFill = true;
-            // 
             // panel14
             // 
             this.panel14.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -647,6 +645,26 @@
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(15, 680);
             this.panel14.TabIndex = 2;
+            // 
+            // LOPTableAdapter
+            // 
+            this.LOPTableAdapter.ClearBeforeFill = true;
+            // 
+            // btnExit
+            // 
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.Location = new System.Drawing.Point(428, 3);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(69, 24);
+            this.btnExit.TabIndex = 6;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // NewClassroom
             // 
@@ -661,7 +679,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NewClassroom";
-            this.Text = "NewClassroom";
+            this.Tag = "";
+            this.Text = "Lớp";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.NewClassroom_Load);
             this.panel1.ResumeLayout(false);
@@ -742,5 +761,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TENLOP;
         private System.Windows.Forms.DataGridViewTextBoxColumn KHOAHOC;
         private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Button btnExit;
     }
 }

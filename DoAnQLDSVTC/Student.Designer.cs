@@ -111,6 +111,7 @@ namespace DoAnQLDSVTC
             this.DANGHIHOC = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel10 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.bntExit = new System.Windows.Forms.Button();
             this.btnUndo = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -951,6 +952,7 @@ namespace DoAnQLDSVTC
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 492F));
+            this.tableLayoutPanel3.Controls.Add(this.bntExit, 5, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnUndo, 4, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnRefresh, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnDelete, 2, 0);
@@ -964,6 +966,22 @@ namespace DoAnQLDSVTC
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(870, 30);
             this.tableLayoutPanel3.TabIndex = 1;
+            // 
+            // bntExit
+            // 
+            this.bntExit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bntExit.FlatAppearance.BorderSize = 0;
+            this.bntExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bntExit.Image = ((System.Drawing.Image)(resources.GetObject("bntExit.Image")));
+            this.bntExit.Location = new System.Drawing.Point(428, 3);
+            this.bntExit.Name = "bntExit";
+            this.bntExit.Size = new System.Drawing.Size(69, 24);
+            this.bntExit.TabIndex = 6;
+            this.bntExit.Text = "Thoát";
+            this.bntExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bntExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bntExit.UseVisualStyleBackColor = true;
+            this.bntExit.Click += new System.EventHandler(this.bntExit_Click);
             // 
             // btnUndo
             // 
@@ -1078,7 +1096,8 @@ namespace DoAnQLDSVTC
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Student";
-            this.Text = "Student";
+            this.Tag = "";
+            this.Text = "Sinh Viên";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Student_Load);
             this.panel1.ResumeLayout(false);
@@ -1215,5 +1234,6 @@ namespace DoAnQLDSVTC
         private DataGridViewTextBoxColumn DIACHI;
         private DataGridViewCheckBoxColumn PHAI;
         private DataGridViewCheckBoxColumn DANGHIHOC;
+        private Button bntExit;
     }
 }

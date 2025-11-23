@@ -24,6 +24,8 @@ namespace DoAnQLDSVTC
             LoadCombox();
             LoadLabelKhoa();
             LoadActiveLeft();
+
+            lblTitleKhoa.Focus();
         }
 
         void LoadDatasetApdapter()
@@ -168,6 +170,8 @@ namespace DoAnQLDSVTC
             {
                 LoadDatasetApdapter();
             }
+
+            lblTitleKhoa.Focus();
         }
 
         public void AddData()
@@ -263,6 +267,14 @@ namespace DoAnQLDSVTC
             int result = int.Parse(dataReader.GetValue(0).ToString());
             dataReader.Close();
             return result;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            Admin parent = this.TopLevelControl as Admin;
+            Form form = btn.FindForm();
+            parent.DeleteButtonInTabBar(form);
         }
     }
 

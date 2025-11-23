@@ -38,6 +38,7 @@ namespace DoAnQLDSVTC
             this.panel14 = new System.Windows.Forms.Panel();
             this.btnLogin = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.lblMessage = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.cbStudent = new System.Windows.Forms.CheckBox();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -60,7 +61,6 @@ namespace DoAnQLDSVTC
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lblMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -153,6 +153,17 @@ namespace DoAnQLDSVTC
             this.panel13.Size = new System.Drawing.Size(400, 50);
             this.panel13.TabIndex = 11;
             // 
+            // lblMessage
+            // 
+            this.lblMessage.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblMessage.ForeColor = System.Drawing.Color.Red;
+            this.lblMessage.Location = new System.Drawing.Point(0, 31);
+            this.lblMessage.Margin = new System.Windows.Forms.Padding(0);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
+            this.lblMessage.Size = new System.Drawing.Size(400, 19);
+            this.lblMessage.TabIndex = 0;
+            // 
             // panel12
             // 
             this.panel12.Controls.Add(this.cbStudent);
@@ -232,6 +243,7 @@ namespace DoAnQLDSVTC
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(300, 26);
             this.txtPassword.TabIndex = 9;
+            this.txtPassword.Text = "123456";
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // btnHide
@@ -287,6 +299,7 @@ namespace DoAnQLDSVTC
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(300, 26);
             this.txtUserName.TabIndex = 8;
+            this.txtUserName.Text = "luunguyenkythu";
             // 
             // panel7
             // 
@@ -385,17 +398,6 @@ namespace DoAnQLDSVTC
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(400, 74);
             this.panel2.TabIndex = 0;
-            // 
-            // lblMessage
-            // 
-            this.lblMessage.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblMessage.Location = new System.Drawing.Point(0, 31);
-            this.lblMessage.Margin = new System.Windows.Forms.Padding(0);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
-            this.lblMessage.Size = new System.Drawing.Size(400, 19);
-            this.lblMessage.TabIndex = 0;
             // 
             // Login
             // 

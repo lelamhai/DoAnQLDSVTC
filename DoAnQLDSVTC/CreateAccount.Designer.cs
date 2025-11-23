@@ -413,7 +413,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CreateAccount";
-            this.Text = "CreateAccount";
+            this.Text = "Tạo User";
             this.Load += new System.EventHandler(this.CreateAccount_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

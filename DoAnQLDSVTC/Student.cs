@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
@@ -258,6 +257,14 @@ namespace DoAnQLDSVTC
         {
             pLeft.Enabled = false;
             pRight.Enabled = true;
+        }
+
+        private void bntExit_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            Admin parent = this.TopLevelControl as Admin;
+            Form form = btn.FindForm();
+            parent.DeleteButtonInTabBar(form);
         }
     }
 
