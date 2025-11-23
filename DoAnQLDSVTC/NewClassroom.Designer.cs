@@ -47,6 +47,7 @@
             this.DS = new DoAnQLDSVTC.DS();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnExit = new System.Windows.Forms.Button();
             this.btnUndo = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -61,12 +62,17 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel16 = new System.Windows.Forms.Panel();
+            this.lblMessage = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
             this.txtMaKhoa = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.txtKhoaHoc = new System.Windows.Forms.TextBox();
+            this.dtpBeigin = new System.Windows.Forms.DateTimePicker();
+            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -79,7 +85,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.LOPTableAdapter = new DoAnQLDSVTC.DSTableAdapters.LOPTableAdapter();
-            this.btnExit = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -94,8 +100,11 @@
             this.pRight.SuspendLayout();
             this.panel12.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.panel16.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel13.SuspendLayout();
+            this.panel18.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel9.SuspendLayout();
             this.SuspendLayout();
@@ -290,6 +299,22 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(864, 30);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
+            // btnExit
+            // 
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.Location = new System.Drawing.Point(428, 3);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(69, 24);
+            this.btnExit.TabIndex = 6;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // btnUndo
             // 
             this.btnUndo.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -427,9 +452,9 @@
             // 
             this.panel12.Controls.Add(this.tableLayoutPanel3);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(15, 295);
+            this.panel12.Location = new System.Drawing.Point(15, 304);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(263, 50);
+            this.panel12.Size = new System.Drawing.Size(263, 40);
             this.panel12.TabIndex = 28;
             // 
             // tableLayoutPanel3
@@ -445,7 +470,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(263, 50);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(263, 40);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // btnSave
@@ -457,7 +482,7 @@
             this.btnSave.Location = new System.Drawing.Point(0, 0);
             this.btnSave.Margin = new System.Windows.Forms.Padding(0);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(121, 50);
+            this.btnSave.Size = new System.Drawing.Size(121, 40);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Ghi";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -472,7 +497,7 @@
             this.btnCancel.Location = new System.Drawing.Point(141, 0);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(0);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(122, 50);
+            this.btnCancel.Size = new System.Drawing.Size(122, 40);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -480,18 +505,29 @@
             // 
             // panel16
             // 
+            this.panel16.Controls.Add(this.lblMessage);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel16.Location = new System.Drawing.Point(15, 245);
+            this.panel16.Location = new System.Drawing.Point(15, 254);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(263, 50);
             this.panel16.TabIndex = 27;
+            // 
+            // lblMessage
+            // 
+            this.lblMessage.AutoSize = true;
+            this.lblMessage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblMessage.ForeColor = System.Drawing.Color.Red;
+            this.lblMessage.Location = new System.Drawing.Point(0, 0);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(0, 19);
+            this.lblMessage.TabIndex = 0;
             // 
             // panel15
             // 
             this.panel15.Controls.Add(this.txtMaKhoa);
             this.panel15.Controls.Add(this.label7);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel15.Location = new System.Drawing.Point(15, 195);
+            this.panel15.Location = new System.Drawing.Point(15, 204);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(263, 50);
             this.panel15.TabIndex = 26;
@@ -518,29 +554,83 @@
             // panel10
             // 
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel10.Location = new System.Drawing.Point(15, 180);
+            this.panel10.Location = new System.Drawing.Point(15, 189);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(263, 15);
             this.panel10.TabIndex = 25;
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.txtKhoaHoc);
+            this.panel13.Controls.Add(this.panel18);
             this.panel13.Controls.Add(this.label6);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel13.Location = new System.Drawing.Point(15, 130);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(263, 50);
+            this.panel13.Size = new System.Drawing.Size(263, 59);
             this.panel13.TabIndex = 24;
+            // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.Color.Transparent;
+            this.panel18.Controls.Add(this.tableLayoutPanel4);
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel18.Location = new System.Drawing.Point(0, 31);
+            this.panel18.Margin = new System.Windows.Forms.Padding(0);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(263, 28);
+            this.panel18.TabIndex = 1;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 5;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.txtKhoaHoc, 4, 0);
+            this.tableLayoutPanel4.Controls.Add(this.dtpBeigin, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.dtpEnd, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label8, 1, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(263, 28);
+            this.tableLayoutPanel4.TabIndex = 0;
             // 
             // txtKhoaHoc
             // 
             this.txtKhoaHoc.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dbsLOP, "KHOAHOC", true));
-            this.txtKhoaHoc.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtKhoaHoc.Location = new System.Drawing.Point(0, 24);
+            this.txtKhoaHoc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtKhoaHoc.Location = new System.Drawing.Point(153, 0);
+            this.txtKhoaHoc.Margin = new System.Windows.Forms.Padding(0);
             this.txtKhoaHoc.Name = "txtKhoaHoc";
-            this.txtKhoaHoc.Size = new System.Drawing.Size(263, 26);
+            this.txtKhoaHoc.Size = new System.Drawing.Size(110, 26);
             this.txtKhoaHoc.TabIndex = 1;
+            this.txtKhoaHoc.TextChanged += new System.EventHandler(this.txtKhoaHoc_TextChanged);
+            // 
+            // dtpBeigin
+            // 
+            this.dtpBeigin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtpBeigin.Location = new System.Drawing.Point(0, 0);
+            this.dtpBeigin.Margin = new System.Windows.Forms.Padding(0);
+            this.dtpBeigin.Name = "dtpBeigin";
+            this.dtpBeigin.Size = new System.Drawing.Size(54, 26);
+            this.dtpBeigin.TabIndex = 2;
+            this.dtpBeigin.ValueChanged += new System.EventHandler(this.dtpBeigin_ValueChanged);
+            // 
+            // dtpEnd
+            // 
+            this.dtpEnd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtpEnd.Location = new System.Drawing.Point(84, 0);
+            this.dtpEnd.Margin = new System.Windows.Forms.Padding(0);
+            this.dtpEnd.Name = "dtpEnd";
+            this.dtpEnd.Size = new System.Drawing.Size(54, 26);
+            this.dtpEnd.TabIndex = 3;
+            this.dtpEnd.ValueChanged += new System.EventHandler(this.dtpEnd_ValueChanged);
             // 
             // label6
             // 
@@ -650,21 +740,15 @@
             // 
             this.LOPTableAdapter.ClearBeforeFill = true;
             // 
-            // btnExit
+            // label8
             // 
-            this.btnExit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(428, 3);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(69, 24);
-            this.btnExit.TabIndex = 6;
-            this.btnExit.Text = "Thoát";
-            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label8.Location = new System.Drawing.Point(57, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(24, 28);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "-";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // NewClassroom
             // 
@@ -698,10 +782,15 @@
             this.pRight.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
+            this.panel18.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.panel9.ResumeLayout(false);
@@ -762,5 +851,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn KHOAHOC;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label lblMessage;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.DateTimePicker dtpBeigin;
+        private System.Windows.Forms.DateTimePicker dtpEnd;
+        private System.Windows.Forms.Label label8;
     }
 }

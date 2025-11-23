@@ -12,6 +12,7 @@
     {
         ADD,
         EDIT,
-        DELETE
+        DELETE,
+        NONE
     }
 }

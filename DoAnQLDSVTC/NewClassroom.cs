@@ -8,10 +8,11 @@ namespace DoAnQLDSVTC
 {
     public partial class NewClassroom : Form, IBaseForm
     {
-        private STATE_ACTION currentAction = STATE_ACTION.ADD;
+        private STATE_ACTION currentAction = STATE_ACTION.NONE;
         private Stack<ActionClassroom> undo = new Stack<ActionClassroom>();
         private List<ActionClassroom> oldData = new List<ActionClassroom>();
         private int currentKhoa;
+
 
         public NewClassroom()
         {
@@ -24,8 +25,22 @@ namespace DoAnQLDSVTC
             LoadCombox();
             LoadLabelKhoa();
             LoadActiveLeft();
-
+            SetupBeigin();
+            SetupEnd();
             lblTitleKhoa.Focus();
+        }
+
+        private void SetupBeigin()
+        {
+            dtpBeigin.Format = DateTimePickerFormat.Custom;
+            dtpBeigin.CustomFormat = "yyyy";
+            dtpBeigin.ShowUpDown = true;
+        }
+        private void SetupEnd()
+        {
+            dtpEnd.Format = DateTimePickerFormat.Custom;
+            dtpEnd.CustomFormat = "yyyy";
+            dtpEnd.ShowUpDown = true;
         }
 
         void LoadDatasetApdapter()
@@ -70,7 +85,14 @@ namespace DoAnQLDSVTC
         private void btnAdd_Click(object sender, EventArgs e)
         {
             currentAction = STATE_ACTION.ADD;
+
             dbsLOP.AddNew();
+
+            txtMaLop.Enabled = true;
+            dtpBeigin.Value = new DateTime(DateTime.Now.Year, 1, 1);
+            dtpEnd.Value = new DateTime(DateTime.Now.Year + 1, 1, 1);
+            txtKhoaHoc.Text = dtpBeigin.Value.Year + "-" + dtpEnd.Value.Year;
+
             txtMaKhoa.Text = ((DataRowView)dbsLOP[0])["MAKHOA"].ToString(); ;
             txtMaLop.Focus();
             LoadActiveRight();
@@ -84,6 +106,7 @@ namespace DoAnQLDSVTC
             string tenLop = txtTenLop.Text.Trim();
             string khoaHoc = txtKhoaHoc.Text.Trim();
             string maKhoa = txtMaKhoa.Text.Trim();
+            txtMaLop.Enabled = false;
 
             currentAction = STATE_ACTION.EDIT;
             ActionClassroom actionEdit = new ActionClassroom(STATE_ACTION.EDIT, maLop, tenLop, khoaHoc, maKhoa);
@@ -125,6 +148,11 @@ namespace DoAnQLDSVTC
             string khoaHoc = txtKhoaHoc.Text.Trim();
             string maKhoa = txtMaKhoa.Text.Trim();
 
+            if (!ValidateLogin())
+            {
+                return;
+            }
+
             switch (currentAction)
             {
                 case STATE_ACTION.ADD:
@@ -146,6 +174,7 @@ namespace DoAnQLDSVTC
             dbsLOP.CancelEdit();
             oldData.Clear();
             LoadActiveLeft();
+            txtMaLop.Enabled = true;
         }
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -205,18 +234,22 @@ namespace DoAnQLDSVTC
             dbsLOP.EndEdit();
             LOPTableAdapter.Update(DS.LOP);
             LoadActiveLeft();
+            currentAction = STATE_ACTION.NONE;
         }
 
         public void UpdateData()
         {
             dbsLOP.EndEdit();
             LOPTableAdapter.Update(DS.LOP);
+            LoadActiveLeft();
+            currentAction = STATE_ACTION.NONE;
         }
 
         public void DeleteData()
         {
             dbsLOP.RemoveCurrent();
             LOPTableAdapter.Update(DS.LOP);
+            currentAction = STATE_ACTION.NONE;
         }
 
         public void UndoAction()
@@ -253,8 +286,8 @@ namespace DoAnQLDSVTC
                     LOPTableAdapter.Fill(DS.LOP);
 
                     break;
-
             }
+            currentAction = STATE_ACTION.NONE;
         }
 
         private int CheckMaLop(string cmd)
@@ -275,6 +308,85 @@ namespace DoAnQLDSVTC
             Admin parent = this.TopLevelControl as Admin;
             Form form = btn.FindForm();
             parent.DeleteButtonInTabBar(form);
+        }
+
+        private bool ValidateLogin()
+        {
+            if (string.IsNullOrWhiteSpace(txtMaLop.Text))
+            {
+                lblMessage.Text = "Vui lòng nhập Mã Lớp.";
+                txtMaLop.Focus();
+                return false;
+            }
+
+            if (txtMaLop.Text.Length < 9)
+            {
+                lblMessage.Text = " Mã Lớp phải từ 10 ký tự.";
+                txtMaLop.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtTenLop.Text))
+            {
+                lblMessage.Text = "Vui lòng nhập Tên Lớp.";
+                txtTenLop.Focus();
+                return false;
+            }
+
+            if (txtTenLop.Text.Length < 6)
+            {
+                lblMessage.Text = "Tên Lớp phải từ 6 ký tự.";
+                txtTenLop.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtKhoaHoc.Text))
+            {
+                lblMessage.Text = "Vui lòng nhập Năm Khóa.";
+                txtKhoaHoc.Focus();
+                return false;
+            }
+
+            if (txtKhoaHoc.Text.Length < 8)
+            {
+                lblMessage.Text = "Mật Khẩu phải từ 9 ký tự.";
+                txtKhoaHoc.Focus();
+                return false;
+            }
+
+            lblMessage.Text = "";
+            return true;
+        }
+
+        private void dtpBeigin_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpBeigin.Value.Year >= dtpEnd.Value.Year)
+            {
+                dtpEnd.Value = new DateTime(dtpBeigin.Value.Year + 1, 1, 1);
+            }
+            txtKhoaHoc.Text = dtpBeigin.Value.Year + "-" + dtpEnd.Value.Year;
+        }
+
+        private void dtpEnd_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpEnd.Value.Year <= dtpBeigin.Value.Year)
+            {
+                dtpBeigin.Value = new DateTime(dtpEnd.Value.Year - 1, 1, 1);
+            }
+            txtKhoaHoc.Text = dtpBeigin.Value.Year + "-" + dtpEnd.Value.Year;
+        }
+
+        private void txtKhoaHoc_TextChanged(object sender, EventArgs e)
+        {
+            if (txtKhoaHoc.Text == "") return;
+
+            string khoahoc = txtKhoaHoc.Text;
+            string[] arr = khoahoc.Split('-');
+            int yBegin = int.Parse(arr[0].Trim());
+            int yEnd = int.Parse(arr[1].Trim());
+
+            dtpBeigin.Value = new DateTime(yBegin, 1, 1);
+            dtpEnd.Value = new DateTime(yEnd, 1, 1);
         }
     }
 

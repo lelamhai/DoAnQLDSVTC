@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -61,8 +60,16 @@ namespace DoAnQLDSVTC
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            string cmd = string.Format("EXEC SP_TAO_LOGIN N'{0}',N'{1}',N'{2}',N'{3}'",txtUserName.Text.Trim(), txtPassword.Text.Trim(), cmbTeacher.SelectedValue.ToString().Trim(), cmbRole.SelectedValue.ToString().Trim());
+            string cmd = string.Format("EXEC SP_TAO_LOGIN N'{0}',N'{1}',N'{2}',N'{3}'", txtUserName.Text.Trim(), txtPassword.Text.Trim(), cmbTeacher.SelectedValue.ToString().Trim(), cmbRole.SelectedValue.ToString().Trim());
             int kt = Program.ExecSqlNonQuery(cmd);
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            Admin parent = this.TopLevelControl as Admin;
+            Form form = btn.FindForm();
+            parent.DeleteButtonInTabBar(form);
         }
     }
 }

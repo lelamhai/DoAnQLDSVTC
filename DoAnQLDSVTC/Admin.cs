@@ -50,6 +50,7 @@ namespace DoAnQLDSVTC
             button.FlatAppearance.BorderSize = 0;
             button.Click += TabButton_Click;
             pTabBar.Controls.Add(button);
+            button.BringToFront();
             listButton.Add(button);
         }
 
