@@ -71,9 +71,15 @@ namespace DoAnQLDSVTC
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            if (!ValidateLogin()) return;
+
             Program.MLogin = txtUserName.Text;
             Program.MPass = txtPassword.Text;
-            if (Program.KetNoi() == 0) return;
+            if (Program.KetNoi() == 0)
+            {
+                lblMessage.Text = "Xem lại tài khoản, mật khẩu hoặc khoa bạn đã chọn!!!";
+                return;
+            }    
 
             Program.MKhoa = cmbKhoa.SelectedIndex;
             Program.MLoginDN = Program.MLogin;
@@ -88,10 +94,10 @@ namespace DoAnQLDSVTC
             Program.mHoTen = Program.myReader.GetString(1);
             Program.mGroup = Program.myReader.GetString(2);
             Program.myReader.Close();
-            // Di chuyển tới form chính
+
             Admin admin = new Admin();
-            admin.Show();       // mở Form2
-            this.Hide();     // ẩn Form1
+            admin.Show();
+            this.Hide();
         }
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -102,8 +108,59 @@ namespace DoAnQLDSVTC
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Loi khong co chi nhanh nay" + ex.ToString());
+                MessageBox.Show("Lỗi không có chi nhánh này");
             }
+        }
+
+        private void btnShow_Click(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = false;
+            btnShow.Visible = false;
+            btnHide.Visible = true;
+            btnHide.BringToFront();
+        }
+
+        private void btnHide_Click(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = true;
+
+            btnHide.Visible = false;
+            btnShow.Visible = true;
+            btnShow.BringToFront();
+        }
+
+        private bool ValidateLogin()
+        {
+            if (string.IsNullOrWhiteSpace(txtUserName.Text))
+            {
+                lblMessage.Text = "Vui lòng nhập Tài Khoản.";
+                txtUserName.Focus();
+                return false;
+            }
+
+            if (txtUserName.Text.Length < 6)
+            {
+                lblMessage.Text = "Tài Khoản phải từ 6 ký tự.";
+                txtUserName.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtPassword.Text))
+            {
+                lblMessage.Text = "Vui lòng nhập Mật Khẩu.";
+                txtPassword.Focus();
+                return false;
+            }
+
+            if (txtPassword.Text.Length < 6)
+            {
+                lblMessage.Text = "Mật Khẩu phải từ 6 ký tự.";
+                txtPassword.Focus();
+                return false;
+            }
+
+            lblMessage.Text = "";
+            return true;
         }
     }
 }

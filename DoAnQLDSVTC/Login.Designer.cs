@@ -43,7 +43,9 @@ namespace DoAnQLDSVTC
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnShow = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.btnHide = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -58,9 +60,11 @@ namespace DoAnQLDSVTC
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel14.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -126,12 +130,14 @@ namespace DoAnQLDSVTC
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.Brown;
-            this.btnLogin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLogin.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnLogin.FlatAppearance.BorderSize = 0;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogin.Location = new System.Drawing.Point(100, 0);
+            this.btnLogin.Location = new System.Drawing.Point(100, 10);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(200, 41);
+            this.btnLogin.Size = new System.Drawing.Size(200, 40);
             this.btnLogin.TabIndex = 11;
             this.btnLogin.Text = "Đăng Nhập";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -139,8 +145,10 @@ namespace DoAnQLDSVTC
             // 
             // panel13
             // 
+            this.panel13.Controls.Add(this.lblMessage);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel13.Location = new System.Drawing.Point(0, 547);
+            this.panel13.Margin = new System.Windows.Forms.Padding(0);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(400, 50);
             this.panel13.TabIndex = 11;
@@ -150,6 +158,7 @@ namespace DoAnQLDSVTC
             this.panel12.Controls.Add(this.cbStudent);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(0, 522);
+            this.panel12.Margin = new System.Windows.Forms.Padding(0);
             this.panel12.Name = "panel12";
             this.panel12.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
             this.panel12.Size = new System.Drawing.Size(400, 25);
@@ -158,9 +167,9 @@ namespace DoAnQLDSVTC
             // cbStudent
             // 
             this.cbStudent.AutoSize = true;
-            this.cbStudent.Dock = System.Windows.Forms.DockStyle.Right;
+            this.cbStudent.Dock = System.Windows.Forms.DockStyle.Left;
             this.cbStudent.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbStudent.Location = new System.Drawing.Point(262, 0);
+            this.cbStudent.Location = new System.Drawing.Point(50, 0);
             this.cbStudent.Name = "cbStudent";
             this.cbStudent.Size = new System.Drawing.Size(88, 25);
             this.cbStudent.TabIndex = 10;
@@ -178,9 +187,12 @@ namespace DoAnQLDSVTC
             // panel10
             // 
             this.panel10.Controls.Add(this.label5);
+            this.panel10.Controls.Add(this.btnShow);
             this.panel10.Controls.Add(this.txtPassword);
+            this.panel10.Controls.Add(this.btnHide);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(0, 447);
+            this.panel10.Margin = new System.Windows.Forms.Padding(0);
             this.panel10.Name = "panel10";
             this.panel10.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
             this.panel10.Size = new System.Drawing.Size(400, 50);
@@ -197,14 +209,44 @@ namespace DoAnQLDSVTC
             this.label5.TabIndex = 7;
             this.label5.Text = "Mật Khẩu";
             // 
+            // btnShow
+            // 
+            this.btnShow.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnShow.BackColor = System.Drawing.Color.White;
+            this.btnShow.FlatAppearance.BorderSize = 0;
+            this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShow.Image = ((System.Drawing.Image)(resources.GetObject("btnShow.Image")));
+            this.btnShow.Location = new System.Drawing.Point(326, 25);
+            this.btnShow.Margin = new System.Windows.Forms.Padding(0);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(23, 23);
+            this.btnShow.TabIndex = 10;
+            this.btnShow.UseVisualStyleBackColor = false;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            // 
             // txtPassword
             // 
             this.txtPassword.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.txtPassword.Location = new System.Drawing.Point(50, 24);
+            this.txtPassword.MaxLength = 20;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(300, 26);
             this.txtPassword.TabIndex = 9;
-            this.txtPassword.Text = "123456";
+            this.txtPassword.UseSystemPasswordChar = true;
+            // 
+            // btnHide
+            // 
+            this.btnHide.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnHide.BackColor = System.Drawing.Color.White;
+            this.btnHide.FlatAppearance.BorderSize = 0;
+            this.btnHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHide.Image = ((System.Drawing.Image)(resources.GetObject("btnHide.Image")));
+            this.btnHide.Location = new System.Drawing.Point(326, 25);
+            this.btnHide.Name = "btnHide";
+            this.btnHide.Size = new System.Drawing.Size(23, 23);
+            this.btnHide.TabIndex = 11;
+            this.btnHide.UseVisualStyleBackColor = false;
+            this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
             // 
             // panel9
             // 
@@ -220,6 +262,7 @@ namespace DoAnQLDSVTC
             this.panel8.Controls.Add(this.txtUserName);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 372);
+            this.panel8.Margin = new System.Windows.Forms.Padding(0);
             this.panel8.Name = "panel8";
             this.panel8.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
             this.panel8.Size = new System.Drawing.Size(400, 50);
@@ -240,10 +283,10 @@ namespace DoAnQLDSVTC
             // 
             this.txtUserName.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.txtUserName.Location = new System.Drawing.Point(50, 24);
+            this.txtUserName.MaxLength = 20;
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(300, 26);
             this.txtUserName.TabIndex = 8;
-            this.txtUserName.Text = "luunguyenkythu";
             // 
             // panel7
             // 
@@ -259,6 +302,7 @@ namespace DoAnQLDSVTC
             this.panel6.Controls.Add(this.cmbKhoa);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 297);
+            this.panel6.Margin = new System.Windows.Forms.Padding(0);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
             this.panel6.Size = new System.Drawing.Size(400, 50);
@@ -342,6 +386,17 @@ namespace DoAnQLDSVTC
             this.panel2.Size = new System.Drawing.Size(400, 74);
             this.panel2.TabIndex = 0;
             // 
+            // lblMessage
+            // 
+            this.lblMessage.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblMessage.ForeColor = System.Drawing.Color.Red;
+            this.lblMessage.Location = new System.Drawing.Point(0, 31);
+            this.lblMessage.Margin = new System.Windows.Forms.Padding(0);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
+            this.lblMessage.Size = new System.Drawing.Size(400, 19);
+            this.lblMessage.TabIndex = 0;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -356,6 +411,7 @@ namespace DoAnQLDSVTC
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel10.ResumeLayout(false);
@@ -400,5 +456,8 @@ namespace DoAnQLDSVTC
         private Panel panel8;
         private Panel panel7;
         private Panel panel14;
+        private Button btnShow;
+        private Button btnHide;
+        private Label lblMessage;
     }
 }
