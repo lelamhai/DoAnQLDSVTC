@@ -56,13 +56,6 @@ namespace DoAnQLDSVTC
             da.Fill(dt);
             Conn_pub.Close();
 
-            int dataCount = dt.Rows.Count;
-            foreach (DataRow row in dt.Rows)
-            {
-                string serverName = row["TENSERVER"].ToString();
-                string departmentName = row["TENKHOA"].ToString();
-            }
-
             Program.bds_dspm.DataSource = dt;
             cmbKhoa.DataSource = Program.bds_dspm;
             cmbKhoa.DisplayMember = "TENKHOA";
@@ -77,7 +70,7 @@ namespace DoAnQLDSVTC
             Program.MPass = txtPassword.Text;
             if (Program.KetNoi() == 0)
             {
-                lblMessage.Text = "Xem lại tài khoản, mật khẩu hoặc khoa bạn đã chọn!!!";
+                lblMessage.Text = "Xem lại tài khoản, mật khẩu!";
                 return;
             }    
 

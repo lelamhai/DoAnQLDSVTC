@@ -73,6 +73,7 @@
             this.txtKhoaHoc = new System.Windows.Forms.TextBox();
             this.dtpBeigin = new System.Windows.Forms.DateTimePicker();
             this.dtpEnd = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -85,7 +86,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.LOPTableAdapter = new DoAnQLDSVTC.DSTableAdapters.LOPTableAdapter();
-            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -632,6 +632,16 @@
             this.dtpEnd.TabIndex = 3;
             this.dtpEnd.ValueChanged += new System.EventHandler(this.dtpEnd_ValueChanged);
             // 
+            // label8
+            // 
+            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label8.Location = new System.Drawing.Point(57, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(24, 28);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "-";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -739,16 +749,6 @@
             // LOPTableAdapter
             // 
             this.LOPTableAdapter.ClearBeforeFill = true;
-            // 
-            // label8
-            // 
-            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Location = new System.Drawing.Point(57, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(24, 28);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "-";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // NewClassroom
             // 

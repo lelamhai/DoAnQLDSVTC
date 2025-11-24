@@ -11,6 +11,7 @@ namespace DoAnQLDSVTC
         private STATE_ACTION currentAction = STATE_ACTION.NONE;
         private Stack<ActionClassroom> undo = new Stack<ActionClassroom>();
         private List<ActionClassroom> oldData = new List<ActionClassroom>();
+        private Dictionary<int, Stack<ActionClassroom>> listSite = new Dictionary<int, Stack<ActionClassroom>>();
         private int currentKhoa;
 
 
@@ -23,11 +24,23 @@ namespace DoAnQLDSVTC
         {
             LoadDatasetApdapter();
             LoadCombox();
+            LoadUndo();
             LoadLabelKhoa();
             LoadActiveLeft();
             SetupBeigin();
             SetupEnd();
             lblTitleKhoa.Focus();
+        }
+
+        private void LoadUndo()
+        {
+            if(undo.Count > 0)
+            {
+                btnUndo.Enabled = true;
+                return;
+            } 
+            
+            btnUndo.Enabled = false;
         }
 
         private void SetupBeigin()
@@ -57,8 +70,15 @@ namespace DoAnQLDSVTC
             cmbKhoa.SelectedIndex = Program.MKhoa;
 
             Program.bds_dspm.Filter = "TENKHOA <> 'PHÒNG KẾ TOÁN'";
-            string quyen = Program.mGroup;
 
+
+            for (int i = 0; i < Program.bds_dspm.Count; i++)
+            {
+                listSite[i] = new Stack<ActionClassroom>();
+            }
+
+
+            string quyen = Program.mGroup;
             if (quyen == Program.quyen[1])
             {
                 cmbKhoa.Enabled = false;
@@ -111,6 +131,7 @@ namespace DoAnQLDSVTC
             currentAction = STATE_ACTION.EDIT;
             ActionClassroom actionEdit = new ActionClassroom(STATE_ACTION.EDIT, maLop, tenLop, khoaHoc, maKhoa);
             oldData.Add(actionEdit);
+            LoadUndo();
             LoadActiveRight();
         }
 
@@ -121,10 +142,24 @@ namespace DoAnQLDSVTC
             string khoaHoc = txtKhoaHoc.Text.Trim();
             string maKhoa = txtMaKhoa.Text.Trim();
 
+            string message = "Bạn có chắc chắn muốn xóa lớp " + tenLop + " không?";
+            DialogResult result = MessageBox.Show(
+                message,
+                "Xác nhận",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
             currentAction = STATE_ACTION.DELETE;
             DeleteData();
             ActionClassroom action = new ActionClassroom(STATE_ACTION.DELETE, maLop, tenLop, khoaHoc, maKhoa);
             undo.Push(action);
+            LoadUndo();
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -159,12 +194,27 @@ namespace DoAnQLDSVTC
                     AddData();
                     ActionClassroom action = new ActionClassroom(STATE_ACTION.ADD, maLop, tenLop, khoaHoc, maKhoa);
                     undo.Push(action);
+                    LoadUndo();
                     break;
 
                 case STATE_ACTION.EDIT:
+                    string message = "Bạn có muốn Cập Nhật dữ liệu này không?";
+                    DialogResult result = MessageBox.Show(
+                        message,
+                        "Xác nhận",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
+
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+
                     UpdateData();
                     undo.Push(oldData[0]);
                     oldData.Clear();
+                    LoadUndo();
                     break;
             }
         }
@@ -179,7 +229,16 @@ namespace DoAnQLDSVTC
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            currentKhoa = cmbKhoa.SelectedIndex;
+            int newIndex = cmbKhoa.SelectedIndex;
+
+            if (newIndex < 0) return;
+            if (cmbKhoa.SelectedValue.ToString() == "System.Data.DataRowView") return;
+
+            listSite[currentKhoa] = undo;
+            undo = listSite[newIndex];
+            currentKhoa = newIndex;
+            LoadUndo(); 
+
             lblTitleKhoa.Text = cmbKhoa.Text;
             if (cmbKhoa.SelectedValue.ToString() == "System.Data.DataRowView") return;
 
@@ -235,6 +294,7 @@ namespace DoAnQLDSVTC
             LOPTableAdapter.Update(DS.LOP);
             LoadActiveLeft();
             currentAction = STATE_ACTION.NONE;
+            MessageBox.Show("Tạo dữ liệu thành công!");
         }
 
         public void UpdateData()
@@ -247,9 +307,19 @@ namespace DoAnQLDSVTC
 
         public void DeleteData()
         {
-            dbsLOP.RemoveCurrent();
-            LOPTableAdapter.Update(DS.LOP);
-            currentAction = STATE_ACTION.NONE;
+            try
+            {
+                dbsLOP.RemoveCurrent();
+                LOPTableAdapter.Update(DS.LOP);
+                currentAction = STATE_ACTION.NONE;
+                LoadUndo();
+            }
+            catch (Exception ex)
+            {
+                string message = "Lớp "+ txtTenLop.Text.Trim() +" đã có Sinh Viên.";
+                MessageBox.Show(message, "", MessageBoxButtons.OK);
+                return;
+            }
         }
 
         public void UndoAction()
@@ -288,6 +358,7 @@ namespace DoAnQLDSVTC
                     break;
             }
             currentAction = STATE_ACTION.NONE;
+            LoadUndo();
         }
 
         private int CheckMaLop(string cmd)
