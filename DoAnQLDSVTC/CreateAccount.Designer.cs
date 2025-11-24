@@ -61,10 +61,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.GIANGVIENTableAdapter = new DoAnQLDSVTC.DSTableAdapters.GIANGVIENTableAdapter();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -78,8 +78,8 @@
             this.panel8.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -126,9 +126,9 @@
             this.panel5.Controls.Add(this.panel7);
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(30, 197);
+            this.panel5.Location = new System.Drawing.Point(30, 194);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(384, 622);
+            this.panel5.Size = new System.Drawing.Size(384, 625);
             this.panel5.TabIndex = 3;
             // 
             // panel16
@@ -161,6 +161,7 @@
             // 
             this.btnCreate.BackColor = System.Drawing.Color.Brown;
             this.btnCreate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCreate.FlatAppearance.BorderSize = 0;
             this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreate.ForeColor = System.Drawing.Color.White;
             this.btnCreate.Location = new System.Drawing.Point(0, 0);
@@ -174,10 +175,11 @@
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.Brown;
+            this.btnExit.BackColor = System.Drawing.Color.LightGray;
             this.btnExit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.ForeColor = System.Drawing.Color.Black;
             this.btnExit.Location = new System.Drawing.Point(102, 0);
             this.btnExit.Margin = new System.Windows.Forms.Padding(0);
             this.btnExit.Name = "btnExit";
@@ -386,7 +388,7 @@
             // 
             this.panel4.Controls.Add(this.label1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(30, 155);
+            this.panel4.Location = new System.Drawing.Point(30, 152);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(384, 42);
             this.panel4.TabIndex = 2;
@@ -403,14 +405,17 @@
             this.label1.Text = "Tạo Tài Khoản";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel3
+            // panel2
             // 
-            this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(30, 18);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(384, 137);
-            this.panel3.TabIndex = 1;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(30, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(384, 15);
+            this.panel2.TabIndex = 0;
+            // 
+            // GIANGVIENTableAdapter
+            // 
+            this.GIANGVIENTableAdapter.ClearBeforeFill = true;
             // 
             // pictureBox1
             // 
@@ -423,17 +428,14 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // panel2
+            // panel3
             // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(30, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(384, 18);
-            this.panel2.TabIndex = 0;
-            // 
-            // GIANGVIENTableAdapter
-            // 
-            this.GIANGVIENTableAdapter.ClearBeforeFill = true;
+            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(30, 15);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(384, 137);
+            this.panel3.TabIndex = 1;
             // 
             // CreateAccount
             // 
@@ -467,8 +469,8 @@
             this.panel6.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -478,8 +480,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel5;
@@ -510,5 +510,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

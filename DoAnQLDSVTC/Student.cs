@@ -23,6 +23,7 @@ namespace DoAnQLDSVTC
             LoadActiveLeft();
             lblTitleKhoa.Focus();
         }
+       
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -57,6 +58,16 @@ namespace DoAnQLDSVTC
 
             this.SINHVIENTableAdapter.Connection.ConnectionString = Program.URL_Connect;
             this.SINHVIENTableAdapter.Fill(this.DS.SINHVIEN);
+
+
+            if (dgvStudent.Columns["GENDER_TEXT"] == null && dgvStudent.Columns["STUDY_TEXT"] == null)
+            {
+                dgvStudent.Columns.Add("GENDER_TEXT", "Giới Tính");
+                dgvStudent.Columns["PHAI"].Visible = false;
+
+                dgvStudent.Columns.Add("STUDY_TEXT", "Tình Trang Học");
+                dgvStudent.Columns["DANGHIHOC"].Visible = false;
+            }
         }
 
         void LoadCombox()
@@ -190,9 +201,10 @@ namespace DoAnQLDSVTC
         private void btnAdd_Click(object sender, EventArgs e)
         {
             currentAction = STATE_ACTION.ADD;
-            cbFemale.Checked = false;
             cbNotStudy.Checked = false;
             FKSINHVIENLOPBindingSource.AddNew();
+            rbMale.Checked = true;
+            cbFemale.Checked = rbFemale.Checked;
             lblTitleKhoa.Focus();
             LoadActiveRight();
         }
@@ -265,6 +277,55 @@ namespace DoAnQLDSVTC
             Admin parent = this.TopLevelControl as Admin;
             Form form = btn.FindForm();
             parent.DeleteButtonInTabBar(form);
+        }
+
+        private void dgvStudent_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvStudent.Columns[e.ColumnIndex].Name == "GENDER_TEXT")
+            {
+                bool phai = Convert.ToBoolean(dgvStudent.Rows[e.RowIndex].Cells["PHAI"].Value);
+                e.Value = phai ? "Nữ" : "Nam";
+            }
+
+            if (dgvStudent.Columns[e.ColumnIndex].Name == "STUDY_TEXT")
+            {
+                bool phai = Convert.ToBoolean(dgvStudent.Rows[e.RowIndex].Cells["DANGHIHOC"].Value);
+                e.Value = phai ? "Đã nghỉ" : "Đang học";
+            }
+        }
+
+        private void cbFemale_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbFemale.Checked)
+            {
+                rbFemale.Checked = true;
+            }
+            else
+            {
+                rbMale.Checked = true;
+            }
+        }
+
+        private void rbFemale_CheckedChanged(object sender, EventArgs e)
+        {
+           cbFemale.Checked = rbFemale.Checked;
+        }
+
+        private void cbNotStudy_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cbNotStudy.Checked)
+            {
+                rbNotStudy.Checked = true;
+            }
+            else
+            {
+                rbStudying.Checked = true;
+            }
+        }
+
+        private void rbNotStudy_CheckedChanged(object sender, EventArgs e)
+        {
+            cbNotStudy.Checked = rbNotStudy.Checked;
         }
     }
 
