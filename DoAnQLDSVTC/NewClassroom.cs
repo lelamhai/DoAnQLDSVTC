@@ -137,12 +137,7 @@ namespace DoAnQLDSVTC
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string maLop = txtMaLop.Text.Trim();
-            string tenLop = txtTenLop.Text.Trim();
-            string khoaHoc = txtKhoaHoc.Text.Trim();
-            string maKhoa = txtMaKhoa.Text.Trim();
-
-            string message = "Bạn có chắc chắn muốn xóa lớp " + tenLop + " không?";
+            string message = "Bạn có chắc chắn muốn xóa lớp " + txtTenLop.Text.Trim() + " không?";
             DialogResult result = MessageBox.Show(
                 message,
                 "Xác nhận",
@@ -154,12 +149,8 @@ namespace DoAnQLDSVTC
             {
                 return;
             }
-
             currentAction = STATE_ACTION.DELETE;
-            DeleteData();
-            ActionClassroom action = new ActionClassroom(STATE_ACTION.DELETE, maLop, tenLop, khoaHoc, maKhoa);
-            undo.Push(action);
-            LoadUndo();
+            DeleteData();  
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -192,13 +183,10 @@ namespace DoAnQLDSVTC
             {
                 case STATE_ACTION.ADD:
                     AddData();
-                    ActionClassroom action = new ActionClassroom(STATE_ACTION.ADD, maLop, tenLop, khoaHoc, maKhoa);
-                    undo.Push(action);
-                    LoadUndo();
                     break;
 
                 case STATE_ACTION.EDIT:
-                    string message = "Bạn có muốn Cập Nhật dữ liệu này không?";
+                    string message = "Bạn có muốn cập nhật thông tin lớp này không?";
                     DialogResult result = MessageBox.Show(
                         message,
                         "Xác nhận",
@@ -212,9 +200,6 @@ namespace DoAnQLDSVTC
                     }
 
                     UpdateData();
-                    undo.Push(oldData[0]);
-                    oldData.Clear();
-                    LoadUndo();
                     break;
             }
         }
@@ -260,59 +245,95 @@ namespace DoAnQLDSVTC
             }
 
             lblTitleKhoa.Focus();
+            LoadUndo();
+            LoadActiveLeft();
         }
 
         public void AddData()
         {
-            string maLop = txtMaLop.Text.Trim();
-            string tenLop = txtTenLop.Text.Trim();
-            string khoaHoc = txtKhoaHoc.Text.Trim();
-            string maKhoa = txtMaKhoa.Text.Trim();
-            string strSP = "EXEC SP_CHECKMALOP '" + maLop.Trim() + "'";
-            int result = CheckMaLop(strSP);
-
-            if (result == -1)
+            try
             {
-                MessageBox.Show("Lỗi kết nối CSDL!", "", MessageBoxButtons.OK);
+                string maLop = txtMaLop.Text.Trim();
+                string tenLop = txtTenLop.Text.Trim();
+                string khoaHoc = txtKhoaHoc.Text.Trim();
+                string maKhoa = txtMaKhoa.Text.Trim();
+                string strSP = "EXEC SP_CHECKMALOP '" + maLop.Trim() + "'";
+                int result = CheckMaLop(strSP);
+
+                if (result == -1)
+                {
+                    MessageBox.Show("Lỗi kết nối CSDL!", "", MessageBoxButtons.OK);
+                    return;
+                }
+                if (result == 1)
+                {
+                    MessageBox.Show("Mã Lớp đã tồn tại trong khoa này!", "", MessageBoxButtons.OK);
+                    txtMaLop.Focus();
+                    return;
+
+                }
+                if (result == 2)
+                {
+                    MessageBox.Show("Mã Lớp đã tồn tại trong khoa khác!", "", MessageBoxButtons.OK);
+                    txtMaLop.Focus();
+                    return;
+                }
+
+
+                dbsLOP.EndEdit();
+                LOPTableAdapter.Update(DS.LOP);
+                ActionClassroom action = new ActionClassroom(STATE_ACTION.ADD, maLop, tenLop, khoaHoc, maKhoa);
+                undo.Push(action);
+                LoadActiveLeft();
+                LoadUndo();
+                currentAction = STATE_ACTION.NONE;
+                MessageBox.Show("Tạo thông tin lớp thành công!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi thêm lớp. Vui lòng kiểm tra lại thông tin lớp.", "", MessageBoxButtons.OK);
                 return;
             }
-            if (result == 1)
-            {
-                MessageBox.Show("Mã Lớp đã tồn tại trong khoa này!", "", MessageBoxButtons.OK);
-                txtMaLop.Focus();
-                return;
 
-            }
-            if (result == 2)
-            {
-                MessageBox.Show("Mã Lớp đã tồn tại trong khoa khác!", "", MessageBoxButtons.OK);
-                txtMaLop.Focus();
-                return;
-            }
-
-            dbsLOP.EndEdit();
-            LOPTableAdapter.Update(DS.LOP);
-            LoadActiveLeft();
-            currentAction = STATE_ACTION.NONE;
-            MessageBox.Show("Tạo dữ liệu thành công!");
+           
         }
 
         public void UpdateData()
         {
-            dbsLOP.EndEdit();
-            LOPTableAdapter.Update(DS.LOP);
-            LoadActiveLeft();
-            currentAction = STATE_ACTION.NONE;
+            try
+            {
+                dbsLOP.EndEdit();
+                LOPTableAdapter.Update(DS.LOP);
+                undo.Push(oldData[0]);
+                oldData.Clear();
+                LoadActiveLeft();
+                LoadUndo();
+                currentAction = STATE_ACTION.NONE;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi cập nhật lớp. Vui lòng kiểm tra lại thông tin lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
+                return;
+
+            }
         }
 
         public void DeleteData()
         {
             try
             {
+                string maLop = txtMaLop.Text.Trim();
+                string tenLop = txtTenLop.Text.Trim();
+                string khoaHoc = txtKhoaHoc.Text.Trim();
+                string maKhoa = txtMaKhoa.Text.Trim();
+
                 dbsLOP.RemoveCurrent();
                 LOPTableAdapter.Update(DS.LOP);
-                currentAction = STATE_ACTION.NONE;
+
+                ActionClassroom action = new ActionClassroom(STATE_ACTION.DELETE, maLop, tenLop, khoaHoc, maKhoa);
+                undo.Push(action);
                 LoadUndo();
+                currentAction = STATE_ACTION.DELETE;
             }
             catch (Exception ex)
             {

@@ -284,6 +284,7 @@ namespace DoAnQLDSVTC
                     SINHVIENTableAdapter.Fill(DS.SINHVIEN);
                     break;
             }
+            currentAction = STATE_ACTION.NONE;
             LoadUndo();
         }
 
@@ -358,16 +359,7 @@ namespace DoAnQLDSVTC
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string maLop = lblMaLop.Text.Trim();
-            string maSV = txtMaSV.Text.Trim();
-            string ho = txtHo.Text.Trim();
-            string ten = txtTen.Text.Trim();
-            DateTime ngaySinh = dtpDOB.Value;
-            string diaChi = txtDiaChi.Text.Trim();
-            bool phai = cbFemale.Checked;
-            bool dangNghiHoc = cbNotStudy.Checked;
-
-            string message = "Bạn có chắc chắn muốn xóa Sinh Viên " + ho + " " + ten + " không?";
+            string message = "Bạn có chắc chắn muốn xóa Sinh Viên " + txtHo.Text.Trim() + " " + txtTen.Text.Trim() + " không?";
             DialogResult result = MessageBox.Show(
                 message,
                 "Xác nhận",
@@ -379,8 +371,6 @@ namespace DoAnQLDSVTC
             {
                 return;
             }
-
-
             currentAction = STATE_ACTION.DELETE;
             DeleteData();
             
