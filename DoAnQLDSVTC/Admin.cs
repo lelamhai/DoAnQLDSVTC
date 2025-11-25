@@ -15,7 +15,7 @@ namespace DoAnQLDSVTC
 
         private void Admin_Load(object sender, EventArgs e)
         {
-            LoadForm(new Student());
+            LoadForm(new NewClassroom());
         }
 
         private void LoadForm(object form)

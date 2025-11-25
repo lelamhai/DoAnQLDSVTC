@@ -225,8 +225,6 @@ namespace DoAnQLDSVTC
             LoadUndo(); 
 
             lblTitleKhoa.Text = cmbKhoa.Text;
-            if (cmbKhoa.SelectedValue.ToString() == "System.Data.DataRowView") return;
-
             Program.ServerName = cmbKhoa.SelectedValue.ToString();
             if (currentKhoa != Program.MKhoa)
             {

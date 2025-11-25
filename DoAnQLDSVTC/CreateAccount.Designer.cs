@@ -38,6 +38,8 @@
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.lblMessage = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.cmbRole = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -49,27 +51,38 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.txtPasswordAgain = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnAgainPasswordShow = new System.Windows.Forms.Button();
+            this.btnAgainPasswordHide = new System.Windows.Forms.Button();
+            this.txtPasswordAgain = new System.Windows.Forms.TextBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnPasswordShow = new System.Windows.Forms.Button();
+            this.btnPasswordHide = new System.Windows.Forms.Button();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.cmbKhoa = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel19 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.GIANGVIENTableAdapter = new DoAnQLDSVTC.DSTableAdapters.GIANGVIENTableAdapter();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel16.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel20.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dbsGiaoVien)).BeginInit();
@@ -77,9 +90,10 @@
             this.panel10.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel17.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -125,17 +139,20 @@
             this.panel5.Controls.Add(this.panel8);
             this.panel5.Controls.Add(this.panel7);
             this.panel5.Controls.Add(this.panel6);
+            this.panel5.Controls.Add(this.panel18);
+            this.panel5.Controls.Add(this.panel17);
+            this.panel5.Controls.Add(this.panel19);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(30, 194);
+            this.panel5.Location = new System.Drawing.Point(30, 179);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(384, 625);
+            this.panel5.Size = new System.Drawing.Size(384, 640);
             this.panel5.TabIndex = 3;
             // 
             // panel16
             // 
             this.panel16.Controls.Add(this.tableLayoutPanel3);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel16.Location = new System.Drawing.Point(0, 420);
+            this.panel16.Location = new System.Drawing.Point(0, 495);
             this.panel16.Name = "panel16";
             this.panel16.Padding = new System.Windows.Forms.Padding(100, 0, 100, 0);
             this.panel16.Size = new System.Drawing.Size(384, 40);
@@ -191,18 +208,38 @@
             // 
             // panel15
             // 
+            this.panel15.Controls.Add(this.panel20);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel15.Location = new System.Drawing.Point(0, 370);
+            this.panel15.Location = new System.Drawing.Point(0, 430);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(384, 50);
+            this.panel15.Size = new System.Drawing.Size(384, 65);
             this.panel15.TabIndex = 9;
+            // 
+            // panel20
+            // 
+            this.panel20.Controls.Add(this.lblMessage);
+            this.panel20.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel20.Location = new System.Drawing.Point(0, 35);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(384, 30);
+            this.panel20.TabIndex = 0;
+            // 
+            // lblMessage
+            // 
+            this.lblMessage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblMessage.ForeColor = System.Drawing.Color.Red;
+            this.lblMessage.Location = new System.Drawing.Point(0, 0);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(384, 30);
+            this.lblMessage.TabIndex = 0;
+            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel14
             // 
             this.panel14.Controls.Add(this.cmbRole);
             this.panel14.Controls.Add(this.label6);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel14.Location = new System.Drawing.Point(0, 320);
+            this.panel14.Location = new System.Drawing.Point(0, 380);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(384, 50);
             this.panel14.TabIndex = 8;
@@ -229,7 +266,7 @@
             // panel13
             // 
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel13.Location = new System.Drawing.Point(0, 290);
+            this.panel13.Location = new System.Drawing.Point(0, 350);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(384, 30);
             this.panel13.TabIndex = 7;
@@ -239,7 +276,7 @@
             this.panel12.Controls.Add(this.cmbTeacher);
             this.panel12.Controls.Add(this.label5);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(0, 240);
+            this.panel12.Location = new System.Drawing.Point(0, 300);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(384, 50);
             this.panel12.TabIndex = 6;
@@ -279,28 +316,22 @@
             // panel11
             // 
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel11.Location = new System.Drawing.Point(0, 210);
+            this.panel11.Location = new System.Drawing.Point(0, 285);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(384, 30);
+            this.panel11.Size = new System.Drawing.Size(384, 15);
             this.panel11.TabIndex = 5;
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.txtPasswordAgain);
             this.panel10.Controls.Add(this.label4);
+            this.panel10.Controls.Add(this.btnAgainPasswordShow);
+            this.panel10.Controls.Add(this.btnAgainPasswordHide);
+            this.panel10.Controls.Add(this.txtPasswordAgain);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel10.Location = new System.Drawing.Point(0, 160);
+            this.panel10.Location = new System.Drawing.Point(0, 235);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(384, 50);
             this.panel10.TabIndex = 4;
-            // 
-            // txtPasswordAgain
-            // 
-            this.txtPasswordAgain.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtPasswordAgain.Location = new System.Drawing.Point(0, 24);
-            this.txtPasswordAgain.Name = "txtPasswordAgain";
-            this.txtPasswordAgain.Size = new System.Drawing.Size(384, 26);
-            this.txtPasswordAgain.TabIndex = 1;
             // 
             // label4
             // 
@@ -312,31 +343,63 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Nhập Lại Mật Khẩu";
             // 
+            // btnAgainPasswordShow
+            // 
+            this.btnAgainPasswordShow.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnAgainPasswordShow.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgainPasswordShow.FlatAppearance.BorderSize = 0;
+            this.btnAgainPasswordShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgainPasswordShow.Image = ((System.Drawing.Image)(resources.GetObject("btnAgainPasswordShow.Image")));
+            this.btnAgainPasswordShow.Location = new System.Drawing.Point(360, 25);
+            this.btnAgainPasswordShow.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAgainPasswordShow.Name = "btnAgainPasswordShow";
+            this.btnAgainPasswordShow.Size = new System.Drawing.Size(23, 23);
+            this.btnAgainPasswordShow.TabIndex = 13;
+            this.btnAgainPasswordShow.UseVisualStyleBackColor = false;
+            this.btnAgainPasswordShow.Click += new System.EventHandler(this.btnAgainPasswordShow_Click);
+            // 
+            // btnAgainPasswordHide
+            // 
+            this.btnAgainPasswordHide.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnAgainPasswordHide.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgainPasswordHide.FlatAppearance.BorderSize = 0;
+            this.btnAgainPasswordHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgainPasswordHide.Image = ((System.Drawing.Image)(resources.GetObject("btnAgainPasswordHide.Image")));
+            this.btnAgainPasswordHide.Location = new System.Drawing.Point(360, 25);
+            this.btnAgainPasswordHide.Name = "btnAgainPasswordHide";
+            this.btnAgainPasswordHide.Size = new System.Drawing.Size(23, 23);
+            this.btnAgainPasswordHide.TabIndex = 14;
+            this.btnAgainPasswordHide.UseVisualStyleBackColor = false;
+            this.btnAgainPasswordHide.Click += new System.EventHandler(this.btnAgainPasswordHide_Click);
+            // 
+            // txtPasswordAgain
+            // 
+            this.txtPasswordAgain.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtPasswordAgain.Location = new System.Drawing.Point(0, 24);
+            this.txtPasswordAgain.Name = "txtPasswordAgain";
+            this.txtPasswordAgain.Size = new System.Drawing.Size(384, 26);
+            this.txtPasswordAgain.TabIndex = 1;
+            this.txtPasswordAgain.UseSystemPasswordChar = true;
+            // 
             // panel9
             // 
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(0, 130);
+            this.panel9.Location = new System.Drawing.Point(0, 220);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(384, 30);
+            this.panel9.Size = new System.Drawing.Size(384, 15);
             this.panel9.TabIndex = 3;
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.txtPassword);
             this.panel8.Controls.Add(this.label3);
+            this.panel8.Controls.Add(this.btnPasswordShow);
+            this.panel8.Controls.Add(this.btnPasswordHide);
+            this.panel8.Controls.Add(this.txtPassword);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 80);
+            this.panel8.Location = new System.Drawing.Point(0, 170);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(384, 50);
             this.panel8.TabIndex = 2;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtPassword.Location = new System.Drawing.Point(0, 24);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(384, 26);
-            this.txtPassword.TabIndex = 1;
             // 
             // label3
             // 
@@ -348,12 +411,50 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Mật Khẩu";
             // 
+            // btnPasswordShow
+            // 
+            this.btnPasswordShow.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnPasswordShow.BackColor = System.Drawing.Color.Transparent;
+            this.btnPasswordShow.FlatAppearance.BorderSize = 0;
+            this.btnPasswordShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPasswordShow.Image = ((System.Drawing.Image)(resources.GetObject("btnPasswordShow.Image")));
+            this.btnPasswordShow.Location = new System.Drawing.Point(360, 25);
+            this.btnPasswordShow.Margin = new System.Windows.Forms.Padding(0);
+            this.btnPasswordShow.Name = "btnPasswordShow";
+            this.btnPasswordShow.Size = new System.Drawing.Size(23, 23);
+            this.btnPasswordShow.TabIndex = 11;
+            this.btnPasswordShow.UseVisualStyleBackColor = false;
+            this.btnPasswordShow.Click += new System.EventHandler(this.btnPasswordShow_Click);
+            // 
+            // btnPasswordHide
+            // 
+            this.btnPasswordHide.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnPasswordHide.BackColor = System.Drawing.Color.Transparent;
+            this.btnPasswordHide.FlatAppearance.BorderSize = 0;
+            this.btnPasswordHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPasswordHide.Image = ((System.Drawing.Image)(resources.GetObject("btnPasswordHide.Image")));
+            this.btnPasswordHide.Location = new System.Drawing.Point(360, 25);
+            this.btnPasswordHide.Name = "btnPasswordHide";
+            this.btnPasswordHide.Size = new System.Drawing.Size(23, 23);
+            this.btnPasswordHide.TabIndex = 12;
+            this.btnPasswordHide.UseVisualStyleBackColor = false;
+            this.btnPasswordHide.Click += new System.EventHandler(this.btnPasswordHide_Click);
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtPassword.Location = new System.Drawing.Point(0, 24);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(384, 26);
+            this.txtPassword.TabIndex = 1;
+            this.txtPassword.UseSystemPasswordChar = true;
+            // 
             // panel7
             // 
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 50);
+            this.panel7.Location = new System.Drawing.Point(0, 155);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(384, 30);
+            this.panel7.Size = new System.Drawing.Size(384, 15);
             this.panel7.TabIndex = 1;
             // 
             // panel6
@@ -361,7 +462,7 @@
             this.panel6.Controls.Add(this.txtUserName);
             this.panel6.Controls.Add(this.label2);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Location = new System.Drawing.Point(0, 105);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(384, 50);
             this.panel6.TabIndex = 0;
@@ -384,11 +485,59 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Tài Khoản";
             // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.Color.Transparent;
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel18.Location = new System.Drawing.Point(0, 65);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(384, 40);
+            this.panel18.TabIndex = 12;
+            // 
+            // panel17
+            // 
+            this.panel17.Controls.Add(this.cmbKhoa);
+            this.panel17.Controls.Add(this.label7);
+            this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel17.Location = new System.Drawing.Point(0, 15);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(384, 50);
+            this.panel17.TabIndex = 13;
+            // 
+            // cmbKhoa
+            // 
+            this.cmbKhoa.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.cmbKhoa.FormattingEnabled = true;
+            this.cmbKhoa.Location = new System.Drawing.Point(0, 23);
+            this.cmbKhoa.Name = "cmbKhoa";
+            this.cmbKhoa.Size = new System.Drawing.Size(384, 27);
+            this.cmbKhoa.TabIndex = 1;
+            this.cmbKhoa.SelectedIndexChanged += new System.EventHandler(this.cmbKhoa_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(0, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 19);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Khoa";
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.Transparent;
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel19.Location = new System.Drawing.Point(0, 0);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(384, 15);
+            this.panel19.TabIndex = 14;
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.label1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(30, 152);
+            this.panel4.Location = new System.Drawing.Point(30, 137);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(384, 42);
             this.panel4.TabIndex = 2;
@@ -405,17 +554,14 @@
             this.label1.Text = "Tạo Tài Khoản";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel2
+            // panel3
             // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(30, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(384, 15);
-            this.panel2.TabIndex = 0;
-            // 
-            // GIANGVIENTableAdapter
-            // 
-            this.GIANGVIENTableAdapter.ClearBeforeFill = true;
+            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(30, 20);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(384, 117);
+            this.panel3.TabIndex = 1;
             // 
             // pictureBox1
             // 
@@ -423,19 +569,22 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(384, 126);
+            this.pictureBox1.Size = new System.Drawing.Size(384, 117);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // panel3
+            // panel2
             // 
-            this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(30, 15);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(384, 137);
-            this.panel3.TabIndex = 1;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(30, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(384, 20);
+            this.panel2.TabIndex = 0;
+            // 
+            // GIANGVIENTableAdapter
+            // 
+            this.GIANGVIENTableAdapter.ClearBeforeFill = true;
             // 
             // CreateAccount
             // 
@@ -448,13 +597,15 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CreateAccount";
-            this.Text = "Tạo User";
+            this.Text = "Tạo TK";
             this.Load += new System.EventHandler(this.CreateAccount_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
+            this.panel20.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             this.panel12.ResumeLayout(false);
@@ -467,10 +618,12 @@
             this.panel8.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -512,5 +665,16 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmbKhoa;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.Label lblMessage;
+        private System.Windows.Forms.Button btnPasswordShow;
+        private System.Windows.Forms.Button btnAgainPasswordHide;
+        private System.Windows.Forms.Button btnAgainPasswordShow;
+        private System.Windows.Forms.Button btnPasswordHide;
     }
 }

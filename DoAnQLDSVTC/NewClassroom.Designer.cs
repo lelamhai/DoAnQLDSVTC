@@ -62,6 +62,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel16 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
             this.lblMessage = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
             this.txtMaKhoa = new System.Windows.Forms.TextBox();
@@ -86,7 +87,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.LOPTableAdapter = new DoAnQLDSVTC.DSTableAdapters.LOPTableAdapter();
-            this.panel19 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -102,13 +102,13 @@
             this.panel12.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel16.SuspendLayout();
+            this.panel19.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel18.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel9.SuspendLayout();
-            this.panel19.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -516,6 +516,15 @@
             this.panel16.Size = new System.Drawing.Size(364, 50);
             this.panel16.TabIndex = 27;
             // 
+            // panel19
+            // 
+            this.panel19.Controls.Add(this.lblMessage);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel19.Location = new System.Drawing.Point(0, 20);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(364, 30);
+            this.panel19.TabIndex = 0;
+            // 
             // lblMessage
             // 
             this.lblMessage.Dock = System.Windows.Forms.DockStyle.Top;
@@ -753,15 +762,6 @@
             // 
             this.LOPTableAdapter.ClearBeforeFill = true;
             // 
-            // panel19
-            // 
-            this.panel19.Controls.Add(this.lblMessage);
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel19.Location = new System.Drawing.Point(0, 20);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(364, 30);
-            this.panel19.TabIndex = 0;
-            // 
             // NewClassroom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -795,6 +795,7 @@
             this.panel12.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             this.panel13.ResumeLayout(false);
@@ -806,7 +807,6 @@
             this.panel11.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            this.panel19.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

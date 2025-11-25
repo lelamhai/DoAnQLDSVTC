@@ -44,7 +44,6 @@ namespace DoAnQLDSVTC
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnShow = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnHide = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -61,6 +60,7 @@ namespace DoAnQLDSVTC
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnShow = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -219,21 +219,6 @@ namespace DoAnQLDSVTC
             this.label5.Size = new System.Drawing.Size(71, 19);
             this.label5.TabIndex = 7;
             this.label5.Text = "Mật Khẩu";
-            // 
-            // btnShow
-            // 
-            this.btnShow.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnShow.BackColor = System.Drawing.Color.White;
-            this.btnShow.FlatAppearance.BorderSize = 0;
-            this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShow.Image = ((System.Drawing.Image)(resources.GetObject("btnShow.Image")));
-            this.btnShow.Location = new System.Drawing.Point(326, 25);
-            this.btnShow.Margin = new System.Windows.Forms.Padding(0);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(23, 23);
-            this.btnShow.TabIndex = 10;
-            this.btnShow.UseVisualStyleBackColor = false;
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // txtPassword
             // 
@@ -399,6 +384,21 @@ namespace DoAnQLDSVTC
             this.panel2.Size = new System.Drawing.Size(400, 74);
             this.panel2.TabIndex = 0;
             // 
+            // btnShow
+            // 
+            this.btnShow.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnShow.BackColor = System.Drawing.Color.White;
+            this.btnShow.FlatAppearance.BorderSize = 0;
+            this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShow.Image = ((System.Drawing.Image)(resources.GetObject("btnShow.Image")));
+            this.btnShow.Location = new System.Drawing.Point(326, 25);
+            this.btnShow.Margin = new System.Windows.Forms.Padding(0);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(23, 23);
+            this.btnShow.TabIndex = 10;
+            this.btnShow.UseVisualStyleBackColor = false;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -458,8 +458,8 @@ namespace DoAnQLDSVTC
         private Panel panel8;
         private Panel panel7;
         private Panel panel14;
-        private Button btnShow;
         private Button btnHide;
         private Label lblMessage;
+        private Button btnShow;
     }
 }
