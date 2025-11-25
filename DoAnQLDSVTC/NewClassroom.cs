@@ -11,7 +11,7 @@ namespace DoAnQLDSVTC
         private STATE_ACTION currentAction = STATE_ACTION.NONE;
         private Stack<ActionClassroom> undo = new Stack<ActionClassroom>();
         private List<ActionClassroom> oldData = new List<ActionClassroom>();
-        private Dictionary<int, Stack<ActionClassroom>> listSite = new Dictionary<int, Stack<ActionClassroom>>();
+        private Dictionary<int, Stack<ActionClassroom>> sites = new Dictionary<int, Stack<ActionClassroom>>();
         private int currentKhoa;
 
 
@@ -74,7 +74,7 @@ namespace DoAnQLDSVTC
 
             for (int i = 0; i < Program.bds_dspm.Count; i++)
             {
-                listSite[i] = new Stack<ActionClassroom>();
+                sites[i] = new Stack<ActionClassroom>();
             }
 
 
@@ -234,8 +234,8 @@ namespace DoAnQLDSVTC
             if (newIndex < 0) return;
             if (cmbKhoa.SelectedValue.ToString() == "System.Data.DataRowView") return;
 
-            listSite[currentKhoa] = undo;
-            undo = listSite[newIndex];
+            sites[currentKhoa] = undo;
+            undo = sites[newIndex];
             currentKhoa = newIndex;
             LoadUndo(); 
 

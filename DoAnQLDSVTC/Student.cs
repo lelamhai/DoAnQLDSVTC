@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
@@ -9,6 +10,7 @@ namespace DoAnQLDSVTC
         private STATE_ACTION currentAction = STATE_ACTION.ADD;
         private Stack<ActionStudent> undo = new Stack<ActionStudent>();
         private List<ActionStudent> oldData = new List<ActionStudent>();
+        private Dictionary<int, Stack<ActionStudent>> sites = new Dictionary<int, Stack<ActionStudent>>();
         private int currentKhoa;
         public Student()
         {
@@ -19,18 +21,30 @@ namespace DoAnQLDSVTC
         {
             LoadDatasetApdapter();
             LoadCombox();
+            LoadUndo();
             LoadLabelKhoa();
             LoadActiveLeft();
             lblTitleKhoa.Focus();
         }
-       
+
+        private void SetupNgaySinhSV()
+        {
+            dtpDOB.MaxDate = DateTime.Today.AddYears(-17);
+            dtpDOB.Value = dtpDOB.MaxDate;
+        }
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            currentKhoa = cmbKhoa.SelectedIndex;
-            lblTitleKhoa.Text = cmbKhoa.Text;
+            int newIndex = cmbKhoa.SelectedIndex;
+
+            if (newIndex < 0) return;
             if (cmbKhoa.SelectedValue.ToString() == "System.Data.DataRowView") return;
 
+            sites[currentKhoa] = undo;
+            undo = sites[newIndex];
+            currentKhoa = newIndex;
+
+            lblTitleKhoa.Text = cmbKhoa.Text;
             Program.ServerName = cmbKhoa.SelectedValue.ToString();
             if (currentKhoa != Program.MKhoa)
             {
@@ -47,7 +61,21 @@ namespace DoAnQLDSVTC
             {
                 LoadDatasetApdapter();
             }
+
             lblTitleKhoa.Focus();
+            LoadUndo();
+            LoadActiveLeft();
+        }
+
+        private void LoadUndo()
+        {
+            if (undo.Count > 0)
+            {
+                btnUndo.Enabled = true;
+                return;
+            }
+
+            btnUndo.Enabled = false;
         }
 
         void LoadDatasetApdapter()
@@ -78,6 +106,13 @@ namespace DoAnQLDSVTC
             cmbKhoa.SelectedIndex = Program.MKhoa;
 
             Program.bds_dspm.Filter = "TENKHOA <> 'PHÒNG KẾ TOÁN'";
+
+            for (int i = 0; i < Program.bds_dspm.Count; i++)
+            {
+                sites[i] = new Stack<ActionStudent>();
+            }
+
+
             string quyen = Program.mGroup;
 
             if (quyen == Program.quyen[1])
@@ -93,21 +128,111 @@ namespace DoAnQLDSVTC
 
         public void AddData()
         {
-            FKSINHVIENLOPBindingSource.EndEdit();
-            SINHVIENTableAdapter.Update(DS.SINHVIEN);
-            LoadActiveLeft();
+            try
+            {
+                string maLop = lblMaLop.Text.Trim();
+                string maSV = txtMaSV.Text.Trim();
+                string ho = txtHo.Text.Trim();
+                string ten = txtTen.Text.Trim();
+                DateTime ngaySinh = dtpDOB.Value;
+                string diaChi = txtDiaChi.Text.Trim();
+                bool phai = cbFemale.Checked;
+                bool dangNghiHoc = cbNotStudy.Checked;
+
+                string strSP = "EXEC SP_CHECKMASINHVIEN '" + maSV.Trim() + "'";
+                int result = CheckMaSinhVien(strSP);
+                if (result == -1)
+                {
+                    MessageBox.Show("Lỗi kết nối CSDL!", "", MessageBoxButtons.OK);
+                    return;
+                }
+                if (result == 1)
+                {
+                    MessageBox.Show("Mã Sinh Viên đã tồn tại trong khoa này!", "", MessageBoxButtons.OK);
+                    txtMaSV.Focus();
+                    return;
+
+                }
+                if (result == 2)
+                {
+                    MessageBox.Show("Mã Sinh Viên đã tồn tại trong khoa khác!", "", MessageBoxButtons.OK);
+                    txtMaSV.Focus();
+                    return ;
+                }
+
+                FKSINHVIENLOPBindingSource.EndEdit();
+                SINHVIENTableAdapter.Update(DS.SINHVIEN);
+                ActionStudent action = new ActionStudent(STATE_ACTION.ADD, maLop, maSV, ho, ten, ngaySinh, diaChi, phai, dangNghiHoc);
+                undo.Push(action);
+                LoadActiveLeft();
+                LoadUndo();
+                currentAction = STATE_ACTION.NONE;
+                MessageBox.Show("Tạo thông tin sinh viên thành công!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi thêm sinh viên. Vui lòng kiểm tra lại thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
+
+        private int CheckMaSinhVien(string cmd)
+        {
+            SqlDataReader dataReader = Program.ExecSqlDataReader(cmd);
+
+            if (dataReader == null) return -1;
+
+            dataReader.Read();
+            int result = int.Parse(dataReader.GetValue(0).ToString());
+            dataReader.Close();
+            return result;
+        }
+
 
         public void UpdateData()
         {
-            FKSINHVIENLOPBindingSource.EndEdit();
-            SINHVIENTableAdapter.Update(DS.SINHVIEN);
+            try
+            {
+                FKSINHVIENLOPBindingSource.EndEdit();
+                SINHVIENTableAdapter.Update(DS.SINHVIEN);
+                undo.Push(oldData[0]);
+                oldData.Clear();
+                LoadActiveLeft();
+                LoadUndo();
+                currentAction = STATE_ACTION.NONE;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi cập nhật sinh viên. Vui lòng kiểm tra lại thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
 
         public void DeleteData()
         {
-            FKSINHVIENLOPBindingSource.RemoveCurrent();
-            SINHVIENTableAdapter.Update(DS.SINHVIEN);
+            try
+            {
+                string maLop = lblMaLop.Text.Trim();
+                string maSV = txtMaSV.Text.Trim();
+                string ho = txtHo.Text.Trim();
+                string ten = txtTen.Text.Trim();
+                DateTime ngaySinh = dtpDOB.Value;
+                string diaChi = txtDiaChi.Text.Trim();
+                bool phai = cbFemale.Checked;
+                bool dangNghiHoc = cbNotStudy.Checked;
+
+                FKSINHVIENLOPBindingSource.RemoveCurrent();
+                SINHVIENTableAdapter.Update(DS.SINHVIEN);
+                ActionStudent action = new ActionStudent(STATE_ACTION.DELETE, maLop, maSV, ho, ten, ngaySinh, diaChi, phai, dangNghiHoc);
+                undo.Push(action);
+                LoadUndo();
+                currentAction = STATE_ACTION.NONE;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi xóa sinh viên. Vui lòng kiểm tra lại thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
 
         public void UndoAction()
@@ -159,36 +284,36 @@ namespace DoAnQLDSVTC
                     SINHVIENTableAdapter.Fill(DS.SINHVIEN);
                     break;
             }
+            LoadUndo();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string maLop = lblMaLop.Text.Trim();
-            string maSV = txtMaSV.Text.Trim();
-            string ho = txtHo.Text.Trim();
-            string ten = txtTen.Text.Trim();
-            DateTime ngaySinh = dtpDOB.Value;
-            string diaChi = txtDiaChi.Text.Trim();
-            bool phai = cbFemale.Checked;
-            bool dangNghiHoc = cbNotStudy.Checked;
+            if (!ValidateStudent()) return;
 
-            switch(currentAction)
+            switch (currentAction)
             {
                 case STATE_ACTION.ADD:
                     AddData();
-                    ActionStudent action = new ActionStudent(STATE_ACTION.ADD, maLop, maSV, ho, ten, ngaySinh, diaChi, phai, dangNghiHoc);
-                    undo.Push(action);
                     break;
 
                 case STATE_ACTION.EDIT:
+                    string message = "Bạn có muốn cập nhật sinh viên này không?";
+                    DialogResult result = MessageBox.Show(
+                        message,
+                        "Xác nhận",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
+
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+
                     UpdateData();
-                    undo.Push(oldData[0]);
-                    oldData.Clear();
                     break;
             }
-
-            FKSINHVIENLOPBindingSource.EndEdit();
-            SINHVIENTableAdapter.Update(DS.SINHVIEN);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -200,11 +325,14 @@ namespace DoAnQLDSVTC
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            txtMaSV.Enabled = true;
             currentAction = STATE_ACTION.ADD;
-            cbNotStudy.Checked = false;
             FKSINHVIENLOPBindingSource.AddNew();
+
             rbMale.Checked = true;
-            cbFemale.Checked = rbFemale.Checked;
+            rbStudying.Checked = true;
+
+            SetupNgaySinhSV();
             lblTitleKhoa.Focus();
             LoadActiveRight();
         }
@@ -212,7 +340,7 @@ namespace DoAnQLDSVTC
         private void btnEdit_Click(object sender, EventArgs e)
         {
             LoadActiveLeft();
-
+            txtMaSV.Enabled = false;
             string maLop = lblMaLop.Text.Trim();
             string maSV = txtMaSV.Text.Trim();
             string ho = txtHo.Text.Trim();
@@ -239,10 +367,23 @@ namespace DoAnQLDSVTC
             bool phai = cbFemale.Checked;
             bool dangNghiHoc = cbNotStudy.Checked;
 
+            string message = "Bạn có chắc chắn muốn xóa Sinh Viên " + ho + " " + ten + " không?";
+            DialogResult result = MessageBox.Show(
+                message,
+                "Xác nhận",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+
             currentAction = STATE_ACTION.DELETE;
             DeleteData();
-            ActionStudent action = new ActionStudent(STATE_ACTION.DELETE, maLop, maSV, ho, ten, ngaySinh, diaChi, phai, dangNghiHoc);
-            undo.Push(action);
+            
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -327,6 +468,71 @@ namespace DoAnQLDSVTC
         {
             cbNotStudy.Checked = rbNotStudy.Checked;
         }
+
+        private bool ValidateStudent()
+        {
+            if (string.IsNullOrWhiteSpace(txtMaSV.Text))
+            {
+                lblMessage.Text = "Vui lòng nhập Mã Sinh Viên.";
+                txtMaSV.Focus();
+                return false;
+            }
+
+            if (txtMaSV.Text.Length < 10)
+            {
+                lblMessage.Text = "Mã Sinh Viên phải từ 10 ký tự.";
+                txtMaSV.Focus();
+                return false;
+            }
+
+            // Họ
+            if (string.IsNullOrWhiteSpace(txtHo.Text))
+            {
+                lblMessage.Text = "Vui lòng nhập Họ.";
+                txtHo.Focus();
+                return false;
+            }
+
+            if (txtHo.Text.Length < 2)
+            {
+                lblMessage.Text = "Họ phải từ 2 ký tự.";
+                txtHo.Focus();
+                return false;
+            }
+
+            // Tên
+            if (string.IsNullOrWhiteSpace(txtTen.Text))
+            {
+                lblMessage.Text = "Vui lòng nhập Tên.";
+                txtTen.Focus();
+                return false;
+            }
+
+            if (txtTen.Text.Length < 2)
+            {
+                lblMessage.Text = "Tên phải từ 2 ký tự.";
+                txtTen.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtDiaChi.Text))
+            {
+                lblMessage.Text = "Vui lòng nhập Địa Chỉ.";
+                txtDiaChi.Focus();
+                return false;
+            }
+
+            if (txtDiaChi.Text.Length < 5)
+            {
+                lblMessage.Text = "Địa Chỉ phải từ 5 ký tự.";
+                txtDiaChi.Focus();
+                return false;
+            }
+
+            lblMessage.Text = "";
+            return true;
+        }
+
     }
 
     public class ActionStudent

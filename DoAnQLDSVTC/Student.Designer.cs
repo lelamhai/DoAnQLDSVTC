@@ -48,14 +48,16 @@ namespace DoAnQLDSVTC
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel29 = new System.Windows.Forms.Panel();
+            this.panel39 = new System.Windows.Forms.Panel();
+            this.lblMessage = new System.Windows.Forms.Label();
             this.panel28 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.panel36 = new System.Windows.Forms.Panel();
+            this.panel37 = new System.Windows.Forms.Panel();
             this.cbNotStudy = new System.Windows.Forms.CheckBox();
             this.FKSINHVIENLOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbsLOP = new System.Windows.Forms.BindingSource(this.components);
             this.DS = new DoAnQLDSVTC.DS();
-            this.panel37 = new System.Windows.Forms.Panel();
             this.panel38 = new System.Windows.Forms.Panel();
             this.rbNotStudy = new System.Windows.Forms.RadioButton();
             this.rbStudying = new System.Windows.Forms.RadioButton();
@@ -67,8 +69,8 @@ namespace DoAnQLDSVTC
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.panel34 = new System.Windows.Forms.Panel();
-            this.cbFemale = new System.Windows.Forms.CheckBox();
             this.panel35 = new System.Windows.Forms.Panel();
+            this.cbFemale = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel25 = new System.Windows.Forms.Panel();
             this.panel24 = new System.Windows.Forms.Panel();
@@ -139,6 +141,8 @@ namespace DoAnQLDSVTC
             this.pRight.SuspendLayout();
             this.panel12.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.panel29.SuspendLayout();
+            this.panel39.SuspendLayout();
             this.panel28.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel36.SuspendLayout();
@@ -364,11 +368,31 @@ namespace DoAnQLDSVTC
             // 
             // panel29
             // 
+            this.panel29.Controls.Add(this.panel39);
             this.panel29.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel29.Location = new System.Drawing.Point(15, 520);
             this.panel29.Name = "panel29";
             this.panel29.Size = new System.Drawing.Size(370, 50);
             this.panel29.TabIndex = 32;
+            // 
+            // panel39
+            // 
+            this.panel39.Controls.Add(this.lblMessage);
+            this.panel39.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel39.Location = new System.Drawing.Point(0, 21);
+            this.panel39.Name = "panel39";
+            this.panel39.Size = new System.Drawing.Size(370, 29);
+            this.panel39.TabIndex = 0;
+            // 
+            // lblMessage
+            // 
+            this.lblMessage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblMessage.ForeColor = System.Drawing.Color.Red;
+            this.lblMessage.Location = new System.Drawing.Point(0, 0);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(370, 29);
+            this.lblMessage.TabIndex = 0;
+            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel28
             // 
@@ -406,6 +430,14 @@ namespace DoAnQLDSVTC
             this.panel36.Size = new System.Drawing.Size(148, 31);
             this.panel36.TabIndex = 0;
             // 
+            // panel37
+            // 
+            this.panel37.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel37.Location = new System.Drawing.Point(0, 0);
+            this.panel37.Name = "panel37";
+            this.panel37.Size = new System.Drawing.Size(148, 31);
+            this.panel37.TabIndex = 3;
+            // 
             // cbNotStudy
             // 
             this.cbNotStudy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -434,14 +466,6 @@ namespace DoAnQLDSVTC
             this.DS.DataSetName = "DS";
             this.DS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // panel37
-            // 
-            this.panel37.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel37.Location = new System.Drawing.Point(0, 0);
-            this.panel37.Name = "panel37";
-            this.panel37.Size = new System.Drawing.Size(148, 31);
-            this.panel37.TabIndex = 3;
-            // 
             // panel38
             // 
             this.panel38.Controls.Add(this.rbNotStudy);
@@ -468,6 +492,7 @@ namespace DoAnQLDSVTC
             // rbStudying
             // 
             this.rbStudying.AutoSize = true;
+            this.rbStudying.Checked = true;
             this.rbStudying.Location = new System.Drawing.Point(15, 5);
             this.rbStudying.Name = "rbStudying";
             this.rbStudying.Size = new System.Drawing.Size(89, 23);
@@ -568,6 +593,16 @@ namespace DoAnQLDSVTC
             this.panel34.Size = new System.Drawing.Size(148, 31);
             this.panel34.TabIndex = 1;
             // 
+            // panel35
+            // 
+            this.panel35.BackColor = System.Drawing.Color.White;
+            this.panel35.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel35.Location = new System.Drawing.Point(0, 0);
+            this.panel35.Margin = new System.Windows.Forms.Padding(0);
+            this.panel35.Name = "panel35";
+            this.panel35.Size = new System.Drawing.Size(148, 31);
+            this.panel35.TabIndex = 2;
+            // 
             // cbFemale
             // 
             this.cbFemale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -580,16 +615,6 @@ namespace DoAnQLDSVTC
             this.cbFemale.Text = "Nữ";
             this.cbFemale.UseVisualStyleBackColor = true;
             this.cbFemale.CheckedChanged += new System.EventHandler(this.cbFemale_CheckedChanged);
-            // 
-            // panel35
-            // 
-            this.panel35.BackColor = System.Drawing.Color.White;
-            this.panel35.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel35.Location = new System.Drawing.Point(0, 0);
-            this.panel35.Margin = new System.Windows.Forms.Padding(0);
-            this.panel35.Name = "panel35";
-            this.panel35.Size = new System.Drawing.Size(148, 31);
-            this.panel35.TabIndex = 2;
             // 
             // label11
             // 
@@ -668,9 +693,11 @@ namespace DoAnQLDSVTC
             // 
             // dtpDOB
             // 
+            this.dtpDOB.CustomFormat = "dd/MM/yyyy";
             this.dtpDOB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.FKSINHVIENLOPBindingSource, "NGAYSINH", true));
             this.dtpDOB.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.FKSINHVIENLOPBindingSource, "NGAYSINH", true));
             this.dtpDOB.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDOB.Location = new System.Drawing.Point(0, 24);
             this.dtpDOB.Name = "dtpDOB";
             this.dtpDOB.Size = new System.Drawing.Size(370, 26);
@@ -1279,6 +1306,8 @@ namespace DoAnQLDSVTC
             this.pRight.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
+            this.panel29.ResumeLayout(false);
+            this.panel39.ResumeLayout(false);
             this.panel28.ResumeLayout(false);
             this.panel28.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -1427,5 +1456,7 @@ namespace DoAnQLDSVTC
         private Panel panel38;
         private RadioButton rbStudying;
         private RadioButton rbNotStudy;
+        private Panel panel39;
+        private Label lblMessage;
     }
 }
