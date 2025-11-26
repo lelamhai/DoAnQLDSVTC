@@ -174,7 +174,7 @@ namespace DoAnQLDSVTC
             string khoaHoc = txtKhoaHoc.Text.Trim();
             string maKhoa = txtMaKhoa.Text.Trim();
 
-            if (!ValidateLogin())
+            if (!ValidateClassroom())
             {
                 return;
             }
@@ -400,7 +400,7 @@ namespace DoAnQLDSVTC
             parent.DeleteButtonInTabBar(form);
         }
 
-        private bool ValidateLogin()
+        private bool ValidateClassroom()
         {
             if (string.IsNullOrWhiteSpace(txtMaLop.Text))
             {

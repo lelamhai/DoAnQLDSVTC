@@ -37,7 +37,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSubject = new System.Windows.Forms.Button();
             this.btnStudent = new System.Windows.Forms.Button();
             this.btnLop = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -117,7 +117,7 @@
             this.tableLayoutPanel1.Controls.Add(this.button5, 5, 0);
             this.tableLayoutPanel1.Controls.Add(this.button4, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.button3, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnSubject, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnStudent, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnLop, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -196,22 +196,23 @@
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnSubject
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(173, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(79, 94);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Môn Học";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnSubject.BackColor = System.Drawing.Color.Transparent;
+            this.btnSubject.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSubject.FlatAppearance.BorderSize = 0;
+            this.btnSubject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubject.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnSubject.Image = ((System.Drawing.Image)(resources.GetObject("btnSubject.Image")));
+            this.btnSubject.Location = new System.Drawing.Point(173, 3);
+            this.btnSubject.Name = "btnSubject";
+            this.btnSubject.Size = new System.Drawing.Size(79, 94);
+            this.btnSubject.TabIndex = 2;
+            this.btnSubject.Text = "Môn Học";
+            this.btnSubject.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSubject.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSubject.UseVisualStyleBackColor = false;
+            this.btnSubject.Click += new System.EventHandler(this.btnSubject_Click);
             // 
             // btnStudent
             // 
@@ -500,7 +501,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSubject;
         private System.Windows.Forms.Panel pTabBar;
         private System.Windows.Forms.Panel pMain;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;

@@ -76,27 +76,7 @@ namespace DoAnQLDSVTC
             f.BringToFront();
         }
 
-        private void btnStudent_Click(object sender, EventArgs e)
-        {
-            LoadForm(new Student());
-        }
-
-        private void btnLop_Click(object sender, EventArgs e)
-        {
-            LoadForm(new NewClassroom());
-        }
-
-        private void btnCreateAccount_Click(object sender, EventArgs e)
-        {
-            LoadForm(new CreateAccount());
-        }
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            Login login = new Login();
-            login.Show();       // mở Form2
-            this.Hide();     // ẩn Form1
-        }
+       
 
         public void DeleteButtonInTabBar(Form form)
         {
@@ -128,6 +108,33 @@ namespace DoAnQLDSVTC
                 f.Show();
                 f.BringToFront();
             }
+        }
+
+        private void btnStudent_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Student());
+        }
+
+        private void btnLop_Click(object sender, EventArgs e)
+        {
+            LoadForm(new NewClassroom());
+        }
+
+        private void btnCreateAccount_Click(object sender, EventArgs e)
+        {
+            LoadForm(new CreateAccount());
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();       // mở Form2
+            this.Hide();     // ẩn Form1
+        }
+
+        private void btnSubject_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Subject());
         }
     }
 }
