@@ -15,7 +15,7 @@ namespace DoAnQLDSVTC
 
         private void Admin_Load(object sender, EventArgs e)
         {
-            LoadForm(new NewClassroom());
+            LoadForm(new OpenCourse());
         }
 
         private void LoadForm(object form)
@@ -75,8 +75,6 @@ namespace DoAnQLDSVTC
             f.Show();
             f.BringToFront();
         }
-
-       
 
         public void DeleteButtonInTabBar(Form form)
         {
