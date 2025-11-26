@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
@@ -97,7 +96,7 @@ namespace DoAnQLDSVTC
                 int soTietTH = int.Parse(nudSTTH.Value.ToString());
 
                 string strSP = "EXEC SP_CHECKTMAMH '" + maMH.Trim() + "'";
-                int result = CheckMaMH(strSP);
+                int result = Program.CheckMa(strSP);
 
                 if (result == -1)
                 {
@@ -140,18 +139,6 @@ namespace DoAnQLDSVTC
                 MessageBox.Show("Lỗi thêm môn học. Vui lòng kiểm tra lại thông tin môn học.", "", MessageBoxButtons.OK);
                 return;
             }
-        }
-
-        private int CheckMaMH(string cmd)
-        {
-            SqlDataReader dataReader = Program.ExecSqlDataReader(cmd);
-
-            if (dataReader == null) return -1;
-
-            dataReader.Read();
-            int result = int.Parse(dataReader.GetValue(0).ToString());
-            dataReader.Close();
-            return result;
         }
 
         public void DeleteData()

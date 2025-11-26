@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
@@ -256,7 +255,7 @@ namespace DoAnQLDSVTC
                 string khoaHoc = txtKhoaHoc.Text.Trim();
                 string maKhoa = txtMaKhoa.Text.Trim();
                 string strSP = "EXEC SP_CHECKMALOP '" + maLop.Trim() + "'";
-                int result = CheckMaLop(strSP);
+                int result = Program.CheckMa(strSP);
 
                 if (result == -1)
                 {
@@ -378,18 +377,6 @@ namespace DoAnQLDSVTC
             }
             currentAction = STATE_ACTION.NONE;
             LoadUndo();
-        }
-
-        private int CheckMaLop(string cmd)
-        {
-            SqlDataReader dataReader = Program.ExecSqlDataReader(cmd);
-
-            if (dataReader == null) return -1;
-
-            dataReader.Read();
-            int result = int.Parse(dataReader.GetValue(0).ToString());
-            dataReader.Close();
-            return result;
         }
 
         private void btnExit_Click(object sender, EventArgs e)

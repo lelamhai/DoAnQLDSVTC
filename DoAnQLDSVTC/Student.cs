@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
@@ -140,7 +139,7 @@ namespace DoAnQLDSVTC
                 bool dangNghiHoc = cbNotStudy.Checked;
 
                 string strSP = "EXEC SP_CHECKMASINHVIEN '" + maSV.Trim() + "'";
-                int result = CheckMaSinhVien(strSP);
+                int result = Program.CheckMa(strSP);
                 if (result == -1)
                 {
                     MessageBox.Show("Lỗi kết nối CSDL!", "", MessageBoxButtons.OK);
@@ -175,19 +174,6 @@ namespace DoAnQLDSVTC
                 return;
             }
         }
-
-        private int CheckMaSinhVien(string cmd)
-        {
-            SqlDataReader dataReader = Program.ExecSqlDataReader(cmd);
-
-            if (dataReader == null) return -1;
-
-            dataReader.Read();
-            int result = int.Parse(dataReader.GetValue(0).ToString());
-            dataReader.Close();
-            return result;
-        }
-
 
         public void UpdateData()
         {

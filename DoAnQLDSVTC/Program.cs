@@ -72,6 +72,19 @@ namespace DoAnQLDSVTC
             Conn.Close();
             return dt;
         }
+
+        public static int CheckMa(string cmd)
+        {
+            SqlDataReader dataReader = Program.ExecSqlDataReader(cmd);
+
+            if (dataReader == null) return -1;
+
+            dataReader.Read();
+            int result = int.Parse(dataReader.GetValue(0).ToString());
+            dataReader.Close();
+            return result;
+        }
+
         public static int ExecSqlNonQuery(string strlenh)
         {
             SqlCommand Sqlcmd = new SqlCommand(strlenh, Conn);
