@@ -112,7 +112,7 @@ namespace DoAnQLDSVTC
             dtpEnd.Value = new DateTime(DateTime.Now.Year + 1, 1, 1);
             txtKhoaHoc.Text = dtpBeigin.Value.Year + "-" + dtpEnd.Value.Year;
 
-            txtMaKhoa.Text = ((DataRowView)dbsLOP[0])["MAKHOA"].ToString(); ;
+            txtMaKhoa.Text = ((DataRowView)dbsLOP[0])["MAKHOA"].ToString();
             txtMaLop.Focus();
             LoadActiveRight();
         }
