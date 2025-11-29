@@ -94,6 +94,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtNienKhoa = new System.Windows.Forms.TextBox();
+            this.dtpBeigin = new System.Windows.Forms.DateTimePicker();
+            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel22 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
@@ -105,11 +110,6 @@
             this.GIANGVIENTableAdapter = new DoAnQLDSVTC.DSTableAdapters.GIANGVIENTableAdapter();
             this.tableAdapterManager = new DoAnQLDSVTC.DSTableAdapters.TableAdapterManager();
             this.MONHOCTableAdapter = new DoAnQLDSVTC.DSTableAdapters.MONHOCTableAdapter();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtNienKhoa = new System.Windows.Forms.TextBox();
-            this.dtpBeigin = new System.Windows.Forms.DateTimePicker();
-            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -136,9 +136,9 @@
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudHocKy)).BeginInit();
             this.panel10.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.panel21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dbsGIANGVIEN)).BeginInit();
-            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -862,6 +862,68 @@
             this.panel10.Size = new System.Drawing.Size(370, 50);
             this.panel10.TabIndex = 20;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 5;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.txtNienKhoa, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.dtpBeigin, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.dtpEnd, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label4, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 22);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(370, 28);
+            this.tableLayoutPanel2.TabIndex = 4;
+            // 
+            // txtNienKhoa
+            // 
+            this.txtNienKhoa.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dbsLTC, "NIENKHOA", true));
+            this.txtNienKhoa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNienKhoa.Location = new System.Drawing.Point(207, 0);
+            this.txtNienKhoa.Margin = new System.Windows.Forms.Padding(0);
+            this.txtNienKhoa.Name = "txtNienKhoa";
+            this.txtNienKhoa.Size = new System.Drawing.Size(163, 26);
+            this.txtNienKhoa.TabIndex = 1;
+            this.txtNienKhoa.TextChanged += new System.EventHandler(this.txtNienKhoa_TextChanged);
+            // 
+            // dtpBeigin
+            // 
+            this.dtpBeigin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtpBeigin.Location = new System.Drawing.Point(0, 0);
+            this.dtpBeigin.Margin = new System.Windows.Forms.Padding(0);
+            this.dtpBeigin.Name = "dtpBeigin";
+            this.dtpBeigin.Size = new System.Drawing.Size(81, 26);
+            this.dtpBeigin.TabIndex = 2;
+            this.dtpBeigin.ValueChanged += new System.EventHandler(this.dtpBeigin_ValueChanged);
+            // 
+            // dtpEnd
+            // 
+            this.dtpEnd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtpEnd.Location = new System.Drawing.Point(111, 0);
+            this.dtpEnd.Margin = new System.Windows.Forms.Padding(0);
+            this.dtpEnd.Name = "dtpEnd";
+            this.dtpEnd.Size = new System.Drawing.Size(81, 26);
+            this.dtpEnd.TabIndex = 3;
+            this.dtpEnd.ValueChanged += new System.EventHandler(this.dtpEnd_ValueChanged);
+            // 
+            // label4
+            // 
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Location = new System.Drawing.Point(84, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(24, 28);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "-";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -947,68 +1009,6 @@
             // 
             this.MONHOCTableAdapter.ClearBeforeFill = true;
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 5;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.txtNienKhoa, 4, 0);
-            this.tableLayoutPanel2.Controls.Add(this.dtpBeigin, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.dtpEnd, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label4, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 22);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(370, 28);
-            this.tableLayoutPanel2.TabIndex = 4;
-            // 
-            // txtNienKhoa
-            // 
-            this.txtNienKhoa.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dbsLTC, "NIENKHOA", true));
-            this.txtNienKhoa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNienKhoa.Location = new System.Drawing.Point(207, 0);
-            this.txtNienKhoa.Margin = new System.Windows.Forms.Padding(0);
-            this.txtNienKhoa.Name = "txtNienKhoa";
-            this.txtNienKhoa.Size = new System.Drawing.Size(163, 26);
-            this.txtNienKhoa.TabIndex = 1;
-            this.txtNienKhoa.TextChanged += new System.EventHandler(this.txtNienKhoa_TextChanged);
-            // 
-            // dtpBeigin
-            // 
-            this.dtpBeigin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtpBeigin.Location = new System.Drawing.Point(0, 0);
-            this.dtpBeigin.Margin = new System.Windows.Forms.Padding(0);
-            this.dtpBeigin.Name = "dtpBeigin";
-            this.dtpBeigin.Size = new System.Drawing.Size(81, 26);
-            this.dtpBeigin.TabIndex = 2;
-            this.dtpBeigin.ValueChanged += new System.EventHandler(this.dtpBeigin_ValueChanged);
-            // 
-            // dtpEnd
-            // 
-            this.dtpEnd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtpEnd.Location = new System.Drawing.Point(111, 0);
-            this.dtpEnd.Margin = new System.Windows.Forms.Padding(0);
-            this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(81, 26);
-            this.dtpEnd.TabIndex = 3;
-            this.dtpEnd.ValueChanged += new System.EventHandler(this.dtpEnd_ValueChanged);
-            // 
-            // label4
-            // 
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(84, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(24, 28);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "-";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // OpenCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -1058,11 +1058,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudHocKy)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.panel21.ResumeLayout(false);
             this.panel21.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dbsGIANGVIEN)).EndInit();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
