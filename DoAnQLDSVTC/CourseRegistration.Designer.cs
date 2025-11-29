@@ -34,6 +34,17 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pStudentInfo = new System.Windows.Forms.Panel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.btnCourseRegister = new System.Windows.Forms.Button();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -67,23 +78,15 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.btnCourseRegister = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.pStudentInfo.SuspendLayout();
+            this.panel21.SuspendLayout();
+            this.panel19.SuspendLayout();
+            this.panel17.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -97,9 +100,6 @@
             this.panel6.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel17.SuspendLayout();
-            this.panel19.SuspendLayout();
-            this.panel21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -176,6 +176,113 @@
             this.pStudentInfo.Name = "pStudentInfo";
             this.pStudentInfo.Size = new System.Drawing.Size(335, 316);
             this.pStudentInfo.TabIndex = 3;
+            // 
+            // panel21
+            // 
+            this.panel21.Controls.Add(this.btnCourseRegister);
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel21.Location = new System.Drawing.Point(0, 250);
+            this.panel21.Margin = new System.Windows.Forms.Padding(0);
+            this.panel21.Name = "panel21";
+            this.panel21.Padding = new System.Windows.Forms.Padding(100, 0, 100, 0);
+            this.panel21.Size = new System.Drawing.Size(335, 40);
+            this.panel21.TabIndex = 9;
+            // 
+            // btnCourseRegister
+            // 
+            this.btnCourseRegister.BackColor = System.Drawing.Color.IndianRed;
+            this.btnCourseRegister.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCourseRegister.FlatAppearance.BorderSize = 0;
+            this.btnCourseRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCourseRegister.ForeColor = System.Drawing.Color.White;
+            this.btnCourseRegister.Location = new System.Drawing.Point(100, 0);
+            this.btnCourseRegister.Name = "btnCourseRegister";
+            this.btnCourseRegister.Size = new System.Drawing.Size(135, 40);
+            this.btnCourseRegister.TabIndex = 0;
+            this.btnCourseRegister.Text = "Đăng Ký";
+            this.btnCourseRegister.UseVisualStyleBackColor = false;
+            // 
+            // panel20
+            // 
+            this.panel20.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel20.Location = new System.Drawing.Point(0, 240);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(335, 10);
+            this.panel20.TabIndex = 8;
+            // 
+            // panel19
+            // 
+            this.panel19.Controls.Add(this.textBox5);
+            this.panel19.Controls.Add(this.label8);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel19.Location = new System.Drawing.Point(0, 190);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(335, 50);
+            this.panel19.TabIndex = 7;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.textBox5.Location = new System.Drawing.Point(0, 24);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(335, 26);
+            this.textBox5.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label8.Location = new System.Drawing.Point(0, 0);
+            this.label8.Margin = new System.Windows.Forms.Padding(0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(107, 19);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Mã Lớp Tín Chỉ";
+            // 
+            // panel18
+            // 
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel18.Location = new System.Drawing.Point(0, 180);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(335, 10);
+            this.panel18.TabIndex = 6;
+            // 
+            // panel17
+            // 
+            this.panel17.Controls.Add(this.textBox4);
+            this.panel17.Controls.Add(this.label7);
+            this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel17.Location = new System.Drawing.Point(0, 130);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(335, 50);
+            this.panel17.TabIndex = 5;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.textBox4.Location = new System.Drawing.Point(0, 24);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(335, 26);
+            this.textBox4.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label7.Location = new System.Drawing.Point(0, 0);
+            this.label7.Margin = new System.Windows.Forms.Padding(0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(34, 19);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Lớp";
+            // 
+            // panel16
+            // 
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel16.Location = new System.Drawing.Point(0, 120);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(335, 10);
+            this.panel16.TabIndex = 4;
             // 
             // panel15
             // 
@@ -583,122 +690,6 @@
             this.panel2.Size = new System.Drawing.Size(1229, 381);
             this.panel2.TabIndex = 3;
             // 
-            // panel16
-            // 
-            this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel16.Location = new System.Drawing.Point(0, 120);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(335, 10);
-            this.panel16.TabIndex = 4;
-            // 
-            // panel17
-            // 
-            this.panel17.Controls.Add(this.textBox4);
-            this.panel17.Controls.Add(this.label7);
-            this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel17.Location = new System.Drawing.Point(0, 130);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(335, 50);
-            this.panel17.TabIndex = 5;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.textBox4.Location = new System.Drawing.Point(0, 24);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(335, 26);
-            this.textBox4.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label7.Location = new System.Drawing.Point(0, 0);
-            this.label7.Margin = new System.Windows.Forms.Padding(0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(34, 19);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Lớp";
-            // 
-            // panel18
-            // 
-            this.panel18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel18.Location = new System.Drawing.Point(0, 180);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(335, 10);
-            this.panel18.TabIndex = 6;
-            // 
-            // panel19
-            // 
-            this.panel19.Controls.Add(this.textBox5);
-            this.panel19.Controls.Add(this.label8);
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel19.Location = new System.Drawing.Point(0, 190);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(335, 50);
-            this.panel19.TabIndex = 7;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.textBox5.Location = new System.Drawing.Point(0, 24);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(335, 26);
-            this.textBox5.TabIndex = 1;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label8.Location = new System.Drawing.Point(0, 0);
-            this.label8.Margin = new System.Windows.Forms.Padding(0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(107, 19);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Mã Lớp Tín Chỉ";
-            // 
-            // panel20
-            // 
-            this.panel20.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel20.Location = new System.Drawing.Point(0, 240);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(335, 10);
-            this.panel20.TabIndex = 8;
-            // 
-            // panel21
-            // 
-            this.panel21.Controls.Add(this.btnCourseRegister);
-            this.panel21.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel21.Location = new System.Drawing.Point(0, 250);
-            this.panel21.Margin = new System.Windows.Forms.Padding(0);
-            this.panel21.Name = "panel21";
-            this.panel21.Padding = new System.Windows.Forms.Padding(100, 0, 100, 0);
-            this.panel21.Size = new System.Drawing.Size(335, 40);
-            this.panel21.TabIndex = 9;
-            // 
-            // btnCourseRegister
-            // 
-            this.btnCourseRegister.BackColor = System.Drawing.Color.IndianRed;
-            this.btnCourseRegister.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCourseRegister.FlatAppearance.BorderSize = 0;
-            this.btnCourseRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCourseRegister.ForeColor = System.Drawing.Color.White;
-            this.btnCourseRegister.Location = new System.Drawing.Point(100, 0);
-            this.btnCourseRegister.Name = "btnCourseRegister";
-            this.btnCourseRegister.Size = new System.Drawing.Size(135, 40);
-            this.btnCourseRegister.TabIndex = 0;
-            this.btnCourseRegister.Text = "Đăng Ký";
-            this.btnCourseRegister.UseVisualStyleBackColor = false;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(15, 0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(1199, 381);
-            this.dataGridView2.TabIndex = 0;
-            // 
             // label9
             // 
             this.label9.Dock = System.Windows.Forms.DockStyle.Top;
@@ -711,6 +702,15 @@
             this.label9.Text = "Danh Sác Lớp Tín Chỉ";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(15, 0);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(1199, 381);
+            this.dataGridView2.TabIndex = 0;
+            // 
             // CourseRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -718,6 +718,7 @@
             this.ClientSize = new System.Drawing.Size(1229, 861);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CourseRegistration";
             this.Text = "Đăng Ký LTC";
@@ -726,6 +727,11 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.pStudentInfo.ResumeLayout(false);
+            this.panel21.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             this.panel13.ResumeLayout(false);
@@ -742,11 +748,6 @@
             this.panel6.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel17.ResumeLayout(false);
-            this.panel17.PerformLayout();
-            this.panel19.ResumeLayout(false);
-            this.panel19.PerformLayout();
-            this.panel21.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
