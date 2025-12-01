@@ -41,22 +41,22 @@ namespace DoAnQLDSVTC
 
         private void btnSearch_Click(object sender, System.EventArgs e)
         {
-            if(txtMSSV.Text.Trim() == "")
-            {
-                lblMessage.Text = "Vui lòng nhập mã sinh viên!";
-                return;
-            }
-            string cmd = "EXEC SP_LAY_HOTENSV '" + txtMSSV.Text.Trim() + "'";
-            Program.myReader = Program.ExecSqlDataReader(cmd);
-            Program.myReader.Read();
-            txtMaSV.Text = txtMSSV.Text.Trim();
-            txtHoTen.Text = Program.myReader.GetString(0);
-            txtTenLop.Text = Program.myReader.GetString(1);
-            txtMaLop.Text = Program.myReader.GetString(2);
-            Program.myReader.Close();
+            //if(txtMSSV.Text.Trim() == "")
+            //{
+            //    lblMessage.Text = "Vui lòng nhập mã sinh viên!";
+            //    return;
+            //}
+            //string cmd = "EXEC SP_LAY_HOTENSV '" + txtMSSV.Text.Trim() + "'";
+            //Program.myReader = Program.ExecSqlDataReader(cmd);
+            //Program.myReader.Read();
+            //txtMaSV.Text = txtMSSV.Text.Trim();
+            //txtHoTen.Text = Program.myReader.GetString(0);
+            //txtTenLop.Text = Program.myReader.GetString(1);
+            //txtMaLop.Text = Program.myReader.GetString(2);
+            //Program.myReader.Close();
 
-            string title = "Danh Sách Đăng Ký Học Phần Của " + txtHoTen.Text;
-            lblTitle.Text = title;
+            //string title = "Danh Sách Đăng Ký Học Phần Của " + txtHoTen.Text;
+            //lblTitle.Text = title;
 
         }
 
