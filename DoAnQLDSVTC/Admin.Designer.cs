@@ -33,10 +33,10 @@
             this.tabAdmin = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnCourseRegistration = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnOpenCourse = new System.Windows.Forms.Button();
             this.btnSubject = new System.Windows.Forms.Button();
             this.btnStudent = new System.Windows.Forms.Button();
             this.btnLop = new System.Windows.Forms.Button();
@@ -113,10 +113,10 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 658F));
-            this.tableLayoutPanel1.Controls.Add(this.button6, 6, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnCourseRegistration, 6, 0);
             this.tableLayoutPanel1.Controls.Add(this.button5, 5, 0);
             this.tableLayoutPanel1.Controls.Add(this.button4, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button3, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnOpenCourse, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnSubject, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnStudent, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnLop, 0, 0);
@@ -128,22 +128,23 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1253, 100);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // button6
+            // btnCourseRegistration
             // 
-            this.button6.BackColor = System.Drawing.Color.Transparent;
-            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.Location = new System.Drawing.Point(513, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(79, 94);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "ĐK LTC";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnCourseRegistration.BackColor = System.Drawing.Color.Transparent;
+            this.btnCourseRegistration.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCourseRegistration.FlatAppearance.BorderSize = 0;
+            this.btnCourseRegistration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCourseRegistration.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnCourseRegistration.Image = ((System.Drawing.Image)(resources.GetObject("btnCourseRegistration.Image")));
+            this.btnCourseRegistration.Location = new System.Drawing.Point(513, 3);
+            this.btnCourseRegistration.Name = "btnCourseRegistration";
+            this.btnCourseRegistration.Size = new System.Drawing.Size(79, 94);
+            this.btnCourseRegistration.TabIndex = 6;
+            this.btnCourseRegistration.Text = "ĐK LTC";
+            this.btnCourseRegistration.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCourseRegistration.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCourseRegistration.UseVisualStyleBackColor = false;
+            this.btnCourseRegistration.Click += new System.EventHandler(this.btnCourseRegistration_Click);
             // 
             // button5
             // 
@@ -179,22 +180,23 @@
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button4.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnOpenCourse
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(258, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(79, 94);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Lớp TC";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnOpenCourse.BackColor = System.Drawing.Color.Transparent;
+            this.btnOpenCourse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnOpenCourse.FlatAppearance.BorderSize = 0;
+            this.btnOpenCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpenCourse.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnOpenCourse.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenCourse.Image")));
+            this.btnOpenCourse.Location = new System.Drawing.Point(258, 3);
+            this.btnOpenCourse.Name = "btnOpenCourse";
+            this.btnOpenCourse.Size = new System.Drawing.Size(79, 94);
+            this.btnOpenCourse.TabIndex = 3;
+            this.btnOpenCourse.Text = "Lớp TC";
+            this.btnOpenCourse.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnOpenCourse.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnOpenCourse.UseVisualStyleBackColor = false;
+            this.btnOpenCourse.Click += new System.EventHandler(this.btnOpenCourse_Click);
             // 
             // btnSubject
             // 
@@ -497,10 +499,10 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnLop;
         private System.Windows.Forms.Button btnStudent;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnCourseRegistration;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnOpenCourse;
         private System.Windows.Forms.Button btnSubject;
         private System.Windows.Forms.Panel pTabBar;
         private System.Windows.Forms.Panel pMain;

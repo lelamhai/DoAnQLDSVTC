@@ -134,5 +134,15 @@ namespace DoAnQLDSVTC
         {
             LoadForm(new Subject());
         }
+
+        private void btnOpenCourse_Click(object sender, EventArgs e)
+        {
+            LoadForm(new OpenCourse());
+        }
+
+        private void btnCourseRegistration_Click(object sender, EventArgs e)
+        {
+            LoadForm(new CourseRegistration());
+        }
     }
 }
