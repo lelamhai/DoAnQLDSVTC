@@ -82,18 +82,27 @@ namespace DoAnQLDSVTC
                 MessageBox.Show("Mã số sinh viên không được để trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            string cmd = "EXEC SP_LAY_HOTENSV '" + txtMSSV.Text.Trim() + "'";
-            Program.myReader = Program.ExecSqlDataReader(cmd);
-            Program.myReader.Read();
-            lblMaSV.Text = txtMSSV.Text.Trim();
-            lblHoTen.Text = Program.myReader.GetString(0);
-            lblMaLop.Text = Program.myReader.GetString(1);
-            lblTenLop.Text = Program.myReader.GetString(2);
-            lblMaKhoa.Text = Program.myReader.GetString(3);
-            string title = "Danh Sách Đăng Ký Học Phần Của " + lblHoTen.Text;
-            lblTitle.Text = title;
-            txtiMaSV.Text = txtMSSV.Text.Trim();
-            Program.myReader.Close();
+            try
+            {
+                string cmd = "EXEC SP_LAY_HOTENSV '" + txtMSSV.Text.Trim() + "'";
+                Program.myReader = Program.ExecSqlDataReader(cmd);
+                Program.myReader.Read();
+                lblHoTen.Text = Program.myReader.GetString(0);
+                lblMaLop.Text = Program.myReader.GetString(1);
+                lblTenLop.Text = Program.myReader.GetString(2);
+                lblMaKhoa.Text = Program.myReader.GetString(3);
+                string title = "Danh Sách Đăng Ký Học Phần Của " + lblHoTen.Text;
+                lblTitle.Text = title;
+                txtiMaSV.Text = txtMSSV.Text.Trim();
+                lblMaSV.Text = txtMSSV.Text.Trim();
+                Program.myReader.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi mã sinh viên không đúng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+          
         }
 
 
@@ -113,14 +122,11 @@ namespace DoAnQLDSVTC
 
         private void btnCourseRegistraction_Click(object sender, EventArgs e)
         {
-            string cmd = "EXEC SP_DANGKY_LTC '" + txtiMaSV.Text.Trim() + "'," + txtiMaLTC.Text.Trim();
-            Program.ExecSqlNonQuery(cmd);
-            LoadDatasetDSLTC_NK();
-            LoadDatasetDSSV_DKLTC();
-        }
-
-        private void btnRegister_Click(object sender, EventArgs e)
-        {
+            if(txtiMaSV.Text.Trim() == "")
+            {
+                MessageBox.Show("Vui lòng tìm kiếm sinh viên trước khi đăng ký học phần!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }    
             string cmd = "EXEC SP_DANGKY_LTC '" + txtiMaSV.Text.Trim() + "'," + txtiMaLTC.Text.Trim();
             Program.ExecSqlNonQuery(cmd);
             LoadDatasetDSLTC_NK();
