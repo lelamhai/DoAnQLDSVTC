@@ -39,8 +39,6 @@ namespace DoAnQLDSVTC
             this.btnLogin = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
             this.lblMessage = new System.Windows.Forms.Label();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.cbStudent = new System.Windows.Forms.CheckBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -65,7 +63,6 @@ namespace DoAnQLDSVTC
             this.panel1.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel13.SuspendLayout();
-            this.panel12.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -99,7 +96,6 @@ namespace DoAnQLDSVTC
             // 
             this.panel1.Controls.Add(this.panel14);
             this.panel1.Controls.Add(this.panel13);
-            this.panel1.Controls.Add(this.panel12);
             this.panel1.Controls.Add(this.panel11);
             this.panel1.Controls.Add(this.panel10);
             this.panel1.Controls.Add(this.panel9);
@@ -121,7 +117,7 @@ namespace DoAnQLDSVTC
             // 
             this.panel14.Controls.Add(this.btnLogin);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel14.Location = new System.Drawing.Point(0, 597);
+            this.panel14.Location = new System.Drawing.Point(0, 572);
             this.panel14.Name = "panel14";
             this.panel14.Padding = new System.Windows.Forms.Padding(100, 0, 100, 0);
             this.panel14.Size = new System.Drawing.Size(400, 50);
@@ -147,7 +143,7 @@ namespace DoAnQLDSVTC
             // 
             this.panel13.Controls.Add(this.lblMessage);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel13.Location = new System.Drawing.Point(0, 547);
+            this.panel13.Location = new System.Drawing.Point(0, 522);
             this.panel13.Margin = new System.Windows.Forms.Padding(0);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(400, 50);
@@ -163,29 +159,6 @@ namespace DoAnQLDSVTC
             this.lblMessage.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
             this.lblMessage.Size = new System.Drawing.Size(400, 19);
             this.lblMessage.TabIndex = 0;
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.cbStudent);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(0, 522);
-            this.panel12.Margin = new System.Windows.Forms.Padding(0);
-            this.panel12.Name = "panel12";
-            this.panel12.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
-            this.panel12.Size = new System.Drawing.Size(400, 25);
-            this.panel12.TabIndex = 10;
-            // 
-            // cbStudent
-            // 
-            this.cbStudent.AutoSize = true;
-            this.cbStudent.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cbStudent.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbStudent.Location = new System.Drawing.Point(50, 0);
-            this.cbStudent.Name = "cbStudent";
-            this.cbStudent.Size = new System.Drawing.Size(88, 25);
-            this.cbStudent.TabIndex = 10;
-            this.cbStudent.Text = "Sinh Viên";
-            this.cbStudent.UseVisualStyleBackColor = true;
             // 
             // panel11
             // 
@@ -414,8 +387,6 @@ namespace DoAnQLDSVTC
             this.panel1.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel8.ResumeLayout(false);
@@ -444,14 +415,12 @@ namespace DoAnQLDSVTC
         private TextBox txtUserName;
         private Label label5;
         private Button btnLogin;
-        private CheckBox cbStudent;
         private Panel panel2;
         private Panel panel3;
         private Panel panel4;
         private Panel panel6;
         private Panel panel5;
         private Panel panel13;
-        private Panel panel12;
         private Panel panel11;
         private Panel panel10;
         private Panel panel9;

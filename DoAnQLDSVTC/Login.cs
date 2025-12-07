@@ -84,7 +84,11 @@ namespace DoAnQLDSVTC
 
             Program.myReader.Read();
             Program.userName = Program.myReader.GetString(0);
-            Program.mHoTen = Program.myReader.GetString(1);
+
+            if (!Program.myReader.IsDBNull(1))
+            {
+                Program.mHoTen = Program.myReader.GetString(1);
+            }
             Program.mGroup = Program.myReader.GetString(2);
             Program.myReader.Close();
 
