@@ -69,6 +69,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="InputPoint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputPoint.Designer.cs">
+      <DependentUpon>InputPoint.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IBaseForm.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreateAccount.resx">
       <DependentUpon>CreateAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputPoint.resx">
+      <DependentUpon>InputPoint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
