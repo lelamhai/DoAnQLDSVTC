@@ -152,11 +152,12 @@ namespace DoAnQLDSVTC
             // lblMessage
             // 
             this.lblMessage.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblMessage.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMessage.ForeColor = System.Drawing.Color.Red;
             this.lblMessage.Location = new System.Drawing.Point(0, 31);
             this.lblMessage.Margin = new System.Windows.Forms.Padding(0);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
+            this.lblMessage.Padding = new System.Windows.Forms.Padding(50, 0, 30, 0);
             this.lblMessage.Size = new System.Drawing.Size(400, 19);
             this.lblMessage.TabIndex = 0;
             // 
@@ -272,7 +273,7 @@ namespace DoAnQLDSVTC
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(300, 26);
             this.txtUserName.TabIndex = 8;
-            this.txtUserName.Text = "luunguyenkythu";
+            this.txtUserName.Text = "nguyenquocminh";
             // 
             // panel7
             // 

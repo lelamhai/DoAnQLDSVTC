@@ -70,7 +70,7 @@ namespace DoAnQLDSVTC
             Program.MPass = txtPassword.Text;
             if (Program.KetNoi() == 0)
             {
-                lblMessage.Text = "Xem lại tài khoản, mật khẩu!";
+                lblMessage.Text = "Xem lại tài khoản, mật khẩu hoặc khoa đã chọn!";
                 return;
             }    
 

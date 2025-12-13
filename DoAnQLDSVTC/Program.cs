@@ -58,7 +58,7 @@ namespace DoAnQLDSVTC
             catch (SqlException ex)
             {
                 Program.Conn.Close();
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }

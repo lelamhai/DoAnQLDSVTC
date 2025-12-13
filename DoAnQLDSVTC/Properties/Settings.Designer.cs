@@ -26,11 +26,22 @@ namespace DoAnQLDSVTC.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ADMIN\\SERVER1;Initial Catalog=QLDSV_TC;User ID=lnkt;TrustServerCertif" +
-            "icate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ADMIN\\SERVER1;Initial Catalog=QLDSV_TC;User ID=sa;Password=123;TrustS" +
+            "erverCertificate=True")]
         public string QLDSV_TCConnectionString {
             get {
                 return ((string)(this["QLDSV_TCConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ADMIN\\SERVER3;Initial Catalog=QLDSV_TC;User ID=sa;TrustServerCertific" +
+            "ate=True")]
+        public string QLDSV_TCConnectionString1 {
+            get {
+                return ((string)(this["QLDSV_TCConnectionString1"]));
             }
         }
     }
