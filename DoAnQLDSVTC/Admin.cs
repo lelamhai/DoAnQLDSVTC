@@ -15,7 +15,20 @@ namespace DoAnQLDSVTC
 
         private void Admin_Load(object sender, EventArgs e)
         {
-            LoadForm(new CourseRegistration());
+            string quyen = Program.mGroup;
+            if (quyen == Program.quyen[2])
+            {
+                LoadForm(new CourseRegistration());
+                return;
+            }
+
+            if(quyen == Program.quyen[3])
+            {
+                LoadForm(new PayCourse());
+                return;
+            }    
+
+            LoadForm(new NewClassroom());
         }
 
         private void LoadForm(object form)
