@@ -1,7 +1,6 @@
 ﻿using DoAnQLDSVTC.DSTableAdapters;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
@@ -88,43 +87,16 @@ namespace DoAnQLDSVTC
 
         public void AddData()
         {
-            try
+
+            string maMH = txtMaMonHoc.Text.Trim();
+            string tenMH = txtTenMonHoc.Text.Trim();
+            int soTietLT = int.Parse(nudSTLT.Value.ToString());
+            int soTietTH = int.Parse(nudSTTH.Value.ToString());
+
+            string cmd = "EXEC SP_CHECKMONHOC N'" + maMH + "', N'" + tenMH + "'";
+            int result = Program.ExecSqlNonQuery(cmd);
+            if (result == 0)
             {
-                string maMH = txtMaMonHoc.Text.Trim();
-                string tenMH = txtTenMonHoc.Text.Trim();
-                int soTietLT = int.Parse(nudSTLT.Value.ToString());
-                int soTietTH = int.Parse(nudSTTH.Value.ToString());
-
-                string strSP = "EXEC SP_CHECKTMAMH '" + maMH.Trim() + "'";
-                int result = Program.CheckMa(strSP);
-
-                if (result == -1)
-                {
-                    MessageBox.Show("Lỗi kết nối CSDL!", "", MessageBoxButtons.OK);
-                    return;
-                }
-                if (result == 1)
-                {
-                    MessageBox.Show("Mã Lớp đã tồn tại trong khoa này!", "", MessageBoxButtons.OK);
-                    txtMaMonHoc.Focus();
-                    return;
-
-                }
-                if (result == 2)
-                {
-                    MessageBox.Show("Mã Lớp đã tồn tại trong khoa khác!", "", MessageBoxButtons.OK);
-                    txtMaMonHoc.Focus();
-                    return;
-                }
-
-                // fix bug SOTIET_LT và SOTIET_TH khi thêm dữ liệu mới 2 lần mới giá trị 1
-                var current = (DataRowView)dbsMONHOC.Current;
-                current["MAMH"] = maMH;
-                current["TENMH"] = tenMH;
-                current["SOTIET_LT"] = soTietLT;
-                current["SOTIET_TH"] = soTietTH;
-
-
                 dbsMONHOC.EndEdit();
                 MONHOCTableAdapter.Update(DS.MONHOC);
                 ActionSubject action = new ActionSubject(STATE_ACTION.ADD, maMH, tenMH, soTietLT, soTietTH);
@@ -132,12 +104,7 @@ namespace DoAnQLDSVTC
                 LoadActiveLeft();
                 LoadUndo();
                 currentAction = STATE_ACTION.NONE;
-                MessageBox.Show("Tạo thông tin môn học thành công!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi thêm môn học. Vui lòng kiểm tra lại thông tin môn học.", "", MessageBoxButtons.OK);
-                return;
+                MessageBox.Show("Tạo thông tin môn học thành công!", "Thông báo");
             }
         }
 
@@ -228,8 +195,8 @@ namespace DoAnQLDSVTC
         {
             currentAction = STATE_ACTION.ADD;
             dbsMONHOC.AddNew();
-            nudSTLT.Value = 1;
-            nudSTTH.Value = 1;
+            nudSTLT.Value = 0;
+            nudSTTH.Value = 0;
             txtMaMonHoc.Enabled = true;
             LoadActiveRight();
         }
@@ -362,6 +329,20 @@ namespace DoAnQLDSVTC
             {
                 lblMessage.Text = "Tên Môn Học phải từ 6 ký tự.";
                 txtTenMonHoc.Focus();
+                return false;
+            }
+
+            if(nudSTLT.Value <= 0)
+            {
+                lblMessage.Text = "Số Tiết Lý Thuyết phải lớn 0.";
+                nudSTLT.Focus();
+                return false;
+            }    
+
+            if(nudSTTH.Value <= 0)
+            {
+                lblMessage.Text = "Số Tiết Thực Hành phải lớn 0.";
+                nudSTTH.Focus();
                 return false;
             }
 

@@ -574,19 +574,13 @@ namespace DoAnQLDSVTC
 
         private void dtpBeigin_ValueChanged(object sender, EventArgs e)
         {
-            if (dtpBeigin.Value.Year >= dtpEnd.Value.Year)
-            {
-                dtpEnd.Value = new DateTime(dtpBeigin.Value.Year + 1, 1, 1);
-            }
+            dtpEnd.Value = new DateTime(dtpBeigin.Value.Year + 1, 1, 1);
             txtNienKhoa.Text = dtpBeigin.Value.Year + "-" + dtpEnd.Value.Year;
         }
 
         private void dtpEnd_ValueChanged(object sender, EventArgs e)
         {
-            if (dtpEnd.Value.Year <= dtpBeigin.Value.Year)
-            {
-                dtpBeigin.Value = new DateTime(dtpEnd.Value.Year - 1, 1, 1);
-            }
+            dtpBeigin.Value = new DateTime(dtpEnd.Value.Year - 1, 1, 1);
             txtNienKhoa.Text = dtpBeigin.Value.Year + "-" + dtpEnd.Value.Year;
         }
 

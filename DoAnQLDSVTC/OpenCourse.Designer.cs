@@ -236,7 +236,7 @@
             this.pLeft.Location = new System.Drawing.Point(0, 80);
             this.pLeft.Margin = new System.Windows.Forms.Padding(0);
             this.pLeft.Name = "pLeft";
-            this.pLeft.Padding = new System.Windows.Forms.Padding(15, 0, 15, 0);
+            this.pLeft.Padding = new System.Windows.Forms.Padding(15, 0, 15, 15);
             this.pLeft.Size = new System.Drawing.Size(903, 680);
             this.pLeft.TabIndex = 9;
             // 
@@ -260,7 +260,7 @@
             this.dgvLTC.Location = new System.Drawing.Point(15, 30);
             this.dgvLTC.Margin = new System.Windows.Forms.Padding(0);
             this.dgvLTC.Name = "dgvLTC";
-            this.dgvLTC.Size = new System.Drawing.Size(873, 650);
+            this.dgvLTC.Size = new System.Drawing.Size(873, 635);
             this.dgvLTC.TabIndex = 1;
             this.dgvLTC.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvLTC_CellFormatting);
             // 
@@ -890,6 +890,7 @@
             this.txtNienKhoa.Location = new System.Drawing.Point(207, 0);
             this.txtNienKhoa.Margin = new System.Windows.Forms.Padding(0);
             this.txtNienKhoa.Name = "txtNienKhoa";
+            this.txtNienKhoa.ReadOnly = true;
             this.txtNienKhoa.Size = new System.Drawing.Size(163, 26);
             this.txtNienKhoa.TabIndex = 1;
             this.txtNienKhoa.TextChanged += new System.EventHandler(this.txtNienKhoa_TextChanged);

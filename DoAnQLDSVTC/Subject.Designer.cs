@@ -66,6 +66,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel16 = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
+            this.lblMessage = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
             this.nudSTTH = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
@@ -84,7 +85,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.MONHOCTableAdapter = new DoAnQLDSVTC.DSTableAdapters.MONHOCTableAdapter();
             this.lblMessag = new System.Windows.Forms.Label();
-            this.lblMessage = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel1.SuspendLayout();
@@ -550,6 +550,16 @@
             this.panel19.Size = new System.Drawing.Size(370, 30);
             this.panel19.TabIndex = 0;
             // 
+            // lblMessage
+            // 
+            this.lblMessage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblMessage.ForeColor = System.Drawing.Color.Red;
+            this.lblMessage.Location = new System.Drawing.Point(0, 0);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(370, 19);
+            this.lblMessage.TabIndex = 0;
+            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel15
             // 
             this.panel15.Controls.Add(this.nudSTTH);
@@ -564,13 +574,13 @@
             // 
             this.nudSTTH.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.dbsMONHOC, "SOTIET_TH", true));
             this.nudSTTH.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.nudSTTH.Location = new System.Drawing.Point(0, 24);
-            this.nudSTTH.Margin = new System.Windows.Forms.Padding(0);
-            this.nudSTTH.Minimum = new decimal(new int[] {
-            1,
+            this.nudSTTH.Increment = new decimal(new int[] {
+            10,
             0,
             0,
             0});
+            this.nudSTTH.Location = new System.Drawing.Point(0, 24);
+            this.nudSTTH.Margin = new System.Windows.Forms.Padding(0);
             this.nudSTTH.Name = "nudSTTH";
             this.nudSTTH.Size = new System.Drawing.Size(370, 26);
             this.nudSTTH.TabIndex = 5;
@@ -611,13 +621,13 @@
             // 
             this.nudSTLT.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.dbsMONHOC, "SOTIET_LT", true));
             this.nudSTLT.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.nudSTLT.Location = new System.Drawing.Point(0, 24);
-            this.nudSTLT.Margin = new System.Windows.Forms.Padding(0);
-            this.nudSTLT.Minimum = new decimal(new int[] {
-            1,
+            this.nudSTLT.Increment = new decimal(new int[] {
+            10,
             0,
             0,
             0});
+            this.nudSTLT.Location = new System.Drawing.Point(0, 24);
+            this.nudSTLT.Margin = new System.Windows.Forms.Padding(0);
             this.nudSTLT.Name = "nudSTLT";
             this.nudSTLT.Size = new System.Drawing.Size(370, 26);
             this.nudSTLT.TabIndex = 4;
@@ -735,16 +745,6 @@
             this.lblMessag.TabIndex = 1;
             this.lblMessag.Text = "label8";
             this.lblMessag.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblMessage
-            // 
-            this.lblMessage.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblMessage.Location = new System.Drawing.Point(0, 0);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(370, 19);
-            this.lblMessage.TabIndex = 0;
-            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // contextMenuStrip1
             // 
