@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
@@ -32,7 +30,6 @@ namespace DoAnQLDSVTC
             dtpBeigin.Format = DateTimePickerFormat.Custom;
             dtpBeigin.CustomFormat = "yyyy";
             dtpBeigin.ShowUpDown = true;
-            //dtpBeigin.Value = new DateTime(dtpBeigin.Value.Year, 1, 1);
             dtpBeigin.Value = new DateTime(2021, 1, 1);
         }
         private void SetupEnd()
@@ -40,15 +37,13 @@ namespace DoAnQLDSVTC
             dtpEnd.Format = DateTimePickerFormat.Custom;
             dtpEnd.CustomFormat = "yyyy";
             dtpEnd.ShowUpDown = true;
-            //dtpEnd.Value = new DateTime(dtpBeigin.Value.Year + 1, 1, 1);
-            dtpEnd.Value = new DateTime(2022, 1, 1);
+            dtpEnd.Value = new DateTime(dtpBeigin.Value.Year + 1, 1, 1);
         }
 
 
         private void btnSearch_Click(object sender, System.EventArgs e)
         {
             GetInfoStudent();
-            LoadDatasetDSSV_DKLTC();
         }
 
         private void btnFilter_Click(object sender, System.EventArgs e)
@@ -59,19 +54,13 @@ namespace DoAnQLDSVTC
 
         private void dtpBeigin_ValueChanged(object sender, EventArgs e)
         {
-            if (dtpBeigin.Value.Year >= dtpEnd.Value.Year)
-            {
-                dtpEnd.Value = new DateTime(dtpBeigin.Value.Year + 1, 1, 1);
-            }
+            dtpEnd.Value = new DateTime(dtpBeigin.Value.Year + 1, 1, 1);
             txtNienKhoa.Text = dtpBeigin.Value.Year + "-" + dtpEnd.Value.Year;
         }
 
         private void dtpEnd_ValueChanged(object sender, EventArgs e)
         {
-            if (dtpEnd.Value.Year <= dtpBeigin.Value.Year)
-            {
-                dtpBeigin.Value = new DateTime(dtpEnd.Value.Year - 1, 1, 1);
-            }
+            dtpBeigin.Value = new DateTime(dtpEnd.Value.Year - 1, 1, 1);
             txtNienKhoa.Text = dtpBeigin.Value.Year + "-" + dtpEnd.Value.Year;
         }
 
@@ -96,28 +85,40 @@ namespace DoAnQLDSVTC
                 txtiMaSV.Text = txtMSSV.Text.Trim();
                 lblMaSV.Text = txtMSSV.Text.Trim();
                 Program.myReader.Close();
+                LoadDatasetDSSV_DKLTC();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Lỗi mã sinh viên không đúng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-          
         }
-
 
         void LoadDatasetDSLTC_NK()
         {
-            this.DS.EnforceConstraints = false;
-            this.SP_DSLTC_NIENKHOAHOCKYTableAdapter.Connection.ConnectionString = Program.URL_Connect;
-            this.SP_DSLTC_NIENKHOAHOCKYTableAdapter.Fill(this.DS.SP_DSLTC_NIENKHOAHOCKY, txtNienKhoa.Text.Trim(), (int)nudHocKy.Value);
+            try
+            {
+                this.DS.EnforceConstraints = false;
+                this.SP_DSLTC_NIENKHOAHOCKYTableAdapter.Connection.ConnectionString = Program.URL_Connect;
+                this.SP_DSLTC_NIENKHOAHOCKYTableAdapter.Fill(this.DS.SP_DSLTC_NIENKHOAHOCKY, txtNienKhoa.Text.Trim(), (int)nudHocKy.Value);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         void LoadDatasetDSSV_DKLTC()
         {
-            this.DS.EnforceConstraints = false;
-            this.SP_DSLTC_DSSVDKLTCTableAdapter.Connection.ConnectionString = Program.URL_Connect;
-            this.SP_DSLTC_DSSVDKLTCTableAdapter.Fill(this.DS.SP_DSLTC_DSSVDKLTC, txtNienKhoa.Text.Trim(), (int)nudHocKy.Value, txtMSSV.Text.Trim());
+            try
+            {
+                this.DS.EnforceConstraints = false;
+                this.SP_DSLTC_DSSVDKLTCTableAdapter.Connection.ConnectionString = Program.URL_Connect;
+                this.SP_DSLTC_DSSVDKLTCTableAdapter.Fill(this.DS.SP_DSLTC_DSSVDKLTC, txtNienKhoa.Text.Trim(), (int)nudHocKy.Value, txtMSSV.Text.Trim());
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnCourseRegistraction_Click(object sender, EventArgs e)
@@ -126,24 +127,54 @@ namespace DoAnQLDSVTC
             {
                 MessageBox.Show("Vui lòng tìm kiếm sinh viên trước khi đăng ký học phần!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
-            }    
-            string cmd = "EXEC SP_DANGKY_LTC '" + txtiMaSV.Text.Trim() + "'," + txtiMaLTC.Text.Trim();
-            Program.ExecSqlNonQuery(cmd);
-            LoadDatasetDSLTC_NK();
-            LoadDatasetDSSV_DKLTC();
+            }
+            
+            try
+            {
+                string cmd = "EXEC SP_DANGKY_LTC '" + txtiMaSV.Text.Trim() + "'," + txtiMaLTC.Text.Trim();
+                Program.ExecSqlNonQuery(cmd);
+                LoadDatasetDSLTC_NK();
+                LoadDatasetDSSV_DKLTC();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
         }
 
         private void btnCannelRegister_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show(
+                "Bạn có chắc chắn muốn hủy đăng ký lớp tín chỉ này không?",
+                "Xác nhận hủy đăng ký",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
             if (dgvSVDK.SelectedRows.Count > 0)
             {
                 foreach (DataGridViewRow row in dgvSVDK.SelectedRows)
                 {
-                    string maLTC = row.Cells["MALTC"].Value?.ToString();
-                    string cmd = "EXEC SP_HUYDANGKY_LTC '" + txtiMaSV.Text.Trim() + "'," + maLTC.Trim();
-                    Program.ExecSqlNonQuery(cmd);
-                    LoadDatasetDSLTC_NK();
-                    LoadDatasetDSSV_DKLTC();
+                    try
+                    {
+                        string maLTC = row.Cells["MALTC"].Value?.ToString();
+                        string cmd = "EXEC SP_HUYDANGKY_LTC '" + txtiMaSV.Text.Trim() + "'," + maLTC.Trim();
+                        Program.ExecSqlNonQuery(cmd);
+                        LoadDatasetDSLTC_NK();
+                        LoadDatasetDSSV_DKLTC();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
             }
         }

@@ -34,8 +34,8 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCourseRegistration = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnPayCourse = new System.Windows.Forms.Button();
+            this.btnInputPoint = new System.Windows.Forms.Button();
             this.btnOpenCourse = new System.Windows.Forms.Button();
             this.btnSubject = new System.Windows.Forms.Button();
             this.btnStudent = new System.Windows.Forms.Button();
@@ -114,8 +114,8 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 658F));
             this.tableLayoutPanel1.Controls.Add(this.btnCourseRegistration, 6, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button5, 5, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button4, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnPayCourse, 5, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnInputPoint, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnOpenCourse, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnSubject, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnStudent, 1, 0);
@@ -146,39 +146,41 @@
             this.btnCourseRegistration.UseVisualStyleBackColor = false;
             this.btnCourseRegistration.Click += new System.EventHandler(this.btnCourseRegistration_Click);
             // 
-            // button5
+            // btnPayCourse
             // 
-            this.button5.BackColor = System.Drawing.Color.Transparent;
-            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(428, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(79, 94);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Học Phí";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnPayCourse.BackColor = System.Drawing.Color.Transparent;
+            this.btnPayCourse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPayCourse.FlatAppearance.BorderSize = 0;
+            this.btnPayCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPayCourse.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnPayCourse.Image = ((System.Drawing.Image)(resources.GetObject("btnPayCourse.Image")));
+            this.btnPayCourse.Location = new System.Drawing.Point(428, 3);
+            this.btnPayCourse.Name = "btnPayCourse";
+            this.btnPayCourse.Size = new System.Drawing.Size(79, 94);
+            this.btnPayCourse.TabIndex = 5;
+            this.btnPayCourse.Text = "Học Phí";
+            this.btnPayCourse.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPayCourse.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnPayCourse.UseVisualStyleBackColor = false;
+            this.btnPayCourse.Click += new System.EventHandler(this.btnPayCourse_Click);
             // 
-            // button4
+            // btnInputPoint
             // 
-            this.button4.BackColor = System.Drawing.Color.Transparent;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(343, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(79, 94);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Điểm";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnInputPoint.BackColor = System.Drawing.Color.Transparent;
+            this.btnInputPoint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnInputPoint.FlatAppearance.BorderSize = 0;
+            this.btnInputPoint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInputPoint.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnInputPoint.Image = ((System.Drawing.Image)(resources.GetObject("btnInputPoint.Image")));
+            this.btnInputPoint.Location = new System.Drawing.Point(343, 3);
+            this.btnInputPoint.Name = "btnInputPoint";
+            this.btnInputPoint.Size = new System.Drawing.Size(79, 94);
+            this.btnInputPoint.TabIndex = 4;
+            this.btnInputPoint.Text = "Điểm";
+            this.btnInputPoint.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnInputPoint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnInputPoint.UseVisualStyleBackColor = false;
+            this.btnInputPoint.Click += new System.EventHandler(this.btnInputPoint_Click);
             // 
             // btnOpenCourse
             // 
@@ -500,8 +502,8 @@
         private System.Windows.Forms.Button btnLop;
         private System.Windows.Forms.Button btnStudent;
         private System.Windows.Forms.Button btnCourseRegistration;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnPayCourse;
+        private System.Windows.Forms.Button btnInputPoint;
         private System.Windows.Forms.Button btnOpenCourse;
         private System.Windows.Forms.Button btnSubject;
         private System.Windows.Forms.Panel pTabBar;

@@ -15,7 +15,7 @@ namespace DoAnQLDSVTC
 
         private void Admin_Load(object sender, EventArgs e)
         {
-            LoadForm(new PayCourse());
+            LoadForm(new CourseRegistration());
         }
 
         private void LoadForm(object form)
@@ -123,13 +123,6 @@ namespace DoAnQLDSVTC
             LoadForm(new CreateAccount());
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            Login login = new Login();
-            login.Show();       // mở Form2
-            this.Hide();     // ẩn Form1
-        }
-
         private void btnSubject_Click(object sender, EventArgs e)
         {
             LoadForm(new Subject());
@@ -143,6 +136,23 @@ namespace DoAnQLDSVTC
         private void btnCourseRegistration_Click(object sender, EventArgs e)
         {
             LoadForm(new CourseRegistration());
+        }
+
+        private void btnPayCourse_Click(object sender, EventArgs e)
+        {
+            LoadForm(new PayCourse());
+        }
+
+        private void btnInputPoint_Click(object sender, EventArgs e)
+        {
+            LoadForm(new InputPoint());
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
         }
     }
 }

@@ -395,7 +395,7 @@
             // 
             // btnCourseRegistraction
             // 
-            this.btnCourseRegistraction.BackColor = System.Drawing.Color.IndianRed;
+            this.btnCourseRegistraction.BackColor = System.Drawing.Color.ForestGreen;
             this.btnCourseRegistraction.FlatAppearance.BorderSize = 0;
             this.btnCourseRegistraction.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCourseRegistraction.ForeColor = System.Drawing.Color.White;
@@ -533,10 +533,10 @@
             // txtNienKhoa
             // 
             this.txtNienKhoa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNienKhoa.Enabled = false;
             this.txtNienKhoa.Location = new System.Drawing.Point(177, 7);
             this.txtNienKhoa.Margin = new System.Windows.Forms.Padding(0);
             this.txtNienKhoa.Name = "txtNienKhoa";
+            this.txtNienKhoa.ReadOnly = true;
             this.txtNienKhoa.Size = new System.Drawing.Size(132, 26);
             this.txtNienKhoa.TabIndex = 1;
             // 
@@ -596,9 +596,9 @@
             // btnFilter
             // 
             this.btnFilter.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnFilter.BackColor = System.Drawing.Color.IndianRed;
-            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnFilter.ForeColor = System.Drawing.Color.White;
+            this.btnFilter.BackColor = System.Drawing.Color.White;
+            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnFilter.ForeColor = System.Drawing.Color.Black;
             this.btnFilter.Location = new System.Drawing.Point(582, 8);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(75, 25);
@@ -996,9 +996,9 @@
             // btnSearch
             // 
             this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnSearch.BackColor = System.Drawing.Color.IndianRed;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.BackColor = System.Drawing.Color.White;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnSearch.ForeColor = System.Drawing.Color.Black;
             this.btnSearch.Location = new System.Drawing.Point(300, 8);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 25);
