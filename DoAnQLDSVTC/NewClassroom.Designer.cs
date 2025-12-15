@@ -243,18 +243,21 @@
             this.MALOP.DataPropertyName = "MALOP";
             this.MALOP.HeaderText = "Mã Lớp";
             this.MALOP.Name = "MALOP";
+            this.MALOP.ReadOnly = true;
             // 
             // TENLOP
             // 
             this.TENLOP.DataPropertyName = "TENLOP";
             this.TENLOP.HeaderText = "Tên Lớp";
             this.TENLOP.Name = "TENLOP";
+            this.TENLOP.ReadOnly = true;
             // 
             // KHOAHOC
             // 
             this.KHOAHOC.DataPropertyName = "KHOAHOC";
             this.KHOAHOC.HeaderText = "Khóa Học";
             this.KHOAHOC.Name = "KHOAHOC";
+            this.KHOAHOC.ReadOnly = true;
             // 
             // dbsLOP
             // 
@@ -617,9 +620,11 @@
             // 
             this.txtKhoaHoc.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dbsLOP, "KHOAHOC", true));
             this.txtKhoaHoc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtKhoaHoc.Enabled = false;
             this.txtKhoaHoc.Location = new System.Drawing.Point(203, 0);
             this.txtKhoaHoc.Margin = new System.Windows.Forms.Padding(0);
             this.txtKhoaHoc.Name = "txtKhoaHoc";
+            this.txtKhoaHoc.ReadOnly = true;
             this.txtKhoaHoc.Size = new System.Drawing.Size(161, 26);
             this.txtKhoaHoc.TabIndex = 1;
             this.txtKhoaHoc.TextChanged += new System.EventHandler(this.txtKhoaHoc_TextChanged);
@@ -858,9 +863,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MALOP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TENLOP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn KHOAHOC;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label lblMessage;
@@ -870,5 +872,8 @@
         private System.Windows.Forms.DateTimePicker dtpEnd;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MALOP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TENLOP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KHOAHOC;
     }
 }

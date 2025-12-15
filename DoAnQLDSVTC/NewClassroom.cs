@@ -136,7 +136,7 @@ namespace DoAnQLDSVTC
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string message = "Bạn có chắc chắn muốn xóa lớp " + txtTenLop.Text.Trim() + " không?";
+            string message = "Bạn có chắc chắn muốn xóa lớp '" + txtTenLop.Text.Trim() + "' không?";
             DialogResult result = MessageBox.Show(
                 message,
                 "Xác nhận",
@@ -185,7 +185,7 @@ namespace DoAnQLDSVTC
                     break;
 
                 case STATE_ACTION.EDIT:
-                    string message = "Bạn có muốn cập nhật thông tin lớp này không?";
+                    string message = "Bạn có muốn cập nhật thông tin lớp '"+tenLop+"' không?";
                     DialogResult result = MessageBox.Show(
                         message,
                         "Xác nhận",
@@ -248,35 +248,15 @@ namespace DoAnQLDSVTC
 
         public void AddData()
         {
-            try
+            string maLop = txtMaLop.Text.Trim();
+            string tenLop = txtTenLop.Text.Trim();
+            string khoaHoc = txtKhoaHoc.Text.Trim();
+            string maKhoa = txtMaKhoa.Text.Trim();
+            string strSP = "EXEC SP_CHECK_TAOLOP '" + maLop.Trim() + "', N'" + tenLop.Trim() + "'";
+            int result = Program.ExecSqlNonQuery(strSP);
+
+            if (result == 0)
             {
-                string maLop = txtMaLop.Text.Trim();
-                string tenLop = txtTenLop.Text.Trim();
-                string khoaHoc = txtKhoaHoc.Text.Trim();
-                string maKhoa = txtMaKhoa.Text.Trim();
-                string strSP = "EXEC SP_CHECKMALOP '" + maLop.Trim() + "'";
-                int result = Program.CheckMa(strSP);
-
-                if (result == -1)
-                {
-                    MessageBox.Show("Lỗi kết nối CSDL!", "", MessageBoxButtons.OK);
-                    return;
-                }
-                if (result == 1)
-                {
-                    MessageBox.Show("Mã Lớp đã tồn tại trong khoa này!", "", MessageBoxButtons.OK);
-                    txtMaLop.Focus();
-                    return;
-
-                }
-                if (result == 2)
-                {
-                    MessageBox.Show("Mã Lớp đã tồn tại trong khoa khác!", "", MessageBoxButtons.OK);
-                    txtMaLop.Focus();
-                    return;
-                }
-
-
                 dbsLOP.EndEdit();
                 LOPTableAdapter.Update(DS.LOP);
                 ActionClassroom action = new ActionClassroom(STATE_ACTION.ADD, maLop, tenLop, khoaHoc, maKhoa);
@@ -284,20 +264,17 @@ namespace DoAnQLDSVTC
                 LoadActiveLeft();
                 LoadUndo();
                 currentAction = STATE_ACTION.NONE;
-                MessageBox.Show("Tạo thông tin lớp thành công!");
+                MessageBox.Show("Tạo lớp '"+tenLop+"' thành công!", "Thông báo");
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi thêm lớp. Vui lòng kiểm tra lại thông tin lớp.", "", MessageBoxButtons.OK);
-                return;
-            }
-
-           
         }
 
         public void UpdateData()
         {
-            try
+            string maLop = txtMaLop.Text.Trim();
+            string tenLop = txtTenLop.Text.Trim();
+            string strSP = "EXEC SP_CHECK_CAPNHATLOP N'" + tenLop.Trim() + "'";
+            int result = Program.ExecSqlNonQuery(strSP);
+            if (result == 0) 
             {
                 dbsLOP.EndEdit();
                 LOPTableAdapter.Update(DS.LOP);
@@ -307,23 +284,21 @@ namespace DoAnQLDSVTC
                 LoadUndo();
                 currentAction = STATE_ACTION.NONE;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi cập nhật lớp. Vui lòng kiểm tra lại thông tin lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
-                return;
-
-            }
         }
 
         public void DeleteData()
         {
-            try
-            {
-                string maLop = txtMaLop.Text.Trim();
-                string tenLop = txtTenLop.Text.Trim();
-                string khoaHoc = txtKhoaHoc.Text.Trim();
-                string maKhoa = txtMaKhoa.Text.Trim();
 
+            string maLop = txtMaLop.Text.Trim();
+            string tenLop = txtTenLop.Text.Trim();
+            string khoaHoc = txtKhoaHoc.Text.Trim();
+            string maKhoa = txtMaKhoa.Text.Trim();
+
+            string strSP = "EXEC SP_CHECK_XOALOP '" + maLop.Trim() + "'";
+            int result = Program.ExecSqlNonQuery(strSP);
+
+            if (result == 0)
+            {
                 dbsLOP.RemoveCurrent();
                 LOPTableAdapter.Update(DS.LOP);
 
@@ -331,12 +306,6 @@ namespace DoAnQLDSVTC
                 undo.Push(action);
                 LoadUndo();
                 currentAction = STATE_ACTION.DELETE;
-            }
-            catch (Exception ex)
-            {
-                string message = "Lớp "+ txtTenLop.Text.Trim() +" đã có Sinh Viên.";
-                MessageBox.Show(message, "", MessageBoxButtons.OK);
-                return;
             }
         }
 
@@ -372,7 +341,6 @@ namespace DoAnQLDSVTC
                 case STATE_ACTION.DELETE:
                     LOPTableAdapter.Insert(action.MaLop.Trim(), action.TenLop.Trim(), action.KhoaHoc.Trim(), action.MaKhoa.Trim());
                     LOPTableAdapter.Fill(DS.LOP);
-
                     break;
             }
             currentAction = STATE_ACTION.NONE;
@@ -437,19 +405,13 @@ namespace DoAnQLDSVTC
 
         private void dtpBeigin_ValueChanged(object sender, EventArgs e)
         {
-            if (dtpBeigin.Value.Year >= dtpEnd.Value.Year)
-            {
-                dtpEnd.Value = new DateTime(dtpBeigin.Value.Year + 1, 1, 1);
-            }
+            dtpEnd.Value = new DateTime(dtpBeigin.Value.Year + 1, 1, 1);
             txtKhoaHoc.Text = dtpBeigin.Value.Year + "-" + dtpEnd.Value.Year;
         }
 
         private void dtpEnd_ValueChanged(object sender, EventArgs e)
         {
-            if (dtpEnd.Value.Year <= dtpBeigin.Value.Year)
-            {
-                dtpBeigin.Value = new DateTime(dtpEnd.Value.Year - 1, 1, 1);
-            }
+            dtpBeigin.Value = new DateTime(dtpEnd.Value.Year - 1, 1, 1);
             txtKhoaHoc.Text = dtpBeigin.Value.Year + "-" + dtpEnd.Value.Year;
         }
 
