@@ -53,11 +53,11 @@ namespace DoAnQLDSVTC
             this.panel28 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.panel36 = new System.Windows.Forms.Panel();
-            this.panel37 = new System.Windows.Forms.Panel();
             this.cbNotStudy = new System.Windows.Forms.CheckBox();
             this.FKSINHVIENLOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbsLOP = new System.Windows.Forms.BindingSource(this.components);
             this.DS = new DoAnQLDSVTC.DS();
+            this.panel37 = new System.Windows.Forms.Panel();
             this.panel38 = new System.Windows.Forms.Panel();
             this.rbNotStudy = new System.Windows.Forms.RadioButton();
             this.rbStudying = new System.Windows.Forms.RadioButton();
@@ -69,8 +69,8 @@ namespace DoAnQLDSVTC
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.panel34 = new System.Windows.Forms.Panel();
-            this.panel35 = new System.Windows.Forms.Panel();
             this.cbFemale = new System.Windows.Forms.CheckBox();
+            this.panel35 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.panel25 = new System.Windows.Forms.Panel();
             this.panel24 = new System.Windows.Forms.Panel();
@@ -119,10 +119,12 @@ namespace DoAnQLDSVTC
             this.MASV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STUDY_TEXT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DANGHIHOC = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.NGAYSINH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DIACHI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PHAI = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.GENDER_TEXT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel10 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.bntExit = new System.Windows.Forms.Button();
@@ -430,14 +432,6 @@ namespace DoAnQLDSVTC
             this.panel36.Size = new System.Drawing.Size(148, 31);
             this.panel36.TabIndex = 0;
             // 
-            // panel37
-            // 
-            this.panel37.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel37.Location = new System.Drawing.Point(0, 0);
-            this.panel37.Name = "panel37";
-            this.panel37.Size = new System.Drawing.Size(148, 31);
-            this.panel37.TabIndex = 3;
-            // 
             // cbNotStudy
             // 
             this.cbNotStudy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -465,6 +459,14 @@ namespace DoAnQLDSVTC
             // 
             this.DS.DataSetName = "DS";
             this.DS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // panel37
+            // 
+            this.panel37.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel37.Location = new System.Drawing.Point(0, 0);
+            this.panel37.Name = "panel37";
+            this.panel37.Size = new System.Drawing.Size(148, 31);
+            this.panel37.TabIndex = 3;
             // 
             // panel38
             // 
@@ -593,16 +595,6 @@ namespace DoAnQLDSVTC
             this.panel34.Size = new System.Drawing.Size(148, 31);
             this.panel34.TabIndex = 1;
             // 
-            // panel35
-            // 
-            this.panel35.BackColor = System.Drawing.Color.White;
-            this.panel35.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel35.Location = new System.Drawing.Point(0, 0);
-            this.panel35.Margin = new System.Windows.Forms.Padding(0);
-            this.panel35.Name = "panel35";
-            this.panel35.Size = new System.Drawing.Size(148, 31);
-            this.panel35.TabIndex = 2;
-            // 
             // cbFemale
             // 
             this.cbFemale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -615,6 +607,16 @@ namespace DoAnQLDSVTC
             this.cbFemale.Text = "Nữ";
             this.cbFemale.UseVisualStyleBackColor = true;
             this.cbFemale.CheckedChanged += new System.EventHandler(this.cbFemale_CheckedChanged);
+            // 
+            // panel35
+            // 
+            this.panel35.BackColor = System.Drawing.Color.White;
+            this.panel35.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel35.Location = new System.Drawing.Point(0, 0);
+            this.panel35.Margin = new System.Windows.Forms.Padding(0);
+            this.panel35.Name = "panel35";
+            this.panel35.Size = new System.Drawing.Size(148, 31);
+            this.panel35.TabIndex = 2;
             // 
             // label11
             // 
@@ -995,18 +997,21 @@ namespace DoAnQLDSVTC
             this.MALOP.DataPropertyName = "MALOP";
             this.MALOP.HeaderText = "Mã Lớp";
             this.MALOP.Name = "MALOP";
+            this.MALOP.ReadOnly = true;
             // 
             // TENLOP
             // 
             this.TENLOP.DataPropertyName = "TENLOP";
             this.TENLOP.HeaderText = "Tên Lớp";
             this.TENLOP.Name = "TENLOP";
+            this.TENLOP.ReadOnly = true;
             // 
             // KHOAHOC
             // 
             this.KHOAHOC.DataPropertyName = "KHOAHOC";
             this.KHOAHOC.HeaderText = "Khóa Học";
             this.KHOAHOC.Name = "KHOAHOC";
+            this.KHOAHOC.ReadOnly = true;
             // 
             // label2
             // 
@@ -1073,10 +1078,12 @@ namespace DoAnQLDSVTC
             this.MASV,
             this.HO,
             this.TEN,
+            this.STUDY_TEXT,
             this.DANGHIHOC,
             this.NGAYSINH,
             this.DIACHI,
-            this.PHAI});
+            this.PHAI,
+            this.GENDER_TEXT});
             this.dgvStudent.DataSource = this.FKSINHVIENLOPBindingSource;
             this.dgvStudent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStudent.Location = new System.Drawing.Point(0, 0);
@@ -1090,42 +1097,61 @@ namespace DoAnQLDSVTC
             this.MASV.DataPropertyName = "MASV";
             this.MASV.HeaderText = "Mã SV";
             this.MASV.Name = "MASV";
+            this.MASV.ReadOnly = true;
             // 
             // HO
             // 
             this.HO.DataPropertyName = "HO";
             this.HO.HeaderText = "Họ";
             this.HO.Name = "HO";
+            this.HO.ReadOnly = true;
             // 
             // TEN
             // 
             this.TEN.DataPropertyName = "TEN";
             this.TEN.HeaderText = "Tên";
             this.TEN.Name = "TEN";
+            this.TEN.ReadOnly = true;
+            // 
+            // STUDY_TEXT
+            // 
+            this.STUDY_TEXT.DataPropertyName = "STUDY_TEXT";
+            this.STUDY_TEXT.HeaderText = "Tình Trạng Học";
+            this.STUDY_TEXT.Name = "STUDY_TEXT";
             // 
             // DANGHIHOC
             // 
             this.DANGHIHOC.DataPropertyName = "DANGHIHOC";
             this.DANGHIHOC.HeaderText = "Đã Nghỉ Học";
             this.DANGHIHOC.Name = "DANGHIHOC";
+            this.DANGHIHOC.Visible = false;
             // 
             // NGAYSINH
             // 
             this.NGAYSINH.DataPropertyName = "NGAYSINH";
             this.NGAYSINH.HeaderText = "Ngày Sinh";
             this.NGAYSINH.Name = "NGAYSINH";
+            this.NGAYSINH.ReadOnly = true;
             // 
             // DIACHI
             // 
             this.DIACHI.DataPropertyName = "DIACHI";
             this.DIACHI.HeaderText = "Địa Chỉ";
             this.DIACHI.Name = "DIACHI";
+            this.DIACHI.ReadOnly = true;
             // 
             // PHAI
             // 
             this.PHAI.DataPropertyName = "PHAI";
             this.PHAI.HeaderText = "Phái";
             this.PHAI.Name = "PHAI";
+            this.PHAI.Visible = false;
+            // 
+            // GENDER_TEXT
+            // 
+            this.GENDER_TEXT.DataPropertyName = "GENDER_TEXT";
+            this.GENDER_TEXT.HeaderText = "Giới Tính";
+            this.GENDER_TEXT.Name = "GENDER_TEXT";
             // 
             // panel10
             // 
@@ -1426,9 +1452,6 @@ namespace DoAnQLDSVTC
         private DSTableAdapters.LOPTableAdapter LOPTableAdapter;
         private BindingSource FKSINHVIENLOPBindingSource;
         private DSTableAdapters.SINHVIENTableAdapter SINHVIENTableAdapter;
-        private DataGridViewTextBoxColumn MALOP;
-        private DataGridViewTextBoxColumn TENLOP;
-        private DataGridViewTextBoxColumn KHOAHOC;
         private Label lblTitleKhoa;
         private Panel panel32;
         private Panel panel31;
@@ -1439,13 +1462,6 @@ namespace DoAnQLDSVTC
         private Button bntExit;
         private RadioButton rbFemale;
         private RadioButton rbMale;
-        private DataGridViewTextBoxColumn MASV;
-        private DataGridViewTextBoxColumn HO;
-        private DataGridViewTextBoxColumn TEN;
-        private DataGridViewCheckBoxColumn DANGHIHOC;
-        private DataGridViewTextBoxColumn NGAYSINH;
-        private DataGridViewTextBoxColumn DIACHI;
-        private DataGridViewCheckBoxColumn PHAI;
         private TableLayoutPanel tableLayoutPanel5;
         private Panel panel33;
         private Panel panel34;
@@ -1458,5 +1474,17 @@ namespace DoAnQLDSVTC
         private RadioButton rbNotStudy;
         private Panel panel39;
         private Label lblMessage;
+        private DataGridViewTextBoxColumn MALOP;
+        private DataGridViewTextBoxColumn TENLOP;
+        private DataGridViewTextBoxColumn KHOAHOC;
+        private DataGridViewTextBoxColumn MASV;
+        private DataGridViewTextBoxColumn HO;
+        private DataGridViewTextBoxColumn TEN;
+        private DataGridViewTextBoxColumn STUDY_TEXT;
+        private DataGridViewCheckBoxColumn DANGHIHOC;
+        private DataGridViewTextBoxColumn NGAYSINH;
+        private DataGridViewTextBoxColumn DIACHI;
+        private DataGridViewCheckBoxColumn PHAI;
+        private DataGridViewTextBoxColumn GENDER_TEXT;
     }
 }

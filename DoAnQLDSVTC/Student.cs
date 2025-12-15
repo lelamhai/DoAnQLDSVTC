@@ -85,16 +85,6 @@ namespace DoAnQLDSVTC
 
             this.SINHVIENTableAdapter.Connection.ConnectionString = Program.URL_Connect;
             this.SINHVIENTableAdapter.Fill(this.DS.SINHVIEN);
-
-
-            if (dgvStudent.Columns["GENDER_TEXT"] == null && dgvStudent.Columns["STUDY_TEXT"] == null)
-            {
-                dgvStudent.Columns.Add("GENDER_TEXT", "Giới Tính");
-                dgvStudent.Columns["PHAI"].Visible = false;
-
-                dgvStudent.Columns.Add("STUDY_TEXT", "Tình Trang Học");
-                dgvStudent.Columns["DANGHIHOC"].Visible = false;
-            }
         }
 
         void LoadCombox()
@@ -127,38 +117,19 @@ namespace DoAnQLDSVTC
 
         public void AddData()
         {
-            try
+            string maLop = lblMaLop.Text.Trim();
+            string maSV = txtMaSV.Text.Trim();
+            string ho = txtHo.Text.Trim();
+            string ten = txtTen.Text.Trim();
+            DateTime ngaySinh = dtpDOB.Value;
+            string diaChi = txtDiaChi.Text.Trim();
+            bool phai = cbFemale.Checked;
+            bool dangNghiHoc = cbNotStudy.Checked;
+
+            string strSP = "EXEC SP_CHECK_TAOSINHVIEN N'" + maSV.Trim() + "'";
+            int result = Program.ExecSqlNonQuery(strSP);
+            if (result == 0)
             {
-                string maLop = lblMaLop.Text.Trim();
-                string maSV = txtMaSV.Text.Trim();
-                string ho = txtHo.Text.Trim();
-                string ten = txtTen.Text.Trim();
-                DateTime ngaySinh = dtpDOB.Value;
-                string diaChi = txtDiaChi.Text.Trim();
-                bool phai = cbFemale.Checked;
-                bool dangNghiHoc = cbNotStudy.Checked;
-
-                string strSP = "EXEC SP_CHECKMASINHVIEN '" + maSV.Trim() + "'";
-                int result = Program.CheckMa(strSP);
-                if (result == -1)
-                {
-                    MessageBox.Show("Lỗi kết nối CSDL!", "", MessageBoxButtons.OK);
-                    return;
-                }
-                if (result == 1)
-                {
-                    MessageBox.Show("Mã Sinh Viên đã tồn tại trong khoa này!", "", MessageBoxButtons.OK);
-                    txtMaSV.Focus();
-                    return;
-
-                }
-                if (result == 2)
-                {
-                    MessageBox.Show("Mã Sinh Viên đã tồn tại trong khoa khác!", "", MessageBoxButtons.OK);
-                    txtMaSV.Focus();
-                    return ;
-                }
-
                 FKSINHVIENLOPBindingSource.EndEdit();
                 SINHVIENTableAdapter.Update(DS.SINHVIEN);
                 ActionStudent action = new ActionStudent(STATE_ACTION.ADD, maLop, maSV, ho, ten, ngaySinh, diaChi, phai, dangNghiHoc);
@@ -166,12 +137,7 @@ namespace DoAnQLDSVTC
                 LoadActiveLeft();
                 LoadUndo();
                 currentAction = STATE_ACTION.NONE;
-                MessageBox.Show("Tạo thông tin sinh viên thành công!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi thêm sinh viên. Vui lòng kiểm tra lại thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                MessageBox.Show("Tạo thông tin sinh viên '"+ho+ " "+ ten +"' thành công!", "Thông báo");
             }
         }
 
@@ -196,28 +162,25 @@ namespace DoAnQLDSVTC
 
         public void DeleteData()
         {
-            try
-            {
-                string maLop = lblMaLop.Text.Trim();
-                string maSV = txtMaSV.Text.Trim();
-                string ho = txtHo.Text.Trim();
-                string ten = txtTen.Text.Trim();
-                DateTime ngaySinh = dtpDOB.Value;
-                string diaChi = txtDiaChi.Text.Trim();
-                bool phai = cbFemale.Checked;
-                bool dangNghiHoc = cbNotStudy.Checked;
+            string maLop = lblMaLop.Text.Trim();
+            string maSV = txtMaSV.Text.Trim();
+            string ho = txtHo.Text.Trim();
+            string ten = txtTen.Text.Trim();
+            DateTime ngaySinh = dtpDOB.Value;
+            string diaChi = txtDiaChi.Text.Trim();
+            bool phai = cbFemale.Checked;
+            bool dangNghiHoc = cbNotStudy.Checked;
 
+            string strSP = "EXEC SP_CHECK_XOASINHVIEN N'" + maSV.Trim() + "'";
+            int result = Program.ExecSqlNonQuery(strSP);
+            if (result == 0)
+            {
                 FKSINHVIENLOPBindingSource.RemoveCurrent();
                 SINHVIENTableAdapter.Update(DS.SINHVIEN);
                 ActionStudent action = new ActionStudent(STATE_ACTION.DELETE, maLop, maSV, ho, ten, ngaySinh, diaChi, phai, dangNghiHoc);
                 undo.Push(action);
                 LoadUndo();
                 currentAction = STATE_ACTION.NONE;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi xóa sinh viên. Vui lòng kiểm tra lại thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
             }
         }
 
@@ -285,7 +248,7 @@ namespace DoAnQLDSVTC
                     break;
 
                 case STATE_ACTION.EDIT:
-                    string message = "Bạn có muốn cập nhật sinh viên này không?";
+                    string message = "Bạn có muốn cập nhật sinh viên '"+txtHo.Text.Trim()+ " " + txtTen.Text.Trim()+"' này không?";
                     DialogResult result = MessageBox.Show(
                         message,
                         "Xác nhận",
@@ -345,7 +308,7 @@ namespace DoAnQLDSVTC
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string message = "Bạn có chắc chắn muốn xóa Sinh Viên " + txtHo.Text.Trim() + " " + txtTen.Text.Trim() + " không?";
+            string message = "Bạn có chắc chắn muốn xóa sinh viên '" + txtHo.Text.Trim() + " " + txtTen.Text.Trim() + "' không?";
             DialogResult result = MessageBox.Show(
                 message,
                 "Xác nhận",
@@ -359,7 +322,6 @@ namespace DoAnQLDSVTC
             }
             currentAction = STATE_ACTION.DELETE;
             DeleteData();
-            
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
