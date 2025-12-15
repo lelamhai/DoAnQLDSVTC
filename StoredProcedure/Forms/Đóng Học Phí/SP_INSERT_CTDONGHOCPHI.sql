@@ -1,11 +1,4 @@
-USE [QLDSV_TC]
-GO
-
-/****** Object:  StoredProcedure [dbo].[sp_Insert_CT_DONGHOCPHI]    Script Date: 13/12/2025 4:27:03 CH ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
+﻿USE [QLDSV_TC]
 GO
 
 CREATE PROCEDURE [dbo].[SP_INSERT_CTDONGHOCPHI]
@@ -20,7 +13,7 @@ BEGIN
 
     IF EXISTS (SELECT 1 FROM CT_DONGHOCPHI WHERE MASV = @MASV AND NIENKHOA = @NIENKHOA AND HOCKY = @HOCKY AND NGAYDONG = @NGAYDONG)
     BEGIN
-        RAISERROR(N'D? li?u ?�ng h?c ph� ?� t?n t?i!',16,1);
+        RAISERROR(N'Sinh viên đã đóng học phí trong ngày. Không thể đóng thêm.',16, 1);
         RETURN;
     END
 
@@ -30,9 +23,3 @@ END
 GO
 
 
-EXEC dbo.SP_INSERT_CTDONGHOCPHI
-    @MASV = 'N15DCCN001',
-    @NIENKHOA = '2021-2022',
-    @HOCKY = 1,
-    @NGAYDONG = '2025-01-15',
-    @SOTIENDONG = 3500000;

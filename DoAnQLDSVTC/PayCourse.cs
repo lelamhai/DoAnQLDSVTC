@@ -29,6 +29,7 @@ namespace DoAnQLDSVTC
         {
             FormatColumnDSHP();
             FormatColumnCTHP();
+            GetHocPhi();
         }
 
         void FormatColumnDSHP()
@@ -58,6 +59,19 @@ namespace DoAnQLDSVTC
             GetInfoSV();
             GetDSHP();
             LoadSTCD();
+        }
+
+        private void GetHocPhi()
+        {
+            try
+            {
+                string strLenh = "EXEC SP_TINH_HOCPHI N'" + txtMaSV.Text + "'";
+                Program.ExecSqlDataTable(strLenh);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         void GetInfoSV()
@@ -119,7 +133,7 @@ namespace DoAnQLDSVTC
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -227,7 +241,11 @@ namespace DoAnQLDSVTC
                 ngayDong.ToString("yyyy-MM-dd"),
                 soTienDong
                 );
-            Program.ExecSqlNonQuery(cmd);
+            int result = Program.ExecSqlNonQuery(cmd);
+            if(result == 0)
+            {
+                MessageBox.Show("Đóng học phí '"+ soTienDong.ToString("N0") + "' thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }    
         }
 
         void UpdateCTHOCPHI()
@@ -246,7 +264,11 @@ namespace DoAnQLDSVTC
                 getTimeColumn.ToString("yyyy-MM-dd"),
                 soTienDong
                 );
-            Program.ExecSqlNonQuery(cmd);
+            int result = Program.ExecSqlNonQuery(cmd);
+            if (result == 0)
+            {
+                MessageBox.Show("Cập nhật đóng học phí " + soTienDong.ToString("N0") + " thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
 

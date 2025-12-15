@@ -543,7 +543,6 @@
             // btnAddRow
             // 
             this.btnAddRow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAddRow.Enabled = false;
             this.btnAddRow.FlatAppearance.BorderSize = 0;
             this.btnAddRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddRow.Image = ((System.Drawing.Image)(resources.GetObject("btnAddRow.Image")));
