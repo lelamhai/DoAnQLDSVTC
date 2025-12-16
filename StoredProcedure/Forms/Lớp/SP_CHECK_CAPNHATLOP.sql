@@ -1,18 +1,21 @@
 ﻿USE [QLDSV_TC]
 GO
 
-CREATE   PROC [dbo].[SP_CHECK_CAPNHATLOP]
+CREATE PROC SP_CHECK_CAPNHATLOP
 @TENLOP NVARCHAR(50)
 AS 
-    IF EXISTS (SELECT 1 FROM dbo.LOP WHERE LTRIM(RTRIM(TENLOP)) = LTRIM(RTRIM(@TENLOP)))
+    DECLARE @TENLOP_TRIM NVARCHAR(50);
+    SET @TENLOP_TRIM = LTRIM(RTRIM(@TENLOP));
+
+    IF EXISTS (SELECT 1 FROM LOP WHERE TENLOP = @TENLOP_TRIM)
     BEGIN
-        RAISERROR(N'Tên lớp "%s" đã tồn tại trên chi Khoa hiện tại!', 16, 1, @TENLOP);
+        RAISERROR(N'Tên lớp "%s" đã tồn tại trên chi Khoa hiện tại!', 16, 1, @TENLOP_TRIM);
         RETURN;
     END
 
-    IF EXISTS (SELECT 1 FROM LINK0.QLDSV_TC.dbo.LOP WHERE LTRIM(RTRIM(TENLOP)) = LTRIM(RTRIM(@TENLOP)))
+    IF EXISTS (SELECT 1 FROM LINK0.QLDSV_TC.dbo.LOP WHERE TENLOP = @TENLOP_TRIM)
     BEGIN
-        RAISERROR(N'Tên lớp "%s" đã tồn tại trên Khoa còn lại!', 16, 1, @TENLOP);
+        RAISERROR(N'Tên lớp "%s" đã tồn tại trên Khoa còn lại!', 16, 1, @TENLOP_TRIM);
         RETURN;
     END
 GO

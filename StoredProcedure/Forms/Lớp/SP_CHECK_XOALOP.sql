@@ -1,28 +1,22 @@
 ﻿USE [QLDSV_TC]
 GO
 
-CREATE PROC [dbo].[SP_CHECK_XOALOP]
+CREATE PROC SP_CHECK_XOALOP
     @MALOP NCHAR(10)
 AS
 BEGIN
-    IF NOT EXISTS (
-        SELECT 1
-        FROM dbo.LOP
-        WHERE MALOP = @MALOP
-    )
+    DECLARE @MALOP_TRIM NVARCHAR(10);
+    SET @MALOP_TRIM = LTRIM(RTRIM(@MALOP));
+
+    IF NOT EXISTS (SELECT 1 FROM LOP WHERE MALOP = @MALOP_TRIM)
     BEGIN
-        RAISERROR(N'Mã lớp "%s" không tồn tại!', 16, 1, @MALOP);
+        RAISERROR(N'Mã lớp "%s" không tồn tại!', 16, 1, @MALOP_TRIM);
         RETURN;
     END
 
-    
-    IF EXISTS (
-        SELECT 1
-        FROM dbo.SINHVIEN
-        WHERE MALOP = @MALOP
-    )
+    IF EXISTS (SELECT 1 FROM SINHVIEN WHERE MALOP = @MALOP_TRIM)
     BEGIN
-        RAISERROR(N'Không thể xóa mã lớp "%s" vì lớp đã có sinh viên!',16, 1, @MALOP);
+        RAISERROR(N'Không thể xóa mã lớp "%s" vì lớp đã có sinh viên!',16, 1, @MALOP_TRIM);
         RETURN;
     END
 END

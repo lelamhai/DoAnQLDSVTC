@@ -1,0 +1,25 @@
+﻿USE [QLDSV_TC]
+GO
+
+CREATE PROC SP_CHECK_TAOSINHVIEN
+    @MASV NCHAR(10)
+AS
+BEGIN
+    DECLARE @MASV_TRIM NVARCHAR(10);
+    SET @MASV_TRIM = LTRIM(RTRIM(@MASV));
+
+    IF EXISTS (SELECT 1 FROM SINHVIEN WHERE MASV = @MASV_TRIM)
+    BEGIN
+        RAISERROR(N'Mã sinh viên "%s" đã tồn tại trên Khoa hiện tại!', 16, 1, @MASV_TRIM);
+        RETURN;
+    END
+
+    IF EXISTS (SELECT 1 FROM LINK0.QLDSV_TC.dbo.SINHVIEN WHERE MASV = @MASV_TRIM)
+    BEGIN
+        RAISERROR(N'Mã sinh viên "%s" đã tồn tại trên Khoa còn lại!', 16, 1, @MASV_TRIM);
+        RETURN;
+    END
+END
+GO
+
+
