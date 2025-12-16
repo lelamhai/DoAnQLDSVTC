@@ -87,13 +87,12 @@ namespace DoAnQLDSVTC
 
         public void AddData()
         {
-
             string maMH = txtMaMonHoc.Text.Trim();
             string tenMH = txtTenMonHoc.Text.Trim();
             int soTietLT = int.Parse(nudSTLT.Value.ToString());
             int soTietTH = int.Parse(nudSTTH.Value.ToString());
 
-            string cmd = "EXEC SP_CHECKMONHOC N'" + maMH + "', N'" + tenMH + "'";
+            string cmd = "EXEC SP_CHECK_TAOMONHOC N'" + maMH + "', N'" + tenMH + "'";
             int result = Program.ExecSqlNonQuery(cmd);
             if (result == 0)
             {
@@ -104,19 +103,22 @@ namespace DoAnQLDSVTC
                 LoadActiveLeft();
                 LoadUndo();
                 currentAction = STATE_ACTION.NONE;
-                MessageBox.Show("Tạo thông tin môn học thành công!", "Thông báo");
+                MessageBox.Show("Tạo thông tin môn học '"+tenMH+"' thành công!", "Thông báo");
+                LoadDatasetApdapter();
             }
         }
 
         public void DeleteData()
         {
-            try
-            {
-                string maMH = txtMaMonHoc.Text.Trim();
-                string tenMH = txtTenMonHoc.Text.Trim();
-                int soTietLT = int.Parse(nudSTLT.Value.ToString());
-                int soTietTH = int.Parse(nudSTLT.Value.ToString());
 
+            string maMH = txtMaMonHoc.Text.Trim();
+            string tenMH = txtTenMonHoc.Text.Trim();
+            int soTietLT = int.Parse(nudSTLT.Value.ToString());
+            int soTietTH = int.Parse(nudSTLT.Value.ToString());
+            string cmd = "EXEC SP_CHECK_XOAMONHOC N'" + maMH + "'";
+            int result = Program.ExecSqlNonQuery(cmd);
+            if (result == 0)
+            {
                 dbsMONHOC.RemoveCurrent();
                 MONHOCTableAdapter.Update(DS.MONHOC);
 
@@ -125,17 +127,13 @@ namespace DoAnQLDSVTC
                 LoadUndo();
                 currentAction = STATE_ACTION.NONE;
             }
-            catch (Exception ex)
-            {
-                string message = "Môn học " + txtTenMonHoc.Text.Trim() + " đã có lớp tín chỉ.";
-                MessageBox.Show(message, "", MessageBoxButtons.OK);
-                return;
-            }
         }
 
         public void UpdateData()
         {
-            try
+            string cmd = "EXEC SP_CHECK_CAPNHATMONHOC N'" + txtTenMonHoc.Text.Trim() + "'";
+            int result = Program.ExecSqlNonQuery(cmd);
+            if (result == 0)
             {
                 dbsMONHOC.EndEdit();
                 MONHOCTableAdapter.Update(DS.MONHOC);
@@ -144,12 +142,7 @@ namespace DoAnQLDSVTC
                 LoadActiveLeft();
                 LoadUndo();
                 currentAction = STATE_ACTION.NONE;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi cập nhật môn học. Vui lòng kiểm tra lại thông tin lớp.", "", MessageBoxButtons.OK);
-                return;
-
+                LoadDatasetApdapter();
             }
         }
         public void UndoAction()
@@ -219,12 +212,12 @@ namespace DoAnQLDSVTC
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string message = "Bạn có chắc chắn muốn xóa lớp " + txtTenMonHoc.Text.Trim() + " không?";
+            string message = "Bạn có chắc chắn muốn xóa lớp '" + txtTenMonHoc.Text.Trim() + "' không?";
             DialogResult result = MessageBox.Show(
                 message,
                 "Xác nhận",
                 MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
+                MessageBoxIcon.Warning
             );
 
             if (result == DialogResult.No)
@@ -276,12 +269,12 @@ namespace DoAnQLDSVTC
                     break;
 
                 case STATE_ACTION.EDIT:
-                    string message = "Bạn có muốn cập nhật thông tin môn học này không?";
+                    string message = "Bạn có muốn cập nhật thông tin môn học '"+txtTenMonHoc.Text.Trim()+"' này không?";
                     DialogResult result = MessageBox.Show(
                         message,
                         "Xác nhận",
                         MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Warning
+                        MessageBoxIcon.Information
                     );
 
                     if (result == DialogResult.No)
@@ -300,54 +293,6 @@ namespace DoAnQLDSVTC
             oldData.Clear();
             LoadActiveLeft();
             txtMaMonHoc.Enabled = true;
-        }
-
-        private bool ValidateSubject()
-        {
-            if (string.IsNullOrWhiteSpace(txtMaMonHoc.Text))
-            {
-                lblMessage.Text = "Vui lòng nhập Mã Môn Học.";
-                txtMaMonHoc.Focus();
-                return false;
-            }
-
-            if (txtMaMonHoc.Text.Length < 2)
-            {
-                lblMessage.Text = "Mã Môn Học phải từ 2 ký tự.";
-                txtMaMonHoc.Focus();
-                return false;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtTenMonHoc.Text))
-            {
-                lblMessage.Text = "Vui lòng nhập Tên Môn Học.";
-                txtTenMonHoc.Focus();
-                return false;
-            }
-
-            if (txtTenMonHoc.Text.Length < 6)
-            {
-                lblMessage.Text = "Tên Môn Học phải từ 6 ký tự.";
-                txtTenMonHoc.Focus();
-                return false;
-            }
-
-            if(nudSTLT.Value <= 0)
-            {
-                lblMessage.Text = "Số Tiết Lý Thuyết phải lớn 0.";
-                nudSTLT.Focus();
-                return false;
-            }    
-
-            if(nudSTTH.Value <= 0)
-            {
-                lblMessage.Text = "Số Tiết Thực Hành phải lớn 0.";
-                nudSTTH.Focus();
-                return false;
-            }
-
-            lblMessage.Text = "";
-            return true;
         }
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -383,6 +328,54 @@ namespace DoAnQLDSVTC
             lblTitleKhoa.Focus();
             LoadUndo();
             LoadActiveLeft();
+        }
+
+        private bool ValidateSubject()
+        {
+            if (string.IsNullOrWhiteSpace(txtMaMonHoc.Text))
+            {
+                lblMessage.Text = "Vui lòng nhập Mã Môn Học.";
+                txtMaMonHoc.Focus();
+                return false;
+            }
+
+            if (txtMaMonHoc.Text.Length < 2)
+            {
+                lblMessage.Text = "Mã Môn Học phải từ 2 ký tự.";
+                txtMaMonHoc.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtTenMonHoc.Text))
+            {
+                lblMessage.Text = "Vui lòng nhập Tên Môn Học.";
+                txtTenMonHoc.Focus();
+                return false;
+            }
+
+            if (txtTenMonHoc.Text.Length < 6)
+            {
+                lblMessage.Text = "Tên Môn Học phải từ 6 ký tự.";
+                txtTenMonHoc.Focus();
+                return false;
+            }
+
+            if (nudSTLT.Value <= 0)
+            {
+                lblMessage.Text = "Số Tiết Lý Thuyết phải lớn 0.";
+                nudSTLT.Focus();
+                return false;
+            }
+
+            //if (nudSTTH.Value <= 0)
+            //{
+            //    lblMessage.Text = "Số Tiết Thực Hành phải lớn 0.";
+            //    nudSTTH.Focus();
+            //    return false;
+            //}
+
+            lblMessage.Text = "";
+            return true;
         }
     }
 
