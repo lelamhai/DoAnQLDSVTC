@@ -23,6 +23,7 @@ namespace DoAnQLDSVTC
         {
             
             LoadDatasetApdapter();
+            LoadComboxGV();
             LoadCombox();
             LoadUndo();
             SetupBeigin();
@@ -30,6 +31,19 @@ namespace DoAnQLDSVTC
             LoadLabelKhoa();
             LoadActiveLeft();
             lblTitleKhoa.Focus();
+        }
+
+        private void LoadComboxGV()
+        {
+            cmbGV.DataSource = dbsGIANGVIEN;
+            cmbGV.DisplayMember = "MAGV_TEXT";
+            cmbGV.ValueMember = "MAGV";
+            cmbGV.DataBindings.Add(
+                "SelectedValue",
+                dbsLTC,
+                "MAGV",
+                true,
+                DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void SetupBeigin()
@@ -107,33 +121,6 @@ namespace DoAnQLDSVTC
 
             this.LOPTINCHITableAdapter.Connection.ConnectionString = Program.URL_Connect;
             this.LOPTINCHITableAdapter.Fill(this.DS.LOPTINCHI);
-
-
-            if (dgvLTC.Columns["MAGV_TEXT"] == null)
-            {
-                DS.GIANGVIEN.Columns.Add("MAGV_TEXT", typeof(string), "HO + ' ' + TEN");
-
-                dgvLTC.Columns.Add("MAGV_TEXT", "Giảng Viên");
-                dgvLTC.Columns["MAGV"].Visible = false;
-
-
-                cmbGV.DataSource = dbsGIANGVIEN;
-                cmbGV.DisplayMember = "MAGV_TEXT";
-                cmbGV.ValueMember = "MAGV";
-                cmbGV.DataBindings.Add(
-                    "SelectedValue", 
-                    dbsLTC, 
-                    "MAGV", 
-                    true,
-                    DataSourceUpdateMode.OnPropertyChanged);
-
-            }
-
-            if (dgvLTC.Columns["MAMH_TEXT"] == null)
-            {
-                dgvLTC.Columns.Add("MAMH_TEXT", "Môn Học");
-                dgvLTC.Columns["MAMH"].Visible = false;
-            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -148,7 +135,8 @@ namespace DoAnQLDSVTC
             nudHocKy.Value = 0;
             nudNhom.Value = 0;
             nudSOSVTT.Value = 0;
-            cbHuyLop.Checked = false;
+            var current = (DataRowView)dbsLTC.Current;
+            current["HUYLOP"] = false;
             lblTitleKhoa.Focus();
             LoadActiveRight();
         }
@@ -222,7 +210,7 @@ namespace DoAnQLDSVTC
                     AddData();
                     break;
                 case STATE_ACTION.EDIT:
-                    string message = "Bạn có muốn cập nhật lớp tín chỉ này không?";
+                    string message = "Bạn có muốn cập nhật lớp tín chỉ này không? )";
                     DialogResult result = MessageBox.Show(
                         message,
                         "Xác nhận",
@@ -284,41 +272,21 @@ namespace DoAnQLDSVTC
 
         public void AddData()
         {
-            try
+            string maKhoa = txtMaKhoa.Text.Trim();
+            string nienKhoa = txtNienKhoa.Text.Trim();
+            int hocKy = int.Parse(nudHocKy.Text.Trim());
+            string monHoc = cmbMaMH.SelectedValue.ToString().Trim();
+            int nhom = int.Parse(nudNhom.Text.Trim());
+            string maGV = cmbGV.SelectedValue.ToString().Trim();
+            int ssvtt = int.Parse(nudSOSVTT.Text.Trim());
+            bool huyLop = cbHuyLop.Checked;
+
+
+            string strSP = "EXEC SP_CHECK_TAOLOPTINCHI N'" + nienKhoa + "', '" + hocKy + "', N'" + monHoc + "', '" + nhom + "'";
+            int result = Program.ExecSqlNonQuery(strSP);
+
+            if (result == 0)
             {
-                string maKhoa = txtMaKhoa.Text.Trim();
-                string nienKhoa = txtNienKhoa.Text.Trim();
-                int hocKy = int.Parse(nudHocKy.Text.Trim());
-                string monHoc = cmbMaMH.SelectedValue.ToString().Trim();
-                int nhom = int.Parse(nudNhom.Text.Trim());
-                string maGV = cmbGV.SelectedValue.ToString().Trim();
-                int ssvtt = int.Parse(nudSOSVTT.Text.Trim());
-                bool huyLop = cbHuyLop.Checked;
-
-                string cmd = "EXEC SP_CHECK_LTC '" + nienKhoa + "', '" + monHoc + "', " + nhom + ", " + hocKy;
-                int check = Program.CheckMa(cmd);
-
-                if (check == -1)
-                {
-                    MessageBox.Show("Lỗi kết nối cơ sở dữ liệu!", "", MessageBoxButtons.OK); return;
-                }
-
-                if (check == 1)
-                {
-                    MessageBox.Show("Lớp tín chỉ này đã tồn tại trong khoa này!", "", MessageBoxButtons.OK); return;
-                }
-
-                if (check == 2)
-                {
-                    MessageBox.Show("Lớp tín chỉ này đã tồn tại trong khoa khác!", "", MessageBoxButtons.OK); return;
-                }
-
-                if(!huyLop)
-                {
-                    var current = (DataRowView)dbsLTC.Current;
-                    current["HUYLOP"] = false;
-                }    
-
                 dbsLTC.EndEdit();
                 LOPTINCHITableAdapter.Update(DS.LOPTINCHI);
                 ActionOpenCourse action = new ActionOpenCourse(STATE_ACTION.ADD, nienKhoa, hocKy, monHoc, nhom, maGV, maKhoa, ssvtt, huyLop);
@@ -326,49 +294,29 @@ namespace DoAnQLDSVTC
                 LoadActiveLeft();
                 LoadUndo();
                 currentAction = STATE_ACTION.NONE;
-                MessageBox.Show("Tạo thông tin lớp tín chỉ thành công!");
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi thêm lớp tín chỉ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Tạo thông tin lớp tín chỉ thành công!", "Thông báo");
             }
         }
 
         public void UpdateData()
         {
-            try
+            int maLTC = int.Parse(txtMALTC.Text.Trim());
+            string maKhoa = txtMaKhoa.Text.Trim();
+            string nienKhoa = txtNienKhoa.Text.Trim();
+            int hocKy = int.Parse(nudHocKy.Text.Trim());
+            string monHoc = cmbMaMH.SelectedValue.ToString().Trim();
+            int nhom = int.Parse(nudNhom.Text.Trim());
+            string maGV = cmbGV.SelectedValue.ToString().Trim();
+            int ssvtt = int.Parse(nudSOSVTT.Text.Trim());
+            bool huyLop = cbHuyLop.Checked;
+
+            string strSP = "EXEC SP_CHECK_CAPNHATLOPTINCHI " + maLTC + "";
+            int result = Program.ExecSqlNonQuery(strSP);
+            if (result == 0)
             {
-                string maKhoa = txtMaKhoa.Text.Trim();
-                string nienKhoa = txtNienKhoa.Text.Trim();
-                int hocKy = int.Parse(nudHocKy.Text.Trim());
-                string monHoc = cmbMaMH.SelectedValue.ToString().Trim();
-                int nhom = int.Parse(nudNhom.Text.Trim());
-                string maGV = cmbGV.SelectedValue.ToString().Trim();
-                int ssvtt = int.Parse(nudSOSVTT.Text.Trim());
-                bool huyLop = cbHuyLop.Checked;
-
-                string cmd = "EXEC SP_CHECK_LTC '" + nienKhoa + "', '" + monHoc + "', " + nhom + ", " + hocKy;
-                int check = Program.CheckMa(cmd);
-
-                if (check == -1)
-                {
-                    MessageBox.Show("Lỗi kết nối cơ sở dữ liệu!", "", MessageBoxButtons.OK); return;
-                }
-
-                if (check == 1)
-                {
-                    MessageBox.Show("Lớp tín chỉ này đã tồn tại trong khoa này!", "", MessageBoxButtons.OK); return;
-                }
-
-                if (check == 2)
-                {
-                    MessageBox.Show("Lớp tín chỉ này đã tồn tại trong khoa khác!", "", MessageBoxButtons.OK); return;
-                }
-
                 dbsLTC.EndEdit();
                 LOPTINCHITableAdapter.Update(DS.LOPTINCHI);
-                
+
                 ActionOpenCourse action = new ActionOpenCourse(
                     STATE_ACTION.EDIT,
                     oldData[0].NienKhoa,
@@ -390,36 +338,30 @@ namespace DoAnQLDSVTC
                 LoadUndo();
                 currentAction = STATE_ACTION.NONE;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi cập nhật lớp tín chỉ. Vui lòng kiểm tra lại thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
         }
 
         public void DeleteData()
         {
-            try
-            {
-                string maKhoa = txtMaKhoa.Text.Trim();
-                string nienKhoa = txtNienKhoa.Text.Trim();
-                int hocKy = int.Parse(nudHocKy.Text.Trim());
-                string monHoc = cmbMaMH.SelectedValue.ToString().Trim();
-                int nhom = int.Parse(nudNhom.Text.Trim());
-                string maGV = cmbGV.SelectedValue.ToString().Trim();
-                int ssvtt = int.Parse(nudSOSVTT.Text.Trim());
-                bool huyLop = cbHuyLop.Checked;
+            int maLTC = int.Parse(txtMALTC.Text.Trim());
+            string maKhoa = txtMaKhoa.Text.Trim();
+            string nienKhoa = txtNienKhoa.Text.Trim();
+            int hocKy = int.Parse(nudHocKy.Text.Trim());
+            string monHoc = cmbMaMH.SelectedValue.ToString().Trim();
+            int nhom = int.Parse(nudNhom.Text.Trim());
+            string maGV = cmbGV.SelectedValue.ToString().Trim();
+            int ssvtt = int.Parse(nudSOSVTT.Text.Trim());
+            bool huyLop = cbHuyLop.Checked;
 
+            string strSP = "EXEC SP_CHECK_XOALOPTINCHI "+ maLTC + "";
+            int result = Program.ExecSqlNonQuery(strSP);
+            if (result == 0)
+            {
                 dbsLTC.RemoveCurrent();
                 LOPTINCHITableAdapter.Update(DS.LOPTINCHI);
                 ActionOpenCourse action = new ActionOpenCourse(STATE_ACTION.DELETE, nienKhoa, hocKy, monHoc, nhom, maGV, maKhoa, ssvtt, huyLop);
                 undo.Push(action);
                 LoadUndo();
                 currentAction = STATE_ACTION.NONE;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi xóa lớp tín chỉ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -435,18 +377,16 @@ namespace DoAnQLDSVTC
             int ssvtt = action.SSVTT;
             bool huyLop = action.HuyLop;
 
-
             switch (action.Action)
             {
                 case STATE_ACTION.ADD:
-                    string cmd = string.Format("EXEC SP_XOA_LOPTINCHI N'{0}',N'{1}',N'{2}',N'{3}'",
-                        nienKhoa, hocKy, maMH, nhom);
-                    int result = Program.CheckMa(cmd);
+                    string cmd = string.Format("EXEC SP_XOA_LOPTINCHI N'{0}','{1}',N'{2}','{3}'", nienKhoa, hocKy, maMH, nhom);
+                    int result = Program.ExecSqlNonQuery(cmd);
                     if (result == 0)
                     {
-                        MessageBox.Show("Hoàn tác thêm lớp tín chỉ không thành công!");
+                        MessageBox.Show("Đã khôi phục trạng thái trước khi thêm lớp tín chỉ!", "Thông báo");
+                        LoadDatasetApdapter();
                     }
-                    LoadDatasetApdapter();
                     break;
 
                 case STATE_ACTION.EDIT:
@@ -458,15 +398,19 @@ namespace DoAnQLDSVTC
                     string spEdit = string.Format("EXEC SP_CAPNHAT_LOPTINCHI N'{0}','{1}',N'{2}','{3}', N'{4}','{5}',N'{6}','{7}', N'{8}', N'{9}', '{10}', {11}",
                        nienKhoa, hocKy, maMH, nhom, maGV, maKhoa, ssvtt, huyLop, new_nienKhoa, new_hocKy, new_maMH, new_nhom);
                     int resultEdit = Program.ExecSqlNonQuery(spEdit);
-                    if (resultEdit != 0)
+                    if (resultEdit == 0)
                     {
-                        MessageBox.Show("Hoàn tác cập nhật lớp tín chỉ không thành công!");
+                        MessageBox.Show("Đã khôi phục trạng thái trước khi cập nhật lớp tín chỉ!", "Thông báo");
+                        LoadDatasetApdapter();
                     }
-                    LoadDatasetApdapter();
                     break;
 
                 case STATE_ACTION.DELETE:
-                    LOPTINCHITableAdapter.Insert(
+                    string strSP = "EXEC SP_CHECK_XOALOPTINCHI N'" + action.NienKhoa + "', '" + action.HocKy + "', N'" + action.MaMH + "', '" + action.Nhom + "'";
+                    int resultADD = Program.ExecSqlNonQuery(strSP);
+                    if (resultADD == 0)
+                    {
+                        LOPTINCHITableAdapter.Insert(
                         action.NienKhoa,
                         action.HocKy,
                         action.MaMH,
@@ -476,7 +420,10 @@ namespace DoAnQLDSVTC
                         action.SSVTT,
                         action.HuyLop
                         );
-                    LOPTINCHITableAdapter.Fill(DS.LOPTINCHI);
+                        LOPTINCHITableAdapter.Fill(DS.LOPTINCHI);
+
+                        MessageBox.Show("Đã khôi phục trạng thái trước khi xóa lớp tín chỉ!", "Thông báo");
+                    }    
                     break;
                 default:
                     break;
@@ -525,9 +472,6 @@ namespace DoAnQLDSVTC
                 return false;
             }
 
-
-            
-            // Học kỳ
             if (nudHocKy.Value < 1 || nudHocKy.Value > 4)
             {
                 lblMessage.Text = "Học Kỳ phải từ 1 đến 4.";
@@ -535,7 +479,6 @@ namespace DoAnQLDSVTC
                 return false;
             }
 
-            // Môn học
             if (cmbMaMH.SelectedIndex < 0)
             {
                 lblMessage.Text = "Vui lòng chọn Môn Học.";
@@ -543,7 +486,6 @@ namespace DoAnQLDSVTC
                 return false;
             }
 
-            // Nhóm
             if (nudNhom.Value < 1)
             {
                 lblMessage.Text = "Nhóm phải lớn hơn hoặc bằng 1.";
@@ -551,7 +493,6 @@ namespace DoAnQLDSVTC
                 return false;
             }
 
-            // Giáo viên
             if (cmbGV.SelectedIndex < 0)
             {
                 lblMessage.Text = "Vui lòng chọn Giáo Viên.";
@@ -559,7 +500,6 @@ namespace DoAnQLDSVTC
                 return false;
             }
 
-            // Số sinh viên tối thiểu
             if (nudSOSVTT.Value < 1)
             {
                 lblMessage.Text = "Số Sinh Viên Tối Thiểu phải lớn hơn hoặc bằng 1.";
@@ -567,7 +507,6 @@ namespace DoAnQLDSVTC
                 return false;
             }
 
-            // Nếu mọi thứ OK
             lblMessage.Text = "";
             return true;
         }

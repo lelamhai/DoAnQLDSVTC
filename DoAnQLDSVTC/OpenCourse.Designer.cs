@@ -42,8 +42,10 @@
             this.MALTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NIENKHOA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HOCKY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MAMH_TEXT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NHOM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MAGV_TEXT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SOSVTOITHIEU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HUYLOP = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -110,6 +112,7 @@
             this.GIANGVIENTableAdapter = new DoAnQLDSVTC.DSTableAdapters.GIANGVIENTableAdapter();
             this.tableAdapterManager = new DoAnQLDSVTC.DSTableAdapters.TableAdapterManager();
             this.MONHOCTableAdapter = new DoAnQLDSVTC.DSTableAdapters.MONHOCTableAdapter();
+            this.txtMALTC = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -250,8 +253,10 @@
             this.MALTC,
             this.NIENKHOA,
             this.HOCKY,
+            this.MAMH_TEXT,
             this.MAMH,
             this.NHOM,
+            this.MAGV_TEXT,
             this.MAGV,
             this.SOSVTOITHIEU,
             this.HUYLOP});
@@ -276,42 +281,65 @@
             this.NIENKHOA.DataPropertyName = "NIENKHOA";
             this.NIENKHOA.HeaderText = "Niên Khóa";
             this.NIENKHOA.Name = "NIENKHOA";
+            this.NIENKHOA.ReadOnly = true;
             // 
             // HOCKY
             // 
             this.HOCKY.DataPropertyName = "HOCKY";
             this.HOCKY.HeaderText = "Học Kỳ";
             this.HOCKY.Name = "HOCKY";
+            this.HOCKY.ReadOnly = true;
+            // 
+            // MAMH_TEXT
+            // 
+            this.MAMH_TEXT.DataPropertyName = "MAMH_TEXT";
+            this.MAMH_TEXT.HeaderText = "Môn Học";
+            this.MAMH_TEXT.Name = "MAMH_TEXT";
+            this.MAMH_TEXT.ReadOnly = true;
             // 
             // MAMH
             // 
             this.MAMH.DataPropertyName = "MAMH";
             this.MAMH.HeaderText = "MAMH";
             this.MAMH.Name = "MAMH";
+            this.MAMH.ReadOnly = true;
+            this.MAMH.Visible = false;
             // 
             // NHOM
             // 
             this.NHOM.DataPropertyName = "NHOM";
             this.NHOM.HeaderText = "Nhóm";
             this.NHOM.Name = "NHOM";
+            this.NHOM.ReadOnly = true;
+            // 
+            // MAGV_TEXT
+            // 
+            this.MAGV_TEXT.DataPropertyName = "MAGV_TEXT";
+            this.MAGV_TEXT.HeaderText = "Giáo Viên";
+            this.MAGV_TEXT.Name = "MAGV_TEXT";
+            this.MAGV_TEXT.ReadOnly = true;
             // 
             // MAGV
             // 
             this.MAGV.DataPropertyName = "MAGV";
             this.MAGV.HeaderText = "MAGV";
             this.MAGV.Name = "MAGV";
+            this.MAGV.ReadOnly = true;
+            this.MAGV.Visible = false;
             // 
             // SOSVTOITHIEU
             // 
             this.SOSVTOITHIEU.DataPropertyName = "SOSVTOITHIEU";
             this.SOSVTOITHIEU.HeaderText = "Số SV Tối Thiểu";
             this.SOSVTOITHIEU.Name = "SOSVTOITHIEU";
+            this.SOSVTOITHIEU.ReadOnly = true;
             // 
             // HUYLOP
             // 
             this.HUYLOP.DataPropertyName = "HUYLOP";
             this.HUYLOP.HeaderText = "Hủy Lớp";
             this.HUYLOP.Name = "HUYLOP";
+            this.HUYLOP.ReadOnly = true;
             // 
             // dbsLTC
             // 
@@ -521,6 +549,7 @@
             this.pRight.Controls.Add(this.panel10);
             this.pRight.Controls.Add(this.panel22);
             this.pRight.Controls.Add(this.panel21);
+            this.pRight.Controls.Add(this.txtMALTC);
             this.pRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pRight.Location = new System.Drawing.Point(0, 50);
             this.pRight.Margin = new System.Windows.Forms.Padding(0);
@@ -533,7 +562,7 @@
             // 
             this.panel27.Controls.Add(this.tableLayoutPanel4);
             this.panel27.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel27.Location = new System.Drawing.Point(15, 535);
+            this.panel27.Location = new System.Drawing.Point(15, 561);
             this.panel27.Name = "panel27";
             this.panel27.Size = new System.Drawing.Size(370, 40);
             this.panel27.TabIndex = 36;
@@ -590,7 +619,7 @@
             // 
             this.panel26.Controls.Add(this.panel28);
             this.panel26.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel26.Location = new System.Drawing.Point(15, 485);
+            this.panel26.Location = new System.Drawing.Point(15, 511);
             this.panel26.Name = "panel26";
             this.panel26.Size = new System.Drawing.Size(370, 50);
             this.panel26.TabIndex = 35;
@@ -618,7 +647,7 @@
             // 
             this.panel25.Controls.Add(this.cbHuyLop);
             this.panel25.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel25.Location = new System.Drawing.Point(15, 455);
+            this.panel25.Location = new System.Drawing.Point(15, 481);
             this.panel25.Name = "panel25";
             this.panel25.Size = new System.Drawing.Size(370, 30);
             this.panel25.TabIndex = 34;
@@ -638,7 +667,7 @@
             // panel24
             // 
             this.panel24.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel24.Location = new System.Drawing.Point(15, 440);
+            this.panel24.Location = new System.Drawing.Point(15, 466);
             this.panel24.Name = "panel24";
             this.panel24.Size = new System.Drawing.Size(370, 15);
             this.panel24.TabIndex = 33;
@@ -648,7 +677,7 @@
             this.panel23.Controls.Add(this.nudSOSVTT);
             this.panel23.Controls.Add(this.label11);
             this.panel23.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel23.Location = new System.Drawing.Point(15, 390);
+            this.panel23.Location = new System.Drawing.Point(15, 416);
             this.panel23.Name = "panel23";
             this.panel23.Size = new System.Drawing.Size(370, 50);
             this.panel23.TabIndex = 32;
@@ -662,7 +691,7 @@
             this.nudSOSVTT.Size = new System.Drawing.Size(370, 26);
             this.nudSOSVTT.TabIndex = 4;
             this.nudSOSVTT.Value = new decimal(new int[] {
-            1,
+            10,
             0,
             0,
             0});
@@ -679,7 +708,7 @@
             // panel20
             // 
             this.panel20.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel20.Location = new System.Drawing.Point(15, 375);
+            this.panel20.Location = new System.Drawing.Point(15, 401);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(370, 15);
             this.panel20.TabIndex = 29;
@@ -689,7 +718,7 @@
             this.panel19.Controls.Add(this.cmbGV);
             this.panel19.Controls.Add(this.label9);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel19.Location = new System.Drawing.Point(15, 325);
+            this.panel19.Location = new System.Drawing.Point(15, 351);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(370, 50);
             this.panel19.TabIndex = 28;
@@ -715,7 +744,7 @@
             // panel18
             // 
             this.panel18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel18.Location = new System.Drawing.Point(15, 310);
+            this.panel18.Location = new System.Drawing.Point(15, 336);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(370, 15);
             this.panel18.TabIndex = 27;
@@ -725,7 +754,7 @@
             this.panel17.Controls.Add(this.nudNhom);
             this.panel17.Controls.Add(this.label8);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel17.Location = new System.Drawing.Point(15, 260);
+            this.panel17.Location = new System.Drawing.Point(15, 286);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(370, 50);
             this.panel17.TabIndex = 26;
@@ -756,7 +785,7 @@
             // panel16
             // 
             this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel16.Location = new System.Drawing.Point(15, 245);
+            this.panel16.Location = new System.Drawing.Point(15, 271);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(370, 15);
             this.panel16.TabIndex = 25;
@@ -766,7 +795,7 @@
             this.panel14.Controls.Add(this.cmbMaMH);
             this.panel14.Controls.Add(this.label7);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel14.Location = new System.Drawing.Point(15, 195);
+            this.panel14.Location = new System.Drawing.Point(15, 221);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(370, 50);
             this.panel14.TabIndex = 24;
@@ -801,7 +830,7 @@
             // panel13
             // 
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel13.Location = new System.Drawing.Point(15, 180);
+            this.panel13.Location = new System.Drawing.Point(15, 206);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(370, 15);
             this.panel13.TabIndex = 23;
@@ -811,7 +840,7 @@
             this.panel12.Controls.Add(this.nudHocKy);
             this.panel12.Controls.Add(this.label6);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(15, 130);
+            this.panel12.Location = new System.Drawing.Point(15, 156);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(370, 50);
             this.panel12.TabIndex = 22;
@@ -847,7 +876,7 @@
             // panel11
             // 
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel11.Location = new System.Drawing.Point(15, 115);
+            this.panel11.Location = new System.Drawing.Point(15, 141);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(370, 15);
             this.panel11.TabIndex = 21;
@@ -857,7 +886,7 @@
             this.panel10.Controls.Add(this.tableLayoutPanel2);
             this.panel10.Controls.Add(this.label3);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel10.Location = new System.Drawing.Point(15, 65);
+            this.panel10.Location = new System.Drawing.Point(15, 91);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(370, 50);
             this.panel10.TabIndex = 20;
@@ -937,7 +966,7 @@
             // panel22
             // 
             this.panel22.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel22.Location = new System.Drawing.Point(15, 50);
+            this.panel22.Location = new System.Drawing.Point(15, 76);
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(370, 15);
             this.panel22.TabIndex = 31;
@@ -947,7 +976,7 @@
             this.panel21.Controls.Add(this.label10);
             this.panel21.Controls.Add(this.txtMaKhoa);
             this.panel21.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel21.Location = new System.Drawing.Point(15, 0);
+            this.panel21.Location = new System.Drawing.Point(15, 26);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(370, 50);
             this.panel21.TabIndex = 30;
@@ -1010,6 +1039,15 @@
             // 
             this.MONHOCTableAdapter.ClearBeforeFill = true;
             // 
+            // txtMALTC
+            // 
+            this.txtMALTC.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dbsLTC, "MALTC", true));
+            this.txtMALTC.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtMALTC.Location = new System.Drawing.Point(15, 0);
+            this.txtMALTC.Name = "txtMALTC";
+            this.txtMALTC.Size = new System.Drawing.Size(370, 26);
+            this.txtMALTC.TabIndex = 37;
+            // 
             // OpenCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -1037,6 +1075,7 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.pRight.ResumeLayout(false);
+            this.pRight.PerformLayout();
             this.panel27.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.panel26.ResumeLayout(false);
@@ -1136,19 +1175,22 @@
         private DSTableAdapters.MONHOCTableAdapter MONHOCTableAdapter;
         private System.Windows.Forms.BindingSource dbsMONHOC;
         private System.Windows.Forms.DataGridView dgvLTC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MALTC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NIENKHOA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HOCKY;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MAMH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NHOM;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MAGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SOSVTOITHIEU;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn HUYLOP;
         private System.Windows.Forms.TextBox txtMaKhoa;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TextBox txtNienKhoa;
         private System.Windows.Forms.DateTimePicker dtpBeigin;
         private System.Windows.Forms.DateTimePicker dtpEnd;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MALTC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NIENKHOA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HOCKY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MAMH_TEXT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MAMH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NHOM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MAGV_TEXT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MAGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SOSVTOITHIEU;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn HUYLOP;
+        private System.Windows.Forms.TextBox txtMALTC;
     }
 }

@@ -1,0 +1,30 @@
+﻿USE [QLDSV_TC]
+GO
+
+CREATE PROCEDURE SP_CHECK_TAOLOPTINCHI
+    @NIENKHOA  nchar(9),
+    @HOCKY     int,
+    @MAMH      nchar(10),
+    @NHOM      int
+AS
+BEGIN
+    DECLARE @NIENKHOA_TRIM NVARCHAR(9);
+    SET @NIENKHOA_TRIM = LTRIM(RTRIM(@NIENKHOA));
+
+    DECLARE @MAMH_TRIM NVARCHAR(10);
+    SET @MAMH_TRIM = LTRIM(RTRIM(@MAMH));
+
+
+    IF EXISTS (SELECT 1 FROM LOPTINCHI WHERE NIENKHOA = @NIENKHOA_TRIM AND HOCKY = @HOCKY AND MAMH = @MAMH_TRIM AND NHOM = @NHOM)
+    BEGIN
+        RAISERROR (N'Lớp tín chỉ đã tồn tại của khoa hiện tại! (Niên khóa: %s, Học kỳ: %d, Mã môn học: %s, Nhóm: %d)',16, 1,@NIENKHOA_TRIM, @HOCKY, @MAMH_TRIM, @NHOM);
+        RETURN;
+    END
+
+    IF EXISTS (SELECT 1 FROM LINK0.QLDSV_TC.DBO.LOPTINCHI WHERE NIENKHOA = @NIENKHOA_TRIM AND HOCKY = @HOCKY AND MAMH = @MAMH_TRIM AND NHOM = @NHOM)
+    BEGIN
+        RAISERROR (N'Lớp tín chỉ đã tồn tại của khoa khác! (Niên khóa: %s, Học kỳ: %d, Mã môn học: %s, Nhóm: %d)',16, 1,@NIENKHOA_TRIM, @HOCKY, @MAMH_TRIM, @NHOM);
+        RETURN;
+    END
+END
+GO
