@@ -162,8 +162,8 @@ namespace DoAnQLDSVTC
             dt.Columns.Add("MALTC", typeof(int));
             dt.Columns.Add("MASV", typeof(string));
             dt.Columns.Add("DIEM_CC", typeof(int));
-            dt.Columns.Add("DIEM_GK", typeof(float));
-            dt.Columns.Add("DIEM_CK", typeof(float));
+            dt.Columns.Add("DIEM_GK", typeof(decimal));
+            dt.Columns.Add("DIEM_CK", typeof(decimal));
 
             foreach (DataGridViewRow gvRow in dgvDK.Rows)
             {
@@ -172,12 +172,12 @@ namespace DoAnQLDSVTC
                 newRow["MALTC"] = gvRow.Cells["MALTC"].Value;
                 newRow["MASV"] = gvRow.Cells["MASV"].Value;
                 newRow["DIEM_CC"] = gvRow.Cells["DIEM_CC"].Value;
-                newRow["DIEM_GK"] = gvRow.Cells["DIEM_GK"].Value;
-                newRow["DIEM_CK"] = gvRow.Cells["DIEM_CK"].Value;
+                decimal diemGK = Convert.ToDecimal(gvRow.Cells["DIEM_GK"].Value);
+                newRow["DIEM_GK"] = Math.Round(diemGK, 2);
+                decimal diemCK = Convert.ToDecimal(gvRow.Cells["DIEM_CK"].Value);
+                newRow["DIEM_CK"] = Math.Round(diemGK, 2);
                 dt.Rows.Add(newRow);
             }
-
-
 
             SqlParameter para = new SqlParameter();
             para.SqlDbType = SqlDbType.Structured;
@@ -234,8 +234,6 @@ namespace DoAnQLDSVTC
             }
             isSaved = true;
         }
-
-
 
         private void dgvDK_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
