@@ -620,7 +620,6 @@
             // 
             this.txtKhoaHoc.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dbsLOP, "KHOAHOC", true));
             this.txtKhoaHoc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtKhoaHoc.Enabled = false;
             this.txtKhoaHoc.Location = new System.Drawing.Point(203, 0);
             this.txtKhoaHoc.Margin = new System.Windows.Forms.Padding(0);
             this.txtKhoaHoc.Name = "txtKhoaHoc";

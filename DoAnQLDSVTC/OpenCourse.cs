@@ -210,7 +210,7 @@ namespace DoAnQLDSVTC
                     AddData();
                     break;
                 case STATE_ACTION.EDIT:
-                    string message = "Bạn có muốn cập nhật lớp tín chỉ này không? )";
+                    string message = "Bạn có muốn cập nhật lớp tín chỉ này không?";
                     DialogResult result = MessageBox.Show(
                         message,
                         "Xác nhận",

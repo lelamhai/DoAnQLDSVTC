@@ -109,7 +109,7 @@ namespace DoAnQLDSVTC
 
             txtMaLop.Enabled = true;
             dtpBeigin.Value = new DateTime(DateTime.Now.Year, 1, 1);
-            dtpEnd.Value = new DateTime(DateTime.Now.Year + 1, 1, 1);
+            dtpEnd.Value = new DateTime(dtpBeigin.Value.Year + 4, 1, 1);
             txtKhoaHoc.Text = dtpBeigin.Value.Year + "-" + dtpEnd.Value.Year;
 
             txtMaKhoa.Text = ((DataRowView)dbsLOP[0])["MAKHOA"].ToString();
@@ -405,13 +405,13 @@ namespace DoAnQLDSVTC
 
         private void dtpBeigin_ValueChanged(object sender, EventArgs e)
         {
-            dtpEnd.Value = new DateTime(dtpBeigin.Value.Year + 1, 1, 1);
+            dtpEnd.Value = new DateTime(dtpBeigin.Value.Year + 4, 1, 1);
             txtKhoaHoc.Text = dtpBeigin.Value.Year + "-" + dtpEnd.Value.Year;
         }
 
         private void dtpEnd_ValueChanged(object sender, EventArgs e)
         {
-            dtpBeigin.Value = new DateTime(dtpEnd.Value.Year - 1, 1, 1);
+            dtpBeigin.Value = new DateTime(dtpEnd.Value.Year - 4, 1, 1);
             txtKhoaHoc.Text = dtpBeigin.Value.Year + "-" + dtpEnd.Value.Year;
         }
 
