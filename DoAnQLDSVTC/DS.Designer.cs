@@ -38,13 +38,13 @@ namespace DoAnQLDSVTC {
         
         private SP_DSLTC_DSSVDKLTCDataTable tableSP_DSLTC_DSSVDKLTC;
         
-        private SP_LAYDS_DANGKYLTC_NHAPDIEMDataTable tableSP_LAYDS_DANGKYLTC_NHAPDIEM;
+        private SP_LAYDS_NHAPDIEMDataTable tableSP_LAYDS_NHAPDIEM;
         
         private global::System.Data.DataRelation relationFK_SINHVIEN_LOP;
         
-        private global::System.Data.DataRelation relationFK_LOPTINCHI_GIANGVIEN;
-        
         private global::System.Data.DataRelation relationFK_LOPTINCHI_MONHOC;
+        
+        private global::System.Data.DataRelation relationFK_LOPTINCHI_GIANGVIEN;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -95,8 +95,8 @@ namespace DoAnQLDSVTC {
                 if ((ds.Tables["SP_DSLTC_DSSVDKLTC"] != null)) {
                     base.Tables.Add(new SP_DSLTC_DSSVDKLTCDataTable(ds.Tables["SP_DSLTC_DSSVDKLTC"]));
                 }
-                if ((ds.Tables["SP_LAYDS_DANGKYLTC_NHAPDIEM"] != null)) {
-                    base.Tables.Add(new SP_LAYDS_DANGKYLTC_NHAPDIEMDataTable(ds.Tables["SP_LAYDS_DANGKYLTC_NHAPDIEM"]));
+                if ((ds.Tables["SP_LAYDS_NHAPDIEM"] != null)) {
+                    base.Tables.Add(new SP_LAYDS_NHAPDIEMDataTable(ds.Tables["SP_LAYDS_NHAPDIEM"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -190,9 +190,9 @@ namespace DoAnQLDSVTC {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public SP_LAYDS_DANGKYLTC_NHAPDIEMDataTable SP_LAYDS_DANGKYLTC_NHAPDIEM {
+        public SP_LAYDS_NHAPDIEMDataTable SP_LAYDS_NHAPDIEM {
             get {
-                return this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM;
+                return this.tableSP_LAYDS_NHAPDIEM;
             }
         }
         
@@ -284,8 +284,8 @@ namespace DoAnQLDSVTC {
                 if ((ds.Tables["SP_DSLTC_DSSVDKLTC"] != null)) {
                     base.Tables.Add(new SP_DSLTC_DSSVDKLTCDataTable(ds.Tables["SP_DSLTC_DSSVDKLTC"]));
                 }
-                if ((ds.Tables["SP_LAYDS_DANGKYLTC_NHAPDIEM"] != null)) {
-                    base.Tables.Add(new SP_LAYDS_DANGKYLTC_NHAPDIEMDataTable(ds.Tables["SP_LAYDS_DANGKYLTC_NHAPDIEM"]));
+                if ((ds.Tables["SP_LAYDS_NHAPDIEM"] != null)) {
+                    base.Tables.Add(new SP_LAYDS_NHAPDIEMDataTable(ds.Tables["SP_LAYDS_NHAPDIEM"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -362,15 +362,15 @@ namespace DoAnQLDSVTC {
                     this.tableSP_DSLTC_DSSVDKLTC.InitVars();
                 }
             }
-            this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM = ((SP_LAYDS_DANGKYLTC_NHAPDIEMDataTable)(base.Tables["SP_LAYDS_DANGKYLTC_NHAPDIEM"]));
+            this.tableSP_LAYDS_NHAPDIEM = ((SP_LAYDS_NHAPDIEMDataTable)(base.Tables["SP_LAYDS_NHAPDIEM"]));
             if ((initTable == true)) {
-                if ((this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM != null)) {
-                    this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM.InitVars();
+                if ((this.tableSP_LAYDS_NHAPDIEM != null)) {
+                    this.tableSP_LAYDS_NHAPDIEM.InitVars();
                 }
             }
             this.relationFK_SINHVIEN_LOP = this.Relations["FK_SINHVIEN_LOP"];
-            this.relationFK_LOPTINCHI_GIANGVIEN = this.Relations["FK_LOPTINCHI_GIANGVIEN"];
             this.relationFK_LOPTINCHI_MONHOC = this.Relations["FK_LOPTINCHI_MONHOC"];
+            this.relationFK_LOPTINCHI_GIANGVIEN = this.Relations["FK_LOPTINCHI_GIANGVIEN"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -395,20 +395,13 @@ namespace DoAnQLDSVTC {
             base.Tables.Add(this.tableSP_DSLTC_NIENKHOAHOCKY);
             this.tableSP_DSLTC_DSSVDKLTC = new SP_DSLTC_DSSVDKLTCDataTable();
             base.Tables.Add(this.tableSP_DSLTC_DSSVDKLTC);
-            this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM = new SP_LAYDS_DANGKYLTC_NHAPDIEMDataTable();
-            base.Tables.Add(this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM);
+            this.tableSP_LAYDS_NHAPDIEM = new SP_LAYDS_NHAPDIEMDataTable();
+            base.Tables.Add(this.tableSP_LAYDS_NHAPDIEM);
             global::System.Data.ForeignKeyConstraint fkc;
             fkc = new global::System.Data.ForeignKeyConstraint("FK_SINHVIEN_LOP", new global::System.Data.DataColumn[] {
                         this.tableLOP.MALOPColumn}, new global::System.Data.DataColumn[] {
                         this.tableSINHVIEN.MALOPColumn});
             this.tableSINHVIEN.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_LOPTINCHI_GIANGVIEN", new global::System.Data.DataColumn[] {
-                        this.tableGIANGVIEN.MAGVColumn}, new global::System.Data.DataColumn[] {
-                        this.tableLOPTINCHI.MAGVColumn});
-            this.tableLOPTINCHI.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
@@ -419,18 +412,25 @@ namespace DoAnQLDSVTC {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_LOPTINCHI_GIANGVIEN", new global::System.Data.DataColumn[] {
+                        this.tableGIANGVIEN.MAGVColumn}, new global::System.Data.DataColumn[] {
+                        this.tableLOPTINCHI.MAGVColumn});
+            this.tableLOPTINCHI.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             this.relationFK_SINHVIEN_LOP = new global::System.Data.DataRelation("FK_SINHVIEN_LOP", new global::System.Data.DataColumn[] {
                         this.tableLOP.MALOPColumn}, new global::System.Data.DataColumn[] {
                         this.tableSINHVIEN.MALOPColumn}, false);
             this.Relations.Add(this.relationFK_SINHVIEN_LOP);
-            this.relationFK_LOPTINCHI_GIANGVIEN = new global::System.Data.DataRelation("FK_LOPTINCHI_GIANGVIEN", new global::System.Data.DataColumn[] {
-                        this.tableGIANGVIEN.MAGVColumn}, new global::System.Data.DataColumn[] {
-                        this.tableLOPTINCHI.MAGVColumn}, false);
-            this.Relations.Add(this.relationFK_LOPTINCHI_GIANGVIEN);
             this.relationFK_LOPTINCHI_MONHOC = new global::System.Data.DataRelation("FK_LOPTINCHI_MONHOC", new global::System.Data.DataColumn[] {
                         this.tableMONHOC.MAMHColumn}, new global::System.Data.DataColumn[] {
                         this.tableLOPTINCHI.MAMHColumn}, false);
             this.Relations.Add(this.relationFK_LOPTINCHI_MONHOC);
+            this.relationFK_LOPTINCHI_GIANGVIEN = new global::System.Data.DataRelation("FK_LOPTINCHI_GIANGVIEN", new global::System.Data.DataColumn[] {
+                        this.tableGIANGVIEN.MAGVColumn}, new global::System.Data.DataColumn[] {
+                        this.tableLOPTINCHI.MAGVColumn}, false);
+            this.Relations.Add(this.relationFK_LOPTINCHI_GIANGVIEN);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -477,7 +477,7 @@ namespace DoAnQLDSVTC {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeSP_LAYDS_DANGKYLTC_NHAPDIEM() {
+        private bool ShouldSerializeSP_LAYDS_NHAPDIEM() {
             return false;
         }
         
@@ -558,7 +558,7 @@ namespace DoAnQLDSVTC {
         public delegate void SP_DSLTC_DSSVDKLTCRowChangeEventHandler(object sender, SP_DSLTC_DSSVDKLTCRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void SP_LAYDS_DANGKYLTC_NHAPDIEMRowChangeEventHandler(object sender, SP_LAYDS_DANGKYLTC_NHAPDIEMRowChangeEvent e);
+        public delegate void SP_LAYDS_NHAPDIEMRowChangeEventHandler(object sender, SP_LAYDS_NHAPDIEMRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -3036,7 +3036,7 @@ namespace DoAnQLDSVTC {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class SP_LAYDS_DANGKYLTC_NHAPDIEMDataTable : global::System.Data.TypedTableBase<SP_LAYDS_DANGKYLTC_NHAPDIEMRow> {
+        public partial class SP_LAYDS_NHAPDIEMDataTable : global::System.Data.TypedTableBase<SP_LAYDS_NHAPDIEMRow> {
             
             private global::System.Data.DataColumn columnMALTC;
             
@@ -3052,8 +3052,8 @@ namespace DoAnQLDSVTC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SP_LAYDS_DANGKYLTC_NHAPDIEMDataTable() {
-                this.TableName = "SP_LAYDS_DANGKYLTC_NHAPDIEM";
+            public SP_LAYDS_NHAPDIEMDataTable() {
+                this.TableName = "SP_LAYDS_NHAPDIEM";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -3061,7 +3061,7 @@ namespace DoAnQLDSVTC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal SP_LAYDS_DANGKYLTC_NHAPDIEMDataTable(global::System.Data.DataTable table) {
+            internal SP_LAYDS_NHAPDIEMDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -3078,7 +3078,7 @@ namespace DoAnQLDSVTC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected SP_LAYDS_DANGKYLTC_NHAPDIEMDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected SP_LAYDS_NHAPDIEMDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -3142,34 +3142,34 @@ namespace DoAnQLDSVTC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SP_LAYDS_DANGKYLTC_NHAPDIEMRow this[int index] {
+            public SP_LAYDS_NHAPDIEMRow this[int index] {
                 get {
-                    return ((SP_LAYDS_DANGKYLTC_NHAPDIEMRow)(this.Rows[index]));
+                    return ((SP_LAYDS_NHAPDIEMRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event SP_LAYDS_DANGKYLTC_NHAPDIEMRowChangeEventHandler SP_LAYDS_DANGKYLTC_NHAPDIEMRowChanging;
+            public event SP_LAYDS_NHAPDIEMRowChangeEventHandler SP_LAYDS_NHAPDIEMRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event SP_LAYDS_DANGKYLTC_NHAPDIEMRowChangeEventHandler SP_LAYDS_DANGKYLTC_NHAPDIEMRowChanged;
+            public event SP_LAYDS_NHAPDIEMRowChangeEventHandler SP_LAYDS_NHAPDIEMRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event SP_LAYDS_DANGKYLTC_NHAPDIEMRowChangeEventHandler SP_LAYDS_DANGKYLTC_NHAPDIEMRowDeleting;
+            public event SP_LAYDS_NHAPDIEMRowChangeEventHandler SP_LAYDS_NHAPDIEMRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event SP_LAYDS_DANGKYLTC_NHAPDIEMRowChangeEventHandler SP_LAYDS_DANGKYLTC_NHAPDIEMRowDeleted;
+            public event SP_LAYDS_NHAPDIEMRowChangeEventHandler SP_LAYDS_NHAPDIEMRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddSP_LAYDS_DANGKYLTC_NHAPDIEMRow(SP_LAYDS_DANGKYLTC_NHAPDIEMRow row) {
+            public void AddSP_LAYDS_NHAPDIEMRow(SP_LAYDS_NHAPDIEMRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SP_LAYDS_DANGKYLTC_NHAPDIEMRow AddSP_LAYDS_DANGKYLTC_NHAPDIEMRow(int MALTC, string MASV, string HOTEN, int DIEM_CC, double DIEM_GK, double DIEM_CK) {
-                SP_LAYDS_DANGKYLTC_NHAPDIEMRow rowSP_LAYDS_DANGKYLTC_NHAPDIEMRow = ((SP_LAYDS_DANGKYLTC_NHAPDIEMRow)(this.NewRow()));
+            public SP_LAYDS_NHAPDIEMRow AddSP_LAYDS_NHAPDIEMRow(int MALTC, string MASV, string HOTEN, int DIEM_CC, double DIEM_GK, double DIEM_CK) {
+                SP_LAYDS_NHAPDIEMRow rowSP_LAYDS_NHAPDIEMRow = ((SP_LAYDS_NHAPDIEMRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         MALTC,
                         MASV,
@@ -3177,15 +3177,15 @@ namespace DoAnQLDSVTC {
                         DIEM_CC,
                         DIEM_GK,
                         DIEM_CK};
-                rowSP_LAYDS_DANGKYLTC_NHAPDIEMRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowSP_LAYDS_DANGKYLTC_NHAPDIEMRow);
-                return rowSP_LAYDS_DANGKYLTC_NHAPDIEMRow;
+                rowSP_LAYDS_NHAPDIEMRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSP_LAYDS_NHAPDIEMRow);
+                return rowSP_LAYDS_NHAPDIEMRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                SP_LAYDS_DANGKYLTC_NHAPDIEMDataTable cln = ((SP_LAYDS_DANGKYLTC_NHAPDIEMDataTable)(base.Clone()));
+                SP_LAYDS_NHAPDIEMDataTable cln = ((SP_LAYDS_NHAPDIEMDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -3193,7 +3193,7 @@ namespace DoAnQLDSVTC {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new SP_LAYDS_DANGKYLTC_NHAPDIEMDataTable();
+                return new SP_LAYDS_NHAPDIEMDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3231,28 +3231,28 @@ namespace DoAnQLDSVTC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SP_LAYDS_DANGKYLTC_NHAPDIEMRow NewSP_LAYDS_DANGKYLTC_NHAPDIEMRow() {
-                return ((SP_LAYDS_DANGKYLTC_NHAPDIEMRow)(this.NewRow()));
+            public SP_LAYDS_NHAPDIEMRow NewSP_LAYDS_NHAPDIEMRow() {
+                return ((SP_LAYDS_NHAPDIEMRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new SP_LAYDS_DANGKYLTC_NHAPDIEMRow(builder);
+                return new SP_LAYDS_NHAPDIEMRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(SP_LAYDS_DANGKYLTC_NHAPDIEMRow);
+                return typeof(SP_LAYDS_NHAPDIEMRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.SP_LAYDS_DANGKYLTC_NHAPDIEMRowChanged != null)) {
-                    this.SP_LAYDS_DANGKYLTC_NHAPDIEMRowChanged(this, new SP_LAYDS_DANGKYLTC_NHAPDIEMRowChangeEvent(((SP_LAYDS_DANGKYLTC_NHAPDIEMRow)(e.Row)), e.Action));
+                if ((this.SP_LAYDS_NHAPDIEMRowChanged != null)) {
+                    this.SP_LAYDS_NHAPDIEMRowChanged(this, new SP_LAYDS_NHAPDIEMRowChangeEvent(((SP_LAYDS_NHAPDIEMRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3260,8 +3260,8 @@ namespace DoAnQLDSVTC {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.SP_LAYDS_DANGKYLTC_NHAPDIEMRowChanging != null)) {
-                    this.SP_LAYDS_DANGKYLTC_NHAPDIEMRowChanging(this, new SP_LAYDS_DANGKYLTC_NHAPDIEMRowChangeEvent(((SP_LAYDS_DANGKYLTC_NHAPDIEMRow)(e.Row)), e.Action));
+                if ((this.SP_LAYDS_NHAPDIEMRowChanging != null)) {
+                    this.SP_LAYDS_NHAPDIEMRowChanging(this, new SP_LAYDS_NHAPDIEMRowChangeEvent(((SP_LAYDS_NHAPDIEMRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3269,8 +3269,8 @@ namespace DoAnQLDSVTC {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.SP_LAYDS_DANGKYLTC_NHAPDIEMRowDeleted != null)) {
-                    this.SP_LAYDS_DANGKYLTC_NHAPDIEMRowDeleted(this, new SP_LAYDS_DANGKYLTC_NHAPDIEMRowChangeEvent(((SP_LAYDS_DANGKYLTC_NHAPDIEMRow)(e.Row)), e.Action));
+                if ((this.SP_LAYDS_NHAPDIEMRowDeleted != null)) {
+                    this.SP_LAYDS_NHAPDIEMRowDeleted(this, new SP_LAYDS_NHAPDIEMRowChangeEvent(((SP_LAYDS_NHAPDIEMRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3278,14 +3278,14 @@ namespace DoAnQLDSVTC {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.SP_LAYDS_DANGKYLTC_NHAPDIEMRowDeleting != null)) {
-                    this.SP_LAYDS_DANGKYLTC_NHAPDIEMRowDeleting(this, new SP_LAYDS_DANGKYLTC_NHAPDIEMRowChangeEvent(((SP_LAYDS_DANGKYLTC_NHAPDIEMRow)(e.Row)), e.Action));
+                if ((this.SP_LAYDS_NHAPDIEMRowDeleting != null)) {
+                    this.SP_LAYDS_NHAPDIEMRowDeleting(this, new SP_LAYDS_NHAPDIEMRowChangeEvent(((SP_LAYDS_NHAPDIEMRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveSP_LAYDS_DANGKYLTC_NHAPDIEMRow(SP_LAYDS_DANGKYLTC_NHAPDIEMRow row) {
+            public void RemoveSP_LAYDS_NHAPDIEMRow(SP_LAYDS_NHAPDIEMRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -3312,7 +3312,7 @@ namespace DoAnQLDSVTC {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "SP_LAYDS_DANGKYLTC_NHAPDIEMDataTable";
+                attribute2.FixedValue = "SP_LAYDS_NHAPDIEMDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -3938,23 +3938,23 @@ namespace DoAnQLDSVTC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public GIANGVIENRow GIANGVIENRow {
-                get {
-                    return ((GIANGVIENRow)(this.GetParentRow(this.Table.ParentRelations["FK_LOPTINCHI_GIANGVIEN"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_LOPTINCHI_GIANGVIEN"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public MONHOCRow MONHOCRow {
                 get {
                     return ((MONHOCRow)(this.GetParentRow(this.Table.ParentRelations["FK_LOPTINCHI_MONHOC"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_LOPTINCHI_MONHOC"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public GIANGVIENRow GIANGVIENRow {
+                get {
+                    return ((GIANGVIENRow)(this.GetParentRow(this.Table.ParentRelations["FK_LOPTINCHI_GIANGVIEN"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_LOPTINCHI_GIANGVIEN"]);
                 }
             }
         }
@@ -4287,25 +4287,25 @@ namespace DoAnQLDSVTC {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class SP_LAYDS_DANGKYLTC_NHAPDIEMRow : global::System.Data.DataRow {
+        public partial class SP_LAYDS_NHAPDIEMRow : global::System.Data.DataRow {
             
-            private SP_LAYDS_DANGKYLTC_NHAPDIEMDataTable tableSP_LAYDS_DANGKYLTC_NHAPDIEM;
+            private SP_LAYDS_NHAPDIEMDataTable tableSP_LAYDS_NHAPDIEM;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal SP_LAYDS_DANGKYLTC_NHAPDIEMRow(global::System.Data.DataRowBuilder rb) : 
+            internal SP_LAYDS_NHAPDIEMRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM = ((SP_LAYDS_DANGKYLTC_NHAPDIEMDataTable)(this.Table));
+                this.tableSP_LAYDS_NHAPDIEM = ((SP_LAYDS_NHAPDIEMDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int MALTC {
                 get {
-                    return ((int)(this[this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM.MALTCColumn]));
+                    return ((int)(this[this.tableSP_LAYDS_NHAPDIEM.MALTCColumn]));
                 }
                 set {
-                    this[this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM.MALTCColumn] = value;
+                    this[this.tableSP_LAYDS_NHAPDIEM.MALTCColumn] = value;
                 }
             }
             
@@ -4313,10 +4313,10 @@ namespace DoAnQLDSVTC {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string MASV {
                 get {
-                    return ((string)(this[this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM.MASVColumn]));
+                    return ((string)(this[this.tableSP_LAYDS_NHAPDIEM.MASVColumn]));
                 }
                 set {
-                    this[this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM.MASVColumn] = value;
+                    this[this.tableSP_LAYDS_NHAPDIEM.MASVColumn] = value;
                 }
             }
             
@@ -4325,14 +4325,14 @@ namespace DoAnQLDSVTC {
             public string HOTEN {
                 get {
                     try {
-                        return ((string)(this[this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM.HOTENColumn]));
+                        return ((string)(this[this.tableSP_LAYDS_NHAPDIEM.HOTENColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'HOTEN\' in table \'SP_LAYDS_DANGKYLTC_NHAPDIEM\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'HOTEN\' in table \'SP_LAYDS_NHAPDIEM\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM.HOTENColumn] = value;
+                    this[this.tableSP_LAYDS_NHAPDIEM.HOTENColumn] = value;
                 }
             }
             
@@ -4341,14 +4341,14 @@ namespace DoAnQLDSVTC {
             public int DIEM_CC {
                 get {
                     try {
-                        return ((int)(this[this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM.DIEM_CCColumn]));
+                        return ((int)(this[this.tableSP_LAYDS_NHAPDIEM.DIEM_CCColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DIEM_CC\' in table \'SP_LAYDS_DANGKYLTC_NHAPDIEM\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DIEM_CC\' in table \'SP_LAYDS_NHAPDIEM\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM.DIEM_CCColumn] = value;
+                    this[this.tableSP_LAYDS_NHAPDIEM.DIEM_CCColumn] = value;
                 }
             }
             
@@ -4357,14 +4357,14 @@ namespace DoAnQLDSVTC {
             public double DIEM_GK {
                 get {
                     try {
-                        return ((double)(this[this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM.DIEM_GKColumn]));
+                        return ((double)(this[this.tableSP_LAYDS_NHAPDIEM.DIEM_GKColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DIEM_GK\' in table \'SP_LAYDS_DANGKYLTC_NHAPDIEM\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DIEM_GK\' in table \'SP_LAYDS_NHAPDIEM\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM.DIEM_GKColumn] = value;
+                    this[this.tableSP_LAYDS_NHAPDIEM.DIEM_GKColumn] = value;
                 }
             }
             
@@ -4373,63 +4373,63 @@ namespace DoAnQLDSVTC {
             public double DIEM_CK {
                 get {
                     try {
-                        return ((double)(this[this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM.DIEM_CKColumn]));
+                        return ((double)(this[this.tableSP_LAYDS_NHAPDIEM.DIEM_CKColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DIEM_CK\' in table \'SP_LAYDS_DANGKYLTC_NHAPDIEM\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DIEM_CK\' in table \'SP_LAYDS_NHAPDIEM\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM.DIEM_CKColumn] = value;
+                    this[this.tableSP_LAYDS_NHAPDIEM.DIEM_CKColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsHOTENNull() {
-                return this.IsNull(this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM.HOTENColumn);
+                return this.IsNull(this.tableSP_LAYDS_NHAPDIEM.HOTENColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetHOTENNull() {
-                this[this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM.HOTENColumn] = global::System.Convert.DBNull;
+                this[this.tableSP_LAYDS_NHAPDIEM.HOTENColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsDIEM_CCNull() {
-                return this.IsNull(this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM.DIEM_CCColumn);
+                return this.IsNull(this.tableSP_LAYDS_NHAPDIEM.DIEM_CCColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetDIEM_CCNull() {
-                this[this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM.DIEM_CCColumn] = global::System.Convert.DBNull;
+                this[this.tableSP_LAYDS_NHAPDIEM.DIEM_CCColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsDIEM_GKNull() {
-                return this.IsNull(this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM.DIEM_GKColumn);
+                return this.IsNull(this.tableSP_LAYDS_NHAPDIEM.DIEM_GKColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetDIEM_GKNull() {
-                this[this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM.DIEM_GKColumn] = global::System.Convert.DBNull;
+                this[this.tableSP_LAYDS_NHAPDIEM.DIEM_GKColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsDIEM_CKNull() {
-                return this.IsNull(this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM.DIEM_CKColumn);
+                return this.IsNull(this.tableSP_LAYDS_NHAPDIEM.DIEM_CKColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetDIEM_CKNull() {
-                this[this.tableSP_LAYDS_DANGKYLTC_NHAPDIEM.DIEM_CKColumn] = global::System.Convert.DBNull;
+                this[this.tableSP_LAYDS_NHAPDIEM.DIEM_CKColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4675,22 +4675,22 @@ namespace DoAnQLDSVTC {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class SP_LAYDS_DANGKYLTC_NHAPDIEMRowChangeEvent : global::System.EventArgs {
+        public class SP_LAYDS_NHAPDIEMRowChangeEvent : global::System.EventArgs {
             
-            private SP_LAYDS_DANGKYLTC_NHAPDIEMRow eventRow;
+            private SP_LAYDS_NHAPDIEMRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SP_LAYDS_DANGKYLTC_NHAPDIEMRowChangeEvent(SP_LAYDS_DANGKYLTC_NHAPDIEMRow row, global::System.Data.DataRowAction action) {
+            public SP_LAYDS_NHAPDIEMRowChangeEvent(SP_LAYDS_NHAPDIEMRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SP_LAYDS_DANGKYLTC_NHAPDIEMRow Row {
+            public SP_LAYDS_NHAPDIEMRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -7423,7 +7423,7 @@ SELECT MALTC, NIENKHOA, HOCKY, MAMH, NHOM, MAGV, MAKHOA, SOSVTOITHIEU, HUYLOP FR
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class SP_LAYDS_DANGKYLTC_NHAPDIEMTableAdapter : global::System.ComponentModel.Component {
+    public partial class SP_LAYDS_NHAPDIEMTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -7437,7 +7437,7 @@ SELECT MALTC, NIENKHOA, HOCKY, MAMH, NHOM, MAGV, MAKHOA, SOSVTOITHIEU, HUYLOP FR
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public SP_LAYDS_DANGKYLTC_NHAPDIEMTableAdapter() {
+        public SP_LAYDS_NHAPDIEMTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -7534,7 +7534,7 @@ SELECT MALTC, NIENKHOA, HOCKY, MAMH, NHOM, MAGV, MAKHOA, SOSVTOITHIEU, HUYLOP FR
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "SP_LAYDS_DANGKYLTC_NHAPDIEM";
+            tableMapping.DataSetTable = "SP_LAYDS_NHAPDIEM";
             tableMapping.ColumnMappings.Add("MALTC", "MALTC");
             tableMapping.ColumnMappings.Add("MASV", "MASV");
             tableMapping.ColumnMappings.Add("HOTEN", "HOTEN");
@@ -7557,7 +7557,7 @@ SELECT MALTC, NIENKHOA, HOCKY, MAMH, NHOM, MAGV, MAKHOA, SOSVTOITHIEU, HUYLOP FR
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.SP_LAYDS_DANGKYLTC_NHAPDIEM";
+            this._commandCollection[0].CommandText = "dbo.SP_LAYDS_NHAPDIEM";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NIENKHOA", global::System.Data.SqlDbType.NVarChar, 9, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7570,7 +7570,7 @@ SELECT MALTC, NIENKHOA, HOCKY, MAMH, NHOM, MAGV, MAKHOA, SOSVTOITHIEU, HUYLOP FR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DS.SP_LAYDS_DANGKYLTC_NHAPDIEMDataTable dataTable, string NIENKHOA, global::System.Nullable<int> HOCKY, string MAMH, global::System.Nullable<int> NHOM) {
+        public virtual int Fill(DS.SP_LAYDS_NHAPDIEMDataTable dataTable, string NIENKHOA, global::System.Nullable<int> HOCKY, string MAMH, global::System.Nullable<int> NHOM) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((NIENKHOA == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -7607,7 +7607,7 @@ SELECT MALTC, NIENKHOA, HOCKY, MAMH, NHOM, MAGV, MAKHOA, SOSVTOITHIEU, HUYLOP FR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DS.SP_LAYDS_DANGKYLTC_NHAPDIEMDataTable GetData(string NIENKHOA, global::System.Nullable<int> HOCKY, string MAMH, global::System.Nullable<int> NHOM) {
+        public virtual DS.SP_LAYDS_NHAPDIEMDataTable GetData(string NIENKHOA, global::System.Nullable<int> HOCKY, string MAMH, global::System.Nullable<int> NHOM) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((NIENKHOA == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -7633,7 +7633,7 @@ SELECT MALTC, NIENKHOA, HOCKY, MAMH, NHOM, MAGV, MAKHOA, SOSVTOITHIEU, HUYLOP FR
             else {
                 this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            DS.SP_LAYDS_DANGKYLTC_NHAPDIEMDataTable dataTable = new DS.SP_LAYDS_DANGKYLTC_NHAPDIEMDataTable();
+            DS.SP_LAYDS_NHAPDIEMDataTable dataTable = new DS.SP_LAYDS_NHAPDIEMDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

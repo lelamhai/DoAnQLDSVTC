@@ -80,10 +80,10 @@
             this.DIEM_GK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DIEM_CK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DIEM_HM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dbsDANGKYLTC = new System.Windows.Forms.BindingSource(this.components);
-            this.SP_LAYDS_DANGKYLTC_NHAPDIEMTableAdapter = new DoAnQLDSVTC.DSTableAdapters.SP_LAYDS_DANGKYLTC_NHAPDIEMTableAdapter();
+            this.dbsDSNHAPDIEM = new System.Windows.Forms.BindingSource(this.components);
             this.tableAdapterManager = new DoAnQLDSVTC.DSTableAdapters.TableAdapterManager();
             this.MONHOCTableAdapter = new DoAnQLDSVTC.DSTableAdapters.MONHOCTableAdapter();
+            this.SP_LAYDS_NHAPDIEMTableAdapter = new DoAnQLDSVTC.DSTableAdapters.SP_LAYDS_NHAPDIEMTableAdapter();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -104,7 +104,7 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.panel22.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDK)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsDANGKYLTC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbsDSNHAPDIEM)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -597,7 +597,7 @@
             this.DIEM_GK,
             this.DIEM_CK,
             this.DIEM_HM});
-            this.dgvDK.DataSource = this.dbsDANGKYLTC;
+            this.dgvDK.DataSource = this.dbsDSNHAPDIEM;
             this.dgvDK.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDK.Location = new System.Drawing.Point(15, 0);
             this.dgvDK.Margin = new System.Windows.Forms.Padding(0);
@@ -606,6 +606,7 @@
             this.dgvDK.TabIndex = 0;
             this.dgvDK.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvDK_CellBeginEdit);
             this.dgvDK.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDK_CellEndEdit);
+            this.dgvDK.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvDK_CellValidating);
             this.dgvDK.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDK_CellValueChanged);
             // 
             // MALTC
@@ -620,7 +621,6 @@
             this.MASV.DataPropertyName = "MASV";
             this.MASV.HeaderText = "Mã Sinh Viên";
             this.MASV.Name = "MASV";
-            this.MASV.ReadOnly = true;
             // 
             // HOTEN
             // 
@@ -632,19 +632,19 @@
             // DIEM_CC
             // 
             this.DIEM_CC.DataPropertyName = "DIEM_CC";
-            this.DIEM_CC.HeaderText = "Điểm Chuyên Cần";
+            this.DIEM_CC.HeaderText = "Điểm Chuyên Cần (10%)";
             this.DIEM_CC.Name = "DIEM_CC";
             // 
             // DIEM_GK
             // 
             this.DIEM_GK.DataPropertyName = "DIEM_GK";
-            this.DIEM_GK.HeaderText = "Điểm Giữa Kỳ";
+            this.DIEM_GK.HeaderText = "Điểm Giữa Kỳ (30%)";
             this.DIEM_GK.Name = "DIEM_GK";
             // 
             // DIEM_CK
             // 
             this.DIEM_CK.DataPropertyName = "DIEM_CK";
-            this.DIEM_CK.HeaderText = "Điểm Cuối Kỳ";
+            this.DIEM_CK.HeaderText = "Điểm Cuối Kỳ (70%)";
             this.DIEM_CK.Name = "DIEM_CK";
             // 
             // DIEM_HM
@@ -654,14 +654,10 @@
             this.DIEM_HM.Name = "DIEM_HM";
             this.DIEM_HM.ReadOnly = true;
             // 
-            // dbsDANGKYLTC
+            // dbsDSNHAPDIEM
             // 
-            this.dbsDANGKYLTC.DataMember = "SP_LAYDS_DANGKYLTC_NHAPDIEM";
-            this.dbsDANGKYLTC.DataSource = this.DS;
-            // 
-            // SP_LAYDS_DANGKYLTC_NHAPDIEMTableAdapter
-            // 
-            this.SP_LAYDS_DANGKYLTC_NHAPDIEMTableAdapter.ClearBeforeFill = true;
+            this.dbsDSNHAPDIEM.DataMember = "SP_LAYDS_NHAPDIEM";
+            this.dbsDSNHAPDIEM.DataSource = this.DS;
             // 
             // tableAdapterManager
             // 
@@ -676,6 +672,10 @@
             // MONHOCTableAdapter
             // 
             this.MONHOCTableAdapter.ClearBeforeFill = true;
+            // 
+            // SP_LAYDS_NHAPDIEMTableAdapter
+            // 
+            this.SP_LAYDS_NHAPDIEMTableAdapter.ClearBeforeFill = true;
             // 
             // InputPoint
             // 
@@ -717,7 +717,7 @@
             this.tableLayoutPanel4.PerformLayout();
             this.panel22.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDK)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsDANGKYLTC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbsDSNHAPDIEM)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -767,11 +767,11 @@
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.DataGridView dgvDK;
         private DS DS;
-        private System.Windows.Forms.BindingSource dbsDANGKYLTC;
-        private DSTableAdapters.SP_LAYDS_DANGKYLTC_NHAPDIEMTableAdapter SP_LAYDS_DANGKYLTC_NHAPDIEMTableAdapter;
         private DSTableAdapters.TableAdapterManager tableAdapterManager;
         private DSTableAdapters.MONHOCTableAdapter MONHOCTableAdapter;
         private System.Windows.Forms.BindingSource dbsMONHOC;
+        private System.Windows.Forms.BindingSource dbsDSNHAPDIEM;
+        private DSTableAdapters.SP_LAYDS_NHAPDIEMTableAdapter SP_LAYDS_NHAPDIEMTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn MALTC;
         private System.Windows.Forms.DataGridViewTextBoxColumn MASV;
         private System.Windows.Forms.DataGridViewTextBoxColumn HOTEN;

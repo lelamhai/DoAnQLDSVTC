@@ -31,13 +31,17 @@ namespace DoAnQLDSVTC
             try
             {
                 this.DS.EnforceConstraints = false;
+                this.SP_LAYDS_NHAPDIEMTableAdapter.Connection.ConnectionString = Program.URL_Connect;
+                this.SP_LAYDS_NHAPDIEMTableAdapter.Fill(this.DS.SP_LAYDS_NHAPDIEM, txtNienKhoa.Text.Trim(), (int)nudHocKy.Value, cmbMonHoc.SelectedValue.ToString(), (int)nudNhom.Value);
 
-                this.SP_LAYDS_DANGKYLTC_NHAPDIEMTableAdapter.Connection.ConnectionString = Program.URL_Connect;
-                this.SP_LAYDS_DANGKYLTC_NHAPDIEMTableAdapter.Fill(this.DS.SP_LAYDS_DANGKYLTC_NHAPDIEM, txtNienKhoa.Text.Trim(), (int)nudHocKy.Value, cmbMonHoc.SelectedValue.ToString(), (int)nudNhom.Value);
+                if (this.DS.SP_LAYDS_NHAPDIEM.Rows.Count == 0)
+                {
+                    MessageBox.Show("Chưa có dữ liệu để nhập điểm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -45,12 +49,13 @@ namespace DoAnQLDSVTC
         {
             try
             {
+                this.DS.EnforceConstraints = false;
                 this.MONHOCTableAdapter.Connection.ConnectionString = Program.URL_Connect;
                 this.MONHOCTableAdapter.Fill(this.DS.MONHOC);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -140,12 +145,15 @@ namespace DoAnQLDSVTC
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-
+            Button btn = sender as Button;
+            Admin parent = this.TopLevelControl as Admin;
+            Form form = btn.FindForm();
+            parent.DeleteButtonInTabBar(form);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(!isSaved)
+            if (!isSaved)
             {
                 return;
             }
@@ -227,12 +235,7 @@ namespace DoAnQLDSVTC
             isSaved = true;
         }
 
-        private double TryParse(object val)
-        {
-            double result = 0;
-            double.TryParse(Convert.ToString(val), out result);
-            return result;
-        }
+
 
         private void dgvDK_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
@@ -267,6 +270,37 @@ namespace DoAnQLDSVTC
 
                 row.Cells["DIEM_HM"].Value = Math.Round(hm, 2);
             }
+        }
+
+      
+        private void dgvDK_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            if (dgvDK.Columns[e.ColumnIndex].Name == "DIEM_CC")
+            {
+                double temp;
+                if (!double.TryParse(e.FormattedValue.ToString(), out temp))
+                {
+                    e.Cancel = true;
+                    MessageBox.Show("Bạn phải nhập vào một số nguyên dương (Ví dụ: 5) để hợp lệ!", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            if (dgvDK.Columns[e.ColumnIndex].Name == "DIEM_GK" || dgvDK.Columns[e.ColumnIndex].Name == "DIEM_CK")
+            {
+                double temp;
+                if (!double.TryParse(e.FormattedValue.ToString(), out temp))
+                {
+                    e.Cancel = true; 
+                    MessageBox.Show("Bạn phải nhập vào một số thực (Ví dụ: 5,5) để hợp lệ!", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private double TryParse(object val)
+        {
+            double result = 0;
+            double.TryParse(Convert.ToString(val), out result);
+            return result;
         }
     }
 }
