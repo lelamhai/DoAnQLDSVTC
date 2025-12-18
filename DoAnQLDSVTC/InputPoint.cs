@@ -279,7 +279,7 @@ namespace DoAnQLDSVTC
                 if (!double.TryParse(e.FormattedValue.ToString(), out temp))
                 {
                     e.Cancel = true;
-                    MessageBox.Show("Bạn phải nhập vào một số nguyên dương (Ví dụ: 5) để hợp lệ!", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Bạn phải nhập vào một số nguyên dương (Ví dụ: 5) để hợp lệ!\nHoặc nhấn phím ESC để thoát", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -289,7 +289,7 @@ namespace DoAnQLDSVTC
                 if (!double.TryParse(e.FormattedValue.ToString(), out temp))
                 {
                     e.Cancel = true; 
-                    MessageBox.Show("Bạn phải nhập vào một số thực (Ví dụ: 5,5) để hợp lệ!", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Bạn phải nhập vào một số thực (Ví dụ: 5,5) để hợp lệ!\nHoặc nhấn phím ESC để thoát", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

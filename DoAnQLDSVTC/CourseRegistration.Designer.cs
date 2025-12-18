@@ -31,26 +31,14 @@
             this.components = new System.ComponentModel.Container();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvSVDK = new System.Windows.Forms.DataGridView();
-            this.MALTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MAMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NHOM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dbsDSSVDKLTC = new System.Windows.Forms.BindingSource(this.components);
+            this.dbsDSSV_DKLTC = new System.Windows.Forms.BindingSource(this.components);
             this.DS = new DoAnQLDSVTC.DS();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCannelRegister = new System.Windows.Forms.Button();
             this.dgvDSLTC = new System.Windows.Forms.DataGridView();
-            this.iMALTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iMAMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iTENMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iNHOM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iTENGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iSOSVTOITHIEU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iSOSVDADK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dbsDSLTCN_NK = new System.Windows.Forms.BindingSource(this.components);
+            this.dbsDSNIENKHOAHOCKY_DKLTC = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
@@ -119,16 +107,31 @@
             this.mAKHOADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sOSVTOITHIEUDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hUYLOPDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.SP_DSLTC_NIENKHOAHOCKYTableAdapter = new DoAnQLDSVTC.DSTableAdapters.SP_DSLTC_NIENKHOAHOCKYTableAdapter();
-            this.SP_DSLTC_DSSVDKLTCTableAdapter = new DoAnQLDSVTC.DSTableAdapters.SP_DSLTC_DSSVDKLTCTableAdapter();
-            this.tableAdapterManager = new DoAnQLDSVTC.DSTableAdapters.TableAdapterManager();
+            this.SP_LAYDSSV_DKLTCTableAdapter = new DoAnQLDSVTC.DSTableAdapters.SP_LAYDSSV_DKLTCTableAdapter();
+            this.SP_LAYDSNIENKHOAHOCKY_DKLTCTableAdapter = new DoAnQLDSVTC.DSTableAdapters.SP_LAYDSNIENKHOAHOCKY_DKLTCTableAdapter();
+            this.sTTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MALTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nHOMDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mAMHDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tENMHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tENGVDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nIENKHOADataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hOCKYDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sTTDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mALTCDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mAMHDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tENMHDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tENGVDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nHOMDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sOSVTOITHIEUDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sOSVDADKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSVDK)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsDSSVDKLTC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbsDSSV_DKLTC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             this.panel14.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSLTC)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsDSLTCN_NK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbsDSNIENKHOAHOCKY_DKLTC)).BeginInit();
             this.panel13.SuspendLayout();
             this.panel22.SuspendLayout();
             this.panel26.SuspendLayout();
@@ -172,54 +175,25 @@
             this.dgvSVDK.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSVDK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSVDK.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.sTTDataGridViewTextBoxColumn,
             this.MALTC,
-            this.MAMH,
-            this.TENMH,
-            this.NHOM,
-            this.TENGV});
-            this.dgvSVDK.DataSource = this.dbsDSSVDKLTC;
+            this.nHOMDataGridViewTextBoxColumn1,
+            this.mAMHDataGridViewTextBoxColumn1,
+            this.tENMHDataGridViewTextBoxColumn,
+            this.tENGVDataGridViewTextBoxColumn,
+            this.nIENKHOADataGridViewTextBoxColumn1,
+            this.hOCKYDataGridViewTextBoxColumn1});
+            this.dgvSVDK.DataSource = this.dbsDSSV_DKLTC;
             this.dgvSVDK.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvSVDK.Location = new System.Drawing.Point(15, 60);
             this.dgvSVDK.Name = "dgvSVDK";
             this.dgvSVDK.Size = new System.Drawing.Size(884, 320);
             this.dgvSVDK.TabIndex = 5;
             // 
-            // MALTC
+            // dbsDSSV_DKLTC
             // 
-            this.MALTC.DataPropertyName = "MALTC";
-            this.MALTC.HeaderText = "Mã Lớp Tín Chỉ";
-            this.MALTC.Name = "MALTC";
-            this.MALTC.ReadOnly = true;
-            // 
-            // MAMH
-            // 
-            this.MAMH.DataPropertyName = "MAMH";
-            this.MAMH.HeaderText = "Mã Môn Học";
-            this.MAMH.Name = "MAMH";
-            // 
-            // TENMH
-            // 
-            this.TENMH.DataPropertyName = "TENMH";
-            this.TENMH.HeaderText = "Tên Môn Học";
-            this.TENMH.Name = "TENMH";
-            // 
-            // NHOM
-            // 
-            this.NHOM.DataPropertyName = "NHOM";
-            this.NHOM.HeaderText = "Nhóm";
-            this.NHOM.Name = "NHOM";
-            // 
-            // TENGV
-            // 
-            this.TENGV.DataPropertyName = "TENGV";
-            this.TENGV.HeaderText = "Tên Giáo Viên";
-            this.TENGV.Name = "TENGV";
-            this.TENGV.ReadOnly = true;
-            // 
-            // dbsDSSVDKLTC
-            // 
-            this.dbsDSSVDKLTC.DataMember = "SP_DSLTC_DSSVDKLTC";
-            this.dbsDSSVDKLTC.DataSource = this.DS;
+            this.dbsDSSV_DKLTC.DataMember = "SP_LAYDSSV_DKLTC";
+            this.dbsDSSV_DKLTC.DataSource = this.DS;
             // 
             // DS
             // 
@@ -236,7 +210,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(584, 60);
             this.lblTitle.TabIndex = 4;
-            this.lblTitle.Text = "Chưa Có Dữ liệu";
+            this.lblTitle.Text = "Chưa Có Dữ Liệu";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel14
@@ -281,6 +255,7 @@
             this.btnCannelRegister.TabIndex = 5;
             this.btnCannelRegister.Text = "Hủy Đăng Ký";
             this.btnCannelRegister.UseVisualStyleBackColor = false;
+            this.btnCannelRegister.Visible = false;
             this.btnCannelRegister.Click += new System.EventHandler(this.btnCannelRegister_Click);
             // 
             // dgvDSLTC
@@ -289,14 +264,15 @@
             this.dgvDSLTC.AutoGenerateColumns = false;
             this.dgvDSLTC.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDSLTC.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iMALTC,
-            this.iMAMH,
-            this.iTENMH,
-            this.iNHOM,
-            this.iTENGV,
-            this.iSOSVTOITHIEU,
-            this.iSOSVDADK});
-            this.dgvDSLTC.DataSource = this.dbsDSLTCN_NK;
+            this.sTTDataGridViewTextBoxColumn1,
+            this.mALTCDataGridViewTextBoxColumn1,
+            this.mAMHDataGridViewTextBoxColumn2,
+            this.tENMHDataGridViewTextBoxColumn1,
+            this.tENGVDataGridViewTextBoxColumn1,
+            this.nHOMDataGridViewTextBoxColumn2,
+            this.sOSVTOITHIEUDataGridViewTextBoxColumn1,
+            this.sOSVDADKDataGridViewTextBoxColumn});
+            this.dgvDSLTC.DataSource = this.dbsDSNIENKHOAHOCKY_DKLTC;
             this.dgvDSLTC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDSLTC.Location = new System.Drawing.Point(15, 60);
             this.dgvDSLTC.Margin = new System.Windows.Forms.Padding(0);
@@ -304,55 +280,10 @@
             this.dgvDSLTC.Size = new System.Drawing.Size(884, 321);
             this.dgvDSLTC.TabIndex = 0;
             // 
-            // iMALTC
+            // dbsDSNIENKHOAHOCKY_DKLTC
             // 
-            this.iMALTC.DataPropertyName = "MALTC";
-            this.iMALTC.HeaderText = "Mã Lớp Tín Chỉ";
-            this.iMALTC.Name = "iMALTC";
-            this.iMALTC.ReadOnly = true;
-            // 
-            // iMAMH
-            // 
-            this.iMAMH.DataPropertyName = "MAMH";
-            this.iMAMH.HeaderText = "Mã Môn Học";
-            this.iMAMH.Name = "iMAMH";
-            // 
-            // iTENMH
-            // 
-            this.iTENMH.DataPropertyName = "TENMH";
-            this.iTENMH.HeaderText = "Tên Môn Học";
-            this.iTENMH.Name = "iTENMH";
-            // 
-            // iNHOM
-            // 
-            this.iNHOM.DataPropertyName = "NHOM";
-            this.iNHOM.HeaderText = "Nhóm";
-            this.iNHOM.Name = "iNHOM";
-            // 
-            // iTENGV
-            // 
-            this.iTENGV.DataPropertyName = "TENGV";
-            this.iTENGV.HeaderText = "Tên Giáo Viên";
-            this.iTENGV.Name = "iTENGV";
-            this.iTENGV.ReadOnly = true;
-            // 
-            // iSOSVTOITHIEU
-            // 
-            this.iSOSVTOITHIEU.DataPropertyName = "SOSVTOITHIEU";
-            this.iSOSVTOITHIEU.HeaderText = "Số Sinh Viên Tối Thiểu";
-            this.iSOSVTOITHIEU.Name = "iSOSVTOITHIEU";
-            // 
-            // iSOSVDADK
-            // 
-            this.iSOSVDADK.DataPropertyName = "SOSVDADK";
-            this.iSOSVDADK.HeaderText = "Số Sinh Viên Đã Đăng Ký";
-            this.iSOSVDADK.Name = "iSOSVDADK";
-            this.iSOSVDADK.ReadOnly = true;
-            // 
-            // dbsDSLTCN_NK
-            // 
-            this.dbsDSLTCN_NK.DataMember = "SP_DSLTC_NIENKHOAHOCKY";
-            this.dbsDSLTCN_NK.DataSource = this.DS;
+            this.dbsDSNIENKHOAHOCKY_DKLTC.DataMember = "SP_LAYDSNIENKHOAHOCKY_DKLTC";
+            this.dbsDSNIENKHOAHOCKY_DKLTC.DataSource = this.DS;
             // 
             // label4
             // 
@@ -429,7 +360,7 @@
             // 
             // txtiMaLTC
             // 
-            this.txtiMaLTC.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dbsDSLTCN_NK, "MALTC", true));
+            this.txtiMaLTC.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dbsDSNIENKHOAHOCKY_DKLTC, "MALTC", true));
             this.txtiMaLTC.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.txtiMaLTC.Enabled = false;
             this.txtiMaLTC.Location = new System.Drawing.Point(0, 24);
@@ -1079,24 +1010,122 @@
             this.hUYLOPDataGridViewCheckBoxColumn.HeaderText = "HUYLOP";
             this.hUYLOPDataGridViewCheckBoxColumn.Name = "hUYLOPDataGridViewCheckBoxColumn";
             // 
-            // SP_DSLTC_NIENKHOAHOCKYTableAdapter
+            // SP_LAYDSSV_DKLTCTableAdapter
             // 
-            this.SP_DSLTC_NIENKHOAHOCKYTableAdapter.ClearBeforeFill = true;
+            this.SP_LAYDSSV_DKLTCTableAdapter.ClearBeforeFill = true;
             // 
-            // SP_DSLTC_DSSVDKLTCTableAdapter
+            // SP_LAYDSNIENKHOAHOCKY_DKLTCTableAdapter
             // 
-            this.SP_DSLTC_DSSVDKLTCTableAdapter.ClearBeforeFill = true;
+            this.SP_LAYDSNIENKHOAHOCKY_DKLTCTableAdapter.ClearBeforeFill = true;
             // 
-            // tableAdapterManager
+            // sTTDataGridViewTextBoxColumn
             // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.GIANGVIENTableAdapter = null;
-            this.tableAdapterManager.LOPTableAdapter = null;
-            this.tableAdapterManager.LOPTINCHITableAdapter = null;
-            this.tableAdapterManager.MONHOCTableAdapter = null;
-            this.tableAdapterManager.SINHVIENTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = DoAnQLDSVTC.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.sTTDataGridViewTextBoxColumn.DataPropertyName = "STT";
+            this.sTTDataGridViewTextBoxColumn.HeaderText = "STT";
+            this.sTTDataGridViewTextBoxColumn.Name = "sTTDataGridViewTextBoxColumn";
+            this.sTTDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sTTDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // MALTC
+            // 
+            this.MALTC.DataPropertyName = "MALTC";
+            this.MALTC.HeaderText = "Mã Lớp Tín Chỉ";
+            this.MALTC.Name = "MALTC";
+            this.MALTC.ReadOnly = true;
+            // 
+            // nHOMDataGridViewTextBoxColumn1
+            // 
+            this.nHOMDataGridViewTextBoxColumn1.DataPropertyName = "NHOM";
+            this.nHOMDataGridViewTextBoxColumn1.HeaderText = "Nhóm";
+            this.nHOMDataGridViewTextBoxColumn1.Name = "nHOMDataGridViewTextBoxColumn1";
+            // 
+            // mAMHDataGridViewTextBoxColumn1
+            // 
+            this.mAMHDataGridViewTextBoxColumn1.DataPropertyName = "MAMH";
+            this.mAMHDataGridViewTextBoxColumn1.HeaderText = "Mã Môn Học";
+            this.mAMHDataGridViewTextBoxColumn1.Name = "mAMHDataGridViewTextBoxColumn1";
+            this.mAMHDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // tENMHDataGridViewTextBoxColumn
+            // 
+            this.tENMHDataGridViewTextBoxColumn.DataPropertyName = "TENMH";
+            this.tENMHDataGridViewTextBoxColumn.HeaderText = "Tên Môn Học";
+            this.tENMHDataGridViewTextBoxColumn.Name = "tENMHDataGridViewTextBoxColumn";
+            // 
+            // tENGVDataGridViewTextBoxColumn
+            // 
+            this.tENGVDataGridViewTextBoxColumn.DataPropertyName = "TENGV";
+            this.tENGVDataGridViewTextBoxColumn.HeaderText = "Tên Giáo Viên";
+            this.tENGVDataGridViewTextBoxColumn.Name = "tENGVDataGridViewTextBoxColumn";
+            this.tENGVDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nIENKHOADataGridViewTextBoxColumn1
+            // 
+            this.nIENKHOADataGridViewTextBoxColumn1.DataPropertyName = "NIENKHOA";
+            this.nIENKHOADataGridViewTextBoxColumn1.HeaderText = "Niên Khóa";
+            this.nIENKHOADataGridViewTextBoxColumn1.Name = "nIENKHOADataGridViewTextBoxColumn1";
+            this.nIENKHOADataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // hOCKYDataGridViewTextBoxColumn1
+            // 
+            this.hOCKYDataGridViewTextBoxColumn1.DataPropertyName = "HOCKY";
+            this.hOCKYDataGridViewTextBoxColumn1.HeaderText = "Học Kỳ";
+            this.hOCKYDataGridViewTextBoxColumn1.Name = "hOCKYDataGridViewTextBoxColumn1";
+            this.hOCKYDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // sTTDataGridViewTextBoxColumn1
+            // 
+            this.sTTDataGridViewTextBoxColumn1.DataPropertyName = "STT";
+            this.sTTDataGridViewTextBoxColumn1.HeaderText = "STT";
+            this.sTTDataGridViewTextBoxColumn1.Name = "sTTDataGridViewTextBoxColumn1";
+            this.sTTDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.sTTDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // mALTCDataGridViewTextBoxColumn1
+            // 
+            this.mALTCDataGridViewTextBoxColumn1.DataPropertyName = "MALTC";
+            this.mALTCDataGridViewTextBoxColumn1.HeaderText = "Mã Lớp Tín Chỉ";
+            this.mALTCDataGridViewTextBoxColumn1.Name = "mALTCDataGridViewTextBoxColumn1";
+            this.mALTCDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // mAMHDataGridViewTextBoxColumn2
+            // 
+            this.mAMHDataGridViewTextBoxColumn2.DataPropertyName = "MAMH";
+            this.mAMHDataGridViewTextBoxColumn2.HeaderText = "MAMH";
+            this.mAMHDataGridViewTextBoxColumn2.Name = "mAMHDataGridViewTextBoxColumn2";
+            this.mAMHDataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // tENMHDataGridViewTextBoxColumn1
+            // 
+            this.tENMHDataGridViewTextBoxColumn1.DataPropertyName = "TENMH";
+            this.tENMHDataGridViewTextBoxColumn1.HeaderText = "Tên Môn Học";
+            this.tENMHDataGridViewTextBoxColumn1.Name = "tENMHDataGridViewTextBoxColumn1";
+            // 
+            // tENGVDataGridViewTextBoxColumn1
+            // 
+            this.tENGVDataGridViewTextBoxColumn1.DataPropertyName = "TENGV";
+            this.tENGVDataGridViewTextBoxColumn1.HeaderText = "Tên Giáo Viên";
+            this.tENGVDataGridViewTextBoxColumn1.Name = "tENGVDataGridViewTextBoxColumn1";
+            this.tENGVDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // nHOMDataGridViewTextBoxColumn2
+            // 
+            this.nHOMDataGridViewTextBoxColumn2.DataPropertyName = "NHOM";
+            this.nHOMDataGridViewTextBoxColumn2.HeaderText = "Nhóm";
+            this.nHOMDataGridViewTextBoxColumn2.Name = "nHOMDataGridViewTextBoxColumn2";
+            // 
+            // sOSVTOITHIEUDataGridViewTextBoxColumn1
+            // 
+            this.sOSVTOITHIEUDataGridViewTextBoxColumn1.DataPropertyName = "SOSVTOITHIEU";
+            this.sOSVTOITHIEUDataGridViewTextBoxColumn1.HeaderText = "Số Sinh Viên Tối Thiểu";
+            this.sOSVTOITHIEUDataGridViewTextBoxColumn1.Name = "sOSVTOITHIEUDataGridViewTextBoxColumn1";
+            // 
+            // sOSVDADKDataGridViewTextBoxColumn
+            // 
+            this.sOSVDADKDataGridViewTextBoxColumn.DataPropertyName = "SOSVDADK";
+            this.sOSVDADKDataGridViewTextBoxColumn.HeaderText = "Số Sinh Viên Đã Đăng Ký";
+            this.sOSVDADKDataGridViewTextBoxColumn.Name = "sOSVDADKDataGridViewTextBoxColumn";
+            this.sOSVDADKDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // CourseRegistration
             // 
@@ -1114,12 +1143,12 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CourseRegistration_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSVDK)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsDSSVDKLTC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbsDSSV_DKLTC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             this.panel14.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSLTC)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsDSLTCN_NK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbsDSNIENKHOAHOCKY_DKLTC)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel22.ResumeLayout(false);
             this.panel26.ResumeLayout(false);
@@ -1219,24 +1248,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn hUYLOPDataGridViewCheckBoxColumn;
         private System.Windows.Forms.NumericUpDown nudHocKy;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.BindingSource dbsDSLTCN_NK;
         private DS DS;
-        private DSTableAdapters.SP_DSLTC_NIENKHOAHOCKYTableAdapter SP_DSLTC_NIENKHOAHOCKYTableAdapter;
-        private System.Windows.Forms.BindingSource dbsDSSVDKLTC;
-        private DSTableAdapters.SP_DSLTC_DSSVDKLTCTableAdapter SP_DSLTC_DSSVDKLTCTableAdapter;
-        private DSTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MALTC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MAMH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TENMH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NHOM;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TENGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iMALTC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iMAMH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iTENMH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iNHOM;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iTENGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iSOSVTOITHIEU;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iSOSVDADK;
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.Panel panel26;
         private System.Windows.Forms.Label label19;
@@ -1251,5 +1263,25 @@
         private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button btnCannelRegister;
+        private System.Windows.Forms.BindingSource dbsDSSV_DKLTC;
+        private DSTableAdapters.SP_LAYDSSV_DKLTCTableAdapter SP_LAYDSSV_DKLTCTableAdapter;
+        private System.Windows.Forms.BindingSource dbsDSNIENKHOAHOCKY_DKLTC;
+        private DSTableAdapters.SP_LAYDSNIENKHOAHOCKY_DKLTCTableAdapter SP_LAYDSNIENKHOAHOCKY_DKLTCTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sTTDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MALTC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nHOMDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mAMHDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tENMHDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tENGVDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nIENKHOADataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hOCKYDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sTTDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mALTCDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mAMHDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tENMHDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tENGVDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nHOMDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sOSVTOITHIEUDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sOSVDADKDataGridViewTextBoxColumn;
     }
 }

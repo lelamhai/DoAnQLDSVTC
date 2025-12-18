@@ -1,0 +1,44 @@
+USE [QLDSV_TC]
+GO
+
+
+CREATE PROC SP_LAYDSSV_DKLTC
+    @NIENKHOA NCHAR(9),
+    @HOCKY    INT,
+    @MASV     NCHAR(10)
+AS
+BEGIN
+    SELECT
+        ROW_NUMBER() OVER (ORDER BY MH.TENMH, LTC.NHOM) AS STT,
+        MH.MAMH,
+        MH.TENMH,
+        GV.HO + ' ' + GV.TEN AS TENGV,
+        LTC.NIENKHOA,
+        LTC.HOCKY,
+        LTC.NHOM,
+        LTC.MALTC
+    FROM
+        (SELECT MALTC
+         FROM DANGKY
+         WHERE MASV = @MASV
+           AND (HUYDANGKY = 0 OR HUYDANGKY IS NULL)
+        ) DK
+    JOIN
+        (SELECT MALTC, MAMH, NIENKHOA, HOCKY, NHOM, MAGV
+         FROM LOPTINCHI
+         WHERE NIENKHOA = @NIENKHOA
+           AND HOCKY    = @HOCKY
+        ) LTC
+        ON DK.MALTC = LTC.MALTC
+    JOIN
+        (SELECT MAMH, TENMH
+         FROM MONHOC
+        ) MH
+        ON LTC.MAMH = MH.MAMH
+    JOIN
+        (SELECT MAGV, HO, TEN
+         FROM GIANGVIEN
+        ) GV
+        ON LTC.MAGV = GV.MAGV;
+END
+GO

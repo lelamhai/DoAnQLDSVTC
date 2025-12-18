@@ -1,0 +1,48 @@
+USE [QLDSV_TC]
+GO
+
+CREATE PROC SP_LAYDSNIENKHOAHOCKY_DKLTC
+    @NIENKHOA NCHAR(10),
+    @HOCKY    INT
+AS
+BEGIN
+    SELECT 
+        ROW_NUMBER() OVER (ORDER BY MH.MAMH, LTC.NHOM) AS STT,
+        MH.MAMH,
+        MH.TENMH,
+        LTC.NHOM,
+        GV.HO + ' ' + GV.TEN AS TENGV,
+        LTC.SOSVTOITHIEU,
+        COUNT(DK.MASV) AS SOSVDADK,
+        LTC.MALTC
+    FROM
+        (SELECT MALTC, MAMH, NHOM, MAGV, SOSVTOITHIEU
+         FROM LOPTINCHI
+         WHERE NIENKHOA = @NIENKHOA
+           AND HOCKY    = @HOCKY
+           AND (HUYLOP = 0 OR HUYLOP IS NULL)
+        ) LTC
+    LEFT JOIN
+        (SELECT MALTC, MASV
+         FROM DANGKY
+         WHERE HUYDANGKY = 0 OR HUYDANGKY IS NULL
+        ) DK
+        ON DK.MALTC = LTC.MALTC
+    LEFT JOIN
+        (SELECT MAMH, TENMH
+         FROM MONHOC
+        ) MH
+        ON LTC.MAMH = MH.MAMH
+    LEFT JOIN
+        (SELECT MAGV, HO, TEN
+         FROM GIANGVIEN
+        ) GV
+        ON LTC.MAGV = GV.MAGV
+    GROUP BY
+        MH.MAMH, MH.TENMH,
+        LTC.NHOM,
+        GV.HO, GV.TEN,
+        LTC.SOSVTOITHIEU,
+        LTC.MALTC;
+END
+GO
