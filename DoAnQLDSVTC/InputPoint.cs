@@ -243,7 +243,7 @@ namespace DoAnQLDSVTC
             if (valueCell < 0 || valueCell > 10)
             {
                 MessageBox.Show("Điểm vừa nhập không hợp lệ, điểm từ 0 đến 10", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                dgvDK.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = oldValue;
+                dgvDK.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = DBNull.Value;
             }
 
             var row = dgvDK.Rows[e.RowIndex];
@@ -273,13 +273,22 @@ namespace DoAnQLDSVTC
       
         private void dgvDK_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
+            string value = e.FormattedValue.ToString();
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                dgvDK.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = DBNull.Value;
+                return;
+            }
+            
+
             if (dgvDK.Columns[e.ColumnIndex].Name == "DIEM_CC")
             {
-                double temp;
-                if (!double.TryParse(e.FormattedValue.ToString(), out temp))
+                int temp;
+                if (!int.TryParse(e.FormattedValue.ToString(), out temp))
                 {
-                    e.Cancel = true;
-                    MessageBox.Show("Bạn phải nhập vào một số nguyên dương (Ví dụ: 5) để hợp lệ!\nHoặc nhấn phím ESC để thoát", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Bạn phải nhập vào một số nguyên dương (Ví dụ: 5) để hợp lệ!", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dgvDK.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "";
+                    dgvDK.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = DBNull.Value;
                 }
             }
 
@@ -288,8 +297,9 @@ namespace DoAnQLDSVTC
                 double temp;
                 if (!double.TryParse(e.FormattedValue.ToString(), out temp))
                 {
-                    e.Cancel = true; 
-                    MessageBox.Show("Bạn phải nhập vào một số thực (Ví dụ: 5,5) để hợp lệ!\nHoặc nhấn phím ESC để thoát", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Bạn phải nhập vào một số thực (Ví dụ: 5,5) để hợp lệ!", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dgvDK.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "";
+                    dgvDK.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = DBNull.Value;
                 }
             }
         }
@@ -299,6 +309,10 @@ namespace DoAnQLDSVTC
             double result = 0;
             double.TryParse(Convert.ToString(val), out result);
             return result;
+        }
+
+        private void dgvDK_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
         }
     }
 }
