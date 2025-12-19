@@ -171,11 +171,38 @@ namespace DoAnQLDSVTC
                 DataRow newRow = dt.NewRow();
                 newRow["MALTC"] = gvRow.Cells["MALTC"].Value;
                 newRow["MASV"] = gvRow.Cells["MASV"].Value;
-                newRow["DIEM_CC"] = gvRow.Cells["DIEM_CC"].Value;
-                decimal diemGK = Convert.ToDecimal(gvRow.Cells["DIEM_GK"].Value);
-                newRow["DIEM_GK"] = Math.Round(diemGK, 2);
-                decimal diemCK = Convert.ToDecimal(gvRow.Cells["DIEM_CK"].Value);
-                newRow["DIEM_CK"] = Math.Round(diemGK, 2);
+
+                if(gvRow.Cells["DIEM_CC"].Value == DBNull.Value)
+                {
+                    gvRow.Cells["DIEM_CC"].Value = null;
+                }
+                else
+                {
+                    newRow["DIEM_CC"] = gvRow.Cells["DIEM_CC"].Value;
+                }
+
+
+
+                if (gvRow.Cells["DIEM_GK"].Value == DBNull.Value)
+                {
+                    gvRow.Cells["DIEM_GK"].Value = null;
+                } else
+                                    {
+                    decimal diemGK = Convert.ToDecimal(gvRow.Cells["DIEM_GK"].Value);
+                    newRow["DIEM_GK"] = Math.Round(diemGK, 2);
+                }
+
+
+                if (gvRow.Cells["DIEM_CK"].Value == DBNull.Value)
+                {
+                    gvRow.Cells["DIEM_CK"].Value = null;
+                }
+                else
+                {
+                    decimal diemGK = Convert.ToDecimal(gvRow.Cells["DIEM_CK"].Value);
+                    newRow["DIEM_CK"] = Math.Round(diemGK, 2);
+                }
+              
                 dt.Rows.Add(newRow);
             }
 
@@ -186,7 +213,7 @@ namespace DoAnQLDSVTC
             para.Value = dt;
             Program.KetNoi();
 
-            SqlCommand cmd = new SqlCommand("SP_UPDATE_DIEM", Program.Conn);
+            SqlCommand cmd = new SqlCommand("SP_CAPNHAT_NHAPDIEM", Program.Conn);
             cmd.Parameters.Clear();
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(para);

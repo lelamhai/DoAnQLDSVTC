@@ -73,10 +73,6 @@
             this.panel21 = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
             this.dgvDK = new System.Windows.Forms.DataGridView();
-            this.dbsDSNHAPDIEM = new System.Windows.Forms.BindingSource(this.components);
-            this.tableAdapterManager = new DoAnQLDSVTC.DSTableAdapters.TableAdapterManager();
-            this.MONHOCTableAdapter = new DoAnQLDSVTC.DSTableAdapters.MONHOCTableAdapter();
-            this.SP_LAYDS_NHAPDIEMTableAdapter = new DoAnQLDSVTC.DSTableAdapters.SP_LAYDS_NHAPDIEMTableAdapter();
             this.MALTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MASV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HOTEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,6 +80,10 @@
             this.DIEM_GK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DIEM_CK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DIEM_HM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dbsDSNHAPDIEM = new System.Windows.Forms.BindingSource(this.components);
+            this.tableAdapterManager = new DoAnQLDSVTC.DSTableAdapters.TableAdapterManager();
+            this.MONHOCTableAdapter = new DoAnQLDSVTC.DSTableAdapters.MONHOCTableAdapter();
+            this.SP_LAYDS_NHAPDIEMTableAdapter = new DoAnQLDSVTC.DSTableAdapters.SP_LAYDS_NHAPDIEMTableAdapter();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -610,29 +610,6 @@
             this.dgvDK.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDK_CellValueChanged);
             this.dgvDK.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvDK_DataError);
             // 
-            // dbsDSNHAPDIEM
-            // 
-            this.dbsDSNHAPDIEM.DataMember = "SP_LAYDS_NHAPDIEM";
-            this.dbsDSNHAPDIEM.DataSource = this.DS;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.GIANGVIENTableAdapter = null;
-            this.tableAdapterManager.LOPTableAdapter = null;
-            this.tableAdapterManager.LOPTINCHITableAdapter = null;
-            this.tableAdapterManager.MONHOCTableAdapter = this.MONHOCTableAdapter;
-            this.tableAdapterManager.SINHVIENTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = DoAnQLDSVTC.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // MONHOCTableAdapter
-            // 
-            this.MONHOCTableAdapter.ClearBeforeFill = true;
-            // 
-            // SP_LAYDS_NHAPDIEMTableAdapter
-            // 
-            this.SP_LAYDS_NHAPDIEMTableAdapter.ClearBeforeFill = true;
-            // 
             // MALTC
             // 
             this.MALTC.DataPropertyName = "MALTC";
@@ -679,6 +656,29 @@
             this.DIEM_HM.HeaderText = "Điểm Hết Môn";
             this.DIEM_HM.Name = "DIEM_HM";
             this.DIEM_HM.ReadOnly = true;
+            // 
+            // dbsDSNHAPDIEM
+            // 
+            this.dbsDSNHAPDIEM.DataMember = "SP_LAYDS_NHAPDIEM";
+            this.dbsDSNHAPDIEM.DataSource = this.DS;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.GIANGVIENTableAdapter = null;
+            this.tableAdapterManager.LOPTableAdapter = null;
+            this.tableAdapterManager.LOPTINCHITableAdapter = null;
+            this.tableAdapterManager.MONHOCTableAdapter = this.MONHOCTableAdapter;
+            this.tableAdapterManager.SINHVIENTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = DoAnQLDSVTC.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // MONHOCTableAdapter
+            // 
+            this.MONHOCTableAdapter.ClearBeforeFill = true;
+            // 
+            // SP_LAYDS_NHAPDIEMTableAdapter
+            // 
+            this.SP_LAYDS_NHAPDIEMTableAdapter.ClearBeforeFill = true;
             // 
             // InputPoint
             // 
