@@ -273,7 +273,7 @@ namespace DoAnQLDSVTC
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(300, 26);
             this.txtUserName.TabIndex = 8;
-            this.txtUserName.Text = "sinhvien";
+            this.txtUserName.Text = "nguyenquocminh";
             // 
             // panel7
             // 

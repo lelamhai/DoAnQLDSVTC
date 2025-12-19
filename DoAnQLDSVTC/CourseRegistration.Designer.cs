@@ -1038,12 +1038,14 @@
             this.nHOMDataGridViewTextBoxColumn1.DataPropertyName = "NHOM";
             this.nHOMDataGridViewTextBoxColumn1.HeaderText = "Nhóm";
             this.nHOMDataGridViewTextBoxColumn1.Name = "nHOMDataGridViewTextBoxColumn1";
+            this.nHOMDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // mAMHDataGridViewTextBoxColumn1
             // 
             this.mAMHDataGridViewTextBoxColumn1.DataPropertyName = "MAMH";
             this.mAMHDataGridViewTextBoxColumn1.HeaderText = "Mã Môn Học";
             this.mAMHDataGridViewTextBoxColumn1.Name = "mAMHDataGridViewTextBoxColumn1";
+            this.mAMHDataGridViewTextBoxColumn1.ReadOnly = true;
             this.mAMHDataGridViewTextBoxColumn1.Visible = false;
             // 
             // tENMHDataGridViewTextBoxColumn
@@ -1051,6 +1053,7 @@
             this.tENMHDataGridViewTextBoxColumn.DataPropertyName = "TENMH";
             this.tENMHDataGridViewTextBoxColumn.HeaderText = "Tên Môn Học";
             this.tENMHDataGridViewTextBoxColumn.Name = "tENMHDataGridViewTextBoxColumn";
+            this.tENMHDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // tENGVDataGridViewTextBoxColumn
             // 
@@ -1064,6 +1067,7 @@
             this.nIENKHOADataGridViewTextBoxColumn1.DataPropertyName = "NIENKHOA";
             this.nIENKHOADataGridViewTextBoxColumn1.HeaderText = "Niên Khóa";
             this.nIENKHOADataGridViewTextBoxColumn1.Name = "nIENKHOADataGridViewTextBoxColumn1";
+            this.nIENKHOADataGridViewTextBoxColumn1.ReadOnly = true;
             this.nIENKHOADataGridViewTextBoxColumn1.Visible = false;
             // 
             // hOCKYDataGridViewTextBoxColumn1
@@ -1071,6 +1075,7 @@
             this.hOCKYDataGridViewTextBoxColumn1.DataPropertyName = "HOCKY";
             this.hOCKYDataGridViewTextBoxColumn1.HeaderText = "Học Kỳ";
             this.hOCKYDataGridViewTextBoxColumn1.Name = "hOCKYDataGridViewTextBoxColumn1";
+            this.hOCKYDataGridViewTextBoxColumn1.ReadOnly = true;
             this.hOCKYDataGridViewTextBoxColumn1.Visible = false;
             // 
             // sTTDataGridViewTextBoxColumn1
@@ -1093,6 +1098,7 @@
             this.mAMHDataGridViewTextBoxColumn2.DataPropertyName = "MAMH";
             this.mAMHDataGridViewTextBoxColumn2.HeaderText = "MAMH";
             this.mAMHDataGridViewTextBoxColumn2.Name = "mAMHDataGridViewTextBoxColumn2";
+            this.mAMHDataGridViewTextBoxColumn2.ReadOnly = true;
             this.mAMHDataGridViewTextBoxColumn2.Visible = false;
             // 
             // tENMHDataGridViewTextBoxColumn1
@@ -1100,6 +1106,7 @@
             this.tENMHDataGridViewTextBoxColumn1.DataPropertyName = "TENMH";
             this.tENMHDataGridViewTextBoxColumn1.HeaderText = "Tên Môn Học";
             this.tENMHDataGridViewTextBoxColumn1.Name = "tENMHDataGridViewTextBoxColumn1";
+            this.tENMHDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // tENGVDataGridViewTextBoxColumn1
             // 
@@ -1113,12 +1120,14 @@
             this.nHOMDataGridViewTextBoxColumn2.DataPropertyName = "NHOM";
             this.nHOMDataGridViewTextBoxColumn2.HeaderText = "Nhóm";
             this.nHOMDataGridViewTextBoxColumn2.Name = "nHOMDataGridViewTextBoxColumn2";
+            this.nHOMDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // sOSVTOITHIEUDataGridViewTextBoxColumn1
             // 
             this.sOSVTOITHIEUDataGridViewTextBoxColumn1.DataPropertyName = "SOSVTOITHIEU";
             this.sOSVTOITHIEUDataGridViewTextBoxColumn1.HeaderText = "Số Sinh Viên Tối Thiểu";
             this.sOSVTOITHIEUDataGridViewTextBoxColumn1.Name = "sOSVTOITHIEUDataGridViewTextBoxColumn1";
+            this.sOSVTOITHIEUDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // sOSVDADKDataGridViewTextBoxColumn
             // 

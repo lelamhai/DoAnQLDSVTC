@@ -9,8 +9,13 @@ namespace DoAnQLDSVTC
         string nienKhoa;
         string hocKy;
         DateTime ngayDong = DateTime.Now;
-        int soTienDong = 0;
         DateTime getTimeColumn;
+        int soTienNhapVao = 0;
+
+        int soTienDaDong = 0;
+        int soTienConLai = 0;
+        int hocPhi = 0;
+
         enum ActionForm
         {
             ADD,
@@ -76,9 +81,14 @@ namespace DoAnQLDSVTC
 
         void GetInfoSV()
         {
-            string strLenh = "EXEC SP_LAY_THONGTIN_SV '" + txtMaSV.Text + "'";
+            string strLenh = "EXEC SP_LAYTHONGTINSV_HOCPHI N'" + txtMaSV.Text + "'";
             Program.myReader = Program.ExecSqlDataReader(strLenh);
-            if (Program.myReader == null) return;
+            if (Program.myReader == null)
+            {
+                txtMaLop.Text = "";
+                txtTenSV.Text = "";
+                return;
+            } 
             Program.myReader.Read();
             txtTenSV.Text = Program.myReader.GetString(0);
             txtMaLop.Text = Program.myReader.GetString(1);
@@ -134,6 +144,7 @@ namespace DoAnQLDSVTC
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnEdit.Enabled = false;
             }
         }
 
@@ -163,10 +174,17 @@ namespace DoAnQLDSVTC
         private void btnAddRow_Click(object sender, EventArgs e)
         {
             if (txtMaSV.Text == "") return;
-            dbsCTHOCPHI.AddNew();
+            current = ActionForm.ADD;
+            CalculateSTCD();
+            if (soTienConLai == 0)
+            {
+                MessageBox.Show("Sinh viên đã đóng đủ học phí!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
+            dbsCTHOCPHI.AddNew();
             var drv = (DataRowView)dbsCTHOCPHI.Current;
-            
+
             string date = ngayDong.ToString("dd/MM/yyyy");
             drv["NGAYDONG"] = date;
             drv["SOTIENDONG"] = 0;
@@ -174,26 +192,47 @@ namespace DoAnQLDSVTC
             dgvCTHOCPHI.Columns["BSOTIENDONG"].ReadOnly = false;
 
             dgvCTHOCPHI.CurrentCell = dgvCTHOCPHI.Rows[dgvCTHOCPHI.CurrentRow.Index].Cells["BSOTIENDONG"];
+            dgvCTHOCPHI.Rows[dgvCTHOCPHI.CurrentRow.Index].Cells["BSOTIENDONG"].Value = soTienConLai;
             dgvCTHOCPHI.BeginEdit(true);
 
             btnAddRow.Enabled = false;
             btnEdit.Enabled = false;
             btnSave.Enabled = true;
             btnCancel.Enabled = true;
-            current = ActionForm.ADD;
+            
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (dbsCTHOCPHI.Current == null) return;
+            if(dbsCTHOCPHI.Current == null) return;
+            current = ActionForm.UPDATE;
+            CalculateSTCD();
+
+            if(soTienConLai == 0)
+            {
+                DialogResult result = MessageBox.Show(
+                   "Sinh viên đã đóng đủ học phí.\nBạn có muốn chỉnh sửa lại học phí không?",
+                   "Thông báo",
+                   MessageBoxButtons.YesNo,
+                   MessageBoxIcon.Warning
+                );
+
+                if (result == DialogResult.No)
+                {
+                    return;
+                }    
+            }
+
+
             dgvCTHOCPHI.Columns["BSOTIENDONG"].ReadOnly = false;
+            soTienDaDong = TryParse(dgvCTHOCPHI.Rows[dgvCTHOCPHI.CurrentRow.Index].Cells["BSOTIENDONG"].Value);
             dgvCTHOCPHI.CurrentCell = dgvCTHOCPHI.Rows[dgvCTHOCPHI.CurrentRow.Index].Cells["BSOTIENDONG"];
             getTimeColumn = Convert.ToDateTime(dgvCTHOCPHI.Rows[dgvCTHOCPHI.CurrentRow.Index].Cells["BNGAYDONG"].Value);
             dgvCTHOCPHI.BeginEdit(true);
-            current = ActionForm.UPDATE;
             btnAddRow.Enabled = false;
             btnEdit.Enabled = false;
             btnSave.Enabled = true;
             btnCancel.Enabled = true;
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -203,9 +242,21 @@ namespace DoAnQLDSVTC
                 switch(current)
                 {
                     case ActionForm.ADD:
+                        if(hocPhi-soTienNhapVao < 0)
+                        {
+                            MessageBox.Show("Số tiền nhập vào vượt quá số tiền cần đóng. Hệ thống sẽ tự động điều chỉnh thành số tiền học phí là '" + hocPhi.ToString("N0") + "'", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            soTienNhapVao = hocPhi;
+                        }    
+
                         InsertCTHOCPHI();
                         break;
                     case ActionForm.UPDATE:
+                        if(soTienDaDong + soTienConLai < soTienNhapVao)
+                        {
+                            soTienNhapVao = soTienDaDong + soTienConLai;
+                            MessageBox.Show("Số tiền nhập vào vượt quá số tiền cần đóng. Hệ thống sẽ tự động điều chỉnh thành số tiền '" + soTienNhapVao.ToString("N0") + "'", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
                         UpdateCTHOCPHI();
                         break;
                     default:
@@ -239,17 +290,18 @@ namespace DoAnQLDSVTC
                 nienKhoa,
                 int.Parse(hocKy),
                 ngayDong.ToString("yyyy-MM-dd"),
-                soTienDong
+                soTienNhapVao
                 );
             int result = Program.ExecSqlNonQuery(cmd);
             if(result == 0)
             {
-                MessageBox.Show("Đóng học phí '"+ soTienDong.ToString("N0") + "' thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Đóng học phí '"+ soTienNhapVao.ToString("N0") + "' thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }    
         }
 
         void UpdateCTHOCPHI()
         {
+
             var drv = (DataRowView)dbsCTHOCPHI.Current;
             string cmd = string.Format(
                 "EXEC dbo.SP_UPDATE_CTDONGHOCPHI " +
@@ -262,13 +314,26 @@ namespace DoAnQLDSVTC
                 nienKhoa,
                 int.Parse(hocKy),
                 getTimeColumn.ToString("yyyy-MM-dd"),
-                soTienDong
+                soTienNhapVao
                 );
             int result = Program.ExecSqlNonQuery(cmd);
             if (result == 0)
             {
-                MessageBox.Show("Cập nhật đóng học phí " + soTienDong.ToString("N0") + " thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Cập nhật đóng học phí " + soTienNhapVao.ToString("N0") + " thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        void CalculateSTCD()
+        {
+            string cmd = "EXEC dbo.SP_HOCPHICONLAI_HOCPHI N'"+txtMaSV.Text.Trim()+"', N'"+nienKhoa+"', "+hocKy+"";
+            Program.myReader = Program.ExecSqlDataReader(cmd);
+            if (Program.myReader == null) return;
+
+            Program.myReader.Read();
+            soTienConLai = Program.myReader.GetInt32(0);
+            hocPhi = Program.myReader.GetInt32(1);
+
+            Program.myReader.Close();
         }
 
 
@@ -287,7 +352,7 @@ namespace DoAnQLDSVTC
             if (e.RowIndex < 0) return;
 
             var value = dgvCTHOCPHI.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
-            soTienDong = TryParse(value);
+            soTienNhapVao = TryParse(value);
         }
 
         private int TryParse(object val)
