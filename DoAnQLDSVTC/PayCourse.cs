@@ -99,8 +99,8 @@ namespace DoAnQLDSVTC
         {
             try
             {
-                this.SP_DSHOCPHITableAdapter.Connection.ConnectionString = Program.URL_Connect;
-                this.SP_DSHOCPHITableAdapter.Fill(this.DS1.SP_DSHOCPHI, txtMaSV.Text);
+                this.SP_LAYDS_HOCPHITableAdapter.Connection.ConnectionString = Program.URL_Connect;
+                this.SP_LAYDS_HOCPHITableAdapter.Fill(this.DS1.SP_LAYDS_HOCPHI, txtMaSV.Text);
                 if (dbsDSHOCPHI.Count > 0)
                 {
                     dbsDSHOCPHI.Position = 0;
@@ -125,7 +125,7 @@ namespace DoAnQLDSVTC
 
         void ResetCTHocPhi()
         {
-            DS1.SP_CTHOCPHI.Clear();
+            DS1.SP_LAYDS_CTDONGHOCPHI.Clear();
             nienKhoa = null;
             hocKy = null;
         }
@@ -134,8 +134,8 @@ namespace DoAnQLDSVTC
         {
             try
             {
-                this.SP_CTHOCPHITableAdapter.Connection.ConnectionString = Program.URL_Connect;
-                this.SP_CTHOCPHITableAdapter.Fill(this.DS1.SP_CTHOCPHI, txtMaSV.Text, nienKhoa, int.Parse(hocKy));
+                this.SP_LAYDS_CTDONGHOCPHITableAdapter.Connection.ConnectionString = Program.URL_Connect;
+                this.SP_LAYDS_CTDONGHOCPHITableAdapter.Fill(this.DS1.SP_LAYDS_CTDONGHOCPHI, txtMaSV.Text, nienKhoa, int.Parse(hocKy));
                 btnAddRow.Enabled = true;
                 btnEdit.Enabled = true;
                 btnSave.Enabled = false;
@@ -280,7 +280,7 @@ namespace DoAnQLDSVTC
         {
             var drv = (DataRowView)dbsCTHOCPHI.Current;
             string cmd = string.Format(
-                "EXEC dbo.SP_INSERT_CTDONGHOCPHI " +
+                "EXEC dbo.SP_TAO_CTDONGHOCPHI " +
                 "@MASV = N'{0}', " +
                 "@NIENKHOA = N'{1}', " +
                 "@HOCKY = {2}, " +
@@ -304,7 +304,7 @@ namespace DoAnQLDSVTC
 
             var drv = (DataRowView)dbsCTHOCPHI.Current;
             string cmd = string.Format(
-                "EXEC dbo.SP_UPDATE_CTDONGHOCPHI " +
+                "EXEC dbo.SP_CAPNHAT_CTDONGHOCPHI " +
                 "@MASV = N'{0}', " +
                 "@NIENKHOA = N'{1}', " +
                 "@HOCKY = {2}, " +

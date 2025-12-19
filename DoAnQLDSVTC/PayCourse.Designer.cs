@@ -50,13 +50,6 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.dgvHocPhi = new System.Windows.Forms.DataGridView();
-            this.ANIENKHOA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AHOCKY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AHOCPHI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TONGTIENDADONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SOTIENCANDONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dbsDSHOCPHI = new System.Windows.Forms.BindingSource(this.components);
-            this.DS1 = new DoAnQLDSVTC.DS1();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -64,18 +57,24 @@
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
             this.dgvCTHOCPHI = new System.Windows.Forms.DataGridView();
-            this.BNGAYDONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BSOTIENDONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dbsCTHOCPHI = new System.Windows.Forms.BindingSource(this.components);
             this.panel15 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAddRow = new System.Windows.Forms.Button();
-            this.SP_DSHOCPHITableAdapter = new DoAnQLDSVTC.DS1TableAdapters.SP_DSHOCPHITableAdapter();
-            this.tableAdapterManager = new DoAnQLDSVTC.DS1TableAdapters.TableAdapterManager();
-            this.SP_CTHOCPHITableAdapter = new DoAnQLDSVTC.DS1TableAdapters.SP_CTHOCPHITableAdapter();
+            this.DS1 = new DoAnQLDSVTC.DS1();
+            this.dbsDSHOCPHI = new System.Windows.Forms.BindingSource(this.components);
+            this.SP_LAYDS_HOCPHITableAdapter = new DoAnQLDSVTC.DS1TableAdapters.SP_LAYDS_HOCPHITableAdapter();
+            this.dbsCTHOCPHI = new System.Windows.Forms.BindingSource(this.components);
+            this.SP_LAYDS_CTDONGHOCPHITableAdapter = new DoAnQLDSVTC.DS1TableAdapters.SP_LAYDS_CTDONGHOCPHITableAdapter();
+            this.ANIENKHOA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AHOCKY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AHOCPHI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TONGTIENDADONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SOTIENCANDONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BNGAYDONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BSOTIENDONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -84,14 +83,14 @@
             this.panel10.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHocPhi)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsDSHOCPHI)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DS1)).BeginInit();
             this.panel14.SuspendLayout();
             this.panel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCTHOCPHI)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsCTHOCPHI)).BeginInit();
             this.panel15.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DS1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbsDSHOCPHI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbsCTHOCPHI)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -231,7 +230,6 @@
             this.txtMaSV.Name = "txtMaSV";
             this.txtMaSV.Size = new System.Drawing.Size(125, 26);
             this.txtMaSV.TabIndex = 1;
-            this.txtMaSV.Text = "N15DCCN001";
             // 
             // label2
             // 
@@ -308,47 +306,6 @@
             this.dgvHocPhi.Size = new System.Drawing.Size(1252, 290);
             this.dgvHocPhi.TabIndex = 0;
             this.dgvHocPhi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHocPhi_CellClick);
-            // 
-            // ANIENKHOA
-            // 
-            this.ANIENKHOA.DataPropertyName = "NIENKHOA";
-            this.ANIENKHOA.HeaderText = "Niên Khóa";
-            this.ANIENKHOA.Name = "ANIENKHOA";
-            // 
-            // AHOCKY
-            // 
-            this.AHOCKY.DataPropertyName = "HOCKY";
-            this.AHOCKY.HeaderText = "Học Kỳ";
-            this.AHOCKY.Name = "AHOCKY";
-            // 
-            // AHOCPHI
-            // 
-            this.AHOCPHI.DataPropertyName = "HOCPHI";
-            this.AHOCPHI.HeaderText = "Học Phí";
-            this.AHOCPHI.Name = "AHOCPHI";
-            // 
-            // TONGTIENDADONG
-            // 
-            this.TONGTIENDADONG.DataPropertyName = "TONGTIENDADONG";
-            this.TONGTIENDADONG.HeaderText = "Số Tiền Đã Đóng";
-            this.TONGTIENDADONG.Name = "TONGTIENDADONG";
-            this.TONGTIENDADONG.ReadOnly = true;
-            // 
-            // SOTIENCANDONG
-            // 
-            this.SOTIENCANDONG.DataPropertyName = "SOTIENCANDONG";
-            this.SOTIENCANDONG.HeaderText = "Số Tiền Cần Đóng";
-            this.SOTIENCANDONG.Name = "SOTIENCANDONG";
-            // 
-            // dbsDSHOCPHI
-            // 
-            this.dbsDSHOCPHI.DataMember = "SP_DSHOCPHI";
-            this.dbsDSHOCPHI.DataSource = this.DS1;
-            // 
-            // DS1
-            // 
-            this.DS1.DataSetName = "DS1";
-            this.DS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panel12
             // 
@@ -437,25 +394,6 @@
             this.dgvCTHOCPHI.TabIndex = 0;
             this.dgvCTHOCPHI.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCTHOCPHI_CellValueChanged);
             // 
-            // BNGAYDONG
-            // 
-            this.BNGAYDONG.DataPropertyName = "NGAYDONG";
-            this.BNGAYDONG.HeaderText = "Ngày Đóng";
-            this.BNGAYDONG.Name = "BNGAYDONG";
-            this.BNGAYDONG.ReadOnly = true;
-            // 
-            // BSOTIENDONG
-            // 
-            this.BSOTIENDONG.DataPropertyName = "SOTIENDONG";
-            this.BSOTIENDONG.HeaderText = "Số Tiền Đóng";
-            this.BSOTIENDONG.Name = "BSOTIENDONG";
-            this.BSOTIENDONG.ReadOnly = true;
-            // 
-            // dbsCTHOCPHI
-            // 
-            this.dbsCTHOCPHI.DataMember = "SP_CTHOCPHI";
-            this.dbsCTHOCPHI.DataSource = this.DS1;
-            // 
             // panel15
             // 
             this.panel15.Controls.Add(this.tableLayoutPanel1);
@@ -475,7 +413,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 722F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 742F));
             this.tableLayoutPanel1.Controls.Add(this.btnCancel, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnSave, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnEdit, 1, 0);
@@ -556,19 +494,71 @@
             this.btnAddRow.UseVisualStyleBackColor = true;
             this.btnAddRow.Click += new System.EventHandler(this.btnAddRow_Click);
             // 
-            // SP_DSHOCPHITableAdapter
+            // DS1
             // 
-            this.SP_DSHOCPHITableAdapter.ClearBeforeFill = true;
+            this.DS1.DataSetName = "DS1";
+            this.DS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // tableAdapterManager
+            // dbsDSHOCPHI
             // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.UpdateOrder = DoAnQLDSVTC.DS1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.dbsDSHOCPHI.DataMember = "SP_LAYDS_HOCPHI";
+            this.dbsDSHOCPHI.DataSource = this.DS1;
             // 
-            // SP_CTHOCPHITableAdapter
+            // SP_LAYDS_HOCPHITableAdapter
             // 
-            this.SP_CTHOCPHITableAdapter.ClearBeforeFill = true;
+            this.SP_LAYDS_HOCPHITableAdapter.ClearBeforeFill = true;
+            // 
+            // dbsCTHOCPHI
+            // 
+            this.dbsCTHOCPHI.DataMember = "SP_LAYDS_CTDONGHOCPHI";
+            this.dbsCTHOCPHI.DataSource = this.DS1;
+            // 
+            // SP_LAYDS_CTDONGHOCPHITableAdapter
+            // 
+            this.SP_LAYDS_CTDONGHOCPHITableAdapter.ClearBeforeFill = true;
+            // 
+            // ANIENKHOA
+            // 
+            this.ANIENKHOA.DataPropertyName = "NIENKHOA";
+            this.ANIENKHOA.HeaderText = "Niên Khóa";
+            this.ANIENKHOA.Name = "ANIENKHOA";
+            // 
+            // AHOCKY
+            // 
+            this.AHOCKY.DataPropertyName = "HOCKY";
+            this.AHOCKY.HeaderText = "Học Kỳ";
+            this.AHOCKY.Name = "AHOCKY";
+            // 
+            // AHOCPHI
+            // 
+            this.AHOCPHI.DataPropertyName = "HOCPHI";
+            this.AHOCPHI.HeaderText = "Học Phí";
+            this.AHOCPHI.Name = "AHOCPHI";
+            // 
+            // TONGTIENDADONG
+            // 
+            this.TONGTIENDADONG.DataPropertyName = "TONGTIENDADONG";
+            this.TONGTIENDADONG.HeaderText = "Số Tiền Đã Đóng";
+            this.TONGTIENDADONG.Name = "TONGTIENDADONG";
+            this.TONGTIENDADONG.ReadOnly = true;
+            // 
+            // SOTIENCANDONG
+            // 
+            this.SOTIENCANDONG.DataPropertyName = "SOTIENCANDONG";
+            this.SOTIENCANDONG.HeaderText = "Số Tiền Cần Đóng";
+            this.SOTIENCANDONG.Name = "SOTIENCANDONG";
+            // 
+            // BNGAYDONG
+            // 
+            this.BNGAYDONG.DataPropertyName = "NGAYDONG";
+            this.BNGAYDONG.HeaderText = "Ngày Đóng";
+            this.BNGAYDONG.Name = "BNGAYDONG";
+            // 
+            // BSOTIENDONG
+            // 
+            this.BSOTIENDONG.DataPropertyName = "SOTIENDONG";
+            this.BSOTIENDONG.HeaderText = "Số Tiền Đóng";
+            this.BSOTIENDONG.Name = "BSOTIENDONG";
             // 
             // PayCourse
             // 
@@ -599,14 +589,14 @@
             this.panel10.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHocPhi)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsDSHOCPHI)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DS1)).EndInit();
             this.panel14.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCTHOCPHI)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsCTHOCPHI)).EndInit();
             this.panel15.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DS1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbsDSHOCPHI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbsCTHOCPHI)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -644,13 +634,13 @@
         private System.Windows.Forms.DataGridView dgvCTHOCPHI;
         private System.Windows.Forms.TextBox txtTenSV;
         private DS1 DS1;
-        private System.Windows.Forms.BindingSource dbsDSHOCPHI;
-        private DS1TableAdapters.SP_DSHOCPHITableAdapter SP_DSHOCPHITableAdapter;
-        private DS1TableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingSource dbsCTHOCPHI;
-        private DS1TableAdapters.SP_CTHOCPHITableAdapter SP_CTHOCPHITableAdapter;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.BindingSource dbsDSHOCPHI;
+        private System.Windows.Forms.BindingSource dbsCTHOCPHI;
+        private DS1TableAdapters.SP_LAYDS_HOCPHITableAdapter SP_LAYDS_HOCPHITableAdapter;
+        private DS1TableAdapters.SP_LAYDS_CTDONGHOCPHITableAdapter SP_LAYDS_CTDONGHOCPHITableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn ANIENKHOA;
         private System.Windows.Forms.DataGridViewTextBoxColumn AHOCKY;
         private System.Windows.Forms.DataGridViewTextBoxColumn AHOCPHI;
@@ -658,6 +648,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SOTIENCANDONG;
         private System.Windows.Forms.DataGridViewTextBoxColumn BNGAYDONG;
         private System.Windows.Forms.DataGridViewTextBoxColumn BSOTIENDONG;
-        private System.Windows.Forms.Button btnCancel;
     }
 }

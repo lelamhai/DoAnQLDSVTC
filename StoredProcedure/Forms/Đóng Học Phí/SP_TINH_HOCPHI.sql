@@ -1,0 +1,49 @@
+USE [QLDSV_TC]
+GO
+
+CREATE PROCEDURE SP_TINH_HOCPHI
+    @MASV NCHAR(10)
+AS
+BEGIN
+    MERGE dbo.HOCPHI AS T
+    USING (
+        SELECT
+            DK.MASV,
+            LTC.NIENKHOA,
+            LTC.HOCKY,
+            SUM(((MH.SOTIET_LT + MH.SOTIET_TH) / 10) * 1000000) AS HOCPHI
+        FROM
+            (SELECT MASV, MALTC
+             FROM LINK0.QLDSV_TC.dbo.DANGKY
+             WHERE MASV = @MASV
+               AND (HUYDANGKY = 0 OR HUYDANGKY IS NULL)
+            ) DK
+        JOIN
+            (SELECT MALTC, MAMH, NIENKHOA, HOCKY
+             FROM LINK0.QLDSV_TC.dbo.LOPTINCHI
+            ) LTC
+            ON DK.MALTC = LTC.MALTC
+        JOIN
+            (SELECT MAMH, SOTIET_LT, SOTIET_TH
+             FROM LINK0.QLDSV_TC.dbo.MONHOC
+            ) MH
+            ON MH.MAMH = LTC.MAMH
+        GROUP BY
+            DK.MASV,
+            LTC.NIENKHOA,
+            LTC.HOCKY
+    ) AS S
+    ON  T.MASV     = S.MASV
+    AND T.NIENKHOA = S.NIENKHOA
+    AND T.HOCKY    = S.HOCKY
+
+    WHEN MATCHED AND ISNULL(T.HOCPHI, 0) <> ISNULL(S.HOCPHI, 0)
+        THEN UPDATE SET T.HOCPHI = S.HOCPHI
+
+    WHEN NOT MATCHED BY TARGET
+        THEN INSERT (MASV, NIENKHOA, HOCKY, HOCPHI)
+             VALUES (S.MASV, S.NIENKHOA, S.HOCKY, S.HOCPHI);
+END;
+GO
+
+

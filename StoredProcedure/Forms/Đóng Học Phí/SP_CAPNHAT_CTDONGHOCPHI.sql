@@ -1,7 +1,8 @@
 ﻿USE [QLDSV_TC]
 GO
 
-CREATE PROCEDURE [dbo].[SP_UPDATE_CTDONGHOCPHI]
+
+CREATE PROCEDURE SP_CAPNHAT_CTDONGHOCPHI
     @MASV        NVARCHAR(10),
     @NIENKHOA    NVARCHAR(9),
     @HOCKY       INT,
@@ -10,7 +11,29 @@ CREATE PROCEDURE [dbo].[SP_UPDATE_CTDONGHOCPHI]
 AS
 
 BEGIN
+    DECLARE @MASV_TRIM NVARCHAR(10);
+    SET @MASV_TRIM = LTRIM(RTRIM(@MASV));
 
+    IF NOT EXISTS (
+        SELECT 1
+        FROM SINHVIEN
+        WHERE MASV = @MASV_TRIM
+    )
+    BEGIN
+        RAISERROR (N'Sinh viên "%s" không tồn tại trong hệ thống.', 16, 1, @MASV_TRIM);
+        RETURN;
+    END
+
+    IF EXISTS (
+        SELECT 1
+        FROM SINHVIEN
+        WHERE MASV = @MASV_TRIM AND DANGHIHOC = 1
+    )
+    BEGIN
+        RAISERROR (N'Sinh viên "%s" đã nghỉ học.', 16, 1, @MASV_TRIM);
+        RETURN;
+    END
+    
     IF NOT EXISTS (SELECT 1 FROM CT_DONGHOCPHI WHERE MASV = @MASV AND NIENKHOA = @NIENKHOA AND HOCKY = @HOCKY AND NGAYDONG = @NGAYDONG)
     BEGIN
         RAISERROR(N'Không tìm thấy dữ liệu để cập nhật!',16,1);
@@ -25,5 +48,3 @@ BEGIN
       AND NGAYDONG = @NGAYDONG;
 END
 GO
-
-
