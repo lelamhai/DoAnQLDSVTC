@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
@@ -16,6 +17,7 @@ namespace DoAnQLDSVTC
         int soTienConLai = 0;
         int hocPhi = 0;
 
+        bool flagEdit;
         enum ActionForm
         {
             ADD,
@@ -206,8 +208,15 @@ namespace DoAnQLDSVTC
             if(dbsCTHOCPHI.Current == null) return;
             current = ActionForm.UPDATE;
             CalculateSTCD();
+           
+            int rowIndex = dgvCTHOCPHI.CurrentCell.RowIndex;
+            int columnIndex = dgvCTHOCPHI.CurrentCell.ColumnIndex;
+            if(dgvCTHOCPHI.Rows[rowIndex].Cells[columnIndex].OwningColumn.Name != "BSOTIENDONG")
+            {
+                return;
+            }
 
-            if(soTienConLai == 0)
+            if (soTienConLai == 0)
             {
                 DialogResult result = MessageBox.Show(
                    "Sinh viên đã đóng đủ học phí.\nBạn có muốn chỉnh sửa lại học phí không?",
@@ -219,11 +228,11 @@ namespace DoAnQLDSVTC
                 if (result == DialogResult.No)
                 {
                     return;
-                }    
+                }
             }
 
-
-            dgvCTHOCPHI.Columns["BSOTIENDONG"].ReadOnly = false;
+            dgvCTHOCPHI.Rows[rowIndex].Cells[columnIndex].ReadOnly = false;
+            dgvCTHOCPHI.Rows[rowIndex].Cells[columnIndex].Style.BackColor = Color.LightGreen;
             soTienDaDong = TryParse(dgvCTHOCPHI.Rows[dgvCTHOCPHI.CurrentRow.Index].Cells["BSOTIENDONG"].Value);
             dgvCTHOCPHI.CurrentCell = dgvCTHOCPHI.Rows[dgvCTHOCPHI.CurrentRow.Index].Cells["BSOTIENDONG"];
             getTimeColumn = Convert.ToDateTime(dgvCTHOCPHI.Rows[dgvCTHOCPHI.CurrentRow.Index].Cells["BNGAYDONG"].Value);
@@ -360,6 +369,19 @@ namespace DoAnQLDSVTC
             int result = 0;
             int.TryParse(Convert.ToString(val), out result);
             return result;
+        }
+
+        private void dgvCTHOCPHI_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+        }
+
+        private void dgvCTHOCPHI_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            if (dgvCTHOCPHI.Columns[e.ColumnIndex].Name == "BSOTIENDONG")
+            {
+                MessageBox.Show("Bạn phải nhập vào một số tiền nguyên dương để hợp lệ!", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dgvCTHOCPHI.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = DBNull.Value;
+            }
         }
     }
 }

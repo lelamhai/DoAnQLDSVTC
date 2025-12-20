@@ -226,7 +226,7 @@ namespace DoAnQLDSVTC
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Thông thểm nhập điểm cho sinh viên.", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK);
                 return;
             }
         }
@@ -340,6 +340,7 @@ namespace DoAnQLDSVTC
 
         private void dgvDK_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
+
         }
     }
 }
