@@ -597,7 +597,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CreateAccount";
-            this.Text = "Tạo TK";
+            this.Text = "Tạo Tài Khoản";
             this.Load += new System.EventHandler(this.CreateAccount_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

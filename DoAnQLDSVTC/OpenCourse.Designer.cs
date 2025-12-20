@@ -106,6 +106,7 @@
             this.panel21 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.txtMaKhoa = new System.Windows.Forms.TextBox();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.txtMALTC = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.LOPTINCHITableAdapter = new DoAnQLDSVTC.DSTableAdapters.LOPTINCHITableAdapter();
@@ -113,7 +114,6 @@
             this.GIANGVIENTableAdapter = new DoAnQLDSVTC.DSTableAdapters.GIANGVIENTableAdapter();
             this.tableAdapterManager = new DoAnQLDSVTC.DSTableAdapters.TableAdapterManager();
             this.MONHOCTableAdapter = new DoAnQLDSVTC.DSTableAdapters.MONHOCTableAdapter();
-            this.panel8 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -142,8 +142,8 @@
             this.panel10.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel21.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsGIANGVIEN)).BeginInit();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dbsGIANGVIEN)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -241,7 +241,7 @@
             this.pLeft.Location = new System.Drawing.Point(0, 80);
             this.pLeft.Margin = new System.Windows.Forms.Padding(0);
             this.pLeft.Name = "pLeft";
-            this.pLeft.Padding = new System.Windows.Forms.Padding(15, 0, 15, 15);
+            this.pLeft.Padding = new System.Windows.Forms.Padding(15, 0, 15, 0);
             this.pLeft.Size = new System.Drawing.Size(903, 680);
             this.pLeft.TabIndex = 9;
             // 
@@ -267,7 +267,7 @@
             this.dgvLTC.Location = new System.Drawing.Point(15, 30);
             this.dgvLTC.Margin = new System.Windows.Forms.Padding(0);
             this.dgvLTC.Name = "dgvLTC";
-            this.dgvLTC.Size = new System.Drawing.Size(873, 635);
+            this.dgvLTC.Size = new System.Drawing.Size(873, 650);
             this.dgvLTC.TabIndex = 1;
             this.dgvLTC.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvLTC_CellFormatting);
             // 
@@ -1002,6 +1002,15 @@
             this.txtMaKhoa.Size = new System.Drawing.Size(370, 26);
             this.txtMaKhoa.TabIndex = 4;
             // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.txtMALTC);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(15, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(370, 710);
+            this.panel8.TabIndex = 38;
+            // 
             // txtMALTC
             // 
             this.txtMALTC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1051,15 +1060,6 @@
             // 
             this.MONHOCTableAdapter.ClearBeforeFill = true;
             // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.txtMALTC);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(15, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(370, 710);
-            this.panel8.TabIndex = 38;
-            // 
             // OpenCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -1072,7 +1072,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "OpenCourse";
-            this.Text = "Lớp TC";
+            this.Text = "Lớp Tín Chỉ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.OpenCourse_Load);
             this.panel1.ResumeLayout(false);
@@ -1113,9 +1113,9 @@
             this.tableLayoutPanel2.PerformLayout();
             this.panel21.ResumeLayout(false);
             this.panel21.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsGIANGVIEN)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dbsGIANGVIEN)).EndInit();
             this.ResumeLayout(false);
 
         }

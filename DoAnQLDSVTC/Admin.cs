@@ -7,7 +7,7 @@ namespace DoAnQLDSVTC
     public partial class Admin : Form
     {
         public List<Button> listButton = new List<Button>();
-
+        private Form currentForm;
         public Admin()
         {
             InitializeComponent();
@@ -15,112 +15,114 @@ namespace DoAnQLDSVTC
 
         private void Admin_Load(object sender, EventArgs e)
         {
+            LoadInfoAccount();
+            LoadFormRole();
+            LoadAciveMenu();
+        }
+
+        void LoadAciveMenu()
+        {
             string quyen = Program.mGroup;
-            if (quyen == Program.quyen[2])
+            if (quyen == Program.quyen[2]) // SV
+            {
+                btnLop.Enabled = false;
+                btnStudent.Enabled = false;
+                btnSubject.Enabled = false;
+                btnOpenCourse.Enabled = false;
+                btnInputPoint.Enabled = false;
+                btnCourseRegistration.Enabled = true;
+                btnPayCourse.Enabled = false;
+
+                btnCreateAccount.Enabled = false;
+                return;
+            }
+
+            if (quyen == Program.quyen[3]) // PKT
+            {
+                btnLop.Enabled = false;
+                btnStudent.Enabled = false;
+                btnSubject.Enabled = false;
+                btnOpenCourse.Enabled = false;
+                btnInputPoint.Enabled = false;
+                btnCourseRegistration.Enabled = false;
+                btnPayCourse.Enabled = true;
+                return;
+            }
+
+            btnLop.Enabled = true;
+            btnStudent.Enabled = true;
+            btnSubject.Enabled = true;
+            btnOpenCourse.Enabled = true;
+            btnInputPoint.Enabled = true;
+            btnCourseRegistration.Enabled = false;
+            btnPayCourse.Enabled = false;
+        }
+
+        void LoadFormRole()
+        {
+            string quyen = Program.mGroup;
+
+            if (quyen == Program.quyen[2]) // SV
             {
                 LoadForm(new CourseRegistration());
                 return;
             }
 
-            if(quyen == Program.quyen[3])
+            if (quyen == Program.quyen[3]) // PKT
             {
                 LoadForm(new PayCourse());
                 return;
-            }    
+            }
 
-            LoadForm(new NewClassroom());
+            LoadForm(new NewClassroom()); // PGV, KHOA
         }
 
-        private void LoadForm(object form)
+        private void LoadInfoAccount()
         {
-            if(listButton.Count > 0)
+            lblInfoAccount.Text = "Mã nhân viên: " +Program.userName + " - Họ và tên: " + Program.mHoTen + " - Nhóm: " + Program.mGroup;
+            lblInfoAccount.BringToFront();
+        }
+
+
+        private void LoadForm(Form form)
+        {
+            if (currentForm != null && currentForm.GetType() == form.GetType())
             {
-                foreach (Button btn in listButton)
-                {
-                    if (btn.Tag.GetType() == form.GetType())
-                    {
-                        return;
-                    }
-                }
+                return;
             }
-            Form currentForm = form as Form;
+
+            if (currentForm != null)
+            {
+                pMain.Controls.Remove(currentForm);
+                currentForm.Dispose();
+                currentForm = null;
+                lblInfoAccount.Text = "";
+                lblPageCurrent.Text = "";
+            }
+
+            currentForm = form;
             currentForm.TopLevel = false;
             currentForm.Dock = DockStyle.Fill;
             this.pMain.Controls.Add(currentForm);
-            this.pMain.Tag = currentForm;
             currentForm.Show();
             currentForm.BringToFront();
-            CreateButton(currentForm);
+            lblPageCurrent.Text = currentForm.Text;
+            LoadInfoAccount();
         }
 
-        void CreateButton(Form form)
+        public void CloseForm(Form form)
         {
-            Button button = new Button();
-            button.Text = form.Text;
-            button.Tag = form;
-            button.Dock = DockStyle.Left;
-            button.FlatStyle = FlatStyle.Flat;
-            button.FlatAppearance.BorderSize = 0;
-            button.Click += TabButton_Click;
-            pTabBar.Controls.Add(button);
-            button.BringToFront();
-            listButton.Add(button);
-        }
-
-        private void TabButton_Click(object sender, EventArgs e)
-        {
-            Button btn = sender as Button;
-            if (btn == null) return;
-
-            Form f = btn.Tag as Form;
-            if (f == null) return;
-
-            pMain.Controls.Clear();
-
-            if (!pMain.Controls.Contains(f))
+            if (currentForm != null && currentForm.GetType() == form.GetType())
             {
-                f.TopLevel = false;
-                f.FormBorderStyle = FormBorderStyle.None;
-                f.Dock = DockStyle.Fill;
-                pMain.Controls.Add(f);
-            }
-
-            f.Show();
-            f.BringToFront();
-        }
-
-        public void DeleteButtonInTabBar(Form form)
-        {
-            for (int i = 0; i < listButton.Count; i++)
-            {
-                if (listButton[i].Tag == form)
-                {
-                    pTabBar.Controls.Remove(listButton[i]);
-                    listButton.RemoveAt(i);
-                    form.Close();
-                    break;
-                }
-            }
-
-            if (listButton.Count > 0)
-            {
-                Form f = (Form)listButton[0].Tag;
-
+                currentForm.Dispose();
+                currentForm = null;
+                lblInfoAccount.Text = "";
+                lblPageCurrent.Text = "";
                 pMain.Controls.Clear();
-
-                if (!pMain.Controls.Contains(f))
-                {
-                    f.TopLevel = false;
-                    f.FormBorderStyle = FormBorderStyle.None;
-                    f.Dock = DockStyle.Fill;
-                    pMain.Controls.Add(f);
-                }
-
-                f.Show();
-                f.BringToFront();
-            }
+            }    
         }
 
+        #region TAB1
         private void btnStudent_Click(object sender, EventArgs e)
         {
             LoadForm(new Student());
@@ -129,11 +131,6 @@ namespace DoAnQLDSVTC
         private void btnLop_Click(object sender, EventArgs e)
         {
             LoadForm(new NewClassroom());
-        }
-
-        private void btnCreateAccount_Click(object sender, EventArgs e)
-        {
-            LoadForm(new CreateAccount());
         }
 
         private void btnSubject_Click(object sender, EventArgs e)
@@ -160,6 +157,13 @@ namespace DoAnQLDSVTC
         {
             LoadForm(new InputPoint());
         }
+        #endregion
+
+        #region TAB2
+        private void btnCreateAccount_Click(object sender, EventArgs e)
+        {
+            LoadForm(new CreateAccount());
+        }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
@@ -167,5 +171,6 @@ namespace DoAnQLDSVTC
             login.Show();
             this.Hide();
         }
+        #endregion
     }
 }

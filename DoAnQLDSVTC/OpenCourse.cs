@@ -195,10 +195,8 @@ namespace DoAnQLDSVTC
 
         private void bntExit_Click(object sender, EventArgs e)
         {
-            Button btn = sender as Button;
             Admin parent = this.TopLevelControl as Admin;
-            Form form = btn.FindForm();
-            parent.DeleteButtonInTabBar(form);
+            parent.CloseForm(this);
         }
 
         private void btnSave_Click(object sender, EventArgs e)

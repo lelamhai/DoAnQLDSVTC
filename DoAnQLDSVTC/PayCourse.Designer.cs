@@ -50,6 +50,11 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.dgvHocPhi = new System.Windows.Forms.DataGridView();
+            this.ANIENKHOA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AHOCKY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AHOCPHI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TONGTIENDADONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SOTIENCANDONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dbsDSHOCPHI = new System.Windows.Forms.BindingSource(this.components);
             this.DS1 = new DoAnQLDSVTC.DS1();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -59,6 +64,8 @@
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
             this.dgvCTHOCPHI = new System.Windows.Forms.DataGridView();
+            this.BNGAYDONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BSOTIENDONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dbsCTHOCPHI = new System.Windows.Forms.BindingSource(this.components);
             this.panel15 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -68,13 +75,6 @@
             this.btnAddRow = new System.Windows.Forms.Button();
             this.SP_LAYDS_HOCPHITableAdapter = new DoAnQLDSVTC.DS1TableAdapters.SP_LAYDS_HOCPHITableAdapter();
             this.SP_LAYDS_CTDONGHOCPHITableAdapter = new DoAnQLDSVTC.DS1TableAdapters.SP_LAYDS_CTDONGHOCPHITableAdapter();
-            this.ANIENKHOA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AHOCKY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AHOCPHI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TONGTIENDADONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SOTIENCANDONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BNGAYDONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BSOTIENDONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -307,6 +307,41 @@
             this.dgvHocPhi.TabIndex = 0;
             this.dgvHocPhi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHocPhi_CellClick);
             // 
+            // ANIENKHOA
+            // 
+            this.ANIENKHOA.DataPropertyName = "NIENKHOA";
+            this.ANIENKHOA.HeaderText = "Niên Khóa";
+            this.ANIENKHOA.Name = "ANIENKHOA";
+            this.ANIENKHOA.ReadOnly = true;
+            // 
+            // AHOCKY
+            // 
+            this.AHOCKY.DataPropertyName = "HOCKY";
+            this.AHOCKY.HeaderText = "Học Kỳ";
+            this.AHOCKY.Name = "AHOCKY";
+            this.AHOCKY.ReadOnly = true;
+            // 
+            // AHOCPHI
+            // 
+            this.AHOCPHI.DataPropertyName = "HOCPHI";
+            this.AHOCPHI.HeaderText = "Học Phí";
+            this.AHOCPHI.Name = "AHOCPHI";
+            this.AHOCPHI.ReadOnly = true;
+            // 
+            // TONGTIENDADONG
+            // 
+            this.TONGTIENDADONG.DataPropertyName = "TONGTIENDADONG";
+            this.TONGTIENDADONG.HeaderText = "Số Tiền Đã Đóng";
+            this.TONGTIENDADONG.Name = "TONGTIENDADONG";
+            this.TONGTIENDADONG.ReadOnly = true;
+            // 
+            // SOTIENCANDONG
+            // 
+            this.SOTIENCANDONG.DataPropertyName = "SOTIENCANDONG";
+            this.SOTIENCANDONG.HeaderText = "Số Tiền Cần Đóng";
+            this.SOTIENCANDONG.Name = "SOTIENCANDONG";
+            this.SOTIENCANDONG.ReadOnly = true;
+            // 
             // dbsDSHOCPHI
             // 
             this.dbsDSHOCPHI.DataMember = "SP_LAYDS_HOCPHI";
@@ -382,7 +417,6 @@
             this.panel16.Location = new System.Drawing.Point(15, 30);
             this.panel16.Margin = new System.Windows.Forms.Padding(0);
             this.panel16.Name = "panel16";
-            this.panel16.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
             this.panel16.Size = new System.Drawing.Size(1252, 194);
             this.panel16.TabIndex = 1;
             // 
@@ -400,11 +434,25 @@
             this.dgvCTHOCPHI.Location = new System.Drawing.Point(0, 0);
             this.dgvCTHOCPHI.Margin = new System.Windows.Forms.Padding(0);
             this.dgvCTHOCPHI.Name = "dgvCTHOCPHI";
-            this.dgvCTHOCPHI.Size = new System.Drawing.Size(1252, 179);
+            this.dgvCTHOCPHI.Size = new System.Drawing.Size(1252, 194);
             this.dgvCTHOCPHI.TabIndex = 0;
             this.dgvCTHOCPHI.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvCTHOCPHI_CellBeginEdit);
             this.dgvCTHOCPHI.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCTHOCPHI_CellValueChanged);
             this.dgvCTHOCPHI.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvCTHOCPHI_DataError);
+            // 
+            // BNGAYDONG
+            // 
+            this.BNGAYDONG.DataPropertyName = "NGAYDONG";
+            this.BNGAYDONG.HeaderText = "Ngày Đóng";
+            this.BNGAYDONG.Name = "BNGAYDONG";
+            this.BNGAYDONG.ReadOnly = true;
+            // 
+            // BSOTIENDONG
+            // 
+            this.BSOTIENDONG.DataPropertyName = "SOTIENDONG";
+            this.BSOTIENDONG.HeaderText = "Số Tiền Đóng";
+            this.BSOTIENDONG.Name = "BSOTIENDONG";
+            this.BSOTIENDONG.ReadOnly = true;
             // 
             // dbsCTHOCPHI
             // 
@@ -519,55 +567,6 @@
             // 
             this.SP_LAYDS_CTDONGHOCPHITableAdapter.ClearBeforeFill = true;
             // 
-            // ANIENKHOA
-            // 
-            this.ANIENKHOA.DataPropertyName = "NIENKHOA";
-            this.ANIENKHOA.HeaderText = "Niên Khóa";
-            this.ANIENKHOA.Name = "ANIENKHOA";
-            this.ANIENKHOA.ReadOnly = true;
-            // 
-            // AHOCKY
-            // 
-            this.AHOCKY.DataPropertyName = "HOCKY";
-            this.AHOCKY.HeaderText = "Học Kỳ";
-            this.AHOCKY.Name = "AHOCKY";
-            this.AHOCKY.ReadOnly = true;
-            // 
-            // AHOCPHI
-            // 
-            this.AHOCPHI.DataPropertyName = "HOCPHI";
-            this.AHOCPHI.HeaderText = "Học Phí";
-            this.AHOCPHI.Name = "AHOCPHI";
-            this.AHOCPHI.ReadOnly = true;
-            // 
-            // TONGTIENDADONG
-            // 
-            this.TONGTIENDADONG.DataPropertyName = "TONGTIENDADONG";
-            this.TONGTIENDADONG.HeaderText = "Số Tiền Đã Đóng";
-            this.TONGTIENDADONG.Name = "TONGTIENDADONG";
-            this.TONGTIENDADONG.ReadOnly = true;
-            // 
-            // SOTIENCANDONG
-            // 
-            this.SOTIENCANDONG.DataPropertyName = "SOTIENCANDONG";
-            this.SOTIENCANDONG.HeaderText = "Số Tiền Cần Đóng";
-            this.SOTIENCANDONG.Name = "SOTIENCANDONG";
-            this.SOTIENCANDONG.ReadOnly = true;
-            // 
-            // BNGAYDONG
-            // 
-            this.BNGAYDONG.DataPropertyName = "NGAYDONG";
-            this.BNGAYDONG.HeaderText = "Ngày Đóng";
-            this.BNGAYDONG.Name = "BNGAYDONG";
-            this.BNGAYDONG.ReadOnly = true;
-            // 
-            // BSOTIENDONG
-            // 
-            this.BSOTIENDONG.DataPropertyName = "SOTIENDONG";
-            this.BSOTIENDONG.HeaderText = "Số Tiền Đóng";
-            this.BSOTIENDONG.Name = "BSOTIENDONG";
-            this.BSOTIENDONG.ReadOnly = true;
-            // 
             // PayCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -583,7 +582,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PayCourse";
-            this.Text = "Đóng Học Phí";
+            this.Text = "Học Phí";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.PayCourse_Load);
             this.panel1.ResumeLayout(false);

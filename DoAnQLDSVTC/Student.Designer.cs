@@ -53,11 +53,11 @@ namespace DoAnQLDSVTC
             this.panel28 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.panel36 = new System.Windows.Forms.Panel();
+            this.panel37 = new System.Windows.Forms.Panel();
             this.cbNotStudy = new System.Windows.Forms.CheckBox();
             this.FKSINHVIENLOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbsLOP = new System.Windows.Forms.BindingSource(this.components);
             this.DS = new DoAnQLDSVTC.DS();
-            this.panel37 = new System.Windows.Forms.Panel();
             this.panel38 = new System.Windows.Forms.Panel();
             this.rbNotStudy = new System.Windows.Forms.RadioButton();
             this.rbStudying = new System.Windows.Forms.RadioButton();
@@ -69,8 +69,8 @@ namespace DoAnQLDSVTC
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.panel34 = new System.Windows.Forms.Panel();
-            this.cbFemale = new System.Windows.Forms.CheckBox();
             this.panel35 = new System.Windows.Forms.Panel();
+            this.cbFemale = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel25 = new System.Windows.Forms.Panel();
             this.panel24 = new System.Windows.Forms.Panel();
@@ -432,6 +432,14 @@ namespace DoAnQLDSVTC
             this.panel36.Size = new System.Drawing.Size(148, 31);
             this.panel36.TabIndex = 0;
             // 
+            // panel37
+            // 
+            this.panel37.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel37.Location = new System.Drawing.Point(0, 0);
+            this.panel37.Name = "panel37";
+            this.panel37.Size = new System.Drawing.Size(148, 31);
+            this.panel37.TabIndex = 3;
+            // 
             // cbNotStudy
             // 
             this.cbNotStudy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -459,14 +467,6 @@ namespace DoAnQLDSVTC
             // 
             this.DS.DataSetName = "DS";
             this.DS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // panel37
-            // 
-            this.panel37.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel37.Location = new System.Drawing.Point(0, 0);
-            this.panel37.Name = "panel37";
-            this.panel37.Size = new System.Drawing.Size(148, 31);
-            this.panel37.TabIndex = 3;
             // 
             // panel38
             // 
@@ -595,6 +595,16 @@ namespace DoAnQLDSVTC
             this.panel34.Size = new System.Drawing.Size(148, 31);
             this.panel34.TabIndex = 1;
             // 
+            // panel35
+            // 
+            this.panel35.BackColor = System.Drawing.Color.White;
+            this.panel35.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel35.Location = new System.Drawing.Point(0, 0);
+            this.panel35.Margin = new System.Windows.Forms.Padding(0);
+            this.panel35.Name = "panel35";
+            this.panel35.Size = new System.Drawing.Size(148, 31);
+            this.panel35.TabIndex = 2;
+            // 
             // cbFemale
             // 
             this.cbFemale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -607,16 +617,6 @@ namespace DoAnQLDSVTC
             this.cbFemale.Text = "Nữ";
             this.cbFemale.UseVisualStyleBackColor = true;
             this.cbFemale.CheckedChanged += new System.EventHandler(this.cbFemale_CheckedChanged);
-            // 
-            // panel35
-            // 
-            this.panel35.BackColor = System.Drawing.Color.White;
-            this.panel35.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel35.Location = new System.Drawing.Point(0, 0);
-            this.panel35.Margin = new System.Windows.Forms.Padding(0);
-            this.panel35.Name = "panel35";
-            this.panel35.Size = new System.Drawing.Size(148, 31);
-            this.panel35.TabIndex = 2;
             // 
             // label11
             // 
