@@ -8,8 +8,9 @@ namespace DoAnQLDSVTC
     {
         private STATE_ACTION currentAction = STATE_ACTION.ADD;
         private Stack<ActionStudent> undo = new Stack<ActionStudent>();
-        private List<ActionStudent> oldData = new List<ActionStudent>();
         private Dictionary<int, Stack<ActionStudent>> sites = new Dictionary<int, Stack<ActionStudent>>();
+        private List<ActionStudent> oldData = new List<ActionStudent>();
+
         private int currentKhoa;
         public Student()
         {
@@ -34,6 +35,7 @@ namespace DoAnQLDSVTC
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (!this.Visible || this.IsDisposed) return;
             int newIndex = cmbKhoa.SelectedIndex;
 
             if (newIndex < 0) return;
@@ -89,18 +91,16 @@ namespace DoAnQLDSVTC
 
         void LoadCombox()
         {
-            cmbKhoa.DataSource = Program.bds_dspm;
-            cmbKhoa.DisplayMember = "TENKHOA";
-            cmbKhoa.ValueMember = "TENSERVER";
-            cmbKhoa.SelectedIndex = Program.MKhoa;
-
             Program.bds_dspm.Filter = "TENKHOA <> 'PHÒNG KẾ TOÁN'";
-
             for (int i = 0; i < Program.bds_dspm.Count; i++)
             {
                 sites[i] = new Stack<ActionStudent>();
             }
 
+            cmbKhoa.DataSource = Program.bds_dspm;
+            cmbKhoa.DisplayMember = "TENKHOA";
+            cmbKhoa.ValueMember = "TENSERVER";
+            cmbKhoa.SelectedIndex = Program.MKhoa;
 
             string quyen = Program.mGroup;
 

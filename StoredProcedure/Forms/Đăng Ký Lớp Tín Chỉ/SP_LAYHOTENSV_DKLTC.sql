@@ -14,7 +14,7 @@ BEGIN
         WHERE MASV = @MASV_TRIM
     )
     BEGIN
-        RAISERROR (N'Sinh viên "%s" không tồn tại trong hệ thống.', 16, 1, @MASV_TRIM);
+        RAISERROR (N'Sinh viên "%s" không có dữ liệu ở khoa hiện tại hoặc không tồn tại trong hệ thống.', 16, 1, @MASV_TRIM);
         RETURN;
     END
 
@@ -42,5 +42,3 @@ BEGIN
     JOIN LOP L ON SV.MALOP = L.MALOP;
 END
 GO
-
-EXEC dbo.SP_LAYHOTENSV_DKLTC N'lelamhai11'

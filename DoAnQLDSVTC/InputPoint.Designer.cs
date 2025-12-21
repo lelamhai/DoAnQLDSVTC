@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblTitleKhoa = new System.Windows.Forms.Label();
-            this.cmbKhoa = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -84,7 +80,11 @@
             this.tableAdapterManager = new DoAnQLDSVTC.DSTableAdapters.TableAdapterManager();
             this.MONHOCTableAdapter = new DoAnQLDSVTC.DSTableAdapters.MONHOCTableAdapter();
             this.SP_LAYDS_NHAPDIEMTableAdapter = new DoAnQLDSVTC.DSTableAdapters.SP_LAYDS_NHAPDIEMTableAdapter();
-            this.panel1.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.lblTitleKhoa = new System.Windows.Forms.Label();
+            this.cmbKhoa = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel15.SuspendLayout();
@@ -105,62 +105,15 @@
             this.panel22.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbsDSNHAPDIEM)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel23.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.lblTitleKhoa);
-            this.panel1.Controls.Add(this.cmbKhoa);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(45, 0, 45, 0);
-            this.panel1.Size = new System.Drawing.Size(1425, 88);
-            this.panel1.TabIndex = 2;
-            // 
-            // lblTitleKhoa
-            // 
-            this.lblTitleKhoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTitleKhoa.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitleKhoa.Location = new System.Drawing.Point(1043, 29);
-            this.lblTitleKhoa.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTitleKhoa.Name = "lblTitleKhoa";
-            this.lblTitleKhoa.Size = new System.Drawing.Size(369, 37);
-            this.lblTitleKhoa.TabIndex = 3;
-            this.lblTitleKhoa.Text = "Khoa Công Nghệ Thông Tin";
-            this.lblTitleKhoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // cmbKhoa
-            // 
-            this.cmbKhoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cmbKhoa.FormattingEnabled = true;
-            this.cmbKhoa.Location = new System.Drawing.Point(105, 28);
-            this.cmbKhoa.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbKhoa.Name = "cmbKhoa";
-            this.cmbKhoa.Size = new System.Drawing.Size(448, 27);
-            this.cmbKhoa.TabIndex = 1;
-            this.cmbKhoa.SelectedIndexChanged += new System.EventHandler(this.cmbKhoa_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(18, 32);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 22);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Khoa";
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 88);
+            this.panel7.Location = new System.Drawing.Point(0, 60);
             this.panel7.Margin = new System.Windows.Forms.Padding(0);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1425, 22);
@@ -172,7 +125,7 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 110);
+            this.panel2.Location = new System.Drawing.Point(0, 82);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(15, 0, 15, 0);
@@ -446,6 +399,11 @@
             // 
             this.nudHocKy.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.nudHocKy.Location = new System.Drawing.Point(0, 75);
+            this.nudHocKy.Maximum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
             this.nudHocKy.Minimum = new decimal(new int[] {
             1,
             0,
@@ -565,7 +523,7 @@
             // 
             this.panel21.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel21.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel21.Location = new System.Drawing.Point(0, 211);
+            this.panel21.Location = new System.Drawing.Point(0, 183);
             this.panel21.Margin = new System.Windows.Forms.Padding(0);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(1425, 22);
@@ -576,11 +534,11 @@
             this.panel22.BackColor = System.Drawing.Color.White;
             this.panel22.Controls.Add(this.dgvDK);
             this.panel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel22.Location = new System.Drawing.Point(0, 233);
+            this.panel22.Location = new System.Drawing.Point(0, 205);
             this.panel22.Margin = new System.Windows.Forms.Padding(0);
             this.panel22.Name = "panel22";
             this.panel22.Padding = new System.Windows.Forms.Padding(15, 0, 15, 0);
-            this.panel22.Size = new System.Drawing.Size(1425, 502);
+            this.panel22.Size = new System.Drawing.Size(1425, 530);
             this.panel22.TabIndex = 7;
             // 
             // dgvDK
@@ -602,7 +560,7 @@
             this.dgvDK.Location = new System.Drawing.Point(15, 0);
             this.dgvDK.Margin = new System.Windows.Forms.Padding(0);
             this.dgvDK.Name = "dgvDK";
-            this.dgvDK.Size = new System.Drawing.Size(1395, 502);
+            this.dgvDK.Size = new System.Drawing.Size(1395, 530);
             this.dgvDK.TabIndex = 0;
             this.dgvDK.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvDK_CellBeginEdit);
             this.dgvDK.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDK_CellEndEdit);
@@ -680,6 +638,63 @@
             // 
             this.SP_LAYDS_NHAPDIEMTableAdapter.ClearBeforeFill = true;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.panel23);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1425, 60);
+            this.panel1.TabIndex = 2;
+            // 
+            // panel23
+            // 
+            this.panel23.BackColor = System.Drawing.Color.White;
+            this.panel23.Controls.Add(this.lblTitleKhoa);
+            this.panel23.Controls.Add(this.cmbKhoa);
+            this.panel23.Controls.Add(this.label1);
+            this.panel23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel23.Location = new System.Drawing.Point(0, 0);
+            this.panel23.Margin = new System.Windows.Forms.Padding(0);
+            this.panel23.Name = "panel23";
+            this.panel23.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
+            this.panel23.Size = new System.Drawing.Size(1425, 60);
+            this.panel23.TabIndex = 1;
+            // 
+            // lblTitleKhoa
+            // 
+            this.lblTitleKhoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTitleKhoa.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitleKhoa.Location = new System.Drawing.Point(1170, 20);
+            this.lblTitleKhoa.Name = "lblTitleKhoa";
+            this.lblTitleKhoa.Size = new System.Drawing.Size(246, 25);
+            this.lblTitleKhoa.TabIndex = 3;
+            this.lblTitleKhoa.Text = "Khoa Công Nghệ Thông Tin";
+            this.lblTitleKhoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cmbKhoa
+            // 
+            this.cmbKhoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cmbKhoa.FormattingEnabled = true;
+            this.cmbKhoa.Location = new System.Drawing.Point(70, 19);
+            this.cmbKhoa.Name = "cmbKhoa";
+            this.cmbKhoa.Size = new System.Drawing.Size(300, 27);
+            this.cmbKhoa.TabIndex = 1;
+            this.cmbKhoa.SelectedIndexChanged += new System.EventHandler(this.cmbKhoa_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 22);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Khoa";
+            // 
             // InputPoint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -696,8 +711,6 @@
             this.Name = "InputPoint";
             this.Text = "Nhập Điểm";
             this.Load += new System.EventHandler(this.InputPoint_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
@@ -721,16 +734,14 @@
             this.panel22.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDK)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbsDSNHAPDIEM)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel23.ResumeLayout(false);
+            this.panel23.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblTitleKhoa;
-        private System.Windows.Forms.ComboBox cmbKhoa;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
@@ -782,5 +793,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DIEM_GK;
         private System.Windows.Forms.DataGridViewTextBoxColumn DIEM_CK;
         private System.Windows.Forms.DataGridViewTextBoxColumn DIEM_HM;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel23;
+        private System.Windows.Forms.Label lblTitleKhoa;
+        private System.Windows.Forms.ComboBox cmbKhoa;
+        private System.Windows.Forms.Label label1;
     }
 }

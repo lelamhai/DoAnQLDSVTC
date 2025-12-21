@@ -80,6 +80,51 @@ namespace DoAnQLDSVTC
         {
             if (!ValidateUser()) return;
             
+            if(cmbRole.SelectedValue.ToString().Trim() == Program.quyen[0])
+            {
+                if (RolePGV())
+                {
+                    MessageBox.Show("Tạo tài khoản thành công!", "Thông báo", MessageBoxButtons.OK);
+                    txtUserName.Text = "";
+                    txtPassword.Text = "";
+                    txtPasswordAgain.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Tạo tài khoản thất bại!\nVui lòng thử lại!!", "Lỗi", MessageBoxButtons.OK);
+                }
+            }    
+
+            if(cmbRole.SelectedValue.ToString().Trim() == Program.quyen[1])
+            {
+                Program.KetNoi();
+                RoleKhoa();
+            }    
+        }
+
+        private bool RolePGV()
+        {
+            bool resultSP = true;
+            for (int i = 0; i < Program.bds_dspm.Count; i++)
+            {
+                Program.ServerName = ((DataRowView)Program.bds_dspm[i])["TENSERVER"].ToString().Trim();
+                int result = Program.KetNoi_Goc();
+                if (result == 1)
+                {
+                    string cmd = string.Format("EXEC SP_TAO_LOGIN N'{0}',N'{1}',N'{2}',N'{3}'", txtUserName.Text.Trim(), txtPassword.Text.Trim(), cmbTeacher.SelectedValue.ToString().Trim(), cmbRole.SelectedValue.ToString().Trim());
+                    int r = Program.ExecSqlNonQuery(cmd);
+                    if(r!=0)
+                    {
+                        resultSP = false;
+                    }    
+                }
+            }
+            Program.Conn.Close();
+            return resultSP;
+        }
+
+        private void RoleKhoa()
+        {
             string cmd = string.Format("EXEC SP_TAO_LOGIN N'{0}',N'{1}',N'{2}',N'{3}'", txtUserName.Text.Trim(), txtPassword.Text.Trim(), cmbTeacher.SelectedValue.ToString().Trim(), cmbRole.SelectedValue.ToString().Trim());
             int result = Program.ExecSqlNonQuery(cmd);
             if (result != 0)
@@ -95,6 +140,7 @@ namespace DoAnQLDSVTC
                 txtPasswordAgain.Text = "";
             }
         }
+
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -189,6 +235,7 @@ namespace DoAnQLDSVTC
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (!this.Visible || this.IsDisposed) return;
             if (cmbKhoa.SelectedValue.ToString() == "System.Data.DataRowView") return;
 
             currentKhoa = cmbKhoa.SelectedIndex;

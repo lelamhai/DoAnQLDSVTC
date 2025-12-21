@@ -126,6 +126,27 @@ namespace DoAnQLDSVTC
         }
 
 
+        public static int KetNoi_Goc()
+        {
+            if (Program.Conn != null && Program.Conn.State == System.Data.ConnectionState.Open)
+                Program.Conn.Close();
+            try
+            {
+                Program.URL_Connect = "Server="+ Program.ServerName + ";Database=QLDSV_TC;User Id=sa;Password=123;TrustServerCertificate=True;";
+                Program.Conn.ConnectionString = Program.URL_Connect;
+                // Console.WriteLine(Program.URL_Connect);
+                Program.Conn.Open();
+                return 1;
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi kết nối!\n Xem lại tài khoản, mật khẩu hoặc khoa đã chọn!!!\n" + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return 0;
+            }
+        }
+
+
 
         /// <summary>
         /// The main entry point for the application.

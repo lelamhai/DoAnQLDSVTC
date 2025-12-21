@@ -63,19 +63,16 @@ namespace DoAnQLDSVTC
 
         void LoadCombox()
         {
-            cmbKhoa.DataSource = Program.bds_dspm;
-            cmbKhoa.DisplayMember = "TENKHOA";
-            cmbKhoa.ValueMember = "TENSERVER";
-            cmbKhoa.SelectedIndex = Program.MKhoa;
-
             Program.bds_dspm.Filter = "TENKHOA <> 'PHÒNG KẾ TOÁN'";
-
-
             for (int i = 0; i < Program.bds_dspm.Count; i++)
             {
                 sites[i] = new Stack<ActionClassroom>();
             }
 
+            cmbKhoa.DataSource = Program.bds_dspm;
+            cmbKhoa.DisplayMember = "TENKHOA";
+            cmbKhoa.ValueMember = "TENSERVER";
+            cmbKhoa.SelectedIndex = Program.MKhoa;
 
             string quyen = Program.mGroup;
             if (quyen == Program.quyen[1])
@@ -213,6 +210,7 @@ namespace DoAnQLDSVTC
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (!this.Visible || this.IsDisposed) return;
             int newIndex = cmbKhoa.SelectedIndex;
 
             if (newIndex < 0) return;

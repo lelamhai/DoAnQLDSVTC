@@ -56,6 +56,11 @@ namespace DoAnQLDSVTC
             da.Fill(dt);
             Conn_pub.Close();
 
+            if(Program.bds_dspm != null)
+            {
+                Program.bds_dspm.RemoveFilter();
+            }
+
             Program.bds_dspm.DataSource = dt;
             cmbKhoa.DataSource = Program.bds_dspm;
             cmbKhoa.DisplayMember = "TENKHOA";

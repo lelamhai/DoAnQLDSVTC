@@ -67,7 +67,6 @@ namespace DoAnQLDSVTC
             cmbKhoa.SelectedIndex = Program.MKhoa;
 
             Program.bds_dspm.Filter = "TENKHOA <> 'PHÒNG KẾ TOÁN'";
-
             string quyen = Program.mGroup;
             if (quyen == Program.quyen[1])
             {
@@ -109,6 +108,7 @@ namespace DoAnQLDSVTC
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (!this.Visible || this.IsDisposed) return;
             int newIndex = cmbKhoa.SelectedIndex;
 
             if (newIndex < 0) return;
@@ -134,7 +134,6 @@ namespace DoAnQLDSVTC
             }
 
             lblTitleKhoa.Focus();
-            LoadDatasetApdapter();
         }
 
         private void btnStart_Click(object sender, EventArgs e)
