@@ -42,12 +42,12 @@
             this.btnLop = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
+            this.btnReportPD = new System.Windows.Forms.Button();
+            this.btnReportBDMH = new System.Windows.Forms.Button();
+            this.btnReportDHP = new System.Windows.Forms.Button();
+            this.btnReportBDTK = new System.Windows.Forms.Button();
+            this.btnReportDSSV = new System.Windows.Forms.Button();
+            this.btnReportDSLTC = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnLogout = new System.Windows.Forms.Button();
@@ -287,12 +287,12 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 658F));
-            this.tableLayoutPanel2.Controls.Add(this.button10, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button1, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button9, 4, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button8, 5, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button11, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button12, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnReportPD, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnReportBDMH, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnReportDHP, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnReportBDTK, 5, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnReportDSSV, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnReportDSLTC, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -301,107 +301,113 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1253, 100);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // button10
+            // btnReportPD
             // 
-            this.button10.BackColor = System.Drawing.Color.Transparent;
-            this.button10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
-            this.button10.Location = new System.Drawing.Point(383, 3);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(94, 94);
-            this.button10.TabIndex = 12;
-            this.button10.Text = "Bảng Điểm";
-            this.button10.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button10.UseVisualStyleBackColor = false;
+            this.btnReportPD.BackColor = System.Drawing.Color.Transparent;
+            this.btnReportPD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnReportPD.FlatAppearance.BorderSize = 0;
+            this.btnReportPD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportPD.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnReportPD.Image = ((System.Drawing.Image)(resources.GetObject("btnReportPD.Image")));
+            this.btnReportPD.Location = new System.Drawing.Point(383, 3);
+            this.btnReportPD.Name = "btnReportPD";
+            this.btnReportPD.Size = new System.Drawing.Size(94, 94);
+            this.btnReportPD.TabIndex = 12;
+            this.btnReportPD.Text = "Bảng Điểm";
+            this.btnReportPD.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnReportPD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnReportPD.UseVisualStyleBackColor = false;
+            this.btnReportPD.Click += new System.EventHandler(this.btnReportPD_Click);
             // 
-            // button1
+            // btnReportBDMH
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(243, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 94);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Điểm Môn Học";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnReportBDMH.BackColor = System.Drawing.Color.Transparent;
+            this.btnReportBDMH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnReportBDMH.FlatAppearance.BorderSize = 0;
+            this.btnReportBDMH.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportBDMH.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnReportBDMH.Image = ((System.Drawing.Image)(resources.GetObject("btnReportBDMH.Image")));
+            this.btnReportBDMH.Location = new System.Drawing.Point(243, 3);
+            this.btnReportBDMH.Name = "btnReportBDMH";
+            this.btnReportBDMH.Size = new System.Drawing.Size(134, 94);
+            this.btnReportBDMH.TabIndex = 11;
+            this.btnReportBDMH.Text = "Điểm Môn Học";
+            this.btnReportBDMH.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnReportBDMH.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnReportBDMH.UseVisualStyleBackColor = false;
+            this.btnReportBDMH.Click += new System.EventHandler(this.btnReportBDMH_Click);
             // 
-            // button9
+            // btnReportDHP
             // 
-            this.button9.BackColor = System.Drawing.Color.Transparent;
-            this.button9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.Location = new System.Drawing.Point(483, 3);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(114, 94);
-            this.button9.TabIndex = 10;
-            this.button9.Text = "Đóng Học Phí";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button9.UseVisualStyleBackColor = false;
+            this.btnReportDHP.BackColor = System.Drawing.Color.Transparent;
+            this.btnReportDHP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnReportDHP.FlatAppearance.BorderSize = 0;
+            this.btnReportDHP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportDHP.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnReportDHP.Image = ((System.Drawing.Image)(resources.GetObject("btnReportDHP.Image")));
+            this.btnReportDHP.Location = new System.Drawing.Point(483, 3);
+            this.btnReportDHP.Name = "btnReportDHP";
+            this.btnReportDHP.Size = new System.Drawing.Size(114, 94);
+            this.btnReportDHP.TabIndex = 10;
+            this.btnReportDHP.Text = "Đóng Học Phí";
+            this.btnReportDHP.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnReportDHP.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnReportDHP.UseVisualStyleBackColor = false;
+            this.btnReportDHP.Click += new System.EventHandler(this.btnReportDHP_Click);
             // 
-            // button8
+            // btnReportBDTK
             // 
-            this.button8.BackColor = System.Drawing.Color.Transparent;
-            this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.Location = new System.Drawing.Point(603, 3);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(114, 94);
-            this.button8.TabIndex = 8;
-            this.button8.Text = "Điểm Tổng Kết";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button8.UseVisualStyleBackColor = false;
+            this.btnReportBDTK.BackColor = System.Drawing.Color.Transparent;
+            this.btnReportBDTK.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnReportBDTK.FlatAppearance.BorderSize = 0;
+            this.btnReportBDTK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportBDTK.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnReportBDTK.Image = ((System.Drawing.Image)(resources.GetObject("btnReportBDTK.Image")));
+            this.btnReportBDTK.Location = new System.Drawing.Point(603, 3);
+            this.btnReportBDTK.Name = "btnReportBDTK";
+            this.btnReportBDTK.Size = new System.Drawing.Size(114, 94);
+            this.btnReportBDTK.TabIndex = 8;
+            this.btnReportBDTK.Text = "Điểm Tổng Kết";
+            this.btnReportBDTK.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnReportBDTK.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnReportBDTK.UseVisualStyleBackColor = false;
+            this.btnReportBDTK.Click += new System.EventHandler(this.btnReportBDTK_Click);
             // 
-            // button11
+            // btnReportDSSV
             // 
-            this.button11.BackColor = System.Drawing.Color.Transparent;
-            this.button11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
-            this.button11.Location = new System.Drawing.Point(103, 3);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(134, 94);
-            this.button11.TabIndex = 1;
-            this.button11.Text = "Sinh Viên Đăng Ký";
-            this.button11.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button11.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button11.UseVisualStyleBackColor = false;
+            this.btnReportDSSV.BackColor = System.Drawing.Color.Transparent;
+            this.btnReportDSSV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnReportDSSV.FlatAppearance.BorderSize = 0;
+            this.btnReportDSSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportDSSV.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnReportDSSV.Image = ((System.Drawing.Image)(resources.GetObject("btnReportDSSV.Image")));
+            this.btnReportDSSV.Location = new System.Drawing.Point(103, 3);
+            this.btnReportDSSV.Name = "btnReportDSSV";
+            this.btnReportDSSV.Size = new System.Drawing.Size(134, 94);
+            this.btnReportDSSV.TabIndex = 1;
+            this.btnReportDSSV.Text = "Sinh Viên Đăng Ký";
+            this.btnReportDSSV.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnReportDSSV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnReportDSSV.UseVisualStyleBackColor = false;
+            this.btnReportDSSV.Click += new System.EventHandler(this.btnReportDSSV_Click);
             // 
-            // button12
+            // btnReportDSLTC
             // 
-            this.button12.BackColor = System.Drawing.Color.Transparent;
-            this.button12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button12.Image = ((System.Drawing.Image)(resources.GetObject("button12.Image")));
-            this.button12.Location = new System.Drawing.Point(3, 3);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(94, 94);
-            this.button12.TabIndex = 0;
-            this.button12.Text = "Lớp Tín Chỉ";
-            this.button12.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button12.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button12.UseVisualStyleBackColor = false;
+            this.btnReportDSLTC.BackColor = System.Drawing.Color.Transparent;
+            this.btnReportDSLTC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnReportDSLTC.FlatAppearance.BorderSize = 0;
+            this.btnReportDSLTC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportDSLTC.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnReportDSLTC.Image = ((System.Drawing.Image)(resources.GetObject("btnReportDSLTC.Image")));
+            this.btnReportDSLTC.Location = new System.Drawing.Point(3, 3);
+            this.btnReportDSLTC.Name = "btnReportDSLTC";
+            this.btnReportDSLTC.Size = new System.Drawing.Size(94, 94);
+            this.btnReportDSLTC.TabIndex = 0;
+            this.btnReportDSLTC.Text = "Lớp Tín Chỉ";
+            this.btnReportDSLTC.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnReportDSLTC.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnReportDSLTC.UseVisualStyleBackColor = false;
+            this.btnReportDSLTC.Click += new System.EventHandler(this.btnReportDSLTC_Click);
             // 
             // tabPage3
             // 
@@ -602,12 +608,12 @@
         private System.Windows.Forms.Button btnCreateAccount;
         private DSTableAdapters.GIANGVIENTableAdapter giangvienTableAdapter1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnReportDSSV;
+        private System.Windows.Forms.Button btnReportDSLTC;
+        private System.Windows.Forms.Button btnReportPD;
+        private System.Windows.Forms.Button btnReportBDMH;
+        private System.Windows.Forms.Button btnReportDHP;
+        private System.Windows.Forms.Button btnReportBDTK;
         private System.Windows.Forms.Label lblInfoAccount;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblPageCurrent;

@@ -159,7 +159,40 @@ namespace DoAnQLDSVTC
         }
         #endregion
 
+
         #region TAB2
+        private void btnReportDSLTC_Click(object sender, EventArgs e)
+        {
+            LoadForm(new ReportLTC());
+        }
+        private void btnReportDSSV_Click(object sender, EventArgs e)
+        {
+            LoadForm(new ReportLTC());
+        }
+
+        private void btnReportBDMH_Click(object sender, EventArgs e)
+        {
+            LoadForm(new ReportLTC());
+        }
+
+        private void btnReportPD_Click(object sender, EventArgs e)
+        {
+            LoadForm(new ReportLTC());
+        }
+
+        private void btnReportDHP_Click(object sender, EventArgs e)
+        {
+            LoadForm(new ReportLTC());
+        }
+
+        private void btnReportBDTK_Click(object sender, EventArgs e)
+        {
+            LoadForm(new ReportLTC());
+        }
+        #endregion
+
+
+        #region TAB3
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
             LoadForm(new CreateAccount());
