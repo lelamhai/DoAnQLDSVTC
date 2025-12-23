@@ -22,6 +22,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PreferNativeArm64>true</PreferNativeArm64>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -92,6 +94,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FormReportDSLTC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportDSLTC.Designer.cs">
+      <DependentUpon>FormReportDSLTC.cs</DependentUpon>
+    </Compile>
     <Compile Include="InputPoint.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +161,9 @@
     <EmbeddedResource Include="CreateAccount.resx">
       <DependentUpon>CreateAccount.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormReportDSLTC.resx">
+      <DependentUpon>FormReportDSLTC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InputPoint.resx">
       <DependentUpon>InputPoint.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,6 +189,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReportDSLTC.rdlc" />
     <EmbeddedResource Include="ReportLTC.resx">
       <DependentUpon>ReportLTC.cs</DependentUpon>
     </EmbeddedResource>

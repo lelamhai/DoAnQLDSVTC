@@ -1,0 +1,47 @@
+ALTER PROC SP_REPORT_LAYDS_LTC
+    @NK NCHAR(9),
+    @HK INT
+AS
+BEGIN
+    SELECT
+        ROW_NUMBER() OVER (ORDER BY MH.MAMH, LTC.NHOM) AS STT,
+        MH.MAMH,
+        MH.TENMH,
+        LTC.NHOM,
+        GV.HO + ' ' + GV.TEN AS TENGV,
+        LTC.SOSVTOITHIEU,
+        COUNT(DK.MASV) AS SOSVDADK,
+        LTC.MALTC
+    FROM
+        (SELECT MALTC, MAMH, NHOM, MAGV, SOSVTOITHIEU
+         FROM LOPTINCHI
+         WHERE NIENKHOA = @NK
+           AND HOCKY    = @HK
+           AND (HUYLOP = 0 OR HUYLOP IS NULL)
+        ) LTC
+    LEFT JOIN
+        (SELECT MAMH, TENMH
+         FROM MONHOC
+        ) MH
+        ON MH.MAMH = LTC.MAMH
+    LEFT JOIN
+        (SELECT MALTC, MASV
+         FROM DANGKY
+         WHERE HUYDANGKY = 0 OR HUYDANGKY IS NULL
+        ) DK
+        ON DK.MALTC = LTC.MALTC
+    LEFT JOIN
+        (SELECT MAGV, HO, TEN
+         FROM GIANGVIEN
+        ) GV
+        ON GV.MAGV = LTC.MAGV
+    GROUP BY
+        MH.MAMH, MH.TENMH,
+        LTC.NHOM,
+        GV.HO, GV.TEN,
+        LTC.SOSVTOITHIEU,
+        LTC.MALTC;
+END
+GO
+
+EXEC SP_REPORT_LAYDS_LTC N'2021-2022', 1
