@@ -223,6 +223,11 @@
             // 
             this.nudHocKy.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.nudHocKy.Location = new System.Drawing.Point(0, 24);
+            this.nudHocKy.Maximum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
             this.nudHocKy.Minimum = new decimal(new int[] {
             1,
             0,
