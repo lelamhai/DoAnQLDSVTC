@@ -305,7 +305,7 @@
             this.dgvHocPhi.Name = "dgvHocPhi";
             this.dgvHocPhi.Size = new System.Drawing.Size(1252, 290);
             this.dgvHocPhi.TabIndex = 0;
-            this.dgvHocPhi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHocPhi_CellClick);
+            this.dgvHocPhi.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHocPhi_RowEnter);
             // 
             // ANIENKHOA
             // 
@@ -436,7 +436,6 @@
             this.dgvCTHOCPHI.Name = "dgvCTHOCPHI";
             this.dgvCTHOCPHI.Size = new System.Drawing.Size(1252, 194);
             this.dgvCTHOCPHI.TabIndex = 0;
-            this.dgvCTHOCPHI.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvCTHOCPHI_CellBeginEdit);
             this.dgvCTHOCPHI.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCTHOCPHI_CellValueChanged);
             this.dgvCTHOCPHI.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvCTHOCPHI_DataError);
             // 
@@ -546,6 +545,7 @@
             // btnAddRow
             // 
             this.btnAddRow.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAddRow.Enabled = false;
             this.btnAddRow.FlatAppearance.BorderSize = 0;
             this.btnAddRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddRow.Image = ((System.Drawing.Image)(resources.GetObject("btnAddRow.Image")));

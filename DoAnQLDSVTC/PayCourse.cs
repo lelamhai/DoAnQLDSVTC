@@ -16,7 +16,6 @@ namespace DoAnQLDSVTC
         int soTienDaDong = 0;
         int soTienConLai = 0;
         int hocPhi = 0;
-
         enum ActionForm
         {
             ADD,
@@ -62,25 +61,17 @@ namespace DoAnQLDSVTC
         private void btnSearch_Click(object sender, EventArgs e)
         {
             GetInfoSV();
+            if(txtTenSV.Text == "")
+            {
+                RestetDSHocPhi();
+                ResetCTHocPhi();
+                btnAddRow.Enabled = false;
+                btnEdit.Enabled = false;
+                return;
+            }
+            GetHocPhi();
             GetDSHP();
             LoadSTCD();
-        }
-
-        private void GetHocPhi()
-        {
-            try
-            {
-                string strLenh = "EXEC SP_TINH_HOCPHI N'" + txtMaSV.Text + "'";
-                int result = Program.ExecSqlNonQuery(strLenh);
-                if(result !=0)
-                {
-                    MessageBox.Show("Tính học phí thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                }    
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         void GetInfoSV()
@@ -97,7 +88,23 @@ namespace DoAnQLDSVTC
             txtTenSV.Text = Program.myReader.GetString(0);
             txtMaLop.Text = Program.myReader.GetString(1);
             Program.myReader.Close();
-            GetHocPhi();
+        }
+
+        private void GetHocPhi()
+        {
+            try
+            {
+                string strLenh = "EXEC SP_TINH_HOCPHI N'" + txtMaSV.Text + "'";
+                int result = Program.ExecSqlNonQuery(strLenh);
+                if (result != 0)
+                {
+                    MessageBox.Show("Tính học phí thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         void GetDSHP()
@@ -108,24 +115,21 @@ namespace DoAnQLDSVTC
                 this.SP_LAYDS_HOCPHITableAdapter.Fill(this.DS1.SP_LAYDS_HOCPHI, txtMaSV.Text);
                 if (dbsDSHOCPHI.Count > 0)
                 {
-                    dbsDSHOCPHI.Position = 0;
-
                     DataRowView drv = (DataRowView)dbsDSHOCPHI.Current;
                     nienKhoa = drv["NIENKHOA"].ToString();
                     hocKy = drv["HOCKY"].ToString();
-
-                    GetCTHP();
+                    btnAddRow.Enabled = true;
                 }
-                else
-                {
-                    ResetCTHocPhi();
-                }
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        void RestetDSHocPhi()
+        {
+            DS1.SP_LAYDS_HOCPHI.Clear();
         }
 
         void ResetCTHocPhi()
@@ -166,16 +170,6 @@ namespace DoAnQLDSVTC
             }
         }
 
-        private void dgvHocPhi_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0) return;
-
-            var row = dgvHocPhi.Rows[e.RowIndex];
-            nienKhoa = row.Cells["ANIENKHOA"].Value?.ToString();
-            hocKy = row.Cells["AHOCKY"].Value.ToString();
-            GetCTHP();
-        }
-
         private void btnAddRow_Click(object sender, EventArgs e)
         {
             if (txtMaSV.Text == "") return;
@@ -188,36 +182,31 @@ namespace DoAnQLDSVTC
             }
 
             dbsCTHOCPHI.AddNew();
-            var drv = (DataRowView)dbsCTHOCPHI.Current;
 
+            var drv = (DataRowView)dbsCTHOCPHI.Current;
             string date = ngayDong.ToString("dd/MM/yyyy");
             drv["NGAYDONG"] = date;
             drv["SOTIENDONG"] = 0;
 
-            dgvCTHOCPHI.Columns["BSOTIENDONG"].ReadOnly = false;
-
-            dgvCTHOCPHI.CurrentCell = dgvCTHOCPHI.Rows[dgvCTHOCPHI.CurrentRow.Index].Cells["BSOTIENDONG"];
-            dgvCTHOCPHI.Rows[dgvCTHOCPHI.CurrentRow.Index].Cells["BSOTIENDONG"].Value = soTienConLai;
+            int rowIndex = dgvCTHOCPHI.CurrentRow.Index;
+            dgvCTHOCPHI.Rows[rowIndex].Cells["BSOTIENDONG"].ReadOnly = false;
+            dgvCTHOCPHI.Rows[rowIndex].Cells["BSOTIENDONG"].Style.BackColor = Color.LightGreen;
+            dgvCTHOCPHI.Rows[rowIndex].Cells["BSOTIENDONG"].Value = soTienConLai;
+            dgvCTHOCPHI.CurrentCell = dgvCTHOCPHI.Rows[rowIndex].Cells["BSOTIENDONG"];
             dgvCTHOCPHI.BeginEdit(true);
+
 
             btnAddRow.Enabled = false;
             btnEdit.Enabled = false;
             btnSave.Enabled = true;
             btnCancel.Enabled = true;
-            
+
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if(dbsCTHOCPHI.Current == null) return;
             current = ActionForm.UPDATE;
             CalculateSTCD();
-           
-            int rowIndex = dgvCTHOCPHI.CurrentCell.RowIndex;
-            int columnIndex = dgvCTHOCPHI.CurrentCell.ColumnIndex;
-            if(dgvCTHOCPHI.Rows[rowIndex].Cells[columnIndex].OwningColumn.Name != "BSOTIENDONG")
-            {
-                return;
-            }
 
             if (soTienConLai == 0)
             {
@@ -234,12 +223,20 @@ namespace DoAnQLDSVTC
                 }
             }
 
-            dgvCTHOCPHI.Rows[rowIndex].Cells[columnIndex].ReadOnly = false;
-            dgvCTHOCPHI.Rows[rowIndex].Cells[columnIndex].Style.BackColor = Color.LightGreen;
+            int rowIndex = dgvCTHOCPHI.CurrentRow.Index;
+
+            dgvCTHOCPHI.Rows[rowIndex].Cells["BSOTIENDONG"].ReadOnly = false;
+            dgvCTHOCPHI.Rows[rowIndex].Cells["BSOTIENDONG"].Style.BackColor = Color.LightGreen;
             soTienDaDong = TryParse(dgvCTHOCPHI.Rows[dgvCTHOCPHI.CurrentRow.Index].Cells["BSOTIENDONG"].Value);
-            dgvCTHOCPHI.CurrentCell = dgvCTHOCPHI.Rows[dgvCTHOCPHI.CurrentRow.Index].Cells["BSOTIENDONG"];
             getTimeColumn = Convert.ToDateTime(dgvCTHOCPHI.Rows[dgvCTHOCPHI.CurrentRow.Index].Cells["BNGAYDONG"].Value);
+
+            dgvCTHOCPHI.CurrentCell = dgvCTHOCPHI.Rows[rowIndex].Cells["BSOTIENDONG"];
             dgvCTHOCPHI.BeginEdit(true);
+
+            var value = dgvCTHOCPHI.Rows[rowIndex].Cells["BSOTIENDONG"].Value;
+            soTienNhapVao = TryParse(value);
+
+
             btnAddRow.Enabled = false;
             btnEdit.Enabled = false;
             btnSave.Enabled = true;
@@ -254,21 +251,32 @@ namespace DoAnQLDSVTC
                 switch(current)
                 {
                     case ActionForm.ADD:
-                        if(hocPhi-soTienNhapVao < 0)
+                        if (soTienNhapVao == 0)
+                        {
+                            MessageBox.Show("Số tiền nhập vào phải lớn hơn 0", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                        
+                        if (hocPhi-soTienNhapVao < 0)
                         {
                             MessageBox.Show("Số tiền nhập vào vượt quá số tiền cần đóng. Hệ thống sẽ tự động điều chỉnh thành số tiền học phí là '" + hocPhi.ToString("N0") + "'", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             soTienNhapVao = hocPhi;
-                        }    
-
+                        }
                         InsertCTHOCPHI();
                         break;
                     case ActionForm.UPDATE:
-                        if(soTienDaDong + soTienConLai < soTienNhapVao)
+                        if (soTienNhapVao == 0)
+                        {
+                            MessageBox.Show("Số tiền nhập vào phải lớn hơn 0", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        if (soTienDaDong + soTienConLai < soTienNhapVao)
                         {
                             soTienNhapVao = soTienDaDong + soTienConLai;
                             MessageBox.Show("Số tiền nhập vào vượt quá số tiền cần đóng. Hệ thống sẽ tự động điều chỉnh thành số tiền '" + soTienNhapVao.ToString("N0") + "'", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-
+                        
                         UpdateCTHOCPHI();
                         break;
                     default:
@@ -313,7 +321,6 @@ namespace DoAnQLDSVTC
 
         void UpdateCTHOCPHI()
         {
-
             var drv = (DataRowView)dbsCTHOCPHI.Current;
             string cmd = string.Format(
                 "EXEC dbo.SP_CAPNHAT_CTDONGHOCPHI " +
@@ -367,17 +374,6 @@ namespace DoAnQLDSVTC
             soTienNhapVao = TryParse(value);
         }
 
-        private int TryParse(object val)
-        {
-            int result = 0;
-            int.TryParse(Convert.ToString(val), out result);
-            return result;
-        }
-
-        private void dgvCTHOCPHI_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
-        {
-        }
-
         private void dgvCTHOCPHI_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             if (dgvCTHOCPHI.Columns[e.ColumnIndex].Name == "BSOTIENDONG")
@@ -385,6 +381,21 @@ namespace DoAnQLDSVTC
                 MessageBox.Show("Bạn phải nhập vào một số tiền nguyên dương để hợp lệ!", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dgvCTHOCPHI.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = DBNull.Value;
             }
+        }
+        private int TryParse(object val)
+        {
+            int result = 0;
+            int.TryParse(Convert.ToString(val), out result);
+            return result;
+        }
+
+        private void dgvHocPhi_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            var row = dgvHocPhi.Rows[e.RowIndex];
+            nienKhoa = row.Cells["ANIENKHOA"].Value?.ToString();
+            hocKy = row.Cells["AHOCKY"].Value.ToString();
+            GetCTHP();
         }
     }
 }
