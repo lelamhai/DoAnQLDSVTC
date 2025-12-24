@@ -87,7 +87,6 @@ namespace DoAnQLDSVTC
 
         private void cmbKhoa_SelectedIndexChanged(object sender, System.EventArgs e)
         {
-            if (!this.Visible || this.IsDisposed) return;
             int newIndex = cmbKhoa.SelectedIndex;
 
             if (newIndex < 0) return;
@@ -102,12 +101,6 @@ namespace DoAnQLDSVTC
             PreviewReportDSSVDKLTC formReport = new PreviewReportDSSVDKLTC(nameServer.ToUpper(), txtNienKhoa.Text, (int)nudHocKy.Value, maMH.Trim(), tenMH.ToUpper(), (int)nudNhom.Value);
             formReport.Opacity = 0;
             formReport.ShowDialog();
-        }
-
-        private void cmbMH_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            maMH = cmbMH.SelectedValue.ToString();
-            tenMH = cmbMH.Text;
         }
     }
 }

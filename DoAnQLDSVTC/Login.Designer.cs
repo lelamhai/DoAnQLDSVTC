@@ -90,7 +90,6 @@ namespace DoAnQLDSVTC
             this.cmbKhoa.Name = "cmbKhoa";
             this.cmbKhoa.Size = new System.Drawing.Size(300, 27);
             this.cmbKhoa.TabIndex = 1;
-            this.cmbKhoa.SelectedIndexChanged += new System.EventHandler(this.cmbKhoa_SelectedIndexChanged);
             // 
             // panel1
             // 

@@ -17,7 +17,6 @@ namespace DoAnQLDSVTC
         int soTienConLai = 0;
         int hocPhi = 0;
 
-        bool flagEdit;
         enum ActionForm
         {
             ADD,
@@ -36,7 +35,6 @@ namespace DoAnQLDSVTC
         {
             FormatColumnDSHP();
             FormatColumnCTHP();
-            GetHocPhi();
         }
 
         void FormatColumnDSHP()
@@ -73,7 +71,11 @@ namespace DoAnQLDSVTC
             try
             {
                 string strLenh = "EXEC SP_TINH_HOCPHI N'" + txtMaSV.Text + "'";
-                Program.ExecSqlDataTable(strLenh);
+                int result = Program.ExecSqlNonQuery(strLenh);
+                if(result !=0)
+                {
+                    MessageBox.Show("Tính học phí thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                }    
             }
             catch(Exception ex)
             {
@@ -95,6 +97,7 @@ namespace DoAnQLDSVTC
             txtTenSV.Text = Program.myReader.GetString(0);
             txtMaLop.Text = Program.myReader.GetString(1);
             Program.myReader.Close();
+            GetHocPhi();
         }
 
         void GetDSHP()

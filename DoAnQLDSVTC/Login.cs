@@ -56,10 +56,13 @@ namespace DoAnQLDSVTC
             da.Fill(dt);
             Conn_pub.Close();
 
-            if(Program.bds_dspm != null)
+            if (Program.bds_dspm != null)
             {
-                Program.bds_dspm.RemoveFilter();
+                Program.bds_dspm.DataSource = null;
+                Program.bds_dspm.Clear();
             }
+            
+            Program.bds_dspm = new BindingSource();
 
             Program.bds_dspm.DataSource = dt;
             cmbKhoa.DataSource = Program.bds_dspm;
@@ -70,6 +73,7 @@ namespace DoAnQLDSVTC
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (!ValidateLogin()) return;
+            Program.ServerName = cmbKhoa.SelectedValue.ToString();
 
             Program.MLogin = txtUserName.Text;
             Program.MPass = txtPassword.Text;
@@ -100,18 +104,6 @@ namespace DoAnQLDSVTC
             Admin admin = new Admin();
             admin.Show();
             this.Hide();
-        }
-
-        private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                Program.ServerName = cmbKhoa.SelectedValue.ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi không có chi nhánh này");
-            }
         }
 
         private void btnShow_Click(object sender, EventArgs e)

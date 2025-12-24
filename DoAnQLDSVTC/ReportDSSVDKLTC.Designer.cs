@@ -316,7 +316,6 @@
             this.cmbMH.Size = new System.Drawing.Size(390, 27);
             this.cmbMH.TabIndex = 13;
             this.cmbMH.ValueMember = "MAMH";
-            this.cmbMH.SelectedIndexChanged += new System.EventHandler(this.cmbMH_SelectedIndexChanged);
             // 
             // dbsMH
             // 

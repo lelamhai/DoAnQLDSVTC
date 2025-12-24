@@ -69,16 +69,6 @@ namespace DoAnQLDSVTC
             txtNienKhoa.Text = dtpBeigin.Value.Year + "-" + dtpEnd.Value.Year;
         }
 
-        private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (!this.Visible || this.IsDisposed) return;
-            int newIndex = cmbKhoa.SelectedIndex;
-
-            if (newIndex < 0) return;
-            if (cmbKhoa.SelectedValue.ToString() == "System.Data.DataRowView") return;
-            currentKhoa = newIndex;
-        }
-
         private void btnPrint_Click(object sender, EventArgs e)
         {
             string nameServer = cmbKhoa.Text;

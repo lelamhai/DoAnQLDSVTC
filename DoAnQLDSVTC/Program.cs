@@ -32,7 +32,7 @@ namespace DoAnQLDSVTC
         public static String MPassDN = string.Empty;
 
 
-        public static BindingSource bds_dspm = new BindingSource(); // luu ds pm
+        public static BindingSource bds_dspm; // luu ds pm
 
 
         //public static frmMain frmMain;
