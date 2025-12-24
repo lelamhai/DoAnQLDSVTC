@@ -464,7 +464,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ReportLTC";
-            this.Text = "Báo Cáo";
+            this.Text = "Danh Sách LTC";
             this.Load += new System.EventHandler(this.ReportLTC_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

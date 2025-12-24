@@ -614,7 +614,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ReportDSSVDKLTC";
-            this.Text = "ReportDSSVDKLTC";
+            this.Text = "Danh Sách Sinh Viên Đăng Ký LTC";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ReportDSSVDKLTC_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

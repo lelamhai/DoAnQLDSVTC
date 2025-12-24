@@ -159,13 +159,3 @@ namespace DoAnQLDSVTC
 
     }
 }
-
-public enum ReportType
-{
-    DSLTC = 0,
-    DSSVLTC = 1,
-    BDMHLTC = 2,
-    PD = 3,
-    DSDHPL = 4,
-    BDTK = 5
-}
