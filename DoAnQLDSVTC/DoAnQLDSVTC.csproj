@@ -205,6 +205,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ReportDSLTC.rdlc" />
+    <EmbeddedResource Include="ReportDSSVDKLTC.rdlc" />
     <EmbeddedResource Include="ReportDSSVDKLTC.resx">
       <DependentUpon>ReportDSSVDKLTC.cs</DependentUpon>
     </EmbeddedResource>

@@ -40,13 +40,15 @@
             this.panel20 = new System.Windows.Forms.Panel();
             this.lblMessage = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nudNhom = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.cmbMH = new System.Windows.Forms.ComboBox();
+            this.dbsMH = new System.Windows.Forms.BindingSource(this.components);
+            this.DS = new DoAnQLDSVTC.DS();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -71,8 +73,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.DS = new DoAnQLDSVTC.DS();
-            this.dbsMH = new System.Windows.Forms.BindingSource(this.components);
             this.MONHOCTableAdapter = new DoAnQLDSVTC.DSTableAdapters.MONHOCTableAdapter();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -81,15 +81,15 @@
             this.panel15.SuspendLayout();
             this.panel20.SuspendLayout();
             this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNhom)).BeginInit();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dbsMH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudHocKy)).BeginInit();
             this.panel6.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel17.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsMH)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -173,6 +173,7 @@
             this.btnPrint.TabIndex = 0;
             this.btnPrint.Text = "In";
             this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnExit
             // 
@@ -219,7 +220,7 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.numericUpDown1);
+            this.panel10.Controls.Add(this.nudNhom);
             this.panel10.Controls.Add(this.label5);
             this.panel10.Controls.Add(this.button3);
             this.panel10.Controls.Add(this.button4);
@@ -229,19 +230,19 @@
             this.panel10.Size = new System.Drawing.Size(390, 50);
             this.panel10.TabIndex = 22;
             // 
-            // numericUpDown1
+            // nudNhom
             // 
-            this.numericUpDown1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.numericUpDown1.Location = new System.Drawing.Point(0, 24);
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.nudNhom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.nudNhom.Location = new System.Drawing.Point(0, 24);
+            this.nudNhom.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(390, 26);
-            this.numericUpDown1.TabIndex = 13;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.nudNhom.Name = "nudNhom";
+            this.nudNhom.Size = new System.Drawing.Size(390, 26);
+            this.nudNhom.TabIndex = 13;
+            this.nudNhom.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -315,6 +316,17 @@
             this.cmbMH.Size = new System.Drawing.Size(390, 27);
             this.cmbMH.TabIndex = 13;
             this.cmbMH.ValueMember = "MAMH";
+            this.cmbMH.SelectedIndexChanged += new System.EventHandler(this.cmbMH_SelectedIndexChanged);
+            // 
+            // dbsMH
+            // 
+            this.dbsMH.DataMember = "MONHOC";
+            this.dbsMH.DataSource = this.DS;
+            // 
+            // DS
+            // 
+            this.DS.DataSetName = "DS";
+            this.DS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label4
             // 
@@ -588,16 +600,6 @@
             this.panel2.Size = new System.Drawing.Size(390, 20);
             this.panel2.TabIndex = 1;
             // 
-            // DS
-            // 
-            this.DS.DataSetName = "DS";
-            this.DS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dbsMH
-            // 
-            this.dbsMH.DataMember = "MONHOC";
-            this.dbsMH.DataSource = this.DS;
-            // 
             // MONHOCTableAdapter
             // 
             this.MONHOCTableAdapter.ClearBeforeFill = true;
@@ -623,9 +625,11 @@
             this.panel20.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNhom)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dbsMH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudHocKy)).EndInit();
@@ -635,8 +639,6 @@
             this.tableLayoutPanel4.PerformLayout();
             this.panel17.ResumeLayout(false);
             this.panel17.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsMH)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -672,7 +674,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ComboBox cmbMH;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nudNhom;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;

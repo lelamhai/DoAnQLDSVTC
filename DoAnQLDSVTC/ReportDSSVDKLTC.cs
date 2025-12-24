@@ -6,7 +6,8 @@ namespace DoAnQLDSVTC
     public partial class ReportDSSVDKLTC : Form
     {
         private int currentKhoa;
-
+        private string maMH;
+        private string tenMH;
         public ReportDSSVDKLTC()
         {
             InitializeComponent();
@@ -32,6 +33,8 @@ namespace DoAnQLDSVTC
         {
             this.MONHOCTableAdapter.Connection.ConnectionString = Program.URL_Connect;
             this.MONHOCTableAdapter.Fill(this.DS.MONHOC);
+            maMH = cmbMH.SelectedValue.ToString();
+            tenMH = cmbMH.Text;
         }
 
         void LoadCombox()
@@ -90,6 +93,21 @@ namespace DoAnQLDSVTC
             if (newIndex < 0) return;
             if (cmbKhoa.SelectedValue.ToString() == "System.Data.DataRowView") return;
             currentKhoa = newIndex;
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            string nameServer = cmbKhoa.Text;
+
+            PreviewReportDSSVDKLTC formReport = new PreviewReportDSSVDKLTC(nameServer.ToUpper(), txtNienKhoa.Text, (int)nudHocKy.Value, maMH.Trim(), tenMH.ToUpper(), (int)nudNhom.Value);
+            formReport.Opacity = 0;
+            formReport.ShowDialog();
+        }
+
+        private void cmbMH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            maMH = cmbMH.SelectedValue.ToString();
+            tenMH = cmbMH.Text;
         }
     }
 }

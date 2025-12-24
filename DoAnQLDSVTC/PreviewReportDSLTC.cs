@@ -50,7 +50,8 @@ namespace DoAnQLDSVTC
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi tải báo cáo. " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Close();
             }
         }
     }

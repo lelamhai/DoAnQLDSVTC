@@ -28,19 +28,60 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.dbsDSSVDKLTC = new System.Windows.Forms.BindingSource(this.components);
+            this.DS = new DoAnQLDSVTC.DS();
+            this.SP_REPORT_LAYDS_SVDKLTCTableAdapter = new DoAnQLDSVTC.DSTableAdapters.SP_REPORT_LAYDS_SVDKLTCTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.dbsDSSVDKLTC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             this.SuspendLayout();
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "DoAnQLDSVTC.ReportDSSVDKLTC.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(529, 627);
+            this.reportViewer1.TabIndex = 0;
+            // 
+            // dbsDSSVDKLTC
+            // 
+            this.dbsDSSVDKLTC.DataMember = "SP_REPORT_LAYDS_SVDKLTC";
+            this.dbsDSSVDKLTC.DataSource = this.DS;
+            // 
+            // DS
+            // 
+            this.DS.DataSetName = "DS";
+            this.DS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // SP_REPORT_LAYDS_SVDKLTCTableAdapter
+            // 
+            this.SP_REPORT_LAYDS_SVDKLTCTableAdapter.ClearBeforeFill = true;
             // 
             // PreviewReportDSSVDKLTC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(529, 627);
+            this.Controls.Add(this.reportViewer1);
             this.Name = "PreviewReportDSSVDKLTC";
             this.Text = "Preview Report";
+            this.Load += new System.EventHandler(this.PreviewReportDSSVDKLTC_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dbsDSSVDKLTC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.BindingSource dbsDSSVDKLTC;
+        private DS DS;
+        private DSTableAdapters.SP_REPORT_LAYDS_SVDKLTCTableAdapter SP_REPORT_LAYDS_SVDKLTCTableAdapter;
     }
 }

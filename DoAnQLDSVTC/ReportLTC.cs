@@ -81,8 +81,7 @@ namespace DoAnQLDSVTC
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            DataRowView row = (DataRowView)cmbKhoa.Items[currentKhoa];
-            string nameServer = row["TENKHOA"].ToString().Trim();
+            string nameServer = cmbKhoa.Text;
 
             PreviewReportDSLTC formReport = new PreviewReportDSLTC(nameServer.ToUpper(), txtNienKhoa.Text, (int)nudHocKy.Value);
             formReport.Opacity = 0;
