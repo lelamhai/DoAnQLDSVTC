@@ -1,30 +1,43 @@
 ﻿using System;
-using System.Data;
 using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
 {
-    public partial class ReportLTC : Form
+    public partial class ReportDSSVDKLTC : Form
     {
         private int currentKhoa;
 
-        public ReportLTC()
+        public ReportDSSVDKLTC()
         {
             InitializeComponent();
         }
 
-        private void ReportLTC_Load(object sender, EventArgs e)
+        private void ReportDSSVDKLTC_Load(object sender, System.EventArgs e)
         {
+            SetTitle();
+            LoadDatasetApdapter();
             LoadCombox();
             SetupBeigin();
             SetupEnd();
             LoadNienKhoa();
+            label1.Focus();
+        }
+
+        private void SetTitle()
+        {
+            label1.Text = "Chọn Điều Kiện In Danh Sách\r\nSinh Viên Đăng Ký Lớp Tín Chỉ";
+        }
+
+        void LoadDatasetApdapter()
+        {
+            this.MONHOCTableAdapter.Connection.ConnectionString = Program.URL_Connect;
+            this.MONHOCTableAdapter.Fill(this.DS.MONHOC);
         }
 
         void LoadCombox()
         {
             Program.bds_dspm.Filter = "TENKHOA <> 'PHÒNG KẾ TOÁN'";
-         
+
             cmbKhoa.DataSource = Program.bds_dspm;
             cmbKhoa.DisplayMember = "TENKHOA";
             cmbKhoa.ValueMember = "TENSERVER";
@@ -69,7 +82,7 @@ namespace DoAnQLDSVTC
             txtNienKhoa.Text = dtpBeigin.Value.Year + "-" + dtpEnd.Value.Year;
         }
 
-        private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbKhoa_SelectedIndexChanged(object sender, System.EventArgs e)
         {
             if (!this.Visible || this.IsDisposed) return;
             int newIndex = cmbKhoa.SelectedIndex;
@@ -77,16 +90,6 @@ namespace DoAnQLDSVTC
             if (newIndex < 0) return;
             if (cmbKhoa.SelectedValue.ToString() == "System.Data.DataRowView") return;
             currentKhoa = newIndex;
-        }
-
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-            DataRowView row = (DataRowView)cmbKhoa.Items[currentKhoa];
-            string nameServer = row["TENKHOA"].ToString().Trim();
-
-            PreviewReportDSLTC formReport = new PreviewReportDSLTC(nameServer.ToUpper(), txtNienKhoa.Text, (int)nudHocKy.Value);
-            formReport.Opacity = 0;
-            formReport.ShowDialog();
         }
     }
 }

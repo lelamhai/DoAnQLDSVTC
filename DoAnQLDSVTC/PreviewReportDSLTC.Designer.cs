@@ -1,6 +1,6 @@
 ﻿namespace DoAnQLDSVTC
 {
-    partial class FormReportDSLTC
+    partial class PreviewReportDSLTC
     {
         /// <summary>
         /// Required designer variable.
@@ -62,14 +62,14 @@
             // 
             this.SP_REPORT_LAYDS_LTCTableAdapter.ClearBeforeFill = true;
             // 
-            // FormReportDSLTC
+            // PreviewReportDSLTC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(611, 930);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "FormReportDSLTC";
-            this.Text = "Báo Cáo";
+            this.Name = "PreviewReportDSLTC";
+            this.Text = "Preview report";
             this.Load += new System.EventHandler(this.FormReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dbsDSLTC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();

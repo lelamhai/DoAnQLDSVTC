@@ -167,7 +167,7 @@ namespace DoAnQLDSVTC
         }
         private void btnReportDSSV_Click(object sender, EventArgs e)
         {
-            LoadForm(new ReportLTC());
+            LoadForm(new ReportDSSVDKLTC());
         }
 
         private void btnReportBDMH_Click(object sender, EventArgs e)

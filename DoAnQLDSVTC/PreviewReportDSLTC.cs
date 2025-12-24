@@ -3,13 +3,13 @@ using System;
 using System.Windows.Forms;
 namespace DoAnQLDSVTC
 {
-    public partial class FormReportDSLTC : Form
+    public partial class PreviewReportDSLTC : Form
     {
         private string _khoa;
         private string _nienkhoa;
         private int _hocky;
 
-        public FormReportDSLTC(string khoa, string nienkhoa, int hocky)
+        public PreviewReportDSLTC(string khoa, string nienkhoa, int hocky)
         {
             this._khoa = khoa;
             this._nienkhoa = nienkhoa;
