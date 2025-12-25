@@ -98,7 +98,8 @@ namespace DoAnQLDSVTC
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-
+            Admin parent = this.TopLevelControl as Admin;
+            parent.CloseForm(this);
         }
     }
 }

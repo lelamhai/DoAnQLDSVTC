@@ -56,19 +56,20 @@
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "LAYDS_BDMH_LTC";
+            reportDataSource1.Value = null;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "DoAnQLDSVTC.TemplateReportBDMH.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(915, 991);
+            this.reportViewer1.Size = new System.Drawing.Size(630, 991);
             this.reportViewer1.TabIndex = 0;
             // 
             // PreviewReportBDMH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 991);
+            this.ClientSize = new System.Drawing.Size(630, 991);
             this.Controls.Add(this.reportViewer1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);

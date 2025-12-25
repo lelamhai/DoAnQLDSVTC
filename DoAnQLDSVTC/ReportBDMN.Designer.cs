@@ -613,7 +613,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ReportBDMN";
-            this.Text = "Bản Điểm Môn Học";
+            this.Text = "Bảng Điểm Môn Học";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ReportPointSubject_Load);
             this.panel8.ResumeLayout(false);

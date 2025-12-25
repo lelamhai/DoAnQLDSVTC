@@ -92,5 +92,11 @@ namespace DoAnQLDSVTC
             formReport.Opacity = 0;
             formReport.ShowDialog();
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Admin parent = this.TopLevelControl as Admin;
+            parent.CloseForm(this);
+        }
     }
 }
