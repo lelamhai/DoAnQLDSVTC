@@ -94,6 +94,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="PreviewReportBDMH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PreviewReportBDMH.Designer.cs">
+      <DependentUpon>PreviewReportBDMH.cs</DependentUpon>
+    </Compile>
     <Compile Include="PreviewReportDSSVDKLTC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,12 @@
     <Compile Include="ReportDSSVDKLTC.Designer.cs">
       <DependentUpon>ReportDSSVDKLTC.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportBDMN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportBDMN.Designer.cs">
+      <DependentUpon>ReportBDMN.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportLTC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreateAccount.resx">
       <DependentUpon>CreateAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreviewReportBDMH.resx">
+      <DependentUpon>PreviewReportBDMH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PreviewReportDSSVDKLTC.resx">
       <DependentUpon>PreviewReportDSSVDKLTC.cs</DependentUpon>
@@ -204,10 +219,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ReportDSLTC.rdlc" />
-    <EmbeddedResource Include="ReportDSSVDKLTC.rdlc" />
+    <EmbeddedResource Include="TemplateReportBDMH.rdlc" />
+    <EmbeddedResource Include="TemplateReportDSLTC.rdlc" />
+    <EmbeddedResource Include="TemplateReportDSSVDKLTC.rdlc" />
     <EmbeddedResource Include="ReportDSSVDKLTC.resx">
       <DependentUpon>ReportDSSVDKLTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportBDMN.resx">
+      <DependentUpon>ReportBDMN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportLTC.resx">
       <DependentUpon>ReportLTC.cs</DependentUpon>

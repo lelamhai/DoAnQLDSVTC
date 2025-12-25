@@ -3,16 +3,17 @@ using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
 {
-    public partial class ReportDSSVDKLTC : Form
+    public partial class ReportBDMN : Form
     {
         private string maMH;
         private string tenMH;
-        public ReportDSSVDKLTC()
+
+        public ReportBDMN()
         {
             InitializeComponent();
         }
 
-        private void ReportDSSVDKLTC_Load(object sender, System.EventArgs e)
+        private void ReportPointSubject_Load(object sender, EventArgs e)
         {
             SetTitle();
             LoadDatasetApdapter();
@@ -25,7 +26,7 @@ namespace DoAnQLDSVTC
 
         private void SetTitle()
         {
-            label1.Text = "Chọn Điều Kiện In Danh Sách\r\nSinh Viên Đăng Ký Lớp Tín Chỉ";
+            label1.Text = "Chọn Điều Kiện\r\nIn Bảng Điểm Của Lớp Tín Chỉ";
         }
 
         void LoadDatasetApdapter()
@@ -87,10 +88,17 @@ namespace DoAnQLDSVTC
         private void btnPrint_Click(object sender, EventArgs e)
         {
             string nameServer = cmbKhoa.Text;
+            maMH = cmbMH.SelectedValue.ToString();
+            tenMH = cmbMH.Text;
 
-            PreviewReportDSSVDKLTC formReport = new PreviewReportDSSVDKLTC(nameServer.ToUpper(), txtNienKhoa.Text, (int)nudHocKy.Value, maMH.Trim(), tenMH.ToUpper(), (int)nudNhom.Value);
+            PreviewReportBDMH formReport = new PreviewReportBDMH(nameServer.ToUpper(), txtNienKhoa.Text, (int)nudHocKy.Value, maMH.Trim(), tenMH.ToUpper(), (int)nudNhom.Value);
             formReport.Opacity = 0;
             formReport.ShowDialog();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

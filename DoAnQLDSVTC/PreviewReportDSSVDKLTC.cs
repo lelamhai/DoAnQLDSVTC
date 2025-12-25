@@ -38,7 +38,7 @@ namespace DoAnQLDSVTC
                     return;
                 }
 
-                reportViewer1.LocalReport.ReportEmbeddedResource = "DoAnQLDSVTC.ReportDSSVDKLTC.rdlc";
+                reportViewer1.LocalReport.ReportEmbeddedResource = "DoAnQLDSVTC.TemplateReportDSSVDKLTC.rdlc";
                 ReportParameter[] parameters = new ReportParameter[]
                 {
                     new ReportParameter("pKhoa", _khoa),

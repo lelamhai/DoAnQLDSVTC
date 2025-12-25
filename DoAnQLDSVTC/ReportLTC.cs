@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Data;
 using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
 {
     public partial class ReportLTC : Form
     {
-        private int currentKhoa;
-
         public ReportLTC()
         {
             InitializeComponent();

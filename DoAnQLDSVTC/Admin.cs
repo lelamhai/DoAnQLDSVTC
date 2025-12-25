@@ -172,7 +172,7 @@ namespace DoAnQLDSVTC
 
         private void btnReportBDMH_Click(object sender, EventArgs e)
         {
-            LoadForm(new ReportLTC());
+            LoadForm(new ReportBDMN());
         }
 
         private void btnReportPD_Click(object sender, EventArgs e)
