@@ -41,7 +41,7 @@ namespace DoAnQLDSVTC
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -138,7 +138,6 @@ namespace DoAnQLDSVTC
         private void btnStart_Click(object sender, EventArgs e)
         {
             LoadDatasetApdapter();
-            LoadDiemHM();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -217,7 +216,6 @@ namespace DoAnQLDSVTC
             {
                 cmd.ExecuteNonQuery();
                 LoadDatasetApdapter();
-                LoadDiemHM();
                 MessageBox.Show("Lưu điểm thành công.", "Thông báo", MessageBoxButtons.OK);
             }
             catch (Exception ex)
@@ -256,6 +254,10 @@ namespace DoAnQLDSVTC
                 return;
             }
             isSaved = true;
+
+            if(oldValue == valueCell) return;
+            if(dgvDK.Columns[e.ColumnIndex].Name == "DIEM_HM") return;
+            dgvDK.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = System.Drawing.Color.LightGreen;
         }
 
         private void dgvDK_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -276,23 +278,10 @@ namespace DoAnQLDSVTC
 
             double hm = cc * 0.1 + gk * 0.3 + ck * 0.6;
 
+            this.DS.SP_LAYDS_NHAPDIEM.Columns["DIEM_HM"].ReadOnly = false;
             row.Cells["DIEM_HM"].Value = Math.Round(hm, 2);
+            this.DS.SP_LAYDS_NHAPDIEM.Columns["DIEM_HM"].ReadOnly = true;
         }
-
-        private void LoadDiemHM()
-        {
-            foreach (DataGridViewRow row in dgvDK.Rows)
-            {
-                double cc = TryParse(row.Cells["DIEM_CC"].Value);
-                double gk = TryParse(row.Cells["DIEM_GK"].Value);
-                double ck = TryParse(row.Cells["DIEM_CK"].Value);
-
-                double hm = cc * 0.1 + gk * 0.3 + ck * 0.6;
-
-                row.Cells["DIEM_HM"].Value = Math.Round(hm, 2);
-            }
-        }
-
       
         private void dgvDK_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {

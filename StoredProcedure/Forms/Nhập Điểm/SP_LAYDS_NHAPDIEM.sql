@@ -1,19 +1,11 @@
 ﻿USE [QLDSV_TC]
 GO
 
-/****** Object:  StoredProcedure [dbo].[SP_REPORT_LAYDS_BDMHLTC]    Script Date: 25/12/2025 9:57:37 CH ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-ALTER PROCEDURE [dbo].[SP_REPORT_LAYDS_BDMHLTC]
-    @NIENKHOA  NCHAR(9),
+CREATE PROC SP_LAYDS_NHAPDIEM
+    @NIENKHOA  NVARCHAR(9),
     @HOCKY     INT,
-    @MAMH      NCHAR(10),
+    @MAMH      NVARCHAR(10),
     @NHOM      INT
-
 AS
 BEGIN
     DECLARE @MONHOC_TRIM NVARCHAR(10);
@@ -53,53 +45,41 @@ BEGIN
         RETURN;
     END
 
-
-    SELECT
-          ROW_NUMBER() OVER (
-                ORDER BY
-                    SV.TEN COLLATE Vietnamese_CI_AI,
-                    SV.HO  COLLATE Vietnamese_CI_AI,
-                    SV.MASV
-          ) AS STT
-        , SV.MASV
-        , SV.HO
-        , SV.TEN
-        , DK.DIEM_CC
-        , DK.DIEM_GK
-        , DK.DIEM_CK
-        , CAST(
-            ROUND(
-                ISNULL(DK.DIEM_CC, 0) * 0.10
-              + ISNULL(DK.DIEM_GK, 0) * 0.30
-              + ISNULL(DK.DIEM_CK, 0) * 0.60
-            , 2)
-          AS DECIMAL(5,2)
-          ) AS DIEM_HM
+    SELECT 
+        DK.MALTC,
+        SV.MASV,
+        SV.HO + ' ' + SV.TEN AS HOTEN,
+        DK.DIEM_CC,
+        DK.DIEM_GK,
+        DK.DIEM_CK,
+        CASE
+            WHEN DK.DIEM_CC IS NULL AND DK.DIEM_GK IS NULL AND DK.DIEM_CK IS NULL
+                THEN NULL
+                ELSE CAST(ROUND(ISNULL(DK.DIEM_CC, 0) * 0.10+ ISNULL(DK.DIEM_GK, 0) * 0.30+ ISNULL(DK.DIEM_CK, 0) * 0.60, 2)
+                AS DECIMAL(5,2))
+         END AS DIEM_HM
     FROM
-        (SELECT MALTC
-         FROM dbo.LOPTINCHI
+        (SELECT *
+         FROM LOPTINCHI
          WHERE NIENKHOA = @NIENKHOA
            AND HOCKY    = @HOCKY
            AND MAMH     = @MAMH
            AND NHOM     = @NHOM
+           AND (HUYLOP IS NULL OR HUYLOP = 0)
         ) LTC
     JOIN
-        (SELECT MASV, MALTC, DIEM_CC, DIEM_GK, DIEM_CK
-         FROM dbo.DANGKY
-         WHERE ISNULL(HUYDANGKY, 0) = 0
+        (SELECT *
+         FROM DANGKY
+         WHERE HUYDANGKY IS NULL OR HUYDANGKY = 0
         ) DK
         ON DK.MALTC = LTC.MALTC
     JOIN
-        (SELECT MASV, HO, TEN
-         FROM dbo.SINHVIEN
+        (SELECT *
+         FROM SINHVIEN
+         WHERE DANGHIHOC IS NULL OR DANGHIHOC = 0
         ) SV
-        ON SV.MASV = DK.MASV
-    ORDER BY
-        SV.TEN COLLATE Vietnamese_CI_AI,
-        SV.HO  COLLATE Vietnamese_CI_AI,
-        SV.MASV;
-END
-
+        ON SV.MASV = DK.MASV;
+END;
 GO
 
 

@@ -69,13 +69,6 @@
             this.panel21 = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
             this.dgvDK = new System.Windows.Forms.DataGridView();
-            this.MALTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MASV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HOTEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DIEM_CC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DIEM_GK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DIEM_CK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DIEM_HM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dbsDSNHAPDIEM = new System.Windows.Forms.BindingSource(this.components);
             this.tableAdapterManager = new DoAnQLDSVTC.DSTableAdapters.TableAdapterManager();
             this.MONHOCTableAdapter = new DoAnQLDSVTC.DSTableAdapters.MONHOCTableAdapter();
@@ -85,6 +78,13 @@
             this.lblTitleKhoa = new System.Windows.Forms.Label();
             this.cmbKhoa = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.MALTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MASV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HOTEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIEM_CC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIEM_GK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIEM_CK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIEM_HM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel15.SuspendLayout();
@@ -568,53 +568,6 @@
             this.dgvDK.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDK_CellValueChanged);
             this.dgvDK.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvDK_DataError);
             // 
-            // MALTC
-            // 
-            this.MALTC.DataPropertyName = "MALTC";
-            this.MALTC.HeaderText = "MALTC";
-            this.MALTC.Name = "MALTC";
-            this.MALTC.ReadOnly = true;
-            this.MALTC.Visible = false;
-            // 
-            // MASV
-            // 
-            this.MASV.DataPropertyName = "MASV";
-            this.MASV.HeaderText = "Mã Sinh Viên";
-            this.MASV.Name = "MASV";
-            this.MASV.ReadOnly = true;
-            // 
-            // HOTEN
-            // 
-            this.HOTEN.DataPropertyName = "HOTEN";
-            this.HOTEN.HeaderText = "Họ Và Tên";
-            this.HOTEN.Name = "HOTEN";
-            this.HOTEN.ReadOnly = true;
-            // 
-            // DIEM_CC
-            // 
-            this.DIEM_CC.DataPropertyName = "DIEM_CC";
-            this.DIEM_CC.HeaderText = "Điểm Chuyên Cần (10%)";
-            this.DIEM_CC.Name = "DIEM_CC";
-            // 
-            // DIEM_GK
-            // 
-            this.DIEM_GK.DataPropertyName = "DIEM_GK";
-            this.DIEM_GK.HeaderText = "Điểm Giữa Kỳ (30%)";
-            this.DIEM_GK.Name = "DIEM_GK";
-            // 
-            // DIEM_CK
-            // 
-            this.DIEM_CK.DataPropertyName = "DIEM_CK";
-            this.DIEM_CK.HeaderText = "Điểm Cuối Kỳ (70%)";
-            this.DIEM_CK.Name = "DIEM_CK";
-            // 
-            // DIEM_HM
-            // 
-            this.DIEM_HM.DataPropertyName = "DIEM_HM";
-            this.DIEM_HM.HeaderText = "Điểm Hết Môn";
-            this.DIEM_HM.Name = "DIEM_HM";
-            this.DIEM_HM.ReadOnly = true;
-            // 
             // dbsDSNHAPDIEM
             // 
             this.dbsDSNHAPDIEM.DataMember = "SP_LAYDS_NHAPDIEM";
@@ -694,6 +647,53 @@
             this.label1.Size = new System.Drawing.Size(54, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Khoa";
+            // 
+            // MALTC
+            // 
+            this.MALTC.DataPropertyName = "MALTC";
+            this.MALTC.HeaderText = "MALTC";
+            this.MALTC.Name = "MALTC";
+            this.MALTC.ReadOnly = true;
+            this.MALTC.Visible = false;
+            // 
+            // MASV
+            // 
+            this.MASV.DataPropertyName = "MASV";
+            this.MASV.HeaderText = "Mã Sinh Viên";
+            this.MASV.Name = "MASV";
+            this.MASV.ReadOnly = true;
+            // 
+            // HOTEN
+            // 
+            this.HOTEN.DataPropertyName = "HOTEN";
+            this.HOTEN.HeaderText = "Họ Và Tên";
+            this.HOTEN.Name = "HOTEN";
+            this.HOTEN.ReadOnly = true;
+            // 
+            // DIEM_CC
+            // 
+            this.DIEM_CC.DataPropertyName = "DIEM_CC";
+            this.DIEM_CC.HeaderText = "Điểm Chuyên Cần (10%)";
+            this.DIEM_CC.Name = "DIEM_CC";
+            // 
+            // DIEM_GK
+            // 
+            this.DIEM_GK.DataPropertyName = "DIEM_GK";
+            this.DIEM_GK.HeaderText = "Điểm Giữa Kỳ (30%)";
+            this.DIEM_GK.Name = "DIEM_GK";
+            // 
+            // DIEM_CK
+            // 
+            this.DIEM_CK.DataPropertyName = "DIEM_CK";
+            this.DIEM_CK.HeaderText = "Điểm Cuối Kỳ (60%)";
+            this.DIEM_CK.Name = "DIEM_CK";
+            // 
+            // DIEM_HM
+            // 
+            this.DIEM_HM.DataPropertyName = "DIEM_HM";
+            this.DIEM_HM.HeaderText = "Điểm Hết Môn";
+            this.DIEM_HM.Name = "DIEM_HM";
+            this.DIEM_HM.ReadOnly = true;
             // 
             // InputPoint
             // 
@@ -786,6 +786,11 @@
         private System.Windows.Forms.BindingSource dbsMONHOC;
         private System.Windows.Forms.BindingSource dbsDSNHAPDIEM;
         private DSTableAdapters.SP_LAYDS_NHAPDIEMTableAdapter SP_LAYDS_NHAPDIEMTableAdapter;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel23;
+        private System.Windows.Forms.Label lblTitleKhoa;
+        private System.Windows.Forms.ComboBox cmbKhoa;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn MALTC;
         private System.Windows.Forms.DataGridViewTextBoxColumn MASV;
         private System.Windows.Forms.DataGridViewTextBoxColumn HOTEN;
@@ -793,10 +798,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DIEM_GK;
         private System.Windows.Forms.DataGridViewTextBoxColumn DIEM_CK;
         private System.Windows.Forms.DataGridViewTextBoxColumn DIEM_HM;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel23;
-        private System.Windows.Forms.Label lblTitleKhoa;
-        private System.Windows.Forms.ComboBox cmbKhoa;
-        private System.Windows.Forms.Label label1;
     }
 }
