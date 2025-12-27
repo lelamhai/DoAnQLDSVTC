@@ -30,8 +30,9 @@ namespace DoAnQLDSVTC
             dtpBeigin.Format = DateTimePickerFormat.Custom;
             dtpBeigin.CustomFormat = "yyyy";
             dtpBeigin.ShowUpDown = true;
-            dtpBeigin.Value = new DateTime(2021, 1, 1);
+            dtpBeigin.Value = new DateTime(dtpBeigin.Value.Year, 1, 1);
         }
+
         private void SetupEnd()
         {
             dtpEnd.Format = DateTimePickerFormat.Custom;
@@ -39,7 +40,6 @@ namespace DoAnQLDSVTC
             dtpEnd.ShowUpDown = true;
             dtpEnd.Value = new DateTime(dtpBeigin.Value.Year + 1, 1, 1);
         }
-
 
         private void btnSearch_Click(object sender, System.EventArgs e)
         {
