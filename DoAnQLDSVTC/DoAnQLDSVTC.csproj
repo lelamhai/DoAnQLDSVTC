@@ -100,6 +100,12 @@
     <Compile Include="PreviewReportBDMH.Designer.cs">
       <DependentUpon>PreviewReportBDMH.cs</DependentUpon>
     </Compile>
+    <Compile Include="PreviewReportDHP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PreviewReportDHP.Designer.cs">
+      <DependentUpon>PreviewReportDHP.cs</DependentUpon>
+    </Compile>
     <Compile Include="PreviewReportDSSVDKLTC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportDHP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportDHP.Designer.cs">
+      <DependentUpon>ReportDHP.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportDSSVDKLTC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +212,9 @@
     <EmbeddedResource Include="PreviewReportBDMH.resx">
       <DependentUpon>PreviewReportBDMH.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PreviewReportDHP.resx">
+      <DependentUpon>PreviewReportDHP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PreviewReportDSSVDKLTC.resx">
       <DependentUpon>PreviewReportDSSVDKLTC.cs</DependentUpon>
     </EmbeddedResource>
@@ -234,9 +249,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReportDHP.resx">
+      <DependentUpon>ReportDHP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportPD.resx">
       <DependentUpon>ReportPD.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TemplateReportDHP.rdlc" />
     <EmbeddedResource Include="TemplateReportPD.rdlc" />
     <EmbeddedResource Include="TemplateReportBDMH.rdlc" />
     <EmbeddedResource Include="TemplateReportDSLTC.rdlc" />
