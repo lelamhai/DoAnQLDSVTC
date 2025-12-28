@@ -313,7 +313,7 @@
             this.btnReportPD.Name = "btnReportPD";
             this.btnReportPD.Size = new System.Drawing.Size(94, 94);
             this.btnReportPD.TabIndex = 12;
-            this.btnReportPD.Text = "Bảng Điểm";
+            this.btnReportPD.Text = "Phiếu Điểm";
             this.btnReportPD.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnReportPD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnReportPD.UseVisualStyleBackColor = false;

@@ -143,6 +143,12 @@
     <Compile Include="PayCourse.Designer.cs">
       <DependentUpon>PayCourse.cs</DependentUpon>
     </Compile>
+    <Compile Include="PreviewReportPD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PreviewReportPD.Designer.cs">
+      <DependentUpon>PreviewReportPD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportDSSVDKLTC.cs">
@@ -162,6 +168,12 @@
     </Compile>
     <Compile Include="ReportLTC.Designer.cs">
       <DependentUpon>ReportLTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportPD.Designer.cs">
+      <DependentUpon>ReportPD.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Student.cs">
@@ -209,6 +221,9 @@
     <EmbeddedResource Include="PayCourse.resx">
       <DependentUpon>PayCourse.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PreviewReportPD.resx">
+      <DependentUpon>PreviewReportPD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -219,6 +234,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReportPD.resx">
+      <DependentUpon>ReportPD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TemplateReportPD.rdlc" />
     <EmbeddedResource Include="TemplateReportBDMH.rdlc" />
     <EmbeddedResource Include="TemplateReportDSLTC.rdlc" />
     <EmbeddedResource Include="TemplateReportDSSVDKLTC.rdlc" />
