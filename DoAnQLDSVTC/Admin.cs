@@ -33,6 +33,14 @@ namespace DoAnQLDSVTC
                 btnCourseRegistration.Enabled = true;
                 btnPayCourse.Enabled = false;
 
+                btnReportDSLTC.Enabled = false;
+                btnReportDSSV.Enabled = false;
+                btnReportBDMH.Enabled = false;
+                btnReportBDTK.Enabled = false;
+                btnReportDHP.Enabled = false;
+                btnReportPD.Enabled = true;
+                                
+
                 btnCreateAccount.Enabled = false;
                 return;
             }
@@ -46,6 +54,15 @@ namespace DoAnQLDSVTC
                 btnInputPoint.Enabled = false;
                 btnCourseRegistration.Enabled = false;
                 btnPayCourse.Enabled = true;
+
+
+                btnReportDSLTC.Enabled = false;
+                btnReportDSSV.Enabled = false;
+                btnReportBDMH.Enabled = false;
+                btnReportBDTK.Enabled = false;
+                btnReportDHP.Enabled = true;
+                btnReportPD.Enabled = false;
+
                 return;
             }
 
@@ -56,6 +73,9 @@ namespace DoAnQLDSVTC
             btnInputPoint.Enabled = true;
             btnCourseRegistration.Enabled = false;
             btnPayCourse.Enabled = false;
+
+            btnReportPD.Enabled = false;
+            btnReportDHP.Enabled = false;
         }
 
         void LoadFormRole()

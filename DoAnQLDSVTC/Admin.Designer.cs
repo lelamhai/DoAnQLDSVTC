@@ -42,12 +42,12 @@
             this.btnLop = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnReportPD = new System.Windows.Forms.Button();
-            this.btnReportBDMH = new System.Windows.Forms.Button();
             this.btnReportDHP = new System.Windows.Forms.Button();
             this.btnReportBDTK = new System.Windows.Forms.Button();
+            this.btnReportBDMH = new System.Windows.Forms.Button();
             this.btnReportDSSV = new System.Windows.Forms.Button();
             this.btnReportDSLTC = new System.Windows.Forms.Button();
+            this.btnReportPD = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnLogout = new System.Windows.Forms.Button();
@@ -282,17 +282,17 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 658F));
-            this.tableLayoutPanel2.Controls.Add(this.btnReportPD, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnReportBDMH, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnReportDHP, 4, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnReportBDTK, 5, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnReportBDTK, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnReportBDMH, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnReportDSSV, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnReportDSLTC, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnReportPD, 5, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -301,23 +301,41 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1253, 100);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // btnReportPD
+            // btnReportDHP
             // 
-            this.btnReportPD.BackColor = System.Drawing.Color.Transparent;
-            this.btnReportPD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnReportPD.FlatAppearance.BorderSize = 0;
-            this.btnReportPD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportPD.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnReportPD.Image = ((System.Drawing.Image)(resources.GetObject("btnReportPD.Image")));
-            this.btnReportPD.Location = new System.Drawing.Point(383, 3);
-            this.btnReportPD.Name = "btnReportPD";
-            this.btnReportPD.Size = new System.Drawing.Size(94, 94);
-            this.btnReportPD.TabIndex = 12;
-            this.btnReportPD.Text = "Phiếu Điểm";
-            this.btnReportPD.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnReportPD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnReportPD.UseVisualStyleBackColor = false;
-            this.btnReportPD.Click += new System.EventHandler(this.btnReportPD_Click);
+            this.btnReportDHP.BackColor = System.Drawing.Color.Transparent;
+            this.btnReportDHP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnReportDHP.FlatAppearance.BorderSize = 0;
+            this.btnReportDHP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportDHP.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnReportDHP.Image = ((System.Drawing.Image)(resources.GetObject("btnReportDHP.Image")));
+            this.btnReportDHP.Location = new System.Drawing.Point(503, 3);
+            this.btnReportDHP.Name = "btnReportDHP";
+            this.btnReportDHP.Size = new System.Drawing.Size(114, 94);
+            this.btnReportDHP.TabIndex = 14;
+            this.btnReportDHP.Text = "Đóng Học Phí";
+            this.btnReportDHP.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnReportDHP.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnReportDHP.UseVisualStyleBackColor = false;
+            this.btnReportDHP.Click += new System.EventHandler(this.btnReportDHP_Click);
+            // 
+            // btnReportBDTK
+            // 
+            this.btnReportBDTK.BackColor = System.Drawing.Color.Transparent;
+            this.btnReportBDTK.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnReportBDTK.FlatAppearance.BorderSize = 0;
+            this.btnReportBDTK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportBDTK.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnReportBDTK.Image = ((System.Drawing.Image)(resources.GetObject("btnReportBDTK.Image")));
+            this.btnReportBDTK.Location = new System.Drawing.Point(383, 3);
+            this.btnReportBDTK.Name = "btnReportBDTK";
+            this.btnReportBDTK.Size = new System.Drawing.Size(114, 94);
+            this.btnReportBDTK.TabIndex = 15;
+            this.btnReportBDTK.Text = "Điểm Tổng Kết";
+            this.btnReportBDTK.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnReportBDTK.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnReportBDTK.UseVisualStyleBackColor = false;
+            this.btnReportBDTK.Click += new System.EventHandler(this.btnReportBDTK_Click);
             // 
             // btnReportBDMH
             // 
@@ -336,42 +354,6 @@
             this.btnReportBDMH.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnReportBDMH.UseVisualStyleBackColor = false;
             this.btnReportBDMH.Click += new System.EventHandler(this.btnReportBDMH_Click);
-            // 
-            // btnReportDHP
-            // 
-            this.btnReportDHP.BackColor = System.Drawing.Color.Transparent;
-            this.btnReportDHP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnReportDHP.FlatAppearance.BorderSize = 0;
-            this.btnReportDHP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportDHP.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnReportDHP.Image = ((System.Drawing.Image)(resources.GetObject("btnReportDHP.Image")));
-            this.btnReportDHP.Location = new System.Drawing.Point(483, 3);
-            this.btnReportDHP.Name = "btnReportDHP";
-            this.btnReportDHP.Size = new System.Drawing.Size(114, 94);
-            this.btnReportDHP.TabIndex = 10;
-            this.btnReportDHP.Text = "Đóng Học Phí";
-            this.btnReportDHP.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnReportDHP.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnReportDHP.UseVisualStyleBackColor = false;
-            this.btnReportDHP.Click += new System.EventHandler(this.btnReportDHP_Click);
-            // 
-            // btnReportBDTK
-            // 
-            this.btnReportBDTK.BackColor = System.Drawing.Color.Transparent;
-            this.btnReportBDTK.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnReportBDTK.FlatAppearance.BorderSize = 0;
-            this.btnReportBDTK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportBDTK.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnReportBDTK.Image = ((System.Drawing.Image)(resources.GetObject("btnReportBDTK.Image")));
-            this.btnReportBDTK.Location = new System.Drawing.Point(603, 3);
-            this.btnReportBDTK.Name = "btnReportBDTK";
-            this.btnReportBDTK.Size = new System.Drawing.Size(114, 94);
-            this.btnReportBDTK.TabIndex = 8;
-            this.btnReportBDTK.Text = "Điểm Tổng Kết";
-            this.btnReportBDTK.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnReportBDTK.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnReportBDTK.UseVisualStyleBackColor = false;
-            this.btnReportBDTK.Click += new System.EventHandler(this.btnReportBDTK_Click);
             // 
             // btnReportDSSV
             // 
@@ -408,6 +390,24 @@
             this.btnReportDSLTC.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnReportDSLTC.UseVisualStyleBackColor = false;
             this.btnReportDSLTC.Click += new System.EventHandler(this.btnReportDSLTC_Click);
+            // 
+            // btnReportPD
+            // 
+            this.btnReportPD.BackColor = System.Drawing.Color.Transparent;
+            this.btnReportPD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnReportPD.FlatAppearance.BorderSize = 0;
+            this.btnReportPD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportPD.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnReportPD.Image = ((System.Drawing.Image)(resources.GetObject("btnReportPD.Image")));
+            this.btnReportPD.Location = new System.Drawing.Point(623, 3);
+            this.btnReportPD.Name = "btnReportPD";
+            this.btnReportPD.Size = new System.Drawing.Size(94, 94);
+            this.btnReportPD.TabIndex = 12;
+            this.btnReportPD.Text = "Phiếu Điểm";
+            this.btnReportPD.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnReportPD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnReportPD.UseVisualStyleBackColor = false;
+            this.btnReportPD.Click += new System.EventHandler(this.btnReportPD_Click);
             // 
             // tabPage3
             // 
@@ -610,14 +610,14 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btnReportDSSV;
         private System.Windows.Forms.Button btnReportDSLTC;
-        private System.Windows.Forms.Button btnReportPD;
         private System.Windows.Forms.Button btnReportBDMH;
-        private System.Windows.Forms.Button btnReportDHP;
-        private System.Windows.Forms.Button btnReportBDTK;
         private System.Windows.Forms.Label lblInfoAccount;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblPageCurrent;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Button btnReportDHP;
+        private System.Windows.Forms.Button btnReportPD;
+        private System.Windows.Forms.Button btnReportBDTK;
     }
 }

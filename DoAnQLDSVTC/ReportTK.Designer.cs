@@ -138,7 +138,7 @@
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(100, 40);
             this.btnPrint.TabIndex = 0;
-            this.btnPrint.Text = "In";
+            this.btnPrint.Text = "Preview";
             this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
