@@ -1,0 +1,37 @@
+﻿USE [QLDSV_TC]
+GO
+
+CREATE   PROCEDURE SP_REPORT_LAYTHONGTIN_LOPKHOA_DIEMTONGKETLOP
+    @MALOP NCHAR(10)
+AS
+BEGIN
+    
+    DECLARE @MALOP_TRIM NVARCHAR(20) = LTRIM(RTRIM(@MALOP));
+    IF NOT EXISTS
+    (
+        SELECT 1
+        FROM dbo.LOP
+        WHERE MALOP = @MALOP_TRIM
+    )
+    BEGIN
+        RAISERROR(
+            N'Mã lớp "%s" không tồn tại.',
+            16, 1, @MALOP_TRIM
+        );
+        RETURN;
+    END;
+
+    
+    SELECT
+        TENKHOA = K.TENKHOA,
+        TENLOP  = L.TENLOP,
+        KHOAHOC = L.KHOAHOC
+    FROM LOP  AS L
+    INNER JOIN KHOA AS K
+        ON K.MAKHOA = L.MAKHOA
+    WHERE L.MALOP = @MALOP_TRIM;
+END;
+
+GO
+
+
