@@ -187,7 +187,7 @@ namespace DoAnQLDSVTC
 
         private void btnReportBDTK_Click(object sender, EventArgs e)
         {
-            LoadForm(new ReportLTC());
+            LoadForm(new ReportTK());
         }
         #endregion
 
