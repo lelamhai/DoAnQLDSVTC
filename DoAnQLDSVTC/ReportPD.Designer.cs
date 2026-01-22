@@ -43,10 +43,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnPasswordShow = new System.Windows.Forms.Button();
             this.btnPasswordHide = new System.Windows.Forms.Button();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.cmbKhoa = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -58,7 +54,6 @@
             this.panel15.SuspendLayout();
             this.panel20.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel17.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -82,8 +77,6 @@
             this.panel1.Controls.Add(this.panel16);
             this.panel1.Controls.Add(this.panel15);
             this.panel1.Controls.Add(this.panel8);
-            this.panel1.Controls.Add(this.panel18);
-            this.panel1.Controls.Add(this.panel17);
             this.panel1.Controls.Add(this.panel19);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.panel3);
@@ -100,7 +93,7 @@
             // 
             this.panel16.Controls.Add(this.tableLayoutPanel3);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel16.Location = new System.Drawing.Point(15, 312);
+            this.panel16.Location = new System.Drawing.Point(15, 222);
             this.panel16.Name = "panel16";
             this.panel16.Padding = new System.Windows.Forms.Padding(100, 0, 100, 0);
             this.panel16.Size = new System.Drawing.Size(420, 40);
@@ -158,7 +151,7 @@
             // 
             this.panel15.Controls.Add(this.panel20);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel15.Location = new System.Drawing.Point(15, 247);
+            this.panel15.Location = new System.Drawing.Point(15, 157);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(420, 65);
             this.panel15.TabIndex = 19;
@@ -189,7 +182,7 @@
             this.panel8.Controls.Add(this.btnPasswordShow);
             this.panel8.Controls.Add(this.btnPasswordHide);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(15, 197);
+            this.panel8.Location = new System.Drawing.Point(15, 107);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(420, 50);
             this.panel8.TabIndex = 18;
@@ -239,44 +232,6 @@
             this.btnPasswordHide.TabIndex = 12;
             this.btnPasswordHide.UseVisualStyleBackColor = false;
             // 
-            // panel18
-            // 
-            this.panel18.BackColor = System.Drawing.Color.Transparent;
-            this.panel18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel18.Location = new System.Drawing.Point(15, 157);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(420, 40);
-            this.panel18.TabIndex = 17;
-            // 
-            // panel17
-            // 
-            this.panel17.Controls.Add(this.cmbKhoa);
-            this.panel17.Controls.Add(this.label7);
-            this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel17.Location = new System.Drawing.Point(15, 107);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(420, 50);
-            this.panel17.TabIndex = 16;
-            // 
-            // cmbKhoa
-            // 
-            this.cmbKhoa.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.cmbKhoa.FormattingEnabled = true;
-            this.cmbKhoa.Location = new System.Drawing.Point(0, 23);
-            this.cmbKhoa.Name = "cmbKhoa";
-            this.cmbKhoa.Size = new System.Drawing.Size(420, 27);
-            this.cmbKhoa.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(0, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 19);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Khoa";
-            // 
             // panel19
             // 
             this.panel19.BackColor = System.Drawing.Color.Transparent;
@@ -325,7 +280,6 @@
             this.Name = "ReportPD";
             this.Text = "Phiếu Điểm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.ReportPD_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
@@ -334,8 +288,6 @@
             this.panel20.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            this.panel17.ResumeLayout(false);
-            this.panel17.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -348,10 +300,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel19;
-        private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.ComboBox cmbKhoa;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnPasswordShow;

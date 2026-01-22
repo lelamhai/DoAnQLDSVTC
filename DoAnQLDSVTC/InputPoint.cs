@@ -127,12 +127,9 @@ namespace DoAnQLDSVTC
                 Program.MLogin = Program.MLoginDN;
                 Program.MPass = Program.MPassDN;
             }
-
-            if (Program.KetNoi() == 1)
-            {
-            }
-
+            Program.KetNoi();
             lblTitleKhoa.Focus();
+            LoadDatasetApdapter();
         }
 
         private void btnStart_Click(object sender, EventArgs e)

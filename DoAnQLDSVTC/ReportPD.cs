@@ -10,27 +10,6 @@ namespace DoAnQLDSVTC
             InitializeComponent();
         }
 
-        private void ReportPD_Load(object sender, EventArgs e)
-        {
-            LoadCombox();
-        }
-
-        void LoadCombox()
-        {
-            Program.bds_dspm.Filter = "TENKHOA <> 'PHÒNG KẾ TOÁN'";
-
-            cmbKhoa.DataSource = Program.bds_dspm;
-            cmbKhoa.DisplayMember = "TENKHOA";
-            cmbKhoa.ValueMember = "TENSERVER";
-            cmbKhoa.SelectedIndex = Program.MKhoa;
-
-            string quyen = Program.mGroup;
-            if (quyen == Program.quyen[1])
-            {
-                cmbKhoa.Enabled = false;
-            }
-        }
-
         private void btnPrint_Click(object sender, EventArgs e)
         {
             if(txtMaSV.Text.Trim() == "")
