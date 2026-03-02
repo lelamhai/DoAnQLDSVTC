@@ -143,6 +143,12 @@ namespace DoAnQLDSVTC
                 MessageBox.Show("Vui lòng tìm kiếm sinh viên trước khi đăng ký học phần!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            if(txtiMaLTC.Text.Trim() == "")
+            {
+                MessageBox.Show("Vui lòng chọn môn để đăng ký học phần!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }    
             
             try
             {

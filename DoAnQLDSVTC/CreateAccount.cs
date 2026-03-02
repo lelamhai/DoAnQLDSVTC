@@ -235,6 +235,7 @@ namespace DoAnQLDSVTC
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbKhoa.SelectedIndex < 0) return;
             if (cmbKhoa.SelectedValue.ToString() == "System.Data.DataRowView") return;
 
             currentKhoa = cmbKhoa.SelectedIndex;

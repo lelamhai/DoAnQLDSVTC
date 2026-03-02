@@ -7,6 +7,7 @@ namespace DoAnQLDSVTC
 {
     public partial class PayCourse : Form
     {
+        const int min_price = 1000;
         string nienKhoa;
         string hocKy;
         DateTime ngayDong = DateTime.Now;
@@ -251,9 +252,9 @@ namespace DoAnQLDSVTC
                 switch(current)
                 {
                     case ActionForm.ADD:
-                        if (soTienNhapVao == 0)
+                        if (soTienNhapVao < min_price)
                         {
-                            MessageBox.Show("Số tiền nhập vào phải lớn hơn 0", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Số tiền nhập vào phải lớn hơn " + min_price.ToString("N0") + " VNĐ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
                         
@@ -265,9 +266,9 @@ namespace DoAnQLDSVTC
                         InsertCTHOCPHI();
                         break;
                     case ActionForm.UPDATE:
-                        if (soTienNhapVao == 0)
+                        if (soTienNhapVao < min_price)
                         {
-                            MessageBox.Show("Số tiền nhập vào phải lớn hơn 0", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Số tiền nhập vào phải lớn hơn " + min_price.ToString("N0") + " VNĐ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
 
