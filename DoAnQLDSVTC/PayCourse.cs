@@ -185,8 +185,7 @@ namespace DoAnQLDSVTC
             dbsCTHOCPHI.AddNew();
 
             var drv = (DataRowView)dbsCTHOCPHI.Current;
-            string date = ngayDong.ToString("dd/MM/yyyy");
-            drv["NGAYDONG"] = date;
+            drv["NGAYDONG"] = ngayDong.Date;
             drv["SOTIENDONG"] = 0;
 
             int rowIndex = dgvCTHOCPHI.CurrentRow.Index;
