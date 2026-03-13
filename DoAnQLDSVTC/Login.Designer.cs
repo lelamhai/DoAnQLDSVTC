@@ -216,7 +216,6 @@ namespace DoAnQLDSVTC
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(300, 26);
             this.txtPassword.TabIndex = 9;
-            this.txtPassword.Text = "123456";
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // btnHide
@@ -272,7 +271,6 @@ namespace DoAnQLDSVTC
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(300, 26);
             this.txtUserName.TabIndex = 8;
-            this.txtUserName.Text = "luunguyenkythu";
             // 
             // panel7
             // 
