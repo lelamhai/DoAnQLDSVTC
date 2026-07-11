@@ -52,8 +52,6 @@
             this.tENMHDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tENGVDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nHOMDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sOSVTOITHIEUDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sOSVDADKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dbsDSNIENKHOAHOCKY_DKLTC = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
@@ -73,15 +71,6 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblMaKhoa = new System.Windows.Forms.Label();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.lblTenLop = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.lblMaLop = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
             this.lblHoTen = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -107,6 +96,8 @@
             this.hUYLOPDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.SP_LAYDSSV_DKLTCTableAdapter = new DoAnQLDSVTC.DSTableAdapters.SP_LAYDSSV_DKLTCTableAdapter();
             this.SP_LAYDSNIENKHOAHOCKY_DKLTCTableAdapter = new DoAnQLDSVTC.DSTableAdapters.SP_LAYDSNIENKHOAHOCKY_DKLTCTableAdapter();
+            this.sOSVDADKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sOSVTOITHIEUDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSVDK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbsDSSV_DKLTC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
@@ -121,9 +112,6 @@
             this.panel12.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel16.SuspendLayout();
-            this.panel21.SuspendLayout();
-            this.panel20.SuspendLayout();
-            this.panel19.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel17.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -246,7 +234,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(584, 60);
             this.lblTitle.TabIndex = 4;
-            this.lblTitle.Text = "Chưa Có Dữ Liệu";
+            this.lblTitle.Text = "Danh Sách Học Phần Đã Đăng Ký";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel14
@@ -359,20 +347,6 @@
             this.nHOMDataGridViewTextBoxColumn2.HeaderText = "Nhóm";
             this.nHOMDataGridViewTextBoxColumn2.Name = "nHOMDataGridViewTextBoxColumn2";
             this.nHOMDataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // sOSVTOITHIEUDataGridViewTextBoxColumn1
-            // 
-            this.sOSVTOITHIEUDataGridViewTextBoxColumn1.DataPropertyName = "SOSVTOITHIEU";
-            this.sOSVTOITHIEUDataGridViewTextBoxColumn1.HeaderText = "Số Sinh Viên Tối Thiểu";
-            this.sOSVTOITHIEUDataGridViewTextBoxColumn1.Name = "sOSVTOITHIEUDataGridViewTextBoxColumn1";
-            this.sOSVTOITHIEUDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // sOSVDADKDataGridViewTextBoxColumn
-            // 
-            this.sOSVDADKDataGridViewTextBoxColumn.DataPropertyName = "SOSVDADK";
-            this.sOSVDADKDataGridViewTextBoxColumn.HeaderText = "Số Sinh Viên Đã Đăng Ký";
-            this.sOSVDADKDataGridViewTextBoxColumn.Name = "sOSVDADKDataGridViewTextBoxColumn";
-            this.sOSVDADKDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dbsDSNIENKHOAHOCKY_DKLTC
             // 
@@ -570,9 +544,6 @@
             // 
             // panel16
             // 
-            this.panel16.Controls.Add(this.panel21);
-            this.panel16.Controls.Add(this.panel20);
-            this.panel16.Controls.Add(this.panel19);
             this.panel16.Controls.Add(this.panel18);
             this.panel16.Controls.Add(this.panel17);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -581,93 +552,6 @@
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(270, 340);
             this.panel16.TabIndex = 3;
-            // 
-            // panel21
-            // 
-            this.panel21.Controls.Add(this.label8);
-            this.panel21.Controls.Add(this.lblMaKhoa);
-            this.panel21.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel21.Location = new System.Drawing.Point(0, 160);
-            this.panel21.Margin = new System.Windows.Forms.Padding(0);
-            this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(270, 40);
-            this.panel21.TabIndex = 4;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(4, 4);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 19);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Mã Khoa:";
-            // 
-            // lblMaKhoa
-            // 
-            this.lblMaKhoa.AutoSize = true;
-            this.lblMaKhoa.Location = new System.Drawing.Point(79, 4);
-            this.lblMaKhoa.Name = "lblMaKhoa";
-            this.lblMaKhoa.Size = new System.Drawing.Size(0, 19);
-            this.lblMaKhoa.TabIndex = 1;
-            // 
-            // panel20
-            // 
-            this.panel20.Controls.Add(this.lblTenLop);
-            this.panel20.Controls.Add(this.label10);
-            this.panel20.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel20.Location = new System.Drawing.Point(0, 120);
-            this.panel20.Margin = new System.Windows.Forms.Padding(0);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(270, 40);
-            this.panel20.TabIndex = 3;
-            // 
-            // lblTenLop
-            // 
-            this.lblTenLop.AutoSize = true;
-            this.lblTenLop.Location = new System.Drawing.Point(73, 4);
-            this.lblTenLop.Name = "lblTenLop";
-            this.lblTenLop.Size = new System.Drawing.Size(0, 19);
-            this.lblTenLop.TabIndex = 1;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(4, 4);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(71, 19);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Tên Lớp:";
-            // 
-            // panel19
-            // 
-            this.panel19.Controls.Add(this.lblMaLop);
-            this.panel19.Controls.Add(this.label12);
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel19.Location = new System.Drawing.Point(0, 80);
-            this.panel19.Margin = new System.Windows.Forms.Padding(0);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(270, 40);
-            this.panel19.TabIndex = 2;
-            // 
-            // lblMaLop
-            // 
-            this.lblMaLop.AutoSize = true;
-            this.lblMaLop.Location = new System.Drawing.Point(70, 4);
-            this.lblMaLop.Name = "lblMaLop";
-            this.lblMaLop.Size = new System.Drawing.Size(0, 19);
-            this.lblMaLop.TabIndex = 1;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(4, 4);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(69, 19);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Mã Lớp:";
             // 
             // panel18
             // 
@@ -896,6 +780,20 @@
             // 
             this.SP_LAYDSNIENKHOAHOCKY_DKLTCTableAdapter.ClearBeforeFill = true;
             // 
+            // sOSVDADKDataGridViewTextBoxColumn
+            // 
+            this.sOSVDADKDataGridViewTextBoxColumn.DataPropertyName = "SOSVDADK";
+            this.sOSVDADKDataGridViewTextBoxColumn.HeaderText = "Số Sinh Viên Đã Đăng Ký";
+            this.sOSVDADKDataGridViewTextBoxColumn.Name = "sOSVDADKDataGridViewTextBoxColumn";
+            this.sOSVDADKDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sOSVTOITHIEUDataGridViewTextBoxColumn1
+            // 
+            this.sOSVTOITHIEUDataGridViewTextBoxColumn1.DataPropertyName = "SOSVTOITHIEU";
+            this.sOSVTOITHIEUDataGridViewTextBoxColumn1.HeaderText = "Số Sinh Viên Tối Thiểu";
+            this.sOSVTOITHIEUDataGridViewTextBoxColumn1.Name = "sOSVTOITHIEUDataGridViewTextBoxColumn1";
+            this.sOSVTOITHIEUDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
             // CourseRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -926,12 +824,6 @@
             this.panel12.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
-            this.panel21.ResumeLayout(false);
-            this.panel21.PerformLayout();
-            this.panel20.ResumeLayout(false);
-            this.panel20.PerformLayout();
-            this.panel19.ResumeLayout(false);
-            this.panel19.PerformLayout();
             this.panel18.ResumeLayout(false);
             this.panel18.PerformLayout();
             this.panel17.ResumeLayout(false);
@@ -967,19 +859,10 @@
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panel19;
-        private System.Windows.Forms.Label lblMaLop;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.Label lblHoTen;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblMaSV;
-        private System.Windows.Forms.Panel panel20;
-        private System.Windows.Forms.Label lblTenLop;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Panel panel21;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblMaKhoa;
         private System.Windows.Forms.DataGridViewTextBoxColumn mALTCDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nIENKHOADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hOCKYDataGridViewTextBoxColumn;
