@@ -1,24 +1,164 @@
-﻿using System;
+﻿using DoAnQLDSVTC.Models;
+using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Text.Json;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
 {
     public partial class Admin : Form
     {
+        private const string API_USERINFO = "https://localhost:7141/api/v1/private/Account/info-account";
         public List<Button> listButton = new List<Button>();
         private Form currentForm;
         public Admin()
         {
             InitializeComponent();
+            LoadUserInfoAsync();
         }
 
         private void Admin_Load(object sender, EventArgs e)
         {
-            LoadInfoAccount();
-            LoadFormRole();
-            LoadAciveMenu();
+            //LoadAciveMenu();
         }
+
+        private async void LoadUserInfoAsync()
+        {
+            if (string.IsNullOrWhiteSpace(UserSession.Username))
+            {
+                MessageBox.Show(
+                    "Không tìm thấy username. Vui lòng đăng nhập lại.",
+                    "Thiếu thông tin",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(UserSession.AccessToken))
+            {
+                MessageBox.Show(
+                    "Không tìm thấy Access Token. Vui lòng đăng nhập lại.",
+                    "Phiên đăng nhập không hợp lệ",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            try
+            {
+                string apiUrl =
+                    API_USERINFO +
+                    "?username=" +
+                    Uri.EscapeDataString(UserSession.Username);
+
+                using (HttpClientHandler handler = new HttpClientHandler())
+                {
+                    // Chỉ sử dụng cho localhost
+                    handler.ServerCertificateCustomValidationCallback =
+                        HttpClientHandler
+                            .DangerousAcceptAnyServerCertificateValidator;
+
+                    using (HttpClient httpClient = new HttpClient(handler))
+                    {
+                        httpClient.Timeout = TimeSpan.FromSeconds(30);
+
+                        httpClient.DefaultRequestHeaders.Authorization =
+                            new System.Net.Http.Headers.AuthenticationHeaderValue(
+                                "Bearer",
+                                UserSession.AccessToken);
+
+                        httpClient.DefaultRequestHeaders.Accept.Clear();
+
+                        httpClient.DefaultRequestHeaders.Accept.Add(
+                            new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue(
+                                "application/json"));
+
+                        using (HttpResponseMessage response = await httpClient.GetAsync(apiUrl))
+                        {
+                            string responseBody = await response.Content.ReadAsStringAsync();
+
+                            if (response.IsSuccessStatusCode)
+                            {
+                                JsonSerializerOptions options =
+                                    new JsonSerializerOptions
+                                    {
+                                        PropertyNameCaseInsensitive = true
+                                    };
+
+                                AccountInfoResponse accountResponse =
+                                    JsonSerializer.Deserialize<AccountInfoResponse>(
+                                        responseBody,
+                                        options);
+
+                                if (accountResponse == null ||
+                                    accountResponse.Data == null)
+                                {
+                                    MessageBox.Show(
+                                        "API không trả về thông tin tài khoản.",
+                                        "Lỗi dữ liệu",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+
+                                    return;
+                                }
+                                UserSession.FullName = accountResponse.Data.Ho + " " + accountResponse.Data.Ten;
+                                LoadInfoAccount();
+                                LoadFormRole();
+                            }
+                            else
+                            {
+                                MessageBox.Show(
+                                    "Gọi API thất bại.\n" +
+                                    "HTTP: " +
+                                    (int)response.StatusCode +
+                                    "\n\nChi tiết:\n" +
+                                    responseBody,
+                                    "Lỗi API",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (TaskCanceledException)
+            {
+                MessageBox.Show(
+                    "Kết nối API quá thời gian.",
+                    "Timeout",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            catch (HttpRequestException ex)
+            {
+                MessageBox.Show(
+                    "Không thể kết nối API.\n\n" + ex.Message,
+                    "Lỗi kết nối",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            catch (JsonException ex)
+            {
+                MessageBox.Show(
+                    "Dữ liệu JSON không hợp lệ.\n\n" + ex.Message,
+                    "Lỗi JSON",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Đã xảy ra lỗi.\n\n" + ex.Message,
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
 
         void LoadAciveMenu()
         {
@@ -80,26 +220,26 @@ namespace DoAnQLDSVTC
 
         void LoadFormRole()
         {
-            string quyen = Program.mGroup;
+            string quyen = UserSession.Role;
 
-            if (quyen == Program.quyen[2]) // SV
+            if (quyen == UserSession.role[0]) // SV
             {
                 LoadForm(new CourseRegistration());
                 return;
             }
 
-            if (quyen == Program.quyen[3]) // PKT
-            {
-                LoadForm(new PayCourse());
-                return;
-            }
+            //if (quyen == Program.quyen[3]) // PKT
+            //{
+            //    LoadForm(new PayCourse());
+            //    return;
+            //}
 
-            LoadForm(new NewClassroom()); // PGV, KHOA
+            //LoadForm(new NewClassroom()); // PGV, KHOA
         }
 
         private void LoadInfoAccount()
         {
-            lblInfoAccount.Text = "Mã nhân viên: " +Program.userName + " - Họ và tên: " + Program.mHoTen + " - Nhóm: " + Program.mGroup;
+            lblInfoAccount.Text = "Username: " + UserSession.Username + " - Họ và tên: " + UserSession.FullName + " - Nhóm: " + UserSession.role;
             lblInfoAccount.BringToFront();
         }
 

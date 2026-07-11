@@ -9,7 +9,7 @@ namespace DoAnQLDSVTC
         public static SqlConnection Conn = new SqlConnection();
         public static string URL_Connect = "";
         //public static string Connstr_pub = "Data Source=ADMIN\\SERVERMAIN;Initial Catalog=QLDSV_TC;Integrated Security=True;User ID=sa;Password=123";
-        public static string Connstr_pub = "Server=DESKTOP-VN7O7R0\\SERVERMAIN;Database=QLDSV_TC;User Id=sa;Password=123;TrustServerCertificate=True;";
+        //public static string Connstr_pub = "Server=DESKTOP-VN7O7R0\\SERVERMAIN;Database=QLDSV_TC;User Id=sa;Password=123;TrustServerCertificate=True;";
 
 
         public static string remoteLogin = "HTKN";
@@ -38,7 +38,7 @@ namespace DoAnQLDSVTC
         //public static frmMain frmMain;
         //public static frmDangNhap frmDangNhap;
 
-        public static string[] quyen = new string[4] { "PGV", "KHOA", "SV", "PKT" };
+        public static string[] quyen = new string[3] {"SV", "GV", "NV"};
 
         public static SqlDataReader ExecSqlDataReader(String strLenh)
         {

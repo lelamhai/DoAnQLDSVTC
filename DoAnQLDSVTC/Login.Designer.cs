@@ -33,7 +33,6 @@ namespace DoAnQLDSVTC
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cmbKhoa = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -49,9 +48,6 @@ namespace DoAnQLDSVTC
             this.panel8 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.TextBox();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -65,7 +61,6 @@ namespace DoAnQLDSVTC
             this.panel13.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -82,15 +77,6 @@ namespace DoAnQLDSVTC
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // cmbKhoa
-            // 
-            this.cmbKhoa.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.cmbKhoa.FormattingEnabled = true;
-            this.cmbKhoa.Location = new System.Drawing.Point(50, 23);
-            this.cmbKhoa.Name = "cmbKhoa";
-            this.cmbKhoa.Size = new System.Drawing.Size(300, 27);
-            this.cmbKhoa.TabIndex = 1;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.panel14);
@@ -99,8 +85,6 @@ namespace DoAnQLDSVTC
             this.panel1.Controls.Add(this.panel10);
             this.panel1.Controls.Add(this.panel9);
             this.panel1.Controls.Add(this.panel8);
-            this.panel1.Controls.Add(this.panel7);
-            this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
@@ -116,7 +100,7 @@ namespace DoAnQLDSVTC
             // 
             this.panel14.Controls.Add(this.btnLogin);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel14.Location = new System.Drawing.Point(0, 572);
+            this.panel14.Location = new System.Drawing.Point(0, 497);
             this.panel14.Name = "panel14";
             this.panel14.Padding = new System.Windows.Forms.Padding(100, 0, 100, 0);
             this.panel14.Size = new System.Drawing.Size(400, 50);
@@ -142,7 +126,7 @@ namespace DoAnQLDSVTC
             // 
             this.panel13.Controls.Add(this.lblMessage);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel13.Location = new System.Drawing.Point(0, 522);
+            this.panel13.Location = new System.Drawing.Point(0, 447);
             this.panel13.Margin = new System.Windows.Forms.Padding(0);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(400, 50);
@@ -163,7 +147,7 @@ namespace DoAnQLDSVTC
             // panel11
             // 
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel11.Location = new System.Drawing.Point(0, 497);
+            this.panel11.Location = new System.Drawing.Point(0, 422);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(400, 25);
             this.panel11.TabIndex = 9;
@@ -175,7 +159,7 @@ namespace DoAnQLDSVTC
             this.panel10.Controls.Add(this.txtPassword);
             this.panel10.Controls.Add(this.btnHide);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel10.Location = new System.Drawing.Point(0, 447);
+            this.panel10.Location = new System.Drawing.Point(0, 372);
             this.panel10.Margin = new System.Windows.Forms.Padding(0);
             this.panel10.Name = "panel10";
             this.panel10.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
@@ -235,7 +219,7 @@ namespace DoAnQLDSVTC
             // panel9
             // 
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(0, 422);
+            this.panel9.Location = new System.Drawing.Point(0, 347);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(400, 25);
             this.panel9.TabIndex = 7;
@@ -245,7 +229,7 @@ namespace DoAnQLDSVTC
             this.panel8.Controls.Add(this.label4);
             this.panel8.Controls.Add(this.txtUserName);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 372);
+            this.panel8.Location = new System.Drawing.Point(0, 297);
             this.panel8.Margin = new System.Windows.Forms.Padding(0);
             this.panel8.Name = "panel8";
             this.panel8.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
@@ -271,37 +255,6 @@ namespace DoAnQLDSVTC
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(300, 26);
             this.txtUserName.TabIndex = 8;
-            // 
-            // panel7
-            // 
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 347);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(400, 25);
-            this.panel7.TabIndex = 5;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.label3);
-            this.panel6.Controls.Add(this.cmbKhoa);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 297);
-            this.panel6.Margin = new System.Windows.Forms.Padding(0);
-            this.panel6.Name = "panel6";
-            this.panel6.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
-            this.panel6.Size = new System.Drawing.Size(400, 50);
-            this.panel6.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.label3.Location = new System.Drawing.Point(50, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 19);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Khoa";
             // 
             // panel5
             // 
@@ -389,8 +342,6 @@ namespace DoAnQLDSVTC
             this.panel10.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -402,12 +353,10 @@ namespace DoAnQLDSVTC
         #endregion
 
         private PictureBox pictureBox1;
-        private ComboBox cmbKhoa;
         private Panel panel1;
         private PictureBox pictureBox2;
         private Label label1;
         private Label label2;
-        private Label label3;
         private Label label4;
         private TextBox txtPassword;
         private TextBox txtUserName;
@@ -416,14 +365,12 @@ namespace DoAnQLDSVTC
         private Panel panel2;
         private Panel panel3;
         private Panel panel4;
-        private Panel panel6;
         private Panel panel5;
         private Panel panel13;
         private Panel panel11;
         private Panel panel10;
         private Panel panel9;
         private Panel panel8;
-        private Panel panel7;
         private Panel panel14;
         private Button btnHide;
         private Label lblMessage;

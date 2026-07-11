@@ -1,12 +1,18 @@
+using DoAnQLDSVTC.Models;
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Net.Http;
+using System.Text;
+using System.Text.Json;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DoAnQLDSVTC
 {
     public partial class Login : Form
     {
+        private const string API_LOGIN = "https://localhost:7141/api/v1/public/User/login";
         private SqlConnection Conn_pub = new SqlConnection();
 
         public Login()
@@ -15,97 +21,187 @@ namespace DoAnQLDSVTC
         }
         private void Login_Load(object sender, EventArgs e)
         {
-            if (KetNoi_CSDLGOC() == 0) return;
-            LayDSPM("SELECT * FROM V_GET_SUBSCRIBES");
-            LoadComboxDefult();
-            label1.Focus();
+            //if (KetNoi_CSDLGOC() == 0) return;
+            //label1.Focus();
         }
 
-        void LoadComboxDefult()
+        private async void btnLogin_Click(object sender, EventArgs e)
         {
-            int index = 0;
-            DataRowView row = (DataRowView)cmbKhoa.Items[index];
-            string nameServer = row["TENSERVER"].ToString().Trim();
-            Program.ServerName = nameServer;
-        }
+            if (!ValidateLogin())
+            {
+                return;
+            }
 
-        private int KetNoi_CSDLGOC()
-        {
-            if (Conn_pub != null && Conn_pub.State == ConnectionState.Open)
-                Conn_pub.Close();
+            string username = txtUserName.Text.Trim();
+            string password = txtPassword.Text;
+
+            LoginRequest loginRequest = new LoginRequest
+            {
+                Username = username,
+                Password = password
+            };
+
             try
             {
-                Conn_pub.ConnectionString = Program.Connstr_pub;
-                Conn_pub.Open();
-                return 1;
-            }
+                btnLogin.Enabled = false;
+                btnLogin.Text = "Đang đăng nhập...";
 
+                string jsonRequest =
+                    JsonSerializer.Serialize(loginRequest);
+
+                using (StringContent requestContent = new StringContent(
+                    jsonRequest,
+                    Encoding.UTF8,
+                    "application/json"))
+                {
+                    using (HttpClientHandler handler =
+                        new HttpClientHandler())
+                    {
+                        /*
+                         * Chỉ sử dụng khi chạy localhost.
+                         * Không bỏ kiểm tra chứng chỉ SSL khi triển khai thực tế.
+                         */
+                        handler.ServerCertificateCustomValidationCallback =
+                            HttpClientHandler
+                                .DangerousAcceptAnyServerCertificateValidator;
+
+                        using (HttpClient httpClient =
+                            new HttpClient(handler))
+                        {
+                            httpClient.Timeout =
+                                TimeSpan.FromSeconds(30);
+
+                            using (HttpResponseMessage response =
+                                await httpClient.PostAsync(
+                                    API_LOGIN,
+                                    requestContent))
+                            {
+                                string responseBody =
+                                    await response.Content
+                                        .ReadAsStringAsync();
+
+                                if (response.IsSuccessStatusCode)
+                                {
+                                    JsonSerializerOptions options =
+                                        new JsonSerializerOptions
+                                        {
+                                            PropertyNameCaseInsensitive = true
+                                        };
+
+                                    LoginResponse loginResponse =
+                                        JsonSerializer.Deserialize<LoginResponse>(
+                                            responseBody,
+                                            options);
+
+                                    if (loginResponse == null)
+                                    {
+                                        MessageBox.Show(
+                                            "API không trả về dữ liệu đăng nhập.",
+                                            "Lỗi dữ liệu",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Error);
+
+                                        return;
+                                    }
+
+                                    if (loginResponse.Data == null)
+                                    {
+                                        MessageBox.Show(
+                                            "API không trả về token đăng nhập.",
+                                            "Lỗi dữ liệu",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Error);
+
+                                        return;
+                                    }
+
+                                    if (string.IsNullOrWhiteSpace(
+                                        loginResponse.Data.AccessToken))
+                                    {
+                                        MessageBox.Show(
+                                            "Access Token không hợp lệ.",
+                                            "Lỗi đăng nhập",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Error);
+
+                                        return;
+                                    }
+
+                                    // Lưu thông tin phiên đăng nhập
+                                    UserSession.Username = username;
+
+                                    UserSession.AccessToken =
+                                        loginResponse.Data.AccessToken;
+
+                                    UserSession.RefreshToken =
+                                        loginResponse.Data.RefreshToken;
+
+                                    UserSession.Role =
+                                        loginResponse.Data.Role;
+
+                                    UserSession.ExpiredToken =
+                                        loginResponse.Data.ExpiredToken;
+
+                                    //Program.MLoginDN = username;
+                                    //Program.mGroup = loginResponse.Data.Role;
+
+                                    Admin admin = new Admin();
+                                    admin.Show();
+                                    this.Hide();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (TaskCanceledException)
+            {
+                MessageBox.Show(
+                    "Kết nối đến API quá thời gian.",
+                    "Timeout",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            catch (HttpRequestException ex)
+            {
+                MessageBox.Show(
+                    "Không thể kết nối đến API.\n\n" +
+                    "Hãy kiểm tra:\n" +
+                    "1. API đã chạy hay chưa.\n" +
+                    "2. Cổng API có phải 7141 không.\n" +
+                    "3. URL API có chính xác không.\n\n" +
+                    "Chi tiết: " + ex.Message,
+                    "Lỗi kết nối",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            catch (JsonException ex)
+            {
+                MessageBox.Show(
+                    "Không thể đọc dữ liệu JSON từ API.\n\n" +
+                    ex.Message,
+                    "Lỗi JSON",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("Loi ket noi co so du lieu" + ex.ToString());
-                return 0;
+                MessageBox.Show(
+                    "Đã xảy ra lỗi khi đăng nhập.\n\n" +
+                    ex.Message,
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            finally
+            {
+                btnLogin.Enabled = true;
+                btnLogin.Text = "Đăng nhập";
             }
         }
 
-        private void LayDSPM(string cmd)
-        {
-            DataTable dt = new DataTable();
-            if (Conn_pub.State == ConnectionState.Closed)
-                Conn_pub.Open();
-            SqlDataAdapter da = new SqlDataAdapter(cmd, Conn_pub);
-            da.Fill(dt);
-            Conn_pub.Close();
 
-            if (Program.bds_dspm != null)
-            {
-                Program.bds_dspm.DataSource = null;
-                Program.bds_dspm.Clear();
-            }
-            
-            Program.bds_dspm = new BindingSource();
-
-            Program.bds_dspm.DataSource = dt;
-            cmbKhoa.DataSource = Program.bds_dspm;
-            cmbKhoa.DisplayMember = "TENKHOA";
-            cmbKhoa.ValueMember = "TENSERVER";
-        }
-
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            if (!ValidateLogin()) return;
-            Program.ServerName = cmbKhoa.SelectedValue.ToString();
-
-            Program.MLogin = txtUserName.Text;
-            Program.MPass = txtPassword.Text;
-            if (Program.KetNoi() == 0)
-            {
-                lblMessage.Text = "Xem lại tài khoản, mật khẩu hoặc khoa đã chọn!";
-                return;
-            }    
-
-            Program.MKhoa = cmbKhoa.SelectedIndex;
-            Program.MLoginDN = Program.MLogin;
-            Program.MPassDN = Program.MPass;
-
-            string strLenh = "EXEC SP_DANGNHAP '" + Program.MLogin + "'";
-            Program.myReader = Program.ExecSqlDataReader(strLenh);
-            if (Program.myReader == null) return;
-
-            Program.myReader.Read();
-            Program.userName = Program.myReader.GetString(0);
-
-            if (!Program.myReader.IsDBNull(1))
-            {
-                Program.mHoTen = Program.myReader.GetString(1);
-            }
-            Program.mGroup = Program.myReader.GetString(2);
-            Program.myReader.Close();
-
-            Admin admin = new Admin();
-            admin.Show();
-            this.Hide();
-        }
-
+     
         private void btnShow_Click(object sender, EventArgs e)
         {
             txtPassword.UseSystemPasswordChar = false;
